@@ -1,5 +1,8 @@
 {
   "compilerOptions": {
+    "target": "esnext", // Target latest ECMAScript version
+    "baseUrl": "./",
+    "forceConsistentCasingInFileNames": true,
     "lib": [
       "dom",
       "dom.iterable",
@@ -11,28 +14,31 @@
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
-    "moduleResolution": "bundler",
+    "moduleResolution": "node", // Use Node module resolution
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "preserve", // Use the new JSX transform
     "incremental": true,
     "plugins": [
+      {
+        "name": "typescript-plugin-css-modules" // Example plugin for CSS modules
+      },
       {
         "name": "next"
       }
     ],
     "paths": {
       "@/*": [
-        "./src/*"
+        "src/*"
       ]
     }
   },
   "include": [
-    "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts",
-    "out/types/**/*.ts"
+    "next-env.d.ts",
+    "out/types/**/*.ts",
+    ".next/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"
