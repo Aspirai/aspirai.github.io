@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>
+        
+            常见名词解释
+        
+    </title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSerifSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="/font/Roboto.css">
+    <link type="text/css" rel="stylesheet" href="/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="/css/base.css">
+    <link type="text/css" rel="stylesheet" href="/css/code.css">
+
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <a id="cover"></a>
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
+<div id="header" class="header">
+    <div class="vertical">
+        <div class="inner">
+            
+                <h1 class="header-subtitle">常见名词解释</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2024-10-19
+                        </span>
+                        
+                            
+                                <span id="/2024/10/19/常见名词解释/" class="leancloud_visitors" data-flag-title="常见名词解释">
+                                    <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                                </span>
+                            
+                            
+                                <span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/10/19/常见名词解释/"></span>
+                                </span>
+                              
+                        
+                    </p>
+                    
+                    
+                </div>
+            
+        </div>
+    </div>
+    
+</div>
+<div id="container">
+    
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <h3 id="常见名词解释"><a href="#常见名词解释" class="headerlink" title="常见名词解释"></a>常见名词解释</h3><h2 id="1-什么是Docker容器？"><a href="#1-什么是Docker容器？" class="headerlink" title="1.什么是Docker容器？"></a>1.什么是Docker容器？</h2><p>Docker是一种轻量级的虚拟化技术，同时是一个开源的应用容器运行环境搭建平台，可以让开发者以便捷方式打包应用到一个可移植的容器中，然后安装至任何运行Linux或Windows等系统的服务器上。相较于传统虚拟机，Docker容器提供轻量化的虚拟化方式、安装便捷、启停速度快。</p>
+<h2 id="2-为什么需要Docker容器？"><a href="#2-为什么需要Docker容器？" class="headerlink" title="2.为什么需要Docker容器？"></a>2.为什么需要Docker容器？</h2><p>虚拟机（Virtual  Machine，简称VM）的发展，减轻了企业对硬件资源的依赖，它将一台物理设备虚拟为多个逻辑设备，每个逻辑设备可运行不同的操作系统，并且应用程序都可以在相互独立的空间内运行而互不影响，从而显著提高设备的工作效率。然而，传统VM需要安装操作系统才能执行应用程序，占用系统资源过多。多数情况下，用户只需要运行简单的应用程序，采用VM技术操作繁琐且造成资源浪费。倘若需要迁移应用服务程序，则需迁移整个VM，因此企业迫切需要轻量级的虚拟化技术。</p>
+<p>容器，就是一种轻量级的虚拟化技术，目的和虚拟机一样，都是为了创造“隔离环境”。但是它不像VM采用操作系统级的资源隔离，容器采用的是进程级的系统隔离。Docker作为创建容器的主流工具，近年来迅速发展，它的优势在于可以让开发者将企业需要的各种应用及应用依赖文件封装在Docker<a target="_blank" rel="noopener" href="https://info.support.huawei.com/info-finder/encyclopedia/zh/%E9%95%9C%E5%83%8F.html">镜像</a>文件中，然后在任何物理设备（Linux设备或Window设备等）上安装运行实现虚拟化，让应用程序彻底脱离底层设备，可以在物理机之间灵活迁移部署，使运维工程师摆脱了繁琐的环境部署，极大的提高了工作效率，同时减少了部署过程中的潜在风险。</p>
+<p>Docker容器具有以下三大特点：</p>
+<ul>
+<li>轻量化：一台主机上运行的多个Docker容器可以共享主机操作系统内核；启动迅速，只需占用很少的计算和内存资源。</li>
+<li>标准开放：Docker容器基于开放式标准，能够在所有主流Linux版本、Microsoft Windows以及包括VM、裸机服务器和云在内的任何基础设施上运行。</li>
+<li>安全可靠：Docker赋予应用的隔离性不仅限于彼此隔离，还独立于底层的基础设施。Docker默认提供最强的隔离，因此应用出现问题，也只是单个容器的问题，而不会波及到整台主机。</li>
+</ul>
+<p>边缘函数（EdgeRoutine，简称ER）是一项基于Serverless架构的服务，它允许开发者编写JavaScript代码并在阿里云全球边缘节点上部署和执行，支持ES6语法和标准的Web Service Worker  API。通过这种技术，用户的请求可以直接在离用户最近的边缘节点上得到响应处理，从而显著减少延迟、提高响应速度，并实现更低时延的计算体验。</p>
+<p><img src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/9046976171/CAEQShiBgMDvk4ug2BgiIGFkMThiMzk1ZDRhMTRjMGQ4YmE3N2NlNTdiMjUxMDE44020181_20230926172954.921.svg" alt="image"></p>
+<h2 id="3-对象存储-COS是什么？"><a href="#3-对象存储-COS是什么？" class="headerlink" title="3.对象存储 COS是什么？"></a>3.对象存储 COS是什么？</h2><p>对象存储（Cloud Object Storage，COS）是由腾讯云推出的无目录层次结构、无数据格式限制，可容纳海量数据且支持  HTTP&#x2F;HTTPS 协议访问的分布式存储服务。腾讯云 COS 的存储桶空间无容量上限，无需分区管理，适用于 CDN  数据分发、数据万象处理或大数据计算与分析的数据湖等多种场景。</p>
+<h2 id="4-Redis是什么？"><a href="#4-Redis是什么？" class="headerlink" title="4.Redis是什么？"></a>4.Redis是什么？</h2><p>Redis是现在最受欢迎的NoSQL数据库之一，Redis是一个使用ANSI C编写的开源、包含多种数据结构、支持网络、基于内存、可选持久性的键值对存储数据库，其具备如下特性：</p>
+<ul>
+<li><pre><code>- 基于内存运行，性能高效
+- 支持分布式，理论上可以无限扩展
+- key-value存储系统
+- 开源的使用ANSI C语言编写、遵守BSD协议、支持网络、可基于内存亦可持久化的日志型、Key-Value数据库，并提供多种语言的API
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">相比于其他数据库类型，Redis具备的特点是：</span><br><span class="line"></span><br><span class="line">- ```</span><br><span class="line">  - C/S通讯模型</span><br><span class="line">  - 单进程单线程模型</span><br><span class="line">  - 丰富的数据类型</span><br><span class="line">  - 操作具有原子性</span><br><span class="line">  - 持久化</span><br><span class="line">  - 高并发读写</span><br><span class="line">  - 支持lua脚本</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+<h2 id="5-归一化图表解释"><a href="#5-归一化图表解释" class="headerlink" title="5.归一化图表解释"></a>5.归一化图表解释</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">归一化图表是一种数据可视化方法，用于将不同范围的数据缩放到一个统一的范围（通常是0到1）以便于比较和分析。这样可以消除数据规模的影响，使得不同数据集之间的模式和趋势更加明显。</span><br><span class="line"></span><br><span class="line">例如，在展示多个不同单位或量级的数据时，通过归一化处理，所有数据都会被转换到相同的比例范围内，这样可以更直观地比较它们的变化趋势。</span><br><span class="line"></span><br><span class="line">你可以使用如下的公式对数据进行归一化处理：</span><br><span class="line"></span><br><span class="line">x′=x−min⁡(x)max⁡(x)−min⁡(x)x&#x27; = \frac&#123;x - \min(x)&#125;&#123;\max(x) - \min(x)&#125;x′=max(x)−min(x)x−min(x)</span><br><span class="line"></span><br><span class="line">其中，xxx 是原始数据值，min⁡(x)\min(x)min(x) 和 max⁡(x)\max(x)max(x) 分别是数据集的最小值和最大值，x′x&#x27;x′ 是归一化后的值。</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-读音"><a href="#6-读音" class="headerlink" title="6.读音"></a>6.读音</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Gitee----吉tea;</span><br><span class="line">Github----吉特哈布；</span><br></pre></td></tr></table></figure>
+
+<h2 id="7-大模型指？"><a href="#7-大模型指？" class="headerlink" title="7.大模型指？"></a>7.大模型指？</h2><p>大模型（Large Model）通常指的是大规模预训练模型，特别是在自然语言处理（NLP）和生成模型领域。这些模型通过大量的数据进行训练，能够理解和生成自然语言。以下是一些常见的大模型：</p>
+<pre><code>GPT（Generative Pre-trained Transformer）系列：例如GPT-3和GPT-4，这些模型通过大规模的文本数据进行预训练，能生成高质量的文本。
+
+BERT（Bidirectional Encoder Representations from Transformers）：一个双向的Transformer模型，用于各种NLP任务，例如问答、文本分类等。
+
+T5（Text-to-Text Transfer Transformer）：将所有NLP任务都转化为文本到文本的格式进行处理。
+
+Transformer：一种神经网络架构，广泛应用于序列到序列任务，如机器翻译、文本生成等。
+</code></pre>
+<p>大模型的优势在于它们的广泛适用性和强大的生成和理解能力，但也需要大量的计算资源和数据进行训练。</p>
+<h2 id="8-如何训练（跑）大模型"><a href="#8-如何训练（跑）大模型" class="headerlink" title="8.如何训练（跑）大模型"></a>8.如何训练（跑）大模型</h2><p>训练一个大模型需要收集和清洗大量数据，选择和配置合适的模型架构，设置训练环境和优化器，通过多轮迭代优化模型参数，监控和调整参数，最终评估模型性能并进行部署。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">**训练阶段**：在训练过程中，数据被分批输入模型进行训练，使用大量计算资源进行多轮迭代，优化模型参数。</span><br><span class="line">**推理阶段**：在推理（或推断）过程中，使用训练好的模型对新数据进行预测或生成。这通常涉及将输入数据通过模型进行前向传播，输出预测结果。</span><br></pre></td></tr></table></figure>
+
+<h2 id="9-堆叠图表"><a href="#9-堆叠图表" class="headerlink" title="9.堆叠图表"></a>9.堆叠图表</h2><p>堆叠图表是一种数据可视化图表类型，其中多个数据系列（或类别）的值被堆叠在一起，以显示它们的总和以及各个部分对整体的贡献。这种图表特别适合用于比较不同类别的贡献，同时展示整体趋势。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">堆叠图表的类型</span><br><span class="line">    堆叠柱状图（Stacked Bar Chart）：垂直方向的堆叠。</span><br><span class="line">    堆叠条形图（Stacked Column Chart）：水平方向的堆叠。</span><br><span class="line">    堆叠面积图（Stacked Area Chart）：数据系列以面积的形式堆叠。</span><br><span class="line">    堆叠折线图（Stacked Line Chart）：数据系列以折线的形式堆叠。</span><br></pre></td></tr></table></figure>
+
+<h2 id="10-CSSProperties"><a href="#10-CSSProperties" class="headerlink" title="10.CSSProperties"></a>10.CSSProperties</h2><p>CSSProperties 是 TypeScript 中用于定义内联样式对象的类型。它是 React 提供的一个类型定义，用于确保在 JSX 中内联样式的属性和值符合标准的 CSS 属性和值。</p>
+<p>在 React 中，如果你想在组件的 style 属性中应用内联样式，可以使用一个 JavaScript 对象来定义这些样式。CSSProperties 就是这个对象的类型定义。</p>
+<h2 id="11-display—-CSS"><a href="#11-display—-CSS" class="headerlink" title="11.display—-CSS"></a>11.display—-CSS</h2><p>在 CSS 中，<code>display</code> 属性定义了一个元素如何显示在页面上，或者说它的布局行为。它决定了元素是作为块级元素、内联元素还是其他类型的布局模式进行渲染。<code>display</code> 是控制布局和视觉效果的一个重要属性。</p>
+<p><strong><code>display: block;</code></strong></p>
+<ul>
+<li>元素作为块级元素显示。块级元素会独占一行，宽度默认撑满父容器。</li>
+<li>示例：<code>&lt;div&gt;</code>、<code>&lt;p&gt;</code>、<code>&lt;h1&gt;</code> 等元素默认就是块级元素。</li>
+</ul>
+<p><strong><code>display: inline;</code></strong></p>
+<ul>
+<li>元素作为内联元素显示。内联元素不会独占一行，宽度由内容决定，多个内联元素可以在同一行中排列。</li>
+<li>示例：<code>&lt;span&gt;</code>、<code>&lt;a&gt;</code>、<code>&lt;strong&gt;</code> 等元素默认是内联元素。</li>
+</ul>
+<p><strong><code>display: inline-block;</code></strong></p>
+<ul>
+<li>元素同时具备内联元素和块级元素的特性。它像内联元素那样与其他元素在同一行显示，但又可以像块级元素那样设置宽度和高度。</li>
+<li>示例：适用于需要在一行中排列的自定义按钮或卡片组件。</li>
+</ul>
+<p><strong><code>display: flex;</code></strong></p>
+<ul>
+<li>将元素设置为弹性盒布局容器。其子元素（即弹性项目）可以根据 <code>flex</code> 相关属性进行灵活排列，适合构建复杂的布局。</li>
+<li>示例：常用于构建响应式的导航栏、图片库等布局。</li>
+</ul>
+<p><strong><code>display: grid;</code></strong></p>
+<ul>
+<li>将元素设置为网格布局容器。子元素按行和列排列，可以实现二维布局。</li>
+<li>示例：适用于创建网格系统、复杂的网页布局。</li>
+</ul>
+<p><strong><code>display: none;</code></strong></p>
+<ul>
+<li>元素不显示，且不占据任何空间。它从视觉上和文档流中完全移除。</li>
+<li>示例：用于隐藏元素，不让它显示在页面上。</li>
+</ul>
+<p><strong><code>display: inline-flex;</code></strong></p>
+<ul>
+<li>类似于 <code>display: flex;</code>，但容器本身作为内联元素显示。其内部元素依然按 <code>flex</code> 布局排列。</li>
+</ul>
+<p><strong><code>display: inline-grid;</code></strong></p>
+<ul>
+<li>类似于 <code>display: grid;</code>，但容器本身作为内联元素显示。其内部元素依然按 <code>grid</code> 布局排列。</li>
+</ul>
+<h2 id="12-flex相关属性"><a href="#12-flex相关属性" class="headerlink" title="12.flex相关属性"></a>12.flex相关属性</h2><h3 id="1-Flex-容器相关属性"><a href="#1-Flex-容器相关属性" class="headerlink" title="1. Flex 容器相关属性"></a>1. <strong>Flex 容器相关属性</strong></h3><p>这些属性应用于设置了 <code>display: flex;</code> 或 <code>display: inline-flex;</code> 的父容器上。</p>
+<h4 id="1-1-flex-direction"><a href="#1-1-flex-direction" class="headerlink" title="1.1 flex-direction"></a>1.1 <code>flex-direction</code></h4><ul>
+<li><p><strong>定义</strong>: 设置主轴的方向，即 flex 项目的排列方向。</p>
+</li>
+<li><p>值</p>
+<p>:</p>
+<ul>
+<li><code>row</code>: 水平，从左到右排列（默认）。</li>
+<li><code>row-reverse</code>: 水平，从右到左排列。</li>
+<li><code>column</code>: 垂直，从上到下排列。</li>
+<li><code>column-reverse</code>: 垂直，从下到上排列。</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-2-flex-wrap"><a href="#1-2-flex-wrap" class="headerlink" title="1.2 flex-wrap"></a>1.2 <code>flex-wrap</code></h4><ul>
+<li><p><strong>定义</strong>: 控制 flex 项目是否在一行中显示或允许换行。</p>
+</li>
+<li><p>值</p>
+<p>:</p>
+<ul>
+<li><code>nowrap</code>: 所有项目不换行（默认）。</li>
+<li><code>wrap</code>: 项目按行排列，超过一行时自动换行。</li>
+<li><code>wrap-reverse</code>: 项目按行排列，但换行方向反转。</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-3-flex-flow"><a href="#1-3-flex-flow" class="headerlink" title="1.3 flex-flow"></a>1.3 <code>flex-flow</code></h4><ul>
+<li><strong>定义</strong>: <code>flex-direction</code> 和 <code>flex-wrap</code> 的简写形式。</li>
+<li><strong>值</strong>: <code>flex-direction</code> 和 <code>flex-wrap</code> 的组合值，例如 <code>row wrap</code>。</li>
+</ul>
+<h4 id="1-4-justify-content"><a href="#1-4-justify-content" class="headerlink" title="1.4 justify-content"></a>1.4 <code>justify-content</code></h4><ul>
+<li><p><strong>定义</strong>: 控制 flex 项目沿主轴（水平轴）的对齐方式。</p>
+</li>
+<li><p>值</p>
+<p>:</p>
+<ul>
+<li><code>flex-start</code>: 向主轴起点对齐（默认）。</li>
+<li><code>flex-end</code>: 向主轴终点对齐。</li>
+<li><code>center</code>: 居中对齐。</li>
+<li><code>space-between</code>: 两端对齐，项目之间的间距平均分布。</li>
+<li><code>space-around</code>: 每个项目两侧的间距相等。</li>
+<li><code>space-evenly</code>: 项目之间的间距和项目与容器边缘的间距相等。</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-5-align-items"><a href="#1-5-align-items" class="headerlink" title="1.5 align-items"></a>1.5 <code>align-items</code></h4><ul>
+<li><p><strong>定义</strong>: 控制 flex 项目沿交叉轴（垂直轴）的对齐方式。</p>
+</li>
+<li><p>值</p>
+<p>:</p>
+<ul>
+<li><code>flex-start</code>: 向交叉轴起点对齐。</li>
+<li><code>flex-end</code>: 向交叉轴终点对齐。</li>
+<li><code>center</code>: 居中对齐。</li>
+<li><code>baseline</code>: 按照项目的第一行文字的基线对齐。</li>
+<li><code>stretch</code>: 如果项目未设置高度或高度为 <code>auto</code>，将填满整个容器的高度（默认）。</li>
+</ul>
+</li>
+</ul>
+<h4 id="1-6-align-content"><a href="#1-6-align-content" class="headerlink" title="1.6 align-content"></a>1.6 <code>align-content</code></h4><ul>
+<li><p><strong>定义</strong>: 控制多行 flex 项目（有 <code>flex-wrap</code> 时）的对齐方式。</p>
+</li>
+<li><p>值</p>
+<p>:</p>
+<ul>
+<li><code>flex-start</code>: 向交叉轴起点对齐。</li>
+<li><code>flex-end</code>: 向交叉轴终点对齐。</li>
+<li><code>center</code>: 居中对齐。</li>
+<li><code>space-between</code>: 两端对齐，项目之间的间距平均分布。</li>
+<li><code>space-around</code>: 每个项目两侧的间距相等。</li>
+<li><code>space-evenly</code>: 项目之间的间距和项目与容器边缘的间距相等。</li>
+<li><code>stretch</code>: 拉伸项目以填充容器（默认）。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-Flex-项目相关属性"><a href="#2-Flex-项目相关属性" class="headerlink" title="2. Flex 项目相关属性"></a>2. <strong>Flex 项目相关属性</strong></h3><p>这些属性应用于 flex 容器内的子元素（即 flex 项目）上。</p>
+<h4 id="2-1-order"><a href="#2-1-order" class="headerlink" title="2.1 order"></a>2.1 <code>order</code></h4><ul>
+<li><strong>定义</strong>: 设置 flex 项目的排列顺序。默认值为 <code>0</code>，值越小，项目排列越靠前。</li>
+<li><strong>值</strong>: 任何整数，如 <code>-1</code>, <code>0</code>, <code>1</code>。</li>
+</ul>
+<h4 id="2-2-flex-grow"><a href="#2-2-flex-grow" class="headerlink" title="2.2 flex-grow"></a>2.2 <code>flex-grow</code></h4><ul>
+<li><strong>定义</strong>: 定义 flex 项目如何分配剩余的空间。默认值为 <code>0</code>，即不放大。</li>
+<li><strong>值</strong>: 任何非负数。如 <code>1</code> 表示项目将吸收所有可用空间的比例为 1。</li>
+</ul>
+<h4 id="2-3-flex-shrink"><a href="#2-3-flex-shrink" class="headerlink" title="2.3 flex-shrink"></a>2.3 <code>flex-shrink</code></h4><ul>
+<li><strong>定义</strong>: 定义 flex 项目如何缩小以适应容器的空间。默认值为 <code>1</code>，即项目可以缩小。</li>
+<li><strong>值</strong>: 任何非负数。如 <code>0</code> 表示项目不缩小，<code>1</code> 表示项目将根据剩余空间进行缩小。</li>
+</ul>
+<h4 id="2-4-flex-basis"><a href="#2-4-flex-basis" class="headerlink" title="2.4 flex-basis"></a>2.4 <code>flex-basis</code></h4><ul>
+<li><strong>定义</strong>: 设置 flex 项目的初始大小，即分配剩余空间之前的大小。默认值为 <code>auto</code>，可以是具体的长度值（如 <code>20%</code>, <code>100px</code>）。</li>
+<li><strong>值</strong>: <code>auto</code> 或长度值（<code>px</code>，<code>em</code>，<code>%</code> 等）。</li>
+</ul>
+<h4 id="2-5-flex"><a href="#2-5-flex" class="headerlink" title="2.5 flex"></a>2.5 <code>flex</code></h4><ul>
+<li><strong>定义</strong>: <code>flex-grow</code>、<code>flex-shrink</code> 和 <code>flex-basis</code> 的简写形式，常用来定义项目的增长、缩小行为。</li>
+<li><strong>值</strong>: 例如 <code>flex: 1;</code> 是 <code>flex-grow: 1; flex-shrink: 1; flex-basis: 0%</code> 的简写。</li>
+</ul>
+<h4 id="2-6-align-self"><a href="#2-6-align-self" class="headerlink" title="2.6 align-self"></a>2.6 <code>align-self</code></h4><ul>
+<li><p><strong>定义</strong>: 允许单个 flex 项目覆盖其父容器的 <code>align-items</code> 设置，控制该项目在交叉轴上的对齐方式。</p>
+</li>
+<li><p>值</p>
+<p>:</p>
+<ul>
+<li><code>auto</code>: 继承父容器的 <code>align-items</code> 属性（默认）。</li>
+<li><code>flex-start</code>: 向交叉轴起点对齐。</li>
+<li><code>flex-end</code>: 向交叉轴终点对齐。</li>
+<li><code>center</code>: 居中对齐。</li>
+<li><code>baseline</code>: 按照项目的第一行文字的基线对齐。</li>
+<li><code>stretch</code>: 如果项目未设置高度或高度为 <code>auto</code>，将填满整个容器的高度。</li>
+</ul>
+</li>
+</ul>
+<h2 id="13-IPv6-和-IPv4区别"><a href="#13-IPv6-和-IPv4区别" class="headerlink" title="13.IPv6 和 IPv4区别"></a>13.IPv6 和 IPv4区别</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">IPv4：采用点分十进制表示，每个部分的值范围是 0 到 255（例如，192.168.1.1）。</span><br><span class="line">IPv6：采用冒号分隔的十六进制表示，可以省略连续的零组，表示为双冒号（例如，2001:0db8::8a2e:0370:7334 代表 2001:0db8:0000:0000:0000:8a2e:0370:7334）。</span><br></pre></td></tr></table></figure>
+
+<p>IPv4 和 IPv6 的主要区别在于地址空间的大小和协议设计的复杂性。IPv6 通过提供更大的地址空间、更好的安全性和优化的网络功能，为现代互联网的发展提供了强大的支持。随着互联网设备的不断增加，IPv6 的普及将成为未来网络的主流。</p>
+<h2 id="14-WebSocket是什么？"><a href="#14-WebSocket是什么？" class="headerlink" title="14.WebSocket是什么？"></a>14.WebSocket是什么？</h2><p>WebSocket 是一种计算机通信协议，属于传输层协议的一个应用，它在客户端和服务器之间提供了一个全双工通信通道。WebSocket 协议在 2011 年被标准化为 RFC 6455，并被现代浏览器广泛支持。</p>
+<h3 id="WebSocket-的特点"><a href="#WebSocket-的特点" class="headerlink" title="WebSocket 的特点"></a>WebSocket 的特点</h3><ol>
+<li><strong>全双工通信</strong>：WebSocket 提供了全双工（full-duplex）的通信方式，允许客户端和服务器同时发送和接收数据。这与传统的 HTTP 请求-响应模式不同，WebSocket 更适合需要频繁数据交换的场景，比如实时聊天、在线游戏、股票行情推送等。</li>
+<li><strong>低延迟</strong>：一旦 WebSocket 连接建立，客户端和服务器之间的通信不需要反复创建和关闭连接，从而减少了通信延迟。传统的 HTTP 请求每次通信都需要开销较大的握手过程，而 WebSocket 只在连接建立时进行一次握手，之后通信通过持久化连接进行。</li>
+<li><strong>节省带宽</strong>：WebSocket 的通信报文头很小，在连接建立后，客户端和服务器之间的每次通信只需要传输很少的额外数据，节省了带宽。</li>
+<li><strong>实时性强</strong>：因为 WebSocket 可以随时发送和接收数据，它非常适合实时应用，尤其是在需要实时更新数据的场景下（例如：实时消息通知、在线游戏等）。</li>
+</ol>
+
+                
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box">
+    <div class="suffix-box-left">
+        <img src="/image/sidebar/avatar.jpg" alt="Aspirai">
+    </div>
+    <div class="suffix-box-right">
+        <span class="suffix-box-title">文章作者：</span>Aspirai
+        <br>
+        <span class="suffix-box-title">文章出处：</span><a href="/2024/10/19/%E5%B8%B8%E8%A7%81%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A/" target="_blank">常见名词解释</a>
+        <br>
+        <span class="suffix-box-title">作者签名：</span>时间带不走你眼中的光辉
+        <br>
+        <span class="suffix-box-title">版权声明：</span>文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+        <br>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+                
+                
+                <div class="article-prev-next">
+                    
+                        <a href="/2024/10/19/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="prev-prefix">« </a> 上一篇：    <a href="/2024/10/19/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="发布于 2024-10-19 06:07">正则表达式</a>
+                        <br>
+                    
+                    
+                        <a href="/2024/10/19/%E7%AC%94%E8%AE%B0%E6%B5%8B%E8%AF%95/" class="next-prefix">» </a> 下一篇：    <a href="/2024/10/19/%E7%AC%94%E8%AE%B0%E6%B5%8B%E8%AF%95/" title="发布于 2024-10-19 05:54">笔记测试</a>
+                    
+                </div>
+            </div>
+            
+    <div class="article-comments">
+        
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+    
+ 
+        </div>
+    
+</div>
+    <div id="footer">
+    <div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>
+</div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar">
+                    <img src="/image/sidebar/avatar.jpg">
+                </div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user">
+                        
+                            <a href="javascript:;" target="_self"><span>Aspirai</span></a>
+                        
+                    </div>
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul>
+                    
+                        <li class=""><a href="/" class="" target="_self"><span class="iconfont icon-home-fill"></span>首页</a></li>
+                    
+                        <li class=""><a href="/tag" class="" target="_self"><span class="iconfont icon-discount-fill"></span>标签</a></li>
+                    
+                        <li class=""><a href="/archive" class="" target="_self"><span class="iconfont icon-calendar-fill"></span>归档</a></li>
+                    
+                        <li class=""><a href="/friend" class="" target="_self"><span class="iconfont icon-link"></span>友情链接</a></li>
+                    
+                </ul> 
+            </div> 
+            <div class="menu-link">
+                <div class="box">
+                    <div class="image-box"></div>
+                </div>
+                
+                    <a name="QQ" href="javascript:;" class="image" target="_self" data="/image/sidebar/qq.png"><span class="iconfont icon-qq"></span></a>
+                
+            </div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="/css/search.css">
+<script type="text/javascript" src="/js/iscroll.js"></script>
+<script type="text/javascript" src="/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+    
+    <link type="text/css" rel="stylesheet" href="/css/APlayer.css">
+    <script type="text/javascript" src="/js/APlayer.min.js"></script>
+    <script type="text/javascript" src="/js/Meting.min.js"></script>
+    <script>
+        var meting_api = 'https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&auth=:auth&r=:r';
+    </script>
+    <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+
+    <div class="wrap-right">
+    <div class="wrap-right-hide">
+         <div class="wrap-right-button favorites">
+            <div class="iconbox" switch="false">
+                <span class="iconfont icon-favorites"></span>
+            </div>
+            <span class="icontext">关注</span>
+         </div>
+        <div class="wrap-right-button search">
+            <div class="iconbox">
+                <span class="iconfont icon-search-menu"></span>
+            </div>
+            <span class="icontext">搜索</span>
+        </div>
+        <div class="wrap-right-button menu-button">
+            <div class="iconbox">
+                <span class="iconfont icon-menu"></span>
+            </div>
+            <span class="icontext">菜单</span>
+        </div>
+        <div class="wrap-right-button mode">
+            <div class="light">
+                <div class="iconbox">
+                    <span class="iconfont icon-daymode"></span>
+                </div>
+                <span class="icontext">浅色模式</span>
+            </div>
+            <div class="dark">
+                <div class="iconbox">
+                    <span class="iconfont icon-nightmode-fill"></span>
+                </div>
+                <span class="icontext">深色模式</span>
+            </div>
+        </div>
+        <div class="wrap-right-button bottom">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">跳至底部</span>
+        </div>
+    </div>
+    <div class="wrap-right-show">
+        <div class="wrap-right-button set">
+            <div class="iconbox">
+                <span class="iconfont icon-setting"></span>
+            </div>
+            <span class="icontext">设置</span>
+        </div>
+        <div class="wrap-right-button top">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">返回顶部</span>
+        </div>
+    </div>
+</div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : "Aspirai",
+        GitHubRepositories : "Hexo-LiveForCode",
+
+        User             : "Aspirai",
+        UserAvatar       : "/image/sidebar/avatar.jpg",
+        WebsiteStartDate : "2020-01-01",
+        Home             : "",
+
+        WebsiteTitleBlur         : "(◍´꒳`◍) Hi, Aspirai",
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : "(*´∇｀*) 欢迎回来!",
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : {
+            light : "/image/website/logo/logo.png",
+            dark  : "/image/website/logo/logo-dark.png"
+        },
+
+        ProgressBar : {
+            id       : "topProgressBar",
+            color    : "#77B6FF",
+            height   : "2px",
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound : {
+                tension  : 16,
+                friction : 5
+            },
+            spinner : {
+                id     : "spinner",
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : "#F0F0F0",
+                    stroke     : "#272633",
+                    base       : "",
+                    child      : "#272633"
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : "rgba(255, 255, 255, .2)",
+            clearOffset : 0.3
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : "60%",
+            colorBrightness  : "50%",
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : "random",
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                "/image/header/home.jpg",
+            
+                "/image/header/home.png",
+            
+        ],
+        HomeBannerText  : "",
+
+        ArticleHeaderImage : [
+            
+                "/image/header/article.jpg",
+            
+        ],
+
+        OtherBannerText : "",
+
+        Error : {
+            icon    : "icon-swimming",
+            title   : "PAGE NOT FOUND",
+            content : [
+                
+                    "很抱歉，您访问的页面不存在！",
+                
+                    "可能是输入地址有误或该地址已变更。",
+                
+            ],
+            buttons : [
+                
+                    {
+                        icon  : "icon-home",
+                        text  : "返回首页",
+                        href  : "/",
+                        class : ""
+                    },
+                
+            ]
+        },
+
+        MenuNotice : {
+            enable : false,
+            notice : "简单地活着，肆意而又精彩！",
+            speed  : 20
+        },
+        MenuList : [
+            
+                {
+                    name   : "首页",
+                    icon   : "icon-home-fill",
+                    href   : "/",
+                    type   : "index",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "标签",
+                    icon   : "icon-discount-fill",
+                    href   : "/tag",
+                    type   : "tag",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "归档",
+                    icon   : "icon-calendar-fill",
+                    href   : "/archive",
+                    type   : "archive",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "友情链接",
+                    icon   : "icon-link",
+                    href   : "/friend",
+                    type   : "friend",
+                    class  : "",
+                    target : "_self"
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        name   : "QQ",
+                        icon   : "icon-qq",
+                        href   : "javascript:;",
+                        class  : "image",
+                        target : "_self",
+                        image  : "/image/sidebar/qq.png"
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : "<div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>",
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                "Based on cnblogs theme SimpleMemory.",
+                            
+                                "",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "SimpleMemory Author:",
+                            
+                                "BNDong",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "Theme:",
+                            
+                                "LiveForCode",
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : "",
+
+        Donate : {
+            paypal  : "",
+            bitcoin : "",
+            alipay  : "/image/donate/alipay.png",
+            wechat  : "/image/donate/wechat.png"
+        },
+
+        Search : {
+            applicationID : "010C3EANT8",
+            apiKey        : "c7abab9f11b79102b9aff7fe6d41447d",
+            indexName     : "Notes",
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : "搜索",
+                empty       : "未发现与 「${query}」 相关的内容",
+                stats       : "${hits} 条相关条目，使用了 ${time} 毫秒",
+            }
+        }, 
+
+        Comment : {
+            switch : true,
+            type   : "Valine",
+        },
+
+        Waline : {
+            el              : ".comments-content",
+            serverURL       : "",
+            path            : window.location.pathname,
+            meta            : "['nick', 'mail', 'link']",
+            requiredMeta    : "['nick', 'mail']",
+            pageSize        : 10,
+            lang            : "zh-cn",
+            locale: {
+                admin       : "博主",
+                anonymous   : "匿名用户",
+                sofa        : "快来做第一个评论的人吧 ~",
+                placeholder : "你是我一生只会遇见一次的惊喜...",
+            },
+            dark            : "html[color-scheme='dark']",
+            search          : false,
+            pageview        : true,
+            comment         : true,
+            copyright       : false,
+        },
+
+        Valine : {
+            el             : ".comments-content",
+            appId          : "srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz",
+            appKey         : "8uVSP1q6UlALVC5igYfIfv2h",
+            serverURLs     : "",
+            placeholder    : "你是我一生只会遇见一次的惊喜...",
+            avatar         : "mm",
+            meta           : "nick,mail,link",
+            requiredFields : "nick,mail",
+            pageSize       : 5,
+            lang           : "zh-cn",
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : ".toc",
+            contentSelector       : ".article-body",
+            headingSelector       : "h1, h2, h3, h4, h5",
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : ".toc",
+            positionFixedClass    : "toc-fixed",
+            fixedSidebarOffset    : "",
+        },
+
+        Require : {
+            baseUrl     : "/js/",
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : "Meting"
+        },
+        APlayer : {
+            container : ".aplayer",
+            fixed     : true,
+            autoplay  : false,
+            loop      : "all",
+            order     : "random",
+            preload   : "auto",
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : "Endless Tears",
+                        artist : "CLIFF EDGE",
+                        cover  : "/music/cover/Endless Tears.jpg",
+                        url    : "/music/song/Endless Tears.mp3",
+                        lrc    : "/music/lrc/Endless Tears.lrc"
+                    },
+                
+            ]
+        },
+        Meting : {
+            api      : "https://api.i-meto.com/meting/api",
+            id       : "3778678", 
+            lrcshow  : false, 
+            server   : "netease", 
+            type     : "playlist", 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : "all", 
+            order    : "random", 
+            preload  : "auto", 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : true,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : "/image/website/lazyload.svg"
+        },
+  
+        Style : {
+            aplayer          : "/css/APlayer.css",
+            archive          : "/css/archive.css",
+            base             : "/css/base.css",
+            clipboard        : "/css/clipboard.css",
+            code             : "/css/code.css",
+            donate           : "/css/donate.css",
+            fancybox         : "/css/jquery.fancybox.css",
+            footer           : "/css/footer.css",
+            iconfont         : "/iconfont/iconfont.css",
+            index            : "/css/index.css",
+            menuBubble       : "/css/menu-bubble.css",
+            mouse            : "/css/mouse.css",
+            page             : "/css/page.css",
+            post             : "/css/post.css",
+            search           : "/css/search.css",
+            tocbot           : "/css/tocbot.css",
+            valine           : "/css/valine.css",
+            waline           : "/css/waline.css",
+            walineCustom     : "/css/waline-custom.css"
+        },
+
+        Script: {
+            aplayer          : "/js/APlayer.min.js",
+            config           : "/js/require.config.js",
+            index            : "/js/index.js",
+            instantSearch    : "/js/instantsearch.min.js",
+            iscroll          : "/js/iscroll.js",
+            jQuery           : "/js/jquery-3.4.1.min.js",
+            loading          : "/js/loading.js",
+            meting           : "/js/Meting.min.js",
+            require          : "/js/require.min.js",
+            waline           : "/js/waline.mjs",
+            pageview         : "/js/pageview.mjs",
+            comment          : "/js/comment.mjs",
+        },
+
+        Font: {
+            LongCang    : "/font/LongCang.css",
+            Monda       : "/font/Monda.css",
+            NotoSansSC  : "/font/NotoSansSC.css",
+            NotoSerifSC : "/font/NotoSerifSC.css",
+            Playball    : "/font/Playball.css",
+            PTMono      : "/font/PTMono.css",
+            Roboto      : "/font/Roboto.css",
+            RobotoSlab  : "/font/RobotoSlab.css",
+            Rosario     : "/font/Rosario.css",
+            UbuntuMono  : "/font/UbuntuMono.css"
+        },
+
+        Suffix : {
+            about : "时间带不走你眼中的光辉"
+        },
+            
+        Theme : {
+            url  : "https://github.com/first19326/Hexo-LiveForCode",
+            name : "Hexo - Live For Code"
+        }  
+    };
+</script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</body>
+</html>

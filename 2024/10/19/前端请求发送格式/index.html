@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>
+        
+            前端请求发送格式
+        
+    </title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSerifSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="/font/Roboto.css">
+    <link type="text/css" rel="stylesheet" href="/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="/css/base.css">
+    <link type="text/css" rel="stylesheet" href="/css/code.css">
+
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <a id="cover"></a>
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
+<div id="header" class="header">
+    <div class="vertical">
+        <div class="inner">
+            
+                <h1 class="header-subtitle">前端请求发送格式</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2024-10-19
+                        </span>
+                        
+                            
+                                <span id="/2024/10/19/前端请求发送格式/" class="leancloud_visitors" data-flag-title="前端请求发送格式">
+                                    <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                                </span>
+                            
+                            
+                                <span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/10/19/前端请求发送格式/"></span>
+                                </span>
+                              
+                        
+                    </p>
+                    
+                    
+                </div>
+            
+        </div>
+    </div>
+    
+</div>
+<div id="container">
+    
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <h1 id="前端请求发送格式"><a href="#前端请求发送格式" class="headerlink" title="前端请求发送格式"></a>前端请求发送格式</h1><h2 id="Taro中使用请求"><a href="#Taro中使用请求" class="headerlink" title="Taro中使用请求"></a>Taro中使用请求</h2><h3 id="1-请求体数据Form类型"><a href="#1-请求体数据Form类型" class="headerlink" title="1.请求体数据Form类型"></a>1.<strong>请求体数据Form类型</strong></h3><figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 单数据</span></span><br><span class="line"><span class="title class_">Taro</span>.<span class="title function_">request</span>(&#123;</span><br><span class="line">  <span class="attr">url</span>: <span class="variable constant_">BASE_URL</span> + <span class="string">&#x27;login-sms/send&#x27;</span>,</span><br><span class="line">  <span class="attr">method</span>: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">  <span class="attr">header</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;content-type&#x27;</span>: <span class="string">&#x27;application/x-www-form-urlencoded&#x27;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">data</span>: <span class="string">&#x27;phone_number=&#x27;</span> + phone_number,</span><br><span class="line">  <span class="attr">success</span>: <span class="keyword">function</span> (<span class="params">res</span>) &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 多数据</span></span><br><span class="line"><span class="title class_">Taro</span>.<span class="title function_">request</span>(&#123;</span><br><span class="line">  <span class="attr">url</span>: <span class="variable constant_">BASE_URL</span> + <span class="string">&#x27;login-sms/access-token&#x27;</span>,</span><br><span class="line">  <span class="attr">method</span>: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">  <span class="attr">header</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;content-type&#x27;</span>: <span class="string">&#x27;application/x-www-form-urlencoded&#x27;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">data</span>: <span class="string">&#x27;phone_number=&#x27;</span> + phone_number + <span class="string">&#x27;&amp;code=&#x27;</span> + verification_code,</span><br><span class="line">  <span class="attr">success</span>: <span class="keyword">function</span> (<span class="params">res</span>) &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-默认请求体"><a href="#2-默认请求体" class="headerlink" title="2.默认请求体"></a>2.默认请求体</h3><figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Taro</span>.<span class="title function_">request</span>(&#123;</span><br><span class="line">  <span class="attr">url</span>: <span class="variable constant_">BASE_URL</span> + <span class="string">&#x27;login-sms/access-token&#x27;</span>,</span><br><span class="line">      <span class="attr">method</span>: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">      <span class="attr">data</span>: &#123;</span><br><span class="line">        <span class="attr">phone_number</span>: phone_number,</span><br><span class="line">        <span class="attr">code</span>: verification_code,</span><br><span class="line">      &#125;,</span><br><span class="line">  <span class="attr">success</span>: <span class="keyword">function</span> (<span class="params">res</span>) &#123;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-上传本地文件"><a href="#3-上传本地文件" class="headerlink" title="3.上传本地文件"></a>3.上传本地文件</h3><figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="title class_">Taro</span>.<span class="title function_">uploadFile</span>(&#123;</span><br><span class="line">    <span class="attr">url</span>: <span class="variable constant_">BASE_URL</span> + <span class="string">&#x27;user/upload-avatar&#x27;</span>,</span><br><span class="line">    <span class="attr">filePath</span>: src,</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;file&#x27;</span>,</span><br><span class="line">    <span class="attr">header</span>: &#123;</span><br><span class="line">      <span class="attr">accept</span>: <span class="string">&#x27;application/json&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;content-type&#x27;</span>: <span class="string">&#x27;multipart/form-data&#x27;</span>,</span><br><span class="line">      <span class="title class_">Authorization</span>: <span class="string">&#x27;Bearer &#x27;</span> + token,</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="attr">success</span>: <span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">    &#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h2 id="JSON操作"><a href="#JSON操作" class="headerlink" title="JSON操作"></a>JSON操作</h2><h3 id="1-解析-JSON-字符串"><a href="#1-解析-JSON-字符串" class="headerlink" title="1. 解析 JSON 字符串"></a>1. <strong>解析 JSON 字符串</strong></h3><p>将 JSON 字符串转换为 JavaScript 对象，通常使用 <code>JSON.parse()</code>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> jsonString = <span class="string">&#x27;&#123;&quot;name&quot;: &quot;John&quot;, &quot;age&quot;: 30&#125;&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> obj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(jsonString); <span class="comment">// 解析为对象</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">name</span>); <span class="comment">// 输出: John</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-序列化-JavaScript-对象"><a href="#2-序列化-JavaScript-对象" class="headerlink" title="2. 序列化 JavaScript 对象"></a>2. <strong>序列化 JavaScript 对象</strong></h3><p>将 JavaScript 对象转换为 JSON 字符串，使用 <code>JSON.stringify()</code>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123; <span class="attr">name</span>: <span class="string">&quot;John&quot;</span>, <span class="attr">age</span>: <span class="number">30</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> jsonString = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj); <span class="comment">// 转换为 JSON 字符串</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(jsonString); <span class="comment">// 输出: &#x27;&#123;&quot;name&quot;:&quot;John&quot;,&quot;age&quot;:30&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-格式化-JSON-字符串"><a href="#3-格式化-JSON-字符串" class="headerlink" title="3. 格式化 JSON 字符串"></a>3. <strong>格式化 JSON 字符串</strong></h3><p>为了便于阅读，可以将 JSON 字符串格式化，增加缩进和换行，<code>JSON.stringify()</code> 的第二个和第三个参数用于设置格式化的深度和缩进：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123; <span class="attr">name</span>: <span class="string">&quot;John&quot;</span>, <span class="attr">age</span>: <span class="number">30</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> jsonString = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj, <span class="literal">null</span>, <span class="number">2</span>); <span class="comment">// 第三个参数表示缩进为 2 个空格</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(jsonString);</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">输出:</span></span><br><span class="line"><span class="comment">&#123;</span></span><br><span class="line"><span class="comment">  &quot;name&quot;: &quot;John&quot;,</span></span><br><span class="line"><span class="comment">  &quot;age&quot;: 30</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-处理嵌套-JSON-对象"><a href="#4-处理嵌套-JSON-对象" class="headerlink" title="4. 处理嵌套 JSON 对象"></a>4. <strong>处理嵌套 JSON 对象</strong></h3><p>可以使用常规的 JavaScript 语法访问嵌套的 JSON 数据：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> jsonString = <span class="string">&#x27;&#123;&quot;person&quot;: &#123;&quot;name&quot;: &quot;John&quot;, &quot;age&quot;: 30, &quot;address&quot;: &#123;&quot;city&quot;: &quot;New York&quot;&#125;&#125;&#125;&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> obj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(jsonString);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">person</span>.<span class="property">address</span>.<span class="property">city</span>); <span class="comment">// 输出: New York</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-安全地访问深层嵌套属性"><a href="#5-安全地访问深层嵌套属性" class="headerlink" title="5. 安全地访问深层嵌套属性"></a>5. <strong>安全地访问深层嵌套属性</strong></h3><p>直接访问深层嵌套属性时，可能会遇到 <code>undefined</code> 错误，通常可以使用可选链操作符 <code>?.</code>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> jsonString = <span class="string">&#x27;&#123;&quot;person&quot;: &#123;&quot;name&quot;: &quot;John&quot;, &quot;age&quot;: 30&#125;&#125;&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> obj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(jsonString);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="property">person</span>?.<span class="property">address</span>?.<span class="property">city</span>); <span class="comment">// 安全访问，若address不存在则返回 undefined</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="6-过滤或修改-JSON-数据"><a href="#6-过滤或修改-JSON-数据" class="headerlink" title="6. 过滤或修改 JSON 数据"></a>6. <strong>过滤或修改 JSON 数据</strong></h3><p>可以使用 <code>JSON.stringify()</code> 的第二个参数来过滤或修改对象的属性：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> obj = &#123; <span class="attr">name</span>: <span class="string">&quot;John&quot;</span>, <span class="attr">age</span>: <span class="number">30</span>, <span class="attr">city</span>: <span class="string">&quot;New York&quot;</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> jsonString = <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(obj, <span class="function">(<span class="params">key, value</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (key === <span class="string">&quot;city&quot;</span>) <span class="keyword">return</span> <span class="literal">undefined</span>; <span class="comment">// 忽略 city 属性</span></span><br><span class="line">  <span class="keyword">return</span> value;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(jsonString); <span class="comment">// 输出: &#x27;&#123;&quot;name&quot;:&quot;John&quot;,&quot;age&quot;:30&#125;&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="7-检测是否为合法-JSON"><a href="#7-检测是否为合法-JSON" class="headerlink" title="7. 检测是否为合法 JSON"></a>7. <strong>检测是否为合法 JSON</strong></h3><p>在解析 JSON 字符串之前，可以使用 <code>try...catch</code> 块来捕获 JSON 格式错误：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> jsonString = <span class="string">&#x27;&#123;&quot;name&quot;: &quot;John&quot;, &quot;age&quot;: 30&#125;&#x27;</span>; <span class="comment">// 正确格式</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">  <span class="keyword">const</span> obj = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(jsonString);</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(obj);</span><br><span class="line">&#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">error</span>(<span class="string">&quot;Invalid JSON format&quot;</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-深拷贝对象"><a href="#8-深拷贝对象" class="headerlink" title="8. 深拷贝对象"></a>8. <strong>深拷贝对象</strong></h3><p>JSON 可以用于对象的深拷贝，先将对象转换为 JSON 字符串，再解析回对象：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> originalObj = &#123; <span class="attr">name</span>: <span class="string">&quot;John&quot;</span>, <span class="attr">age</span>: <span class="number">30</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> deepCopy = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(<span class="title class_">JSON</span>.<span class="title function_">stringify</span>(originalObj)); <span class="comment">// 生成深拷贝</span></span><br></pre></td></tr></table></figure>
+
+<p>通过这些常用的 JSON 操作，开发者可以轻松解析、处理、和转换 JSON 数据，尤其是在前后端交互中进行数据传递时。</p>
+<h2 id="常见请求类型"><a href="#常见请求类型" class="headerlink" title="常见请求类型:"></a>常见请求类型:</h2><p>前端发送请求的常见格式主要有以下几种：</p>
+<h3 id="1-GET-请求"><a href="#1-GET-请求" class="headerlink" title="1. GET 请求"></a>1. <strong>GET 请求</strong></h3><ul>
+<li>用于从服务器获取数据，没有请求体，数据通过 URL 参数传递。</li>
+<li>示例：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">fetch</span>(<span class="string">&#x27;https://api.example.com/data&#x27;</span>)</span><br><span class="line">  .<span class="title function_">then</span>(<span class="function"><span class="params">response</span> =&gt;</span> response.<span class="title function_">json</span>())</span><br><span class="line">  .<span class="title function_">then</span>(<span class="function"><span class="params">data</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(data));</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="2-POST-请求"><a href="#2-POST-请求" class="headerlink" title="2. POST 请求"></a>2. <strong>POST 请求</strong></h3><ul>
+<li>用于向服务器发送数据，数据一般在请求体中。</li>
+<li>示例：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">fetch</span>(<span class="string">&#x27;https://api.example.com/data&#x27;</span>, &#123;</span><br><span class="line">  <span class="attr">method</span>: <span class="string">&#x27;POST&#x27;</span>,</span><br><span class="line">  <span class="attr">headers</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">body</span>: <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(&#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;John&#x27;</span>,</span><br><span class="line">    <span class="attr">age</span>: <span class="number">30</span></span><br><span class="line">  &#125;),</span><br><span class="line">&#125;)</span><br><span class="line">.<span class="title function_">then</span>(<span class="function"><span class="params">response</span> =&gt;</span> response.<span class="title function_">json</span>())</span><br><span class="line">.<span class="title function_">then</span>(<span class="function"><span class="params">data</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(data));</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="3-PUT-请求"><a href="#3-PUT-请求" class="headerlink" title="3. PUT 请求"></a>3. <strong>PUT 请求</strong></h3><ul>
+<li>用于更新资源，数据通过请求体发送。</li>
+<li>示例：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">fetch</span>(<span class="string">&#x27;https://api.example.com/data/1&#x27;</span>, &#123;</span><br><span class="line">  <span class="attr">method</span>: <span class="string">&#x27;PUT&#x27;</span>,</span><br><span class="line">  <span class="attr">headers</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">body</span>: <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(&#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;John&#x27;</span>,</span><br><span class="line">    <span class="attr">age</span>: <span class="number">31</span></span><br><span class="line">  &#125;),</span><br><span class="line">&#125;)</span><br><span class="line">.<span class="title function_">then</span>(<span class="function"><span class="params">response</span> =&gt;</span> response.<span class="title function_">json</span>())</span><br><span class="line">.<span class="title function_">then</span>(<span class="function"><span class="params">data</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(data));</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="4-DELETE-请求"><a href="#4-DELETE-请求" class="headerlink" title="4. DELETE 请求"></a>4. <strong>DELETE 请求</strong></h3><ul>
+<li>用于删除服务器上的资源，通常没有请求体。</li>
+<li>示例：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">fetch</span>(<span class="string">&#x27;https://api.example.com/data/1&#x27;</span>, &#123;</span><br><span class="line">  <span class="attr">method</span>: <span class="string">&#x27;DELETE&#x27;</span>,</span><br><span class="line">&#125;)</span><br><span class="line">.<span class="title function_">then</span>(<span class="function"><span class="params">response</span> =&gt;</span> response.<span class="title function_">json</span>())</span><br><span class="line">.<span class="title function_">then</span>(<span class="function"><span class="params">data</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(data));</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="5-PATCH-请求"><a href="#5-PATCH-请求" class="headerlink" title="5. PATCH 请求"></a>5. <strong>PATCH 请求</strong></h3><ul>
+<li>用于部分更新资源，与 PUT 类似，但只更新特定字段。</li>
+<li>示例：<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">fetch</span>(<span class="string">&#x27;https://api.example.com/data/1&#x27;</span>, &#123;</span><br><span class="line">  <span class="attr">method</span>: <span class="string">&#x27;PATCH&#x27;</span>,</span><br><span class="line">  <span class="attr">headers</span>: &#123;</span><br><span class="line">    <span class="string">&#x27;Content-Type&#x27;</span>: <span class="string">&#x27;application/json&#x27;</span>,</span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="attr">body</span>: <span class="title class_">JSON</span>.<span class="title function_">stringify</span>(&#123;</span><br><span class="line">    <span class="attr">age</span>: <span class="number">32</span></span><br><span class="line">  &#125;),</span><br><span class="line">&#125;)</span><br><span class="line">.<span class="title function_">then</span>(<span class="function"><span class="params">response</span> =&gt;</span> response.<span class="title function_">json</span>())</span><br><span class="line">.<span class="title function_">then</span>(<span class="function"><span class="params">data</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(data));</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="6-常见的请求头"><a href="#6-常见的请求头" class="headerlink" title="6. 常见的请求头"></a>6. <strong>常见的请求头</strong></h3><ul>
+<li><strong><code>Content-Type</code></strong>: 用来说明请求体的数据格式，如 <code>application/json</code> 表示请求体是 JSON 格式。</li>
+<li><strong><code>Authorization</code></strong>: 用来传递认证信息，比如 Bearer Token，用于身份验证。</li>
+</ul>
+<h3 id="7-常见工具库"><a href="#7-常见工具库" class="headerlink" title="7. 常见工具库"></a>7. <strong>常见工具库</strong></h3><ul>
+<li><strong>Axios</strong>: 是一个流行的 HTTP 客户端，基于 Promise，可以用于浏览器和 Node.js。其语法更简洁，自动处理 JSON 格式数据。<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">axios.<span class="title function_">post</span>(<span class="string">&#x27;https://api.example.com/data&#x27;</span>, &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;John&#x27;</span>,</span><br><span class="line">  <span class="attr">age</span>: <span class="number">30</span></span><br><span class="line">&#125;)</span><br><span class="line">.<span class="title function_">then</span>(<span class="function"><span class="params">response</span> =&gt;</span> <span class="variable language_">console</span>.<span class="title function_">log</span>(response.<span class="property">data</span>));</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>这些是前端发送请求的常见格式，取决于具体的需求，选择合适的请求方法和配置</p>
+<h2 id="常见的几种请求体数据格式："><a href="#常见的几种请求体数据格式：" class="headerlink" title="常见的几种请求体数据格式："></a>常见的几种请求体数据格式：</h2><h3 id="1-JSON-JavaScript-Object-Notation"><a href="#1-JSON-JavaScript-Object-Notation" class="headerlink" title="1. JSON (JavaScript Object Notation)"></a>1. <strong>JSON (JavaScript Object Notation)</strong></h3><ul>
+<li>常用于现代 Web 开发，具有轻量级和易于阅读的特点。</li>
+<li>格式: <code>&#123;&quot;key&quot;: &quot;value&quot;&#125;</code></li>
+<li>适用场景: 大部分 RESTful API 使用 JSON 格式传输数据。</li>
+<li>示例：<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;username&quot;</span><span class="punctuation">:</span> <span class="string">&quot;johndoe&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;password&quot;</span><span class="punctuation">:</span> <span class="string">&quot;123456&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="2-XML-eXtensible-Markup-Language"><a href="#2-XML-eXtensible-Markup-Language" class="headerlink" title="2. XML (eXtensible Markup Language)"></a>2. <strong>XML (eXtensible Markup Language)</strong></h3><ul>
+<li>类似 HTML 的标记语言，常用于老旧系统或特定领域的数据传输。</li>
+<li>格式: <code>&lt;root&gt;&lt;key&gt;value&lt;/key&gt;&lt;/root&gt;</code></li>
+<li>适用场景: 早期的 Web 服务，尤其是基于 SOAP 的系统。</li>
+<li>示例：<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">user</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">username</span>&gt;</span>johndoe<span class="tag">&lt;/<span class="name">username</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">password</span>&gt;</span>123456<span class="tag">&lt;/<span class="name">password</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">user</span>&gt;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="3-Form-Data-application-x-www-form-urlencoded"><a href="#3-Form-Data-application-x-www-form-urlencoded" class="headerlink" title="3. Form Data (application&#x2F;x-www-form-urlencoded)"></a>3. <strong>Form Data (application&#x2F;x-www-form-urlencoded)</strong></h3><ul>
+<li>常用于 HTML 表单提交，数据被编码成键值对，使用 URL 编码。</li>
+<li>格式: <code>key1=value1&amp;key2=value2</code></li>
+<li>适用场景: 表单提交，例如登录、注册或搜索。</li>
+<li>示例：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">username=johndoe&amp;password=123456</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="4-Multipart-Form-Data"><a href="#4-Multipart-Form-Data" class="headerlink" title="4. Multipart Form Data"></a>4. <strong>Multipart Form Data</strong></h3><ul>
+<li>用于上传文件或混合文本和二进制数据的表单提交。</li>
+<li>格式: 每个部分都包含其自己的内容类型和文件元数据。</li>
+<li>适用场景: 文件上传（例如图片、音频等）。</li>
+<li>示例：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">--boundary</span><br><span class="line">Content-Disposition: form-data; name=&quot;file&quot;; filename=&quot;example.png&quot;</span><br><span class="line">Content-Type: image/png</span><br><span class="line"></span><br><span class="line">[binary content]</span><br><span class="line">--boundary--</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="5-Plain-Text-text-plain"><a href="#5-Plain-Text-text-plain" class="headerlink" title="5. Plain Text (text&#x2F;plain)"></a>5. <strong>Plain Text (text&#x2F;plain)</strong></h3><ul>
+<li>用于传输纯文本数据，不做任何格式转换。</li>
+<li>格式: 纯文本字符串</li>
+<li>适用场景: 简单的数据传输或日志文件传输。</li>
+<li>示例：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">This is a plain text request body</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="6-GraphQL"><a href="#6-GraphQL" class="headerlink" title="6. GraphQL"></a>6. <strong>GraphQL</strong></h3><ul>
+<li>一种查询语言，用于前端灵活获取后端 API 数据。</li>
+<li>格式: 查询结构与 JSON 类似，但直接书写查询语句。</li>
+<li>适用场景: GraphQL API 请求。</li>
+<li>示例：<figure class="highlight graphql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  user<span class="punctuation">(</span><span class="symbol">id</span><span class="punctuation">:</span> <span class="string">&quot;1&quot;</span><span class="punctuation">)</span> <span class="punctuation">&#123;</span></span><br><span class="line">    name</span><br><span class="line">    email</span><br><span class="line">  <span class="punctuation">&#125;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="7-Binary-Data"><a href="#7-Binary-Data" class="headerlink" title="7. Binary Data"></a>7. <strong>Binary Data</strong></h3><ul>
+<li>用于传输二进制数据，如图片、视频或音频文件。</li>
+<li>格式: 无需编码，直接传递二进制数据。</li>
+<li>适用场景: 多用于文件传输和处理。</li>
+<li>示例：图片上传等使用二进制文件流。</li>
+</ul>
+<h3 id="8-YAML-YAML-Ain’t-Markup-Language"><a href="#8-YAML-YAML-Ain’t-Markup-Language" class="headerlink" title="8. YAML (YAML Ain’t Markup Language)"></a>8. <strong>YAML (YAML Ain’t Markup Language)</strong></h3><ul>
+<li>一种简洁易读的格式，适合用作配置文件，也可用于数据传输。</li>
+<li>格式: 类似于 Python 的缩进格式。</li>
+<li>适用场景: 主要用作配置，但某些 API 也支持此格式。</li>
+<li>示例：<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">username:</span> <span class="string">johndoe</span></span><br><span class="line"><span class="attr">password:</span> <span class="number">123456</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="9-Protocol-Buffers-Protobuf"><a href="#9-Protocol-Buffers-Protobuf" class="headerlink" title="9. Protocol Buffers (Protobuf)"></a>9. <strong>Protocol Buffers (Protobuf)</strong></h3><ul>
+<li>一种高效的二进制序列化格式，通常用于高性能服务通信。</li>
+<li>格式: 数据以二进制格式传输。</li>
+<li>适用场景: 内部服务通信，如 gRPC。</li>
+<li>示例：<br>需要使用工具生成 <code>.proto</code> 文件以便序列化和反序列化。</li>
+</ul>
+<p>这些格式的选择通常取决于项目的需求和服务的兼容性。JSON 是最常用的，但在上传文件时会使用 <code>multipart/form-data</code>，而在高效传输中则可能会选用 Protobuf。</p>
+<h2 id="常见HTTP状态码"><a href="#常见HTTP状态码" class="headerlink" title="常见HTTP状态码"></a>常见HTTP状态码</h2><p>后端返回的错误代码通常遵循 <strong>HTTP 状态码</strong> 规范，这些状态码根据其范围可以分为不同的类别。以下是常见的错误类型和对应的状态码：</p>
+<h3 id="1-4xx-客户端错误"><a href="#1-4xx-客户端错误" class="headerlink" title="1. 4xx 客户端错误"></a>1. <strong>4xx 客户端错误</strong></h3><ul>
+<li><p>这类错误表示客户端发出的请求有问题，如请求格式不对、权限不足等。</p>
+</li>
+<li><p><strong>400 Bad Request</strong>:</p>
+<ul>
+<li>请求格式错误，服务器无法理解请求。</li>
+<li>例如：请求体中的 JSON 格式错误，或者缺少必填字段。</li>
+</ul>
+</li>
+<li><p><strong>401 Unauthorized</strong>:</p>
+<ul>
+<li>需要身份验证，未通过验证的用户无法访问资源。</li>
+<li>例如：没有提供有效的认证 Token。</li>
+</ul>
+</li>
+<li><p><strong>403 Forbidden</strong>:</p>
+<ul>
+<li>拒绝访问，即使用户已认证，也没有权限执行该操作。</li>
+<li>例如：用户尝试访问受限资源或没有权限的操作。</li>
+</ul>
+</li>
+<li><p><strong>404 Not Found</strong>:</p>
+<ul>
+<li>服务器无法找到请求的资源。</li>
+<li>例如：访问一个不存在的 API 路径或资源 ID。</li>
+</ul>
+</li>
+<li><p><strong>405 Method Not Allowed</strong>:</p>
+<ul>
+<li>请求的方法不被允许。</li>
+<li>例如：对某个资源发起 <code>POST</code> 请求，而服务器只接受 <code>GET</code> 请求。</li>
+</ul>
+</li>
+<li><p><strong>429 Too Many Requests</strong>:</p>
+<ul>
+<li>客户端请求过多，超出了服务器的限制（常见于速率限制）。</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-5xx-服务器错误"><a href="#2-5xx-服务器错误" class="headerlink" title="2. 5xx 服务器错误"></a>2. <strong>5xx 服务器错误</strong></h3><ul>
+<li>这类错误表示服务器在处理请求时发生了错误，可能是程序或数据库出错。</li>
+<li><strong>500 Internal Server Error</strong>:<ul>
+<li>服务器内部错误，通常是代码中的异常或未知错误。</li>
+<li>例如：后端代码逻辑错误、空指针异常、无法处理请求的数据等。</li>
+</ul>
+</li>
+<li><strong>502 Bad Gateway</strong>:<ul>
+<li>网关或代理服务器从上游服务器接收到无效响应。</li>
+<li>例如：后端服务超时或崩溃，代理服务器无法获取有效响应。</li>
+</ul>
+</li>
+<li><strong>503 Service Unavailable</strong>:<ul>
+<li>服务器不可用，通常是由于过载或维护。</li>
+<li>例如：服务被暂时关闭进行维护。</li>
+</ul>
+</li>
+<li><strong>504 Gateway Timeout</strong>:<ul>
+<li>网关或代理服务器等待上游服务器的响应超时。</li>
+<li>例如：后端服务响应过慢或未响应。</li>
+</ul>
+</li>
+<li><em><strong>301</strong></em><ul>
+<li>请求地址已永久移动到新地址</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-常见的应用层错误"><a href="#3-常见的应用层错误" class="headerlink" title="3. 常见的应用层错误"></a>3. <strong>常见的应用层错误</strong></h3><ul>
+<li><strong>Validation Errors (验证错误)</strong>:<ul>
+<li>例如表单字段不符合要求、数据格式不正确，通常在 API 返回时，HTTP 状态码可能是 <code>400</code>，并且在响应体中返回详细的验证错误信息。</li>
+</ul>
+</li>
+<li><strong>Authentication&#x2F;Authorization Errors (身份验证或权限错误)</strong>:<ul>
+<li>当用户未授权时，通常会返回 <code>401</code> 或 <code>403</code>，并带有消息解释如 “Token 无效” 或 “权限不足”。</li>
+</ul>
+</li>
+<li><strong>Timeout Errors (超时错误)</strong>:<ul>
+<li>如果请求花费的时间超过了服务器设定的响应时间，可能会返回 <code>504</code> 错误，提示网关超时。</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-特定框架的错误代码"><a href="#4-特定框架的错误代码" class="headerlink" title="4. 特定框架的错误代码"></a>4. <strong>特定框架的错误代码</strong></h3><ul>
+<li>不同的框架如 <code>Django</code>, <code>Spring</code>, <code>Node.js</code> 等，可能会在返回标准 HTTP 错误码的同时，自定义一些错误信息。例如，Django 会将表单验证错误包含在响应体中，Spring 也会使用 <code>@ExceptionHandler</code> 捕获并返回特定的异常错误信息。</li>
+</ul>
+<h2 id="流式接口解析"><a href="#流式接口解析" class="headerlink" title="流式接口解析"></a>流式接口解析</h2><figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">useEffect</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">if</span> (taskId !== <span class="string">&#x27;&#x27;</span>) &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;taskId:&#x27;</span>, taskId);</span><br><span class="line">    <span class="keyword">const</span> requestTask = <span class="title class_">Taro</span>.<span class="title function_">request</span>(&#123;</span><br><span class="line">      <span class="attr">url</span>: <span class="variable constant_">BASE_URL</span> + <span class="string">&#x27;chat/&#x27;</span> + taskId + <span class="string">&#x27;/stream/&#x27;</span>,</span><br><span class="line">      <span class="attr">header</span>: &#123; <span class="title class_">Authorization</span>: <span class="string">`Bearer <span class="subst">$&#123;accessToken&#125;</span>`</span> &#125;,</span><br><span class="line">      <span class="attr">method</span>: <span class="string">&#x27;GET&#x27;</span>,</span><br><span class="line">      <span class="attr">responseType</span>: <span class="string">&#x27;text&#x27;</span>,</span><br><span class="line">      <span class="attr">enableChunked</span>: <span class="literal">true</span>,</span><br><span class="line">    &#125;);</span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">    <span class="keyword">let</span> completeMessage = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="keyword">let</span> buffer = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    requestTask.<span class="title function_">onChunkReceived</span>(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="comment">// 接收分片的数据</span></span><br><span class="line">      <span class="keyword">let</span> data = res.<span class="property">data</span>;</span><br><span class="line">      <span class="keyword">const</span> decoder = <span class="keyword">new</span> <span class="title class_">TextDecoder</span>(<span class="string">&#x27;utf-8&#x27;</span>);</span><br><span class="line">      <span class="keyword">let</span> text = decoder.<span class="title function_">decode</span>(data);</span><br><span class="line">      <span class="keyword">let</span> jsonString = text.<span class="title function_">replace</span>(<span class="string">&#x27;data:&#x27;</span>, <span class="string">&#x27;&#x27;</span>);</span><br><span class="line">      buffer += jsonString;</span><br><span class="line">      <span class="comment">// 按行分割数据</span></span><br><span class="line">      <span class="keyword">const</span> lines = buffer.<span class="title function_">split</span>(<span class="string">&#x27;\n&#x27;</span>);</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 处理每一行</span></span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">let</span> line <span class="keyword">of</span> lines) &#123;</span><br><span class="line">        <span class="comment">// 去掉空行</span></span><br><span class="line">        <span class="keyword">if</span> (line.<span class="title function_">trim</span>() === <span class="string">&#x27;&#x27;</span>) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 去掉前缀 &#x27;data: &#x27;</span></span><br><span class="line">        <span class="keyword">const</span> jsonString1 = line.<span class="title function_">replace</span>(<span class="string">&#x27;data: &#x27;</span>, <span class="string">&#x27;&#x27;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 检查是否是完成标记</span></span><br><span class="line">        <span class="keyword">if</span> (jsonString1.<span class="title function_">trim</span>() === <span class="string">&#x27;[DONE]&#x27;</span>) &#123;</span><br><span class="line">          <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;接收到完成标记，停止处理。&#x27;</span>);</span><br><span class="line">          <span class="keyword">break</span>; <span class="comment">// 结束循环</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">          <span class="comment">// 解析 JSON 数据</span></span><br><span class="line">          <span class="keyword">const</span> json = <span class="title class_">JSON</span>.<span class="title function_">parse</span>(jsonString1);</span><br><span class="line">          completeMessage += json.<span class="property">content</span>; <span class="comment">// 拼接内容</span></span><br><span class="line">          <span class="comment">// console.log(&#x27;当前解析结果:&#x27;, json);</span></span><br><span class="line">          <span class="comment">// console.log(&#x27;完整消息:&#x27;, completeMessage);</span></span><br><span class="line">          <span class="title function_">setContent</span>(completeMessage);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">          <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;解析失败，内容可能不完整:&#x27;</span>, error);</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      buffer = lines[lines.<span class="property">length</span> - <span class="number">1</span>].<span class="title function_">trim</span>(); <span class="comment">// 保留最后一行，如果不完整</span></span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;, [taskId]);</span><br></pre></td></tr></table></figure>
+
+
+                
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box">
+    <div class="suffix-box-left">
+        <img src="/image/sidebar/avatar.jpg" alt="Aspirai">
+    </div>
+    <div class="suffix-box-right">
+        <span class="suffix-box-title">文章作者：</span>Aspirai
+        <br>
+        <span class="suffix-box-title">文章出处：</span><a href="/2024/10/19/%E5%89%8D%E7%AB%AF%E8%AF%B7%E6%B1%82%E5%8F%91%E9%80%81%E6%A0%BC%E5%BC%8F/" target="_blank">前端请求发送格式</a>
+        <br>
+        <span class="suffix-box-title">作者签名：</span>时间带不走你眼中的光辉
+        <br>
+        <span class="suffix-box-title">版权声明：</span>文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+        <br>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+                
+                
+                <div class="article-prev-next">
+                    
+                        <a href="/2024/10/19/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/" class="prev-prefix">« </a> 上一篇：    <a href="/2024/10/19/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/" title="发布于 2024-10-19 06:07">前端代码规范</a>
+                        <br>
+                    
+                    
+                        <a href="/2024/10/19/%E5%B8%B8%E7%94%A8%E6%95%B0%E7%BB%84%E6%93%8D%E4%BD%9C/" class="next-prefix">» </a> 下一篇：    <a href="/2024/10/19/%E5%B8%B8%E7%94%A8%E6%95%B0%E7%BB%84%E6%93%8D%E4%BD%9C/" title="发布于 2024-10-19 06:07">常用数组操作</a>
+                    
+                </div>
+            </div>
+            
+    <div class="article-comments">
+        
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+    
+ 
+        </div>
+    
+</div>
+    <div id="footer">
+    <div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>
+</div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar">
+                    <img src="/image/sidebar/avatar.jpg">
+                </div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user">
+                        
+                            <a href="javascript:;" target="_self"><span>Aspirai</span></a>
+                        
+                    </div>
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul>
+                    
+                        <li class=""><a href="/" class="" target="_self"><span class="iconfont icon-home-fill"></span>首页</a></li>
+                    
+                        <li class=""><a href="/tag" class="" target="_self"><span class="iconfont icon-discount-fill"></span>标签</a></li>
+                    
+                        <li class=""><a href="/archive" class="" target="_self"><span class="iconfont icon-calendar-fill"></span>归档</a></li>
+                    
+                        <li class=""><a href="/friend" class="" target="_self"><span class="iconfont icon-link"></span>友情链接</a></li>
+                    
+                </ul> 
+            </div> 
+            <div class="menu-link">
+                <div class="box">
+                    <div class="image-box"></div>
+                </div>
+                
+                    <a name="QQ" href="javascript:;" class="image" target="_self" data="/image/sidebar/qq.png"><span class="iconfont icon-qq"></span></a>
+                
+            </div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="/css/search.css">
+<script type="text/javascript" src="/js/iscroll.js"></script>
+<script type="text/javascript" src="/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+    
+    <link type="text/css" rel="stylesheet" href="/css/APlayer.css">
+    <script type="text/javascript" src="/js/APlayer.min.js"></script>
+    <script type="text/javascript" src="/js/Meting.min.js"></script>
+    <script>
+        var meting_api = 'https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&auth=:auth&r=:r';
+    </script>
+    <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+
+    <div class="wrap-right">
+    <div class="wrap-right-hide">
+         <div class="wrap-right-button favorites">
+            <div class="iconbox" switch="false">
+                <span class="iconfont icon-favorites"></span>
+            </div>
+            <span class="icontext">关注</span>
+         </div>
+        <div class="wrap-right-button search">
+            <div class="iconbox">
+                <span class="iconfont icon-search-menu"></span>
+            </div>
+            <span class="icontext">搜索</span>
+        </div>
+        <div class="wrap-right-button menu-button">
+            <div class="iconbox">
+                <span class="iconfont icon-menu"></span>
+            </div>
+            <span class="icontext">菜单</span>
+        </div>
+        <div class="wrap-right-button mode">
+            <div class="light">
+                <div class="iconbox">
+                    <span class="iconfont icon-daymode"></span>
+                </div>
+                <span class="icontext">浅色模式</span>
+            </div>
+            <div class="dark">
+                <div class="iconbox">
+                    <span class="iconfont icon-nightmode-fill"></span>
+                </div>
+                <span class="icontext">深色模式</span>
+            </div>
+        </div>
+        <div class="wrap-right-button bottom">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">跳至底部</span>
+        </div>
+    </div>
+    <div class="wrap-right-show">
+        <div class="wrap-right-button set">
+            <div class="iconbox">
+                <span class="iconfont icon-setting"></span>
+            </div>
+            <span class="icontext">设置</span>
+        </div>
+        <div class="wrap-right-button top">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">返回顶部</span>
+        </div>
+    </div>
+</div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : "Aspirai",
+        GitHubRepositories : "Hexo-LiveForCode",
+
+        User             : "Aspirai",
+        UserAvatar       : "/image/sidebar/avatar.jpg",
+        WebsiteStartDate : "2020-01-01",
+        Home             : "",
+
+        WebsiteTitleBlur         : "(◍´꒳`◍) Hi, Aspirai",
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : "(*´∇｀*) 欢迎回来!",
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : {
+            light : "/image/website/logo/logo.png",
+            dark  : "/image/website/logo/logo-dark.png"
+        },
+
+        ProgressBar : {
+            id       : "topProgressBar",
+            color    : "#77B6FF",
+            height   : "2px",
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound : {
+                tension  : 16,
+                friction : 5
+            },
+            spinner : {
+                id     : "spinner",
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : "#F0F0F0",
+                    stroke     : "#272633",
+                    base       : "",
+                    child      : "#272633"
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : "rgba(255, 255, 255, .2)",
+            clearOffset : 0.3
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : "60%",
+            colorBrightness  : "50%",
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : "random",
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                "/image/header/home.jpg",
+            
+                "/image/header/home.png",
+            
+        ],
+        HomeBannerText  : "",
+
+        ArticleHeaderImage : [
+            
+                "/image/header/article.jpg",
+            
+        ],
+
+        OtherBannerText : "",
+
+        Error : {
+            icon    : "icon-swimming",
+            title   : "PAGE NOT FOUND",
+            content : [
+                
+                    "很抱歉，您访问的页面不存在！",
+                
+                    "可能是输入地址有误或该地址已变更。",
+                
+            ],
+            buttons : [
+                
+                    {
+                        icon  : "icon-home",
+                        text  : "返回首页",
+                        href  : "/",
+                        class : ""
+                    },
+                
+            ]
+        },
+
+        MenuNotice : {
+            enable : false,
+            notice : "简单地活着，肆意而又精彩！",
+            speed  : 20
+        },
+        MenuList : [
+            
+                {
+                    name   : "首页",
+                    icon   : "icon-home-fill",
+                    href   : "/",
+                    type   : "index",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "标签",
+                    icon   : "icon-discount-fill",
+                    href   : "/tag",
+                    type   : "tag",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "归档",
+                    icon   : "icon-calendar-fill",
+                    href   : "/archive",
+                    type   : "archive",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "友情链接",
+                    icon   : "icon-link",
+                    href   : "/friend",
+                    type   : "friend",
+                    class  : "",
+                    target : "_self"
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        name   : "QQ",
+                        icon   : "icon-qq",
+                        href   : "javascript:;",
+                        class  : "image",
+                        target : "_self",
+                        image  : "/image/sidebar/qq.png"
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : "<div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>",
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                "Based on cnblogs theme SimpleMemory.",
+                            
+                                "",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "SimpleMemory Author:",
+                            
+                                "BNDong",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "Theme:",
+                            
+                                "LiveForCode",
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : "",
+
+        Donate : {
+            paypal  : "",
+            bitcoin : "",
+            alipay  : "/image/donate/alipay.png",
+            wechat  : "/image/donate/wechat.png"
+        },
+
+        Search : {
+            applicationID : "010C3EANT8",
+            apiKey        : "c7abab9f11b79102b9aff7fe6d41447d",
+            indexName     : "Notes",
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : "搜索",
+                empty       : "未发现与 「${query}」 相关的内容",
+                stats       : "${hits} 条相关条目，使用了 ${time} 毫秒",
+            }
+        }, 
+
+        Comment : {
+            switch : true,
+            type   : "Valine",
+        },
+
+        Waline : {
+            el              : ".comments-content",
+            serverURL       : "",
+            path            : window.location.pathname,
+            meta            : "['nick', 'mail', 'link']",
+            requiredMeta    : "['nick', 'mail']",
+            pageSize        : 10,
+            lang            : "zh-cn",
+            locale: {
+                admin       : "博主",
+                anonymous   : "匿名用户",
+                sofa        : "快来做第一个评论的人吧 ~",
+                placeholder : "你是我一生只会遇见一次的惊喜...",
+            },
+            dark            : "html[color-scheme='dark']",
+            search          : false,
+            pageview        : true,
+            comment         : true,
+            copyright       : false,
+        },
+
+        Valine : {
+            el             : ".comments-content",
+            appId          : "srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz",
+            appKey         : "8uVSP1q6UlALVC5igYfIfv2h",
+            serverURLs     : "",
+            placeholder    : "你是我一生只会遇见一次的惊喜...",
+            avatar         : "mm",
+            meta           : "nick,mail,link",
+            requiredFields : "nick,mail",
+            pageSize       : 5,
+            lang           : "zh-cn",
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : ".toc",
+            contentSelector       : ".article-body",
+            headingSelector       : "h1, h2, h3, h4, h5",
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : ".toc",
+            positionFixedClass    : "toc-fixed",
+            fixedSidebarOffset    : "",
+        },
+
+        Require : {
+            baseUrl     : "/js/",
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : "Meting"
+        },
+        APlayer : {
+            container : ".aplayer",
+            fixed     : true,
+            autoplay  : false,
+            loop      : "all",
+            order     : "random",
+            preload   : "auto",
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : "Endless Tears",
+                        artist : "CLIFF EDGE",
+                        cover  : "/music/cover/Endless Tears.jpg",
+                        url    : "/music/song/Endless Tears.mp3",
+                        lrc    : "/music/lrc/Endless Tears.lrc"
+                    },
+                
+            ]
+        },
+        Meting : {
+            api      : "https://api.i-meto.com/meting/api",
+            id       : "3778678", 
+            lrcshow  : false, 
+            server   : "netease", 
+            type     : "playlist", 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : "all", 
+            order    : "random", 
+            preload  : "auto", 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : true,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : "/image/website/lazyload.svg"
+        },
+  
+        Style : {
+            aplayer          : "/css/APlayer.css",
+            archive          : "/css/archive.css",
+            base             : "/css/base.css",
+            clipboard        : "/css/clipboard.css",
+            code             : "/css/code.css",
+            donate           : "/css/donate.css",
+            fancybox         : "/css/jquery.fancybox.css",
+            footer           : "/css/footer.css",
+            iconfont         : "/iconfont/iconfont.css",
+            index            : "/css/index.css",
+            menuBubble       : "/css/menu-bubble.css",
+            mouse            : "/css/mouse.css",
+            page             : "/css/page.css",
+            post             : "/css/post.css",
+            search           : "/css/search.css",
+            tocbot           : "/css/tocbot.css",
+            valine           : "/css/valine.css",
+            waline           : "/css/waline.css",
+            walineCustom     : "/css/waline-custom.css"
+        },
+
+        Script: {
+            aplayer          : "/js/APlayer.min.js",
+            config           : "/js/require.config.js",
+            index            : "/js/index.js",
+            instantSearch    : "/js/instantsearch.min.js",
+            iscroll          : "/js/iscroll.js",
+            jQuery           : "/js/jquery-3.4.1.min.js",
+            loading          : "/js/loading.js",
+            meting           : "/js/Meting.min.js",
+            require          : "/js/require.min.js",
+            waline           : "/js/waline.mjs",
+            pageview         : "/js/pageview.mjs",
+            comment          : "/js/comment.mjs",
+        },
+
+        Font: {
+            LongCang    : "/font/LongCang.css",
+            Monda       : "/font/Monda.css",
+            NotoSansSC  : "/font/NotoSansSC.css",
+            NotoSerifSC : "/font/NotoSerifSC.css",
+            Playball    : "/font/Playball.css",
+            PTMono      : "/font/PTMono.css",
+            Roboto      : "/font/Roboto.css",
+            RobotoSlab  : "/font/RobotoSlab.css",
+            Rosario     : "/font/Rosario.css",
+            UbuntuMono  : "/font/UbuntuMono.css"
+        },
+
+        Suffix : {
+            about : "时间带不走你眼中的光辉"
+        },
+            
+        Theme : {
+            url  : "https://github.com/first19326/Hexo-LiveForCode",
+            name : "Hexo - Live For Code"
+        }  
+    };
+</script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</body>
+</html>

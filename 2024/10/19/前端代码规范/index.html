@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>
+        
+            前端代码规范
+        
+    </title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSerifSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="/font/Roboto.css">
+    <link type="text/css" rel="stylesheet" href="/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="/css/base.css">
+    <link type="text/css" rel="stylesheet" href="/css/code.css">
+
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <a id="cover"></a>
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
+<div id="header" class="header">
+    <div class="vertical">
+        <div class="inner">
+            
+                <h1 class="header-subtitle">前端代码规范</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2024-10-19
+                        </span>
+                        
+                            
+                                <span id="/2024/10/19/前端代码规范/" class="leancloud_visitors" data-flag-title="前端代码规范">
+                                    <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                                </span>
+                            
+                            
+                                <span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/10/19/前端代码规范/"></span>
+                                </span>
+                              
+                        
+                    </p>
+                    
+                    
+                </div>
+            
+        </div>
+    </div>
+    
+</div>
+<div id="container">
+    
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <h1 id="前端代码规范-命名规范"><a href="#前端代码规范-命名规范" class="headerlink" title="前端代码规范-命名规范"></a>前端代码规范-命名规范</h1><p>2022-06-10 3410</p>
+<p>版权</p>
+<p>举报</p>
+<p>版权声明：</p>
+<p>本文内容由阿里云实名注册用户自发贡献，版权归原作者所有，阿里云开发者社区不拥有其著作权，亦不承担相应法律责任。具体规则请查看《 <a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/768092">阿里云开发者社区用户服务协议</a>》和 《<a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/768093">阿里云开发者社区知识产权保护指引</a>》。如果您发现本社区中有涉嫌抄袭的内容，填写 <a target="_blank" rel="noopener" href="https://yida.alibaba-inc.com/o/right">侵权投诉表单</a>进行举报，一经查实，本社区将立刻删除涉嫌侵权内容。</p>
+<p><strong>简介：</strong> 命名规范</p>
+<h1 id="命名规范"><a href="#命名规范" class="headerlink" title="命名规范"></a>命名规范</h1><p>市面上常用的命名规范：</p>
+<ul>
+<li><code>camelCase</code>（小驼峰式命名法 —— 首字母小写）</li>
+<li><code>PascalCase</code>（大驼峰式命名法 —— 首字母大写）</li>
+<li><code>kebab-case</code>（短横线连接式）</li>
+<li><code>Snake</code>（下划线连接式）</li>
+</ul>
+<h2 id="项目文件命名"><a href="#项目文件命名" class="headerlink" title="项目文件命名"></a>项目文件命名</h2><h3 id="项目名"><a href="#项目名" class="headerlink" title="项目名"></a>项目名</h3><p>全部采用小写方式， 以短横线分隔。 例：<code>my-project-name</code>。</p>
+<h3 id="目录名"><a href="#目录名" class="headerlink" title="目录名"></a>目录名</h3><p><strong>参照项目命名规则，有复数结构时，要采用复数命名法。</strong> 例：docs、assets、components、directives、mixins、utils、views。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">my-project-name/</span><br><span class="line">├─ dist            <span class="comment">// 部署文件目录</span></span><br><span class="line">├─ mock            <span class="comment">// 模拟数据</span></span><br><span class="line">├─ node_modules    <span class="comment">// 下载的依赖包</span></span><br><span class="line">├─ public          <span class="comment">// 静态页面目录</span></span><br><span class="line">│   ├─ index<span class="selector-class">.html</span>  <span class="comment">// 项目入口</span></span><br><span class="line">├─ <span class="attribute">src</span>             // 源码目录</span><br><span class="line">│   ├─ api         <span class="comment">// http 请求目录</span></span><br><span class="line">│   ├─ assets</span><br><span class="line">│   ├─ components</span><br><span class="line">│   ├─ config</span><br><span class="line">│   ├─ <span class="attribute">icon</span></span><br><span class="line">│   ├─ mixins</span><br><span class="line">│   ├─ model</span><br><span class="line">│   ├─ router</span><br><span class="line">│   ├─ store</span><br><span class="line">│   ├─ utils</span><br><span class="line">│   ├─ vab</span><br><span class="line">│   ├─ views</span><br><span class="line">│   ├─ App<span class="selector-class">.vue</span></span><br><span class="line">│   └─ <span class="selector-tag">main</span><span class="selector-class">.js</span></span><br><span class="line">├─ <span class="selector-class">.editorconfig</span></span><br><span class="line">├─ <span class="selector-class">.gitignore</span></span><br><span class="line">├─ babel<span class="selector-class">.config</span><span class="selector-class">.js</span></span><br><span class="line">├─ package<span class="selector-class">.json</span></span><br><span class="line">├─ README<span class="selector-class">.md</span></span><br><span class="line">├─ vue<span class="selector-class">.config</span><span class="selector-class">.js</span></span><br><span class="line">└─ yarn.lock</span><br></pre></td></tr></table></figure>
+
+<h3 id="图像文件名"><a href="#图像文件名" class="headerlink" title="图像文件名"></a>图像文件名</h3><p>全部采用小写方式， 优先选择单个单词命名，多个单词命名以<strong>下划线</strong>分隔。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">banner_sina<span class="selector-class">.gif</span></span><br><span class="line">menu_aboutus<span class="selector-class">.gif</span></span><br><span class="line">menutitle_news<span class="selector-class">.gif</span></span><br><span class="line">logo_police<span class="selector-class">.gif</span></span><br><span class="line">logo_national<span class="selector-class">.gif</span></span><br><span class="line">pic_people<span class="selector-class">.jpg</span></span><br><span class="line">pic_TV.jpg</span><br></pre></td></tr></table></figure>
+
+<h3 id="HTML-文件名"><a href="#HTML-文件名" class="headerlink" title="HTML 文件名"></a>HTML 文件名</h3><p>全部采用小写方式， 优先选择单个单词命名，多个单词命名以<strong>下划线</strong>分隔。</p>
+<figure class="highlight elm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">├─ error_re<span class="keyword">port</span>.html</span><br><span class="line">├─ success_re<span class="keyword">port</span>.html</span><br></pre></td></tr></table></figure>
+
+<h3 id="CSS-文件名"><a href="#CSS-文件名" class="headerlink" title="CSS 文件名"></a>CSS 文件名</h3><p>全部采用小写方式， 优先选择单个单词命名，多个单词命名以<strong>短横线</strong>分隔。</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">├─ <span class="keyword">normalize.less</span></span><br><span class="line"><span class="keyword"></span>├─ <span class="keyword">base.less</span></span><br><span class="line"><span class="keyword"></span>├─ date-picker.<span class="keyword">scss</span></span><br><span class="line"><span class="keyword"></span>├─ input-number.<span class="keyword">scss</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="JavaScript-文件名"><a href="#JavaScript-文件名" class="headerlink" title="JavaScript 文件名"></a>JavaScript 文件名</h3><p>全部采用小写方式， 优先选择单个单词命名，多个单词命名以<strong>短横线</strong>分隔。</p>
+<figure class="highlight x86asm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">├─ index<span class="number">.</span><span class="keyword">js</span></span><br><span class="line">├─ plugin<span class="number">.</span><span class="keyword">js</span></span><br><span class="line">├─ util<span class="number">.</span><span class="keyword">js</span></span><br><span class="line">├─ date-util<span class="number">.</span><span class="keyword">js</span></span><br><span class="line">├─ account-model<span class="number">.</span><span class="keyword">js</span></span><br><span class="line">├─ collapse-transition<span class="number">.</span><span class="keyword">js</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>上述规则可以快速记忆为“静态文件下划线，编译文件短横线”。</p>
+</blockquote>
+<h2 id="Vue-组件命名"><a href="#Vue-组件命名" class="headerlink" title="Vue 组件命名"></a>Vue 组件命名</h2><h3 id="单文件组件名"><a href="#单文件组件名" class="headerlink" title="单文件组件名"></a>单文件组件名</h3><p>文件扩展名为 <code>.vue</code> 的 <code>single-file components</code> (单文件组件)。单文件组件名应该始终是<strong>单词大写开头</strong> (PascalCase)。</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">components</span></span><br><span class="line">├─ MyComponent.vue</span><br></pre></td></tr></table></figure>
+
+<h3 id="单例组件名"><a href="#单例组件名" class="headerlink" title="单例组件名"></a>单例组件名</h3><p><strong>只拥有单个活跃实例的组件应该以 <code>The</code> 前缀命名，以示其唯一性。</strong></p>
+<p>这不意味着组件只可用于一个单页面，而是每个页面只使用一次。这些组件永远不接受任何 prop，因为它们是为你的应用定制的。如果你发现有必要添加 prop，那就表明这实际上是一个可复用的组件，只是目前在每个页面里只使用一次。</p>
+<p>比如，头部和侧边栏组件几乎在每个页面都会使用，不接受 prop，该组件是专门为该应用所定制的。</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">components</span></span><br><span class="line">├─ TheHeading.vue</span><br><span class="line">├─ TheSidebar.vue</span><br></pre></td></tr></table></figure>
+
+<h3 id="基础组件名"><a href="#基础组件名" class="headerlink" title="基础组件名"></a>基础组件名</h3><blockquote>
+<p>基础组件：不包含业务，独立、具体功能的基础组件，比如日期选择器、模态框等。这类组件作为项目的基础控件，会被大量使用，因此组件的 API 进行过高强度的抽象，可以通过不同配置实现不同的功能。<br>应用特定样式和约定的基础组件(也就是展示类的、无逻辑的或无状态、不掺杂业务逻辑的组件) 应该全部以一个特定的前缀开头 —— Base。 <strong>基础组件在一个页面内可使用多次，在不同页面内也可复用，是高可复用组件。</strong></p>
+</blockquote>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">components</span><br><span class="line">├─ <span class="keyword">BaseButton.vue</span></span><br><span class="line"><span class="keyword"></span>├─ <span class="keyword">BaseTable.vue</span></span><br><span class="line"><span class="keyword"></span>├─ <span class="keyword">BaseIcon.vue</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="业务组件"><a href="#业务组件" class="headerlink" title="业务组件"></a>业务组件</h3><blockquote>
+<p>业务组件：它不像基础组件只包含某个功能，而是在业务中被多个页面复用的（具有可复用性），它与基础组件的区别是，业务组件只在当前项目中会用到，不具有通用性，而且会包含一些业务，比如数据请求；而基础组件不含业务，在任何项目中都可以使用，功能单一，比如一个具有数据校验功能的输入框。<br><strong>掺杂了复杂业务的组件（拥有自身 <code>data</code>、<code>prop</code> 的相关处理）即业务组件</strong>应该以 Custom 前缀命名。业务组件在一个页面内比如：某个页面内有一个卡片列表，而样式和逻辑跟业务紧密相关的卡片就是业务组件。</p>
+</blockquote>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">components</span></span><br><span class="line">├─ CustomCard.vue</span><br></pre></td></tr></table></figure>
+
+<h3 id="紧密耦合的组件名"><a href="#紧密耦合的组件名" class="headerlink" title="紧密耦合的组件名"></a>紧密耦合的组件名</h3><p><strong>和父组件紧密耦合的子组件应该以父组件名作为前缀命名。</strong> 因为编辑器通常会按字母顺序组织文件，所以这样做可以把相关联的文件排在一起。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">components</span><br><span class="line">├─ TodoList<span class="selector-class">.vue</span></span><br><span class="line">├─ TodoListItem<span class="selector-class">.vue</span></span><br><span class="line">├─ TodoListItemButton.vue</span><br></pre></td></tr></table></figure>
+
+<h3 id="组件名中单词顺序"><a href="#组件名中单词顺序" class="headerlink" title="组件名中单词顺序"></a>组件名中单词顺序</h3><p><strong>组件名应该以高级别的 (通常是一般化描述的) 单词开头，以描述性的修饰词结尾。</strong> 因为编辑器通常会按字母顺序组织文件，所以现在组件之间的重要关系一目了然。如下组件主要是用于搜索和设置功能。</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">components</span><br><span class="line">├─ SearchButtonClear<span class="selector-class">.vue</span></span><br><span class="line">├─ SearchButtonRun<span class="selector-class">.vue</span></span><br><span class="line">├─ SearchInputQuery<span class="selector-class">.vue</span></span><br><span class="line">├─ SearchInputExcludeGlob<span class="selector-class">.vue</span></span><br><span class="line">├─ SettingsCheckboxTerms<span class="selector-class">.vue</span></span><br><span class="line">├─ SettingsCheckboxLaunchOnStartup.vue</span><br></pre></td></tr></table></figure>
+
+<p>还有另一种多级目录的方式，把所有的搜索组件放到“search”目录，把所有的设置组件放到“settings”目录。我们只推荐在非常大型 (如有 100+ 个组件) 的应用下才考虑这么做，因为在多级目录间找来找去，要比在单个 components 目录下滚动查找要花费更多的精力。</p>
+<h3 id="完整单词组件名"><a href="#完整单词组件名" class="headerlink" title="完整单词组件名"></a>完整单词组件名</h3><p><strong>组件名应该倾向于而不是缩写。</strong> 编辑器中的自动补全已经让书写长命名的代价非常之低了，而其带来的明确性却是非常宝贵的。不常用的缩写尤其应该避免。</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">components</span></span><br><span class="line">├─ StudentDashboardSettings.vue</span><br><span class="line">├─ UserProfileOptions.vue</span><br></pre></td></tr></table></figure>
+
+<h2 id="代码参数命名"><a href="#代码参数命名" class="headerlink" title="代码参数命名"></a>代码参数命名</h2><h3 id="name"><a href="#name" class="headerlink" title="name"></a>name</h3><p><strong>组件名应该始终是多个单词，应该始终是 PascalCase 的。</strong> 根组件 App 以及 <code>&lt;transition&gt;</code>、<code>&lt;component&gt;</code> 之类的 Vue 内置组件除外。这样做可以避免跟现有的以及未来的 HTML 元素相冲突，因为所有的 HTML 元素名称都是单个单词的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;ToDoList&#x27;</span>,</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="prop"><a href="#prop" class="headerlink" title="prop"></a>prop</h3><p><strong>在声明 prop 的时候，其命名应该始终使用 camelCase，而在模板和 JSX 中应该始终使用 kebab-case。</strong> 我们单纯的遵循每个语言的约定，在 JavaScript 中更自然的是 camelCase。而在 HTML 中则是 kebab-case。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">WelcomeMessage</span> <span class="attr">greeting-text</span>=<span class="string">&quot;hi&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;MyComponent&#x27;</span>,</span><br><span class="line">  <span class="comment">// ...</span></span><br><span class="line">  <span class="attr">props</span>: &#123;</span><br><span class="line">    <span class="attr">greetingText</span>: &#123;</span><br><span class="line">      <span class="attr">type</span>: <span class="title class_">String</span>,</span><br><span class="line">      <span class="attr">required</span>: <span class="literal">true</span>,</span><br><span class="line">      <span class="attr">validator</span>: <span class="keyword">function</span> (<span class="params">value</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> [<span class="string">&#x27;syncing&#x27;</span>, <span class="string">&#x27;synced&#x27;</span>,].<span class="title function_">indexOf</span>(value) !== -<span class="number">1</span></span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="router"><a href="#router" class="headerlink" title="router"></a>router</h3><p><strong>Vue Router Path 命名采用 kebab-case 格式。</strong> 用 Snake（如：<code>/user_info</code>）或 camelCase（如：<code>/userInfo</code>)的单词会被当成一个单词，搜索引擎无法区分语义。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">path</span>: <span class="string">&#x27;/user_info&#x27;</span>, <span class="comment">// user_info 当成一个单词</span></span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;UserInfo&#x27;</span>,</span><br><span class="line">  <span class="attr">component</span>: <span class="title class_">UserInfo</span>,</span><br><span class="line">  <span class="attr">meta</span>: &#123;</span><br><span class="line">    <span class="attr">title</span>: <span class="string">&#x27; - 用户&#x27;</span>,</span><br><span class="line">    <span class="attr">desc</span>: <span class="string">&#x27;&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br><span class="line"><span class="comment">// good</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">path</span>: <span class="string">&#x27;/user-info&#x27;</span>, <span class="comment">// 能解析成 user info</span></span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;UserInfo&#x27;</span>,</span><br><span class="line">  <span class="attr">component</span>: <span class="title class_">UserInfo</span>,</span><br><span class="line">  <span class="attr">meta</span>: &#123;</span><br><span class="line">    <span class="attr">title</span>: <span class="string">&#x27; - 用户&#x27;</span>,</span><br><span class="line">    <span class="attr">desc</span>: <span class="string">&#x27;&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure>
+
+<h3 id="模板中组件"><a href="#模板中组件" class="headerlink" title="模板中组件"></a>模板中组件</h3><p><strong>对于绝大多数项目来说，在单文件组件和字符串模板中组件名应该总是 PascalCase 的，但是在 DOM 模板中总是 kebab-case 的。</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 在单文件组件和字符串模板中 --&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">MyComponent</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 在 DOM 模板中 --&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">my-component</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="自闭合组件"><a href="#自闭合组件" class="headerlink" title="自闭合组件"></a>自闭合组件</h3><p><strong>在单文件组件、字符串模板和 JSX 中没有内容的组件应该是自闭合的——但在 DOM 模板里永远不要这样做。</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 在单文件组件和字符串模板中 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">MyComponent</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- 在所有地方 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">my-component</span>&gt;</span><span class="tag">&lt;/<span class="name">my-component</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><ul>
+<li>命名方法：camelCase</li>
+<li>命名规范：类型 + 对象描述或属性的方式</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// bad</span></span><br><span class="line"><span class="keyword">var</span> getTitle = <span class="string">&quot;LoginTable&quot;</span></span><br><span class="line"><span class="comment">// good</span></span><br><span class="line"><span class="keyword">let</span> tableTitle = <span class="string">&quot;LoginTable&quot;</span></span><br><span class="line"><span class="keyword">let</span> mySchool = <span class="string">&quot;我的学校&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><ul>
+<li>命名方法：全部大写下划线分割</li>
+<li>命名规范：使用大写字母和下划线来组合命名，下划线用以分割单词</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="variable constant_">MAX_COUNT</span> = <span class="number">10</span></span><br><span class="line"><span class="keyword">const</span> <span class="variable constant_">URL</span> = <span class="string">&#x27;http://test.host.com&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><ul>
+<li>命名方法：camelCase</li>
+<li>命名规范：统一使用动词或者动词 + 名词形式</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1、普通情况下，使用动词 + 名词形式</span></span><br><span class="line"><span class="comment">// bad</span></span><br><span class="line">go、nextPage、show、open、login</span><br><span class="line"><span class="comment">// good</span></span><br><span class="line">jumpPage、openCarInfoDialog</span><br><span class="line"><span class="comment">// 2、请求数据方法，以 data 结尾</span></span><br><span class="line"><span class="comment">// bad</span></span><br><span class="line">takeData、confirmData、getList、postForm</span><br><span class="line"><span class="comment">// good</span></span><br><span class="line">getListData、postFormData</span><br><span class="line"><span class="comment">// 3、单个动词的情况</span></span><br><span class="line">init、refresh</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>动词</th>
+<th>含义</th>
+<th>返回值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>can</td>
+<td>判断是否可执行某个动作 (权 )</td>
+<td>函数返回一个布尔值。true：可执行；false：不可执行；</td>
+</tr>
+<tr>
+<td>has</td>
+<td>判断是否含有某个值</td>
+<td>函数返回一个布尔值。true：含有此值；false：不含有此值；</td>
+</tr>
+<tr>
+<td>is</td>
+<td>判断是否为某个值</td>
+<td>函数返回一个布尔值。true：为某个值；false：不为某个值；</td>
+</tr>
+<tr>
+<td>get</td>
+<td>获取某个值</td>
+<td>函数返回一个非布尔值</td>
+</tr>
+<tr>
+<td>set</td>
+<td>设置某个值</td>
+<td>无返回值、返回是否设置成功或者返回链式对象</td>
+</tr>
+</tbody></table>
+<h3 id="自定义事件"><a href="#自定义事件" class="headerlink" title="自定义事件"></a>自定义事件</h3><p><strong>自定义事件应始终使用 kebab-case 的事件名。</strong></p>
+<p>不同于组件和 prop，事件名不存在任何自动化的大小写转换。而是触发的事件名需要完全匹配监听这个事件所用的名称。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable language_">this</span>.$emit(<span class="string">&#x27;my-event&#x27;</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">MyComponent</span> @<span class="attr">my-event</span>=<span class="string">&quot;handleDoSomething&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>不同于组件和 prop，事件名不会被用作一个 JavaScript 变量名或 property 名，所以就没有理由使用 camelCase 或 PascalCase 了。并且 <code>v-on</code> 事件监听器在 DOM 模板中会被自动转换为全小写 (因为 HTML 是大小写不敏感的)，所以 <code>v-on:myEvent</code> 将会变成 <code>v-on:myevent</code>——导致 <code>myEvent</code> 不可能被监听到。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/Events">原生事件参考列表</a></li>
+</ul>
+<p>由原生事件可以发现其使用方式如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span></span></span><br><span class="line"><span class="tag">  @<span class="attr">blur</span>=<span class="string">&quot;toggleHeaderFocus&quot;</span></span></span><br><span class="line"><span class="tag">  @<span class="attr">focus</span>=<span class="string">&quot;toggleHeaderFocus&quot;</span></span></span><br><span class="line"><span class="tag">  @<span class="attr">click</span>=<span class="string">&quot;toggleMenu&quot;</span></span></span><br><span class="line"><span class="tag">  @<span class="attr">keydown.esc</span>=<span class="string">&quot;handleKeydown&quot;</span></span></span><br><span class="line"><span class="tag">  @<span class="attr">keydown.enter</span>=<span class="string">&quot;handleKeydown&quot;</span></span></span><br><span class="line"><span class="tag">  @<span class="attr">keydown.up.prevent</span>=<span class="string">&quot;handleKeydown&quot;</span></span></span><br><span class="line"><span class="tag">  @<span class="attr">keydown.down.prevent</span>=<span class="string">&quot;handleKeydown&quot;</span></span></span><br><span class="line"><span class="tag">  @<span class="attr">keydown.tab</span>=<span class="string">&quot;handleKeydown&quot;</span></span></span><br><span class="line"><span class="tag">  @<span class="attr">keydown.delete</span>=<span class="string">&quot;handleKeydown&quot;</span></span></span><br><span class="line"><span class="tag">  @<span class="attr">mouseenter</span>=<span class="string">&quot;hasMouseHoverHead = true&quot;</span></span></span><br><span class="line"><span class="tag">  @<span class="attr">mouseleave</span>=<span class="string">&quot;hasMouseHoverHead = false&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>而为了区分原生事件和自定义事件在 Vue 中的使用，建议除了多单词事件名使用 kebab-case 的情况下，命名还需遵守为 <code>on</code> <strong>+ 动词</strong> 的形式，如下：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 父组件 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span></span></span><br><span class="line"><span class="tag">  @<span class="attr">on-search</span>=<span class="string">&quot;handleSearch&quot;</span></span></span><br><span class="line"><span class="tag">  @<span class="attr">on-clear</span>=<span class="string">&quot;handleClear&quot;</span></span></span><br><span class="line"><span class="tag">  @<span class="attr">on-clickoutside</span>=<span class="string">&quot;handleClickOutside&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 子组件</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span><br><span class="line">  <span class="attr">methods</span>: &#123;</span><br><span class="line">    <span class="title function_">handleTriggerItem</span> () &#123;</span><br><span class="line">      <span class="variable language_">this</span>.$emit(<span class="string">&#x27;on-clear&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="事件方法"><a href="#事件方法" class="headerlink" title="事件方法"></a>事件方法</h3><ul>
+<li>命名方法：camelCase</li>
+<li>命名规范：handle + 名称（可选）+ 动词</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">    @<span class="attr">click.native.stop</span>=<span class="string">&quot;handleItemClick()&quot;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">    @<span class="attr">mouseenter.native.stop</span>=<span class="string">&quot;handleItemHover()&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">&lt;/template&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="language-javascript"></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"><span class="keyword">export</span> <span class="keyword">default</span> &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  <span class="attr">methods</span>: &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="title function_">handleItemClick</span> () &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="comment">//...</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    &#125;,</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    <span class="title function_">handleItemHover</span> () &#123;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">      <span class="comment">//...</span></span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">    &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">  &#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml">&#125;</span></span></span><br><span class="line"><span class="language-javascript"><span class="language-xml"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<p>本文转自 <a target="_blank" rel="noopener" href="https://developer.aliyun.com/article/951001">https://developer.aliyun.com/article/951001</a>，如有侵权，请联系删除。</p>
+
+                
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box">
+    <div class="suffix-box-left">
+        <img src="/image/sidebar/avatar.jpg" alt="Aspirai">
+    </div>
+    <div class="suffix-box-right">
+        <span class="suffix-box-title">文章作者：</span>Aspirai
+        <br>
+        <span class="suffix-box-title">文章出处：</span><a href="/2024/10/19/%E5%89%8D%E7%AB%AF%E4%BB%A3%E7%A0%81%E8%A7%84%E8%8C%83/" target="_blank">前端代码规范</a>
+        <br>
+        <span class="suffix-box-title">作者签名：</span>时间带不走你眼中的光辉
+        <br>
+        <span class="suffix-box-title">版权声明：</span>文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+        <br>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+                
+                
+                <div class="article-prev-next">
+                    
+                        <a href="/2024/10/19/VSCode%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="prev-prefix">« </a> 上一篇：    <a href="/2024/10/19/VSCode%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="发布于 2024-10-19 06:07">VSCode常用命令</a>
+                        <br>
+                    
+                    
+                        <a href="/2024/10/19/%E5%89%8D%E7%AB%AF%E8%AF%B7%E6%B1%82%E5%8F%91%E9%80%81%E6%A0%BC%E5%BC%8F/" class="next-prefix">» </a> 下一篇：    <a href="/2024/10/19/%E5%89%8D%E7%AB%AF%E8%AF%B7%E6%B1%82%E5%8F%91%E9%80%81%E6%A0%BC%E5%BC%8F/" title="发布于 2024-10-19 06:07">前端请求发送格式</a>
+                    
+                </div>
+            </div>
+            
+    <div class="article-comments">
+        
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+    
+ 
+        </div>
+    
+</div>
+    <div id="footer">
+    <div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>
+</div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar">
+                    <img src="/image/sidebar/avatar.jpg">
+                </div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user">
+                        
+                            <a href="javascript:;" target="_self"><span>Aspirai</span></a>
+                        
+                    </div>
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul>
+                    
+                        <li class=""><a href="/" class="" target="_self"><span class="iconfont icon-home-fill"></span>首页</a></li>
+                    
+                        <li class=""><a href="/tag" class="" target="_self"><span class="iconfont icon-discount-fill"></span>标签</a></li>
+                    
+                        <li class=""><a href="/archive" class="" target="_self"><span class="iconfont icon-calendar-fill"></span>归档</a></li>
+                    
+                        <li class=""><a href="/friend" class="" target="_self"><span class="iconfont icon-link"></span>友情链接</a></li>
+                    
+                </ul> 
+            </div> 
+            <div class="menu-link">
+                <div class="box">
+                    <div class="image-box"></div>
+                </div>
+                
+                    <a name="QQ" href="javascript:;" class="image" target="_self" data="/image/sidebar/qq.png"><span class="iconfont icon-qq"></span></a>
+                
+            </div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="/css/search.css">
+<script type="text/javascript" src="/js/iscroll.js"></script>
+<script type="text/javascript" src="/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+    
+    <link type="text/css" rel="stylesheet" href="/css/APlayer.css">
+    <script type="text/javascript" src="/js/APlayer.min.js"></script>
+    <script type="text/javascript" src="/js/Meting.min.js"></script>
+    <script>
+        var meting_api = 'https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&auth=:auth&r=:r';
+    </script>
+    <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+
+    <div class="wrap-right">
+    <div class="wrap-right-hide">
+         <div class="wrap-right-button favorites">
+            <div class="iconbox" switch="false">
+                <span class="iconfont icon-favorites"></span>
+            </div>
+            <span class="icontext">关注</span>
+         </div>
+        <div class="wrap-right-button search">
+            <div class="iconbox">
+                <span class="iconfont icon-search-menu"></span>
+            </div>
+            <span class="icontext">搜索</span>
+        </div>
+        <div class="wrap-right-button menu-button">
+            <div class="iconbox">
+                <span class="iconfont icon-menu"></span>
+            </div>
+            <span class="icontext">菜单</span>
+        </div>
+        <div class="wrap-right-button mode">
+            <div class="light">
+                <div class="iconbox">
+                    <span class="iconfont icon-daymode"></span>
+                </div>
+                <span class="icontext">浅色模式</span>
+            </div>
+            <div class="dark">
+                <div class="iconbox">
+                    <span class="iconfont icon-nightmode-fill"></span>
+                </div>
+                <span class="icontext">深色模式</span>
+            </div>
+        </div>
+        <div class="wrap-right-button bottom">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">跳至底部</span>
+        </div>
+    </div>
+    <div class="wrap-right-show">
+        <div class="wrap-right-button set">
+            <div class="iconbox">
+                <span class="iconfont icon-setting"></span>
+            </div>
+            <span class="icontext">设置</span>
+        </div>
+        <div class="wrap-right-button top">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">返回顶部</span>
+        </div>
+    </div>
+</div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : "Aspirai",
+        GitHubRepositories : "Hexo-LiveForCode",
+
+        User             : "Aspirai",
+        UserAvatar       : "/image/sidebar/avatar.jpg",
+        WebsiteStartDate : "2020-01-01",
+        Home             : "",
+
+        WebsiteTitleBlur         : "(◍´꒳`◍) Hi, Aspirai",
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : "(*´∇｀*) 欢迎回来!",
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : {
+            light : "/image/website/logo/logo.png",
+            dark  : "/image/website/logo/logo-dark.png"
+        },
+
+        ProgressBar : {
+            id       : "topProgressBar",
+            color    : "#77B6FF",
+            height   : "2px",
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound : {
+                tension  : 16,
+                friction : 5
+            },
+            spinner : {
+                id     : "spinner",
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : "#F0F0F0",
+                    stroke     : "#272633",
+                    base       : "",
+                    child      : "#272633"
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : "rgba(255, 255, 255, .2)",
+            clearOffset : 0.3
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : "60%",
+            colorBrightness  : "50%",
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : "random",
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                "/image/header/home.jpg",
+            
+                "/image/header/home.png",
+            
+        ],
+        HomeBannerText  : "",
+
+        ArticleHeaderImage : [
+            
+                "/image/header/article.jpg",
+            
+        ],
+
+        OtherBannerText : "",
+
+        Error : {
+            icon    : "icon-swimming",
+            title   : "PAGE NOT FOUND",
+            content : [
+                
+                    "很抱歉，您访问的页面不存在！",
+                
+                    "可能是输入地址有误或该地址已变更。",
+                
+            ],
+            buttons : [
+                
+                    {
+                        icon  : "icon-home",
+                        text  : "返回首页",
+                        href  : "/",
+                        class : ""
+                    },
+                
+            ]
+        },
+
+        MenuNotice : {
+            enable : false,
+            notice : "简单地活着，肆意而又精彩！",
+            speed  : 20
+        },
+        MenuList : [
+            
+                {
+                    name   : "首页",
+                    icon   : "icon-home-fill",
+                    href   : "/",
+                    type   : "index",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "标签",
+                    icon   : "icon-discount-fill",
+                    href   : "/tag",
+                    type   : "tag",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "归档",
+                    icon   : "icon-calendar-fill",
+                    href   : "/archive",
+                    type   : "archive",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "友情链接",
+                    icon   : "icon-link",
+                    href   : "/friend",
+                    type   : "friend",
+                    class  : "",
+                    target : "_self"
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        name   : "QQ",
+                        icon   : "icon-qq",
+                        href   : "javascript:;",
+                        class  : "image",
+                        target : "_self",
+                        image  : "/image/sidebar/qq.png"
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : "<div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>",
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                "Based on cnblogs theme SimpleMemory.",
+                            
+                                "",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "SimpleMemory Author:",
+                            
+                                "BNDong",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "Theme:",
+                            
+                                "LiveForCode",
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : "",
+
+        Donate : {
+            paypal  : "",
+            bitcoin : "",
+            alipay  : "/image/donate/alipay.png",
+            wechat  : "/image/donate/wechat.png"
+        },
+
+        Search : {
+            applicationID : "010C3EANT8",
+            apiKey        : "c7abab9f11b79102b9aff7fe6d41447d",
+            indexName     : "Notes",
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : "搜索",
+                empty       : "未发现与 「${query}」 相关的内容",
+                stats       : "${hits} 条相关条目，使用了 ${time} 毫秒",
+            }
+        }, 
+
+        Comment : {
+            switch : true,
+            type   : "Valine",
+        },
+
+        Waline : {
+            el              : ".comments-content",
+            serverURL       : "",
+            path            : window.location.pathname,
+            meta            : "['nick', 'mail', 'link']",
+            requiredMeta    : "['nick', 'mail']",
+            pageSize        : 10,
+            lang            : "zh-cn",
+            locale: {
+                admin       : "博主",
+                anonymous   : "匿名用户",
+                sofa        : "快来做第一个评论的人吧 ~",
+                placeholder : "你是我一生只会遇见一次的惊喜...",
+            },
+            dark            : "html[color-scheme='dark']",
+            search          : false,
+            pageview        : true,
+            comment         : true,
+            copyright       : false,
+        },
+
+        Valine : {
+            el             : ".comments-content",
+            appId          : "srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz",
+            appKey         : "8uVSP1q6UlALVC5igYfIfv2h",
+            serverURLs     : "",
+            placeholder    : "你是我一生只会遇见一次的惊喜...",
+            avatar         : "mm",
+            meta           : "nick,mail,link",
+            requiredFields : "nick,mail",
+            pageSize       : 5,
+            lang           : "zh-cn",
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : ".toc",
+            contentSelector       : ".article-body",
+            headingSelector       : "h1, h2, h3, h4, h5",
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : ".toc",
+            positionFixedClass    : "toc-fixed",
+            fixedSidebarOffset    : "",
+        },
+
+        Require : {
+            baseUrl     : "/js/",
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : "Meting"
+        },
+        APlayer : {
+            container : ".aplayer",
+            fixed     : true,
+            autoplay  : false,
+            loop      : "all",
+            order     : "random",
+            preload   : "auto",
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : "Endless Tears",
+                        artist : "CLIFF EDGE",
+                        cover  : "/music/cover/Endless Tears.jpg",
+                        url    : "/music/song/Endless Tears.mp3",
+                        lrc    : "/music/lrc/Endless Tears.lrc"
+                    },
+                
+            ]
+        },
+        Meting : {
+            api      : "https://api.i-meto.com/meting/api",
+            id       : "3778678", 
+            lrcshow  : false, 
+            server   : "netease", 
+            type     : "playlist", 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : "all", 
+            order    : "random", 
+            preload  : "auto", 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : true,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : "/image/website/lazyload.svg"
+        },
+  
+        Style : {
+            aplayer          : "/css/APlayer.css",
+            archive          : "/css/archive.css",
+            base             : "/css/base.css",
+            clipboard        : "/css/clipboard.css",
+            code             : "/css/code.css",
+            donate           : "/css/donate.css",
+            fancybox         : "/css/jquery.fancybox.css",
+            footer           : "/css/footer.css",
+            iconfont         : "/iconfont/iconfont.css",
+            index            : "/css/index.css",
+            menuBubble       : "/css/menu-bubble.css",
+            mouse            : "/css/mouse.css",
+            page             : "/css/page.css",
+            post             : "/css/post.css",
+            search           : "/css/search.css",
+            tocbot           : "/css/tocbot.css",
+            valine           : "/css/valine.css",
+            waline           : "/css/waline.css",
+            walineCustom     : "/css/waline-custom.css"
+        },
+
+        Script: {
+            aplayer          : "/js/APlayer.min.js",
+            config           : "/js/require.config.js",
+            index            : "/js/index.js",
+            instantSearch    : "/js/instantsearch.min.js",
+            iscroll          : "/js/iscroll.js",
+            jQuery           : "/js/jquery-3.4.1.min.js",
+            loading          : "/js/loading.js",
+            meting           : "/js/Meting.min.js",
+            require          : "/js/require.min.js",
+            waline           : "/js/waline.mjs",
+            pageview         : "/js/pageview.mjs",
+            comment          : "/js/comment.mjs",
+        },
+
+        Font: {
+            LongCang    : "/font/LongCang.css",
+            Monda       : "/font/Monda.css",
+            NotoSansSC  : "/font/NotoSansSC.css",
+            NotoSerifSC : "/font/NotoSerifSC.css",
+            Playball    : "/font/Playball.css",
+            PTMono      : "/font/PTMono.css",
+            Roboto      : "/font/Roboto.css",
+            RobotoSlab  : "/font/RobotoSlab.css",
+            Rosario     : "/font/Rosario.css",
+            UbuntuMono  : "/font/UbuntuMono.css"
+        },
+
+        Suffix : {
+            about : "时间带不走你眼中的光辉"
+        },
+            
+        Theme : {
+            url  : "https://github.com/first19326/Hexo-LiveForCode",
+            name : "Hexo - Live For Code"
+        }  
+    };
+</script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</body>
+</html>

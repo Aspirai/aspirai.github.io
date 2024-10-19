@@ -6,7 +6,7 @@
         UserAvatar: '/image/sidebar/avatar.jpg',
         WebsiteStartDate: '2020-01-01',
         Home: 'javascript:;',
-        WebsiteTitleBlur: '(◍´꒳`◍) Hi, Live For Code',
+        WebsiteTitleBlur: '(◍´꒳`◍) Hi, 你好~',
         WebsiteTitleBlurTimeOut: 500,
         WebsiteTitleFocus: '(*´∇｀*) 欢迎回来!',
         WebsiteTitleFocusTimeOut: 1000,
@@ -253,7 +253,7 @@
             UbuntuMono: '/font/UbuntuMono.css'
         },
         Suffix: {
-            about: '简单地活着, 肆意又精彩.'
+            about: '时间带不走你眼中的光辉'
         },
         Theme: {
             url: 'https://github.com/first19326/Hexo-LiveForCode',
