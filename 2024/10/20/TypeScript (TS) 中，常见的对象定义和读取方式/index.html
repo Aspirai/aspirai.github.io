@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>
+        
+            TypeScript (TS) 中，常见的对象定义和读取方式
+        
+    </title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSerifSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="/font/Roboto.css">
+    <link type="text/css" rel="stylesheet" href="/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="/css/base.css">
+    <link type="text/css" rel="stylesheet" href="/css/code.css">
+
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <a id="cover"></a>
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
+<div id="header" class="header">
+    <div class="vertical">
+        <div class="inner">
+            
+                <h1 class="header-subtitle">TypeScript (TS) 中，常见的对象定义和读取方式</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2024-10-20
+                        </span>
+                        
+                            
+                                <span id="/2024/10/20/TypeScript (TS) 中，常见的对象定义和读取方式/" class="leancloud_visitors" data-flag-title="TypeScript (TS) 中，常见的对象定义和读取方式">
+                                    <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                                </span>
+                            
+                            
+                                <span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/10/20/TypeScript (TS) 中，常见的对象定义和读取方式/"></span>
+                                </span>
+                              
+                        
+                    </p>
+                    
+                        
+                            <span class="category-color">前端开发</span>
+                        
+                    
+                    
+                        
+                            <span class="tag-color">JavaScript</span>
+                        
+                    
+                </div>
+            
+        </div>
+    </div>
+    
+</div>
+<div id="container">
+    
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <h2 id="1-在-TypeScript-TS-中，常见的对象定义和读取方式"><a href="#1-在-TypeScript-TS-中，常见的对象定义和读取方式" class="headerlink" title="1.在 TypeScript (TS) 中，常见的对象定义和读取方式"></a>1.在 TypeScript (TS) 中，常见的对象定义和读取方式</h2><h3 id="1-接口-Interface-定义对象"><a href="#1-接口-Interface-定义对象" class="headerlink" title="1. 接口 (Interface) 定义对象"></a>1. <strong>接口 (Interface) 定义对象</strong></h3><p>使用接口来定义对象的结构。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">Person</span> &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="built_in">string</span>;</span><br><span class="line">  <span class="attr">age</span>: <span class="built_in">number</span>;</span><br><span class="line">  isEmployed?: <span class="built_in">boolean</span>; <span class="comment">// 可选属性</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="attr">person</span>: <span class="title class_">Person</span> = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;John&#x27;</span>,</span><br><span class="line">  <span class="attr">age</span>: <span class="number">30</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 读取</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person.<span class="property">name</span>); <span class="comment">// &#x27;John&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-类型别名-Type-Alias-定义对象"><a href="#2-类型别名-Type-Alias-定义对象" class="headerlink" title="2. 类型别名 (Type Alias) 定义对象"></a>2. <strong>类型别名 (Type Alias) 定义对象</strong></h3><p>类型别名可以定义对象类型，类似于接口。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">type</span> <span class="title class_">Car</span> = &#123;</span><br><span class="line">  <span class="attr">brand</span>: <span class="built_in">string</span>;</span><br><span class="line">  <span class="attr">year</span>: <span class="built_in">number</span>;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="attr">myCar</span>: <span class="title class_">Car</span> = &#123;</span><br><span class="line">  <span class="attr">brand</span>: <span class="string">&#x27;Toyota&#x27;</span>,</span><br><span class="line">  <span class="attr">year</span>: <span class="number">2020</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 读取</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(myCar.<span class="property">brand</span>); <span class="comment">// &#x27;Toyota&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="3-内嵌类型-Inline-Types"><a href="#3-内嵌类型-Inline-Types" class="headerlink" title="3. 内嵌类型 (Inline Types)"></a>3. <strong>内嵌类型 (Inline Types)</strong></h3><p>在定义变量时直接指定对象类型，而不使用接口或类型别名。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="attr">product</span>: &#123; <span class="attr">id</span>: <span class="built_in">number</span>; <span class="attr">name</span>: <span class="built_in">string</span> &#125; = &#123;</span><br><span class="line">  <span class="attr">id</span>: <span class="number">1</span>,</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;Laptop&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 读取</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(product.<span class="property">id</span>); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="4-索引签名-Index-Signatures"><a href="#4-索引签名-Index-Signatures" class="headerlink" title="4. 索引签名 (Index Signatures)"></a>4. <strong>索引签名 (Index Signatures)</strong></h3><p>使用索引签名来定义对象，允许动态的键名。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">Dictionary</span> &#123;</span><br><span class="line">  [<span class="attr">key</span>: <span class="built_in">string</span>]: <span class="built_in">string</span>; <span class="comment">// 动态键，值为 string</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="attr">myDict</span>: <span class="title class_">Dictionary</span> = &#123;</span><br><span class="line">  <span class="attr">apple</span>: <span class="string">&#x27;fruit&#x27;</span>,</span><br><span class="line">  <span class="attr">car</span>: <span class="string">&#x27;vehicle&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 读取</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(myDict[<span class="string">&#x27;apple&#x27;</span>]); <span class="comment">// &#x27;fruit&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="5-动态读取对象键"><a href="#5-动态读取对象键" class="headerlink" title="5. 动态读取对象键"></a>5. <strong>动态读取对象键</strong></h3><p>使用方括号 <code>[]</code> 来动态读取对象的键值。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> user = &#123;</span><br><span class="line">  <span class="attr">id</span>: <span class="number">123</span>,</span><br><span class="line">  <span class="attr">username</span>: <span class="string">&#x27;Alice&#x27;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> key = <span class="string">&#x27;username&#x27;</span>;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(user[key]); <span class="comment">// &#x27;Alice&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="6-可选链-Optional-Chaining"><a href="#6-可选链-Optional-Chaining" class="headerlink" title="6. 可选链 (Optional Chaining)"></a>6. <strong>可选链 (Optional Chaining)</strong></h3><p>用于安全读取可能为 <code>undefined</code> 或 <code>null</code> 的对象属性。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">  <span class="attr">name</span>: <span class="string">&#x27;Bob&#x27;</span>,</span><br><span class="line">  <span class="attr">address</span>: &#123;</span><br><span class="line">    <span class="attr">city</span>: <span class="string">&#x27;New York&#x27;</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person.<span class="property">address</span>?.<span class="property">city</span>); <span class="comment">// &#x27;New York&#x27;</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person.<span class="property">address</span>?.<span class="property">zipCode</span>); <span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="7-读取对象的键-Object-Keys"><a href="#7-读取对象的键-Object-Keys" class="headerlink" title="7. 读取对象的键 (Object Keys)"></a>7. <strong>读取对象的键 (Object Keys)</strong></h3><p><code>Object.keys</code> 返回对象的键数组，适合遍历或动态处理对象属性。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> animal = &#123;</span><br><span class="line">  <span class="attr">type</span>: <span class="string">&#x27;Dog&#x27;</span>,</span><br><span class="line">  <span class="attr">age</span>: <span class="number">5</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> keys = <span class="title class_">Object</span>.<span class="title function_">keys</span>(animal); <span class="comment">// [&#x27;type&#x27;, &#x27;age&#x27;]</span></span><br><span class="line">keys.<span class="title function_">forEach</span>(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(animal[key <span class="keyword">as</span> keyof <span class="keyword">typeof</span> animal]); <span class="comment">// &#x27;Dog&#x27;, 5</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+
+<h3 id="8-类型断言-Type-Assertion"><a href="#8-类型断言-Type-Assertion" class="headerlink" title="8. 类型断言 (Type Assertion)"></a>8. <strong>类型断言 (Type Assertion)</strong></h3><p>类型断言允许你告诉编译器某个对象的具体类型。</p>
+<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="attr">data</span>: <span class="built_in">any</span> = &#123; <span class="attr">name</span>: <span class="string">&#x27;Eve&#x27;</span>, <span class="attr">age</span>: <span class="number">25</span> &#125;;</span><br><span class="line"><span class="keyword">const</span> person = data <span class="keyword">as</span> &#123; <span class="attr">name</span>: <span class="built_in">string</span>; <span class="attr">age</span>: <span class="built_in">number</span> &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 读取</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(person.<span class="property">name</span>); <span class="comment">// &#x27;Eve&#x27;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>常见的对象定义和读取方式包括使用接口、类型别名、索引签名等。此外，通过可选链、动态键读取等方式，TypeScript 提供了类型安全的操作对象的手段。</p>
+<h2 id="2-数组对象"><a href="#2-数组对象" class="headerlink" title="2.数组对象"></a>2.数组对象</h2><figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [recognitionData, setRecognitionData] = useState&lt;&#123; [<span class="attr">key</span>: <span class="built_in">string</span>]: (<span class="built_in">string</span> | <span class="built_in">boolean</span> | <span class="built_in">number</span>)[] &#125;&gt;(&#123;&#125;);</span><br></pre></td></tr></table></figure>
+
+
+
+<p>这段代码是在 React 中使用 <code>useState</code> 钩子定义一个状态变量 <code>showArray</code>，其初始值为一个空对象 <code>&#123;&#125;</code>，并且使用了 TypeScript 来定义该状态的类型。</p>
+<h3 id="逐步解释："><a href="#逐步解释：" class="headerlink" title="逐步解释："></a>逐步解释：</h3><ol>
+<li><p>**<code>useState</code>**：这是 React 的钩子，用来在函数组件中声明状态变量。<code>useState</code> 返回一个数组，包含两个元素：</p>
+<ul>
+<li>当前状态的值（<code>showArray</code>）。</li>
+<li>更新状态的函数（<code>setShowArray</code>）。</li>
+</ul>
+</li>
+<li><p>**<code>&lt;&#123; [key: string]: (string | boolean | number)[] &#125;&gt;</code>**：这是一个 TypeScript 类型定义，描述了 <code>showArray</code> 的结构。具体说明：</p>
+<ul>
+<li><code>&#123; [key: string]: ... &#125;</code>：表示这是一个对象，键是字符串类型（即任意的字符串）。</li>
+<li><code>(string | boolean | number)[]</code>：表示每个键的值是一个数组，数组中的元素可以是字符串、布尔值或数字。</li>
+</ul>
+</li>
+<li><p>**<code>&#123;&#125;</code>**：这是 <code>showArray</code> 的初始值，设置为空对象。</p>
+</li>
+</ol>
+<h3 id="示例说明："><a href="#示例说明：" class="headerlink" title="示例说明："></a>示例说明：</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> [showArray, setShowArray] = useState&lt;&#123; [<span class="attr">key</span>: <span class="built_in">string</span>]: (<span class="built_in">string</span> | <span class="built_in">boolean</span> | <span class="built_in">number</span>)[] &#125;&gt;(&#123;&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 假设我们想添加一个键 &quot;exampleKey&quot;，值为 [true, &quot;Hello&quot;, 42]</span></span><br><span class="line"><span class="title function_">setShowArray</span>(&#123; ...showArray, <span class="attr">exampleKey</span>: [<span class="literal">true</span>, <span class="string">&quot;Hello&quot;</span>, <span class="number">42</span>] &#125;);</span><br><span class="line"></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(showArray); </span><br><span class="line"><span class="comment">// 输出 &#123; exampleKey: [true, &quot;Hello&quot;, 42] &#125;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><ul>
+<li><code>showArray</code> 是一个对象，键是字符串，值是数组。</li>
+<li>数组中的元素可以是字符串、布尔值或数字类型。</li>
+<li><code>setShowArray</code> 是用来更新该状态的函数。</li>
+</ul>
+<h2 id="3-类型断言"><a href="#3-类型断言" class="headerlink" title="3.类型断言"></a>3.类型断言</h2><figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> newArray = recognitionData <span class="keyword">as</span> &#123; [<span class="attr">key</span>: <span class="built_in">string</span>]: (<span class="built_in">string</span> | <span class="built_in">boolean</span> | <span class="built_in">number</span>)[] &#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<p><code>const newArray = recognitionData as &#123; [key: string]: (string | boolean | number)[] &#125;;</code> 是 TypeScript 中的 <strong>类型断言</strong>（Type Assertion），用于将 <code>recognitionData</code> 变量断言为特定的类型。在这个例子中，<code>recognitionData</code> 被断言为一个对象，且该对象的键是字符串类型，值是一个数组，数组中的元素可以是 <strong>字符串</strong>、<strong>布尔值</strong> 或 <strong>数字</strong> 类型。</p>
+<h3 id="解释每个部分："><a href="#解释每个部分：" class="headerlink" title="解释每个部分："></a>解释每个部分：</h3><ol>
+<li><p><strong><code>recognitionData as &#123; [key: string]: (string | boolean | number)[] &#125;</code></strong>:</p>
+<ul>
+<li><code>recognitionData</code>：这是一个变量，可能是从其他地方获取的数据。</li>
+<li><code>as &#123; [key: string]: (string | boolean | number)[] &#125;</code>：这部分是类型断言。它将 <code>recognitionData</code> 的类型断言为一个对象，其中：<ul>
+<li><code>key: string</code>：对象的每个键都必须是字符串类型。</li>
+<li><code>(string | boolean | number)[]</code>：每个键对应的值是一个数组，数组中的元素可以是字符串、布尔值或数字。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>**<code>newArray</code>**：</p>
+<ul>
+<li>这个变量 <code>newArray</code> 是断言后的 <code>recognitionData</code>，现在具有你声明的特定类型 <code>&#123; [key: string]: (string | boolean | number)[] &#125;</code>，意味着它是一个包含多个键值对的对象，键是字符串，值是由字符串、布尔值和数字组成的数组。</li>
+</ul>
+</li>
+</ol>
+<h3 id="使用场景："><a href="#使用场景：" class="headerlink" title="使用场景："></a>使用场景：</h3><p>这种结构通常用于处理从外部 API、数据源、或者非类型化的对象数据中提取的值，并希望确保数据的类型符合预期。通过类型断言，可以使得代码更加安全，避免因数据结构不明确而导致的类型错误。</p>
+<h3 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h3><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="attr">recognitionData</span>: <span class="built_in">any</span> = &#123;</span><br><span class="line">  <span class="attr">id</span>: [<span class="number">1</span>, <span class="string">&quot;active&quot;</span>, <span class="literal">true</span>],</span><br><span class="line">  <span class="attr">name</span>: [<span class="string">&quot;Alice&quot;</span>, <span class="string">&quot;Bob&quot;</span>, <span class="literal">false</span>],</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> newArray = recognitionData <span class="keyword">as</span> &#123; [<span class="attr">key</span>: <span class="built_in">string</span>]: (<span class="built_in">string</span> | <span class="built_in">boolean</span> | <span class="built_in">number</span>)[] &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 读取 &#x27;id&#x27; 键的值</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(newArray.<span class="property">id</span>); <span class="comment">// [1, &quot;active&quot;, true]</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 读取 &#x27;name&#x27; 键的值</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(newArray.<span class="property">name</span>); <span class="comment">// [&quot;Alice&quot;, &quot;Bob&quot;, false]</span></span><br></pre></td></tr></table></figure>
+
+<p>在这里，我们断言 <code>recognitionData</code> 是一个包含数组的对象，其中数组的元素可以是字符串、布尔值或数字类型。</p>
+<h2 id="4-读取对象中所有的键和值"><a href="#4-读取对象中所有的键和值" class="headerlink" title="4.读取对象中所有的键和值"></a>4.读取对象中所有的键和值</h2><ol>
+<li><p>读取键</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> test = &#123;</span><br><span class="line">    <span class="attr">null</span>: [<span class="string">&#x27;0.001&#x27;</span>, <span class="literal">false</span>],</span><br><span class="line">    <span class="attr">MCV</span>: [<span class="number">90.11</span>, <span class="literal">true</span>],</span><br><span class="line">    <span class="attr">BASO</span>: [<span class="number">0.4</span>, <span class="literal">true</span>],</span><br><span class="line">    <span class="attr">RBC</span>: [<span class="number">4.5</span>, <span class="literal">true</span>],</span><br><span class="line">    <span class="attr">HGB</span>: [<span class="number">13.5</span>, <span class="literal">true</span>],</span><br><span class="line">    <span class="attr">HCT</span>: [<span class="number">40.0</span>, <span class="literal">true</span>],</span><br><span class="line">    <span class="attr">PLT</span>: [<span class="number">250</span>, <span class="literal">true</span>],</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="title class_">Object</span>.<span class="title function_">keys</span>(test).<span class="title function_">forEach</span>(<span class="function">(<span class="params">key</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;key:&#x27;</span>, key);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>读取值</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Object</span>.<span class="title function_">values</span>(test).<span class="title function_">forEach</span>(<span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;value:&#x27;</span>, value);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+                
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box">
+    <div class="suffix-box-left">
+        <img src="/image/sidebar/avatar.jpg" alt="Aspirai">
+    </div>
+    <div class="suffix-box-right">
+        <span class="suffix-box-title">文章作者：</span>Aspirai
+        <br>
+        <span class="suffix-box-title">文章出处：</span><a href="/2024/10/20/TypeScript%20(TS)%20%E4%B8%AD%EF%BC%8C%E5%B8%B8%E8%A7%81%E7%9A%84%E5%AF%B9%E8%B1%A1%E5%AE%9A%E4%B9%89%E5%92%8C%E8%AF%BB%E5%8F%96%E6%96%B9%E5%BC%8F/" target="_blank">TypeScript (TS) 中，常见的对象定义和读取方式</a>
+        <br>
+        <span class="suffix-box-title">作者签名：</span>时间带不走你眼中的光辉
+        <br>
+        <span class="suffix-box-title">版权声明：</span>文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+        <br>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+                
+                    <div class="category">
+                        分类：
+                        
+                            <a href="/category/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
+                        
+                    </div>
+                
+                
+                    <div class="tag">
+                        标签：
+                        
+                            <a href="/tag/JavaScript/">JavaScript</a>
+                        
+                    </div>
+                
+                <div class="article-prev-next">
+                    
+                        <a href="/2024/10/20/JavaScript/" class="prev-prefix">« </a> 上一篇：    <a href="/2024/10/20/JavaScript/" title="发布于 2024-10-20 09:22">JavaScript</a>
+                        <br>
+                    
+                    
+                        <a href="/2024/10/20/tsconfig.json%20%E9%85%8D%E7%BD%AE%EF%BC%9A%E5%A6%82%E4%BD%95%E5%AE%9A%E5%88%B6%20TypeScript%20%E7%9A%84%E8%A1%8C%E4%B8%BA%EF%BC%9F%20-%20%E5%89%8D%E7%AB%AF%E6%89%8B%E6%9C%AD%20-%20SegmentFault%20%E6%80%9D%E5%90%A6/" class="next-prefix">» </a> 下一篇：    <a href="/2024/10/20/tsconfig.json%20%E9%85%8D%E7%BD%AE%EF%BC%9A%E5%A6%82%E4%BD%95%E5%AE%9A%E5%88%B6%20TypeScript%20%E7%9A%84%E8%A1%8C%E4%B8%BA%EF%BC%9F%20-%20%E5%89%8D%E7%AB%AF%E6%89%8B%E6%9C%AD%20-%20SegmentFault%20%E6%80%9D%E5%90%A6/" title="发布于 2024-10-20 09:22">tsconfig.json 配置：如何定制 TypeScript 的行为？ - 前端手札 - SegmentFault 思否</a>
+                    
+                </div>
+            </div>
+            
+    <div class="article-comments">
+        
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+    
+ 
+        </div>
+    
+</div>
+    <div id="footer">
+    <div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>
+</div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar">
+                    <img src="/image/sidebar/avatar.jpg">
+                </div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user">
+                        
+                            <a href="javascript:;" target="_self"><span>Aspirai</span></a>
+                        
+                    </div>
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul>
+                    
+                        <li class=""><a href="/" class="" target="_self"><span class="iconfont icon-home-fill"></span>首页</a></li>
+                    
+                        <li class=""><a href="/category" class="" target="_self"><span class="iconfont icon-folder-fill"></span>分类</a></li>
+                    
+                        <li class=""><a href="/tag" class="" target="_self"><span class="iconfont icon-discount-fill"></span>标签</a></li>
+                    
+                        <li class=""><a href="/archive" class="" target="_self"><span class="iconfont icon-calendar-fill"></span>归档</a></li>
+                    
+                        <li class=""><a href="/friend" class="" target="_self"><span class="iconfont icon-link"></span>友情链接</a></li>
+                    
+                </ul> 
+            </div> 
+            <div class="menu-link">
+                <div class="box">
+                    <div class="image-box"></div>
+                </div>
+                
+                    <a name="QQ" href="javascript:;" class="image" target="_self" data="/image/sidebar/qq.png"><span class="iconfont icon-qq"></span></a>
+                
+            </div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="/css/search.css">
+<script type="text/javascript" src="/js/iscroll.js"></script>
+<script type="text/javascript" src="/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+    
+    <link type="text/css" rel="stylesheet" href="/css/APlayer.css">
+    <script type="text/javascript" src="/js/APlayer.min.js"></script>
+    <script type="text/javascript" src="/js/Meting.min.js"></script>
+    <script>
+        var meting_api = 'https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&auth=:auth&r=:r';
+    </script>
+    <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+
+    <div class="wrap-right">
+    <div class="wrap-right-hide">
+         <div class="wrap-right-button favorites">
+            <div class="iconbox" switch="false">
+                <span class="iconfont icon-favorites"></span>
+            </div>
+            <span class="icontext">关注</span>
+         </div>
+        <div class="wrap-right-button search">
+            <div class="iconbox">
+                <span class="iconfont icon-search-menu"></span>
+            </div>
+            <span class="icontext">搜索</span>
+        </div>
+        <div class="wrap-right-button menu-button">
+            <div class="iconbox">
+                <span class="iconfont icon-menu"></span>
+            </div>
+            <span class="icontext">菜单</span>
+        </div>
+        <div class="wrap-right-button mode">
+            <div class="light">
+                <div class="iconbox">
+                    <span class="iconfont icon-daymode"></span>
+                </div>
+                <span class="icontext">浅色模式</span>
+            </div>
+            <div class="dark">
+                <div class="iconbox">
+                    <span class="iconfont icon-nightmode-fill"></span>
+                </div>
+                <span class="icontext">深色模式</span>
+            </div>
+        </div>
+        <div class="wrap-right-button bottom">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">跳至底部</span>
+        </div>
+    </div>
+    <div class="wrap-right-show">
+        <div class="wrap-right-button set">
+            <div class="iconbox">
+                <span class="iconfont icon-setting"></span>
+            </div>
+            <span class="icontext">设置</span>
+        </div>
+        <div class="wrap-right-button top">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">返回顶部</span>
+        </div>
+    </div>
+</div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : "Aspirai",
+        GitHubRepositories : "Hexo-LiveForCode",
+
+        User             : "Aspirai",
+        UserAvatar       : "/image/sidebar/avatar.jpg",
+        WebsiteStartDate : "2020-01-01",
+        Home             : "",
+
+        WebsiteTitleBlur         : "(◍´꒳`◍) Hi, Aspirai",
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : "(*´∇｀*) 欢迎回来!",
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : {
+            light : "/image/website/logo/logo.png",
+            dark  : "/image/website/logo/logo-dark.png"
+        },
+
+        ProgressBar : {
+            id       : "topProgressBar",
+            color    : "#77B6FF",
+            height   : "2px",
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound : {
+                tension  : 16,
+                friction : 5
+            },
+            spinner : {
+                id     : "spinner",
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : "#F0F0F0",
+                    stroke     : "#272633",
+                    base       : "",
+                    child      : "#272633"
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : "rgba(255, 255, 255, .2)",
+            clearOffset : 0.3
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : "60%",
+            colorBrightness  : "50%",
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : "random",
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                "/image/header/home.jpg",
+            
+                "/image/header/home.png",
+            
+        ],
+        HomeBannerText  : "",
+
+        ArticleHeaderImage : [
+            
+                "/image/header/article.jpg",
+            
+        ],
+
+        OtherBannerText : "",
+
+        Error : {
+            icon    : "icon-swimming",
+            title   : "PAGE NOT FOUND",
+            content : [
+                
+                    "很抱歉，您访问的页面不存在！",
+                
+                    "可能是输入地址有误或该地址已变更。",
+                
+            ],
+            buttons : [
+                
+                    {
+                        icon  : "icon-home",
+                        text  : "返回首页",
+                        href  : "/",
+                        class : ""
+                    },
+                
+            ]
+        },
+
+        MenuNotice : {
+            enable : false,
+            notice : "简单地活着，肆意而又精彩！",
+            speed  : 20
+        },
+        MenuList : [
+            
+                {
+                    name   : "首页",
+                    icon   : "icon-home-fill",
+                    href   : "/",
+                    type   : "index",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "分类",
+                    icon   : "icon-folder-fill",
+                    href   : "/category",
+                    type   : "category",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "标签",
+                    icon   : "icon-discount-fill",
+                    href   : "/tag",
+                    type   : "tag",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "归档",
+                    icon   : "icon-calendar-fill",
+                    href   : "/archive",
+                    type   : "archive",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "友情链接",
+                    icon   : "icon-link",
+                    href   : "/friend",
+                    type   : "friend",
+                    class  : "",
+                    target : "_self"
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        name   : "QQ",
+                        icon   : "icon-qq",
+                        href   : "javascript:;",
+                        class  : "image",
+                        target : "_self",
+                        image  : "/image/sidebar/qq.png"
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : "<div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>",
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                "Based on cnblogs theme SimpleMemory.",
+                            
+                                "",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "SimpleMemory Author:",
+                            
+                                "BNDong",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "Theme:",
+                            
+                                "LiveForCode",
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : "",
+
+        Donate : {
+            paypal  : "",
+            bitcoin : "",
+            alipay  : "/image/donate/alipay.png",
+            wechat  : "/image/donate/wechat.png"
+        },
+
+        Search : {
+            applicationID : "010C3EANT8",
+            apiKey        : "c7abab9f11b79102b9aff7fe6d41447d",
+            indexName     : "Notes",
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : "搜索",
+                empty       : "未发现与 「${query}」 相关的内容",
+                stats       : "${hits} 条相关条目，使用了 ${time} 毫秒",
+            }
+        }, 
+
+        Comment : {
+            switch : true,
+            type   : "Valine",
+        },
+
+        Waline : {
+            el              : ".comments-content",
+            serverURL       : "",
+            path            : window.location.pathname,
+            meta            : "['nick', 'mail', 'link']",
+            requiredMeta    : "['nick', 'mail']",
+            pageSize        : 10,
+            lang            : "zh-cn",
+            locale: {
+                admin       : "博主",
+                anonymous   : "匿名用户",
+                sofa        : "快来做第一个评论的人吧 ~",
+                placeholder : "你是我一生只会遇见一次的惊喜...",
+            },
+            dark            : "html[color-scheme='dark']",
+            search          : false,
+            pageview        : true,
+            comment         : true,
+            copyright       : false,
+        },
+
+        Valine : {
+            el             : ".comments-content",
+            appId          : "srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz",
+            appKey         : "8uVSP1q6UlALVC5igYfIfv2h",
+            serverURLs     : "",
+            placeholder    : "你是我一生只会遇见一次的惊喜...",
+            avatar         : "mm",
+            meta           : "nick,mail,link",
+            requiredFields : "nick,mail",
+            pageSize       : 5,
+            lang           : "zh-cn",
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : ".toc",
+            contentSelector       : ".article-body",
+            headingSelector       : "h1, h2, h3, h4, h5",
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : ".toc",
+            positionFixedClass    : "toc-fixed",
+            fixedSidebarOffset    : "",
+        },
+
+        Require : {
+            baseUrl     : "/js/",
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : "Meting"
+        },
+        APlayer : {
+            container : ".aplayer",
+            fixed     : true,
+            autoplay  : false,
+            loop      : "all",
+            order     : "random",
+            preload   : "auto",
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : "Endless Tears",
+                        artist : "CLIFF EDGE",
+                        cover  : "/music/cover/Endless Tears.jpg",
+                        url    : "/music/song/Endless Tears.mp3",
+                        lrc    : "/music/lrc/Endless Tears.lrc"
+                    },
+                
+            ]
+        },
+        Meting : {
+            api      : "https://api.i-meto.com/meting/api",
+            id       : "3778678", 
+            lrcshow  : false, 
+            server   : "netease", 
+            type     : "playlist", 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : "all", 
+            order    : "random", 
+            preload  : "auto", 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : true,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : "/image/website/lazyload.svg"
+        },
+  
+        Style : {
+            aplayer          : "/css/APlayer.css",
+            archive          : "/css/archive.css",
+            base             : "/css/base.css",
+            clipboard        : "/css/clipboard.css",
+            code             : "/css/code.css",
+            donate           : "/css/donate.css",
+            fancybox         : "/css/jquery.fancybox.css",
+            footer           : "/css/footer.css",
+            iconfont         : "/iconfont/iconfont.css",
+            index            : "/css/index.css",
+            menuBubble       : "/css/menu-bubble.css",
+            mouse            : "/css/mouse.css",
+            page             : "/css/page.css",
+            post             : "/css/post.css",
+            search           : "/css/search.css",
+            tocbot           : "/css/tocbot.css",
+            valine           : "/css/valine.css",
+            waline           : "/css/waline.css",
+            walineCustom     : "/css/waline-custom.css"
+        },
+
+        Script: {
+            aplayer          : "/js/APlayer.min.js",
+            config           : "/js/require.config.js",
+            index            : "/js/index.js",
+            instantSearch    : "/js/instantsearch.min.js",
+            iscroll          : "/js/iscroll.js",
+            jQuery           : "/js/jquery-3.4.1.min.js",
+            loading          : "/js/loading.js",
+            meting           : "/js/Meting.min.js",
+            require          : "/js/require.min.js",
+            waline           : "/js/waline.mjs",
+            pageview         : "/js/pageview.mjs",
+            comment          : "/js/comment.mjs",
+        },
+
+        Font: {
+            LongCang    : "/font/LongCang.css",
+            Monda       : "/font/Monda.css",
+            NotoSansSC  : "/font/NotoSansSC.css",
+            NotoSerifSC : "/font/NotoSerifSC.css",
+            Playball    : "/font/Playball.css",
+            PTMono      : "/font/PTMono.css",
+            Roboto      : "/font/Roboto.css",
+            RobotoSlab  : "/font/RobotoSlab.css",
+            Rosario     : "/font/Rosario.css",
+            UbuntuMono  : "/font/UbuntuMono.css"
+        },
+
+        Suffix : {
+            about : "时间带不走你眼中的光辉"
+        },
+            
+        Theme : {
+            url  : "https://github.com/first19326/Hexo-LiveForCode",
+            name : "Hexo - Live For Code"
+        }  
+    };
+</script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</body>
+</html>

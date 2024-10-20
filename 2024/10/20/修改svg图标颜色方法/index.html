@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>
+        
+            修改svg图标颜色方法
+        
+    </title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSerifSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="/font/Roboto.css">
+    <link type="text/css" rel="stylesheet" href="/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="/css/base.css">
+    <link type="text/css" rel="stylesheet" href="/css/code.css">
+
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <a id="cover"></a>
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
+<div id="header" class="header">
+    <div class="vertical">
+        <div class="inner">
+            
+                <h1 class="header-subtitle">修改svg图标颜色方法</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2024-10-20
+                        </span>
+                        
+                            
+                                <span id="/2024/10/20/修改svg图标颜色方法/" class="leancloud_visitors" data-flag-title="修改svg图标颜色方法">
+                                    <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                                </span>
+                            
+                            
+                                <span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/10/20/修改svg图标颜色方法/"></span>
+                                </span>
+                              
+                        
+                    </p>
+                    
+                        
+                            <span class="category-color">前端开发</span>
+                        
+                    
+                    
+                        
+                            <span class="tag-color">HTML-CSS</span>
+                        
+                    
+                </div>
+            
+        </div>
+    </div>
+    
+</div>
+<div id="container">
+    
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <p><strong>1. 直接修改svg文件中fill属性</strong></p>
+<p><strong>2. 使用css修改svg图标的fill属性</strong></p>
+<p>仅对内联svg有效<br>fill:white;<br><strong>3. 使用currentColor</strong></p>
+<p>只对html中内联的svg有效，包括symbol和use，对background中svg无效</p>
+<p>修改svg文件中的fill属性为currentColor，在父级使用color改颜色，或者 使用 css样式 svg {fill:red} 修改svg图标颜色</p>
+<p><strong>4. 使用css变量</strong></p>
+<p>同样只对内联的svg有效</p>
+<p>在svg文件，修改fill和stroke为css变量，设置标签style中的css变量即可</p>
+<p><strong>5. 使用mask</strong></p>
+<p>对内联和背景图标均有效，推荐</p>
+<p>.icon {<br>    color: red;<br>    background-color: currentColor;<br>    mask-image: url(icon.svg);<br>}</p>
+<p><strong>6. 使用drop-shadow, 多重彩色影分身</strong></p>
+<p>移动图标位置，使得影分身覆盖原图标位置，只是覆盖位置，原图标也同时移走了，所以未覆盖原图标。</p>
+<p>父元素overflow:hidden, 就只显示影分身了。</p>
+<p>在老版chrome里，父元素overflow:hidden，影分身会同时隐藏，使用 透明border占据位置，不隐藏，但是不可见，这样可解决</p>
+<p>在新版chrome里，父元素overflow:hidden，影分身不会隐藏，透明border已经不需要了</p>
+<p>但是在safari里，父元素overflow:hidden，影分身还是会隐藏</p>
+<p><i class="icon"><i class="icon icon-del"></i></i></p>
+<p>.icon &gt; .icon {<br>    position: relative;<br>    left: -20px;<br>    border-right: 20px solid transparent;<br>    filter: drop-shadow(red 20px 0px);<br>}</p>
+<p>或者 (用绝对定位麻烦, img标签不妥)</p>
+<div style\="position: relative; width: 20px; height: 20px; overflow: hidden;"\>
+    <img src\="icon.svg" style\="position:absolute; left: -20px; filter: drop-shadow(20px 0 #32bb65)"/>
+</div\>
+
+<p><strong>7. 使用滤镜</strong></p>
+<p>简单的纯黑或纯白图标</p>
+<p>&#x2F;* 图标变黑色 *&#x2F;<br>.black {<br>    filter: brightness(0);<br>}<br>&#x2F;* 图标变白色 *&#x2F;<br>.white {<br>    filter: brightness(100);<br>}</p>
+<p>其他颜色的图标也可以使用多个滤镜进行模拟，具体可参考  <a target="_blank" rel="noopener" href="https://www.zhangxinxu.com/wordpress/2018/11/css-change-icon-color/">图标变色为任意指定颜色</a></p>
+<p><strong>8. svg多色图标</strong></p>
+<p>使用css变量进行穿透，可以穿透use标签的shadow DOM</p>
+<p>&lt;svg xmlns=“<a target="_blank" rel="noopener" href="http://www.w3.org/2000/svg">http://www.w3.org/2000/svg</a>“ style=“display: none”&gt;<br>    &lt;symbol id=“my-first-icon” viewBox=“0 0 20 20”&gt;<br>        &lt;title&gt;my-first-icon&lt;&#x2F;title&gt;<br>        &lt;path fill=“var(–color-1)” d=“…” &#x2F;&gt;<br>        &lt;path fill=“var(–color-2)” d=“…” &#x2F;&gt;<br>        &lt;path fill=“var(–color-3)” d=“…” &#x2F;&gt;<br>    &lt;&#x2F;symbol&gt;<br>&lt;&#x2F;svg&gt;</p>
+<p>&lt;svg class=“icon icon-colors”&gt;<br>    &lt;use xlink:href=“#my-first-icon” &#x2F;&gt;<br>&lt;&#x2F;svg&gt;<br>.icon-colors {<br>    –color-1: #c13127;<br>    –color-2: #ef5b49;<br>    –color-3: #cacaea;<br>}</p>
+<p><strong>9. svg使用渐变色</strong></p>
+<p>只能使用svg定义的渐变色对象，不能使用css的渐变属性，写起来比较冗长，支持css变量</p>
+<p>&lt;svg width=“0” height=“0”&gt;<br>    &lt;defs&gt;<br>        &lt;linearGradient id=“gradient1”&gt;<br>            &lt;stop offset=“0%” stop-color=“var(–color1)” &#x2F;&gt;<br>            &lt;stop offset=“50%” stop-color=“var(–color2)” &#x2F;&gt;<br>            &lt;stop offset=“100%” stop-color=“var(–color3)” &#x2F;&gt;<br>        &lt;&#x2F;linearGradient&gt;<br>    &lt;&#x2F;defs&gt;<br>&lt;&#x2F;svg&gt;</p>
+<p>#gradient1 {<br>    –color1: #a770ef;<br>    –color2: #cf8bf3;<br>    –color3: #fdb99b;<br>}</p>
+<p>svg { fill: url(#gradient1); }</p>
+<p><strong>10. svg图标变色使用background-blend-mode</strong></p>
+<p>详细 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/mengff/p/17492081.html">mix-blend-mode和background-blend-mode应用场景</a></p>
+<p><strong>11. svg图标转义</strong></p>
+<p>svg图标转换为base64，体积会比较大，直接在DataURI中使用反而提交比较小，而且还能实时的修改颜色。<br>但是不能内联在DataURI中，需要进行转义，解决方法如下</p>
+<p>function encodeSvg(svg: string) {<br>  return svg.replace(‘&lt;svg’, (~svg.indexOf(‘xmlns’) ? ‘&lt;svg’ : ‘&lt;svg xmlns&#x3D;”<a target="_blank" rel="noopener" href="http://www.w3.org/2000/svg">http://www.w3.org/2000/svg</a>“‘))<br>    .replace(&#x2F;“&#x2F;g, ‘\‘’)<br>    .replace(&#x2F;%&#x2F;g, ‘%25’)<br>    .replace(&#x2F;#&#x2F;g, ‘%23’)<br>    .replace(&#x2F;{&#x2F;g, ‘%7B’)<br>    .replace(&#x2F;}&#x2F;g, ‘%7D’)<br>    .replace(&#x2F;&lt;&#x2F;g, ‘%3C’)<br>    .replace(&#x2F;&gt;&#x2F;g, ‘%3E’)<br>}</p>
+<p>const dataUri = `data:image&#x2F;svg+xml;utf8,${encodeSvg(svg)}`</p>
+<p><strong>12. svg图标支持缩放和变色的方案</strong></p>
+<p>&#x2F;&#x2F; 如果 SVG 的图标包含 `currentColor` 的值<br>&#x2F;&#x2F; 它大概率是一个单色图标<br>const mode &#x3D; svg.includes(‘currentColor’)<br>  ? ‘mask’<br>  : ‘background-img’</p>
+<p>const uri = `url(“data:image&#x2F;svg+xml;utf8,${encodeSvg(svg)}”)`</p>
+<p>&#x2F;&#x2F; 单色图标 父元素color控制currentColor改变图标颜色，父元素font-size改变em大小<br>if (mode &#x3D;&#x3D;&#x3D; ‘mask’) {<br>  return {<br>    ‘mask’: `${uri} no-repeat center&#x2F;100% 100%`,<br>    ‘background-color’: ‘currentColor’,<br>    ‘height’: ‘1em’,<br>    ‘width’: ‘1em’,<br>  }<br>}<br>&#x2F;&#x2F; 彩色图标 直接使用背景图，彩色图标无需改变颜色，只需改变大小<br>else {<br>    return {<br>        ‘background’: `#000 ${uri} no-repeat center&#x2F;100% 100%`,<br>        ‘height’: ‘1em’,<br>        ‘width’: ‘1em’,<br>    }<br>}</p>
+<p>参考：<a target="_blank" rel="noopener" href="https://www.zhangxinxu.com/wordpress/2016/06/png-icon-change-color-by-css/">PNG格式小图标的CSS任意颜色赋色技术</a><br>         <a target="_blank" rel="noopener" href="https://juejin.cn/post/7120895248665935902">svg图片改色都不会</a><br>         <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/430423521">聊聊纯 CSS 图标</a></p>
+<p>本文转自 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/mengff/p/17490650.html">https://www.cnblogs.com/mengff/p/17490650.html</a>，如有侵权，请联系删除。</p>
+
+                
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box">
+    <div class="suffix-box-left">
+        <img src="/image/sidebar/avatar.jpg" alt="Aspirai">
+    </div>
+    <div class="suffix-box-right">
+        <span class="suffix-box-title">文章作者：</span>Aspirai
+        <br>
+        <span class="suffix-box-title">文章出处：</span><a href="/2024/10/20/%E4%BF%AE%E6%94%B9svg%E5%9B%BE%E6%A0%87%E9%A2%9C%E8%89%B2%E6%96%B9%E6%B3%95/" target="_blank">修改svg图标颜色方法</a>
+        <br>
+        <span class="suffix-box-title">作者签名：</span>时间带不走你眼中的光辉
+        <br>
+        <span class="suffix-box-title">版权声明：</span>文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+        <br>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+                
+                    <div class="category">
+                        分类：
+                        
+                            <a href="/category/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
+                        
+                    </div>
+                
+                
+                    <div class="tag">
+                        标签：
+                        
+                            <a href="/tag/HTML-CSS/">HTML-CSS</a>
+                        
+                    </div>
+                
+                <div class="article-prev-next">
+                    
+                        <a href="/2024/10/20/%E4%BB%8A%E6%97%A5%E6%AD%A5%E6%95%B0%E6%95%88%E6%9E%9C%E5%AE%9E%E7%8E%B0/" class="prev-prefix">« </a> 上一篇：    <a href="/2024/10/20/%E4%BB%8A%E6%97%A5%E6%AD%A5%E6%95%B0%E6%95%88%E6%9E%9C%E5%AE%9E%E7%8E%B0/" title="发布于 2024-10-20 09:20">今日步数效果实现</a>
+                        <br>
+                    
+                    
+                        <a href="/2024/10/20/%E5%89%8D%E7%AB%AF%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80%E5%8E%9F%E7%90%86%E4%B8%8E%E6%96%B9%E6%A1%88%EF%BC%88%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80%E6%8C%87%E7%9A%84%E6%98%AF%E5%90%8C%E4%B8%80%E9%A1%B5%E9%9D%A2%E5%9C%A8%E4%B8%8D%E5%90%8C%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8%E4%B8%8B%E6%9C%89%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B8%83%E5%B1%80%E3%80%82%E4%BC%A0%E7%BB%9F%E7%9A%84%E5%BC%80%E5%8F%91%E6%96%B9%E5%BC%8F%E6%98%AFPC%E7%AB%AF%E5%BC%80%E5%8F%91%E4%B8%80%E5%A5%97%EF%BC%8C%20-%20%E6%8E%98%E9%87%91(1)/" class="next-prefix">» </a> 下一篇：    <a href="/2024/10/20/%E5%89%8D%E7%AB%AF%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80%E5%8E%9F%E7%90%86%E4%B8%8E%E6%96%B9%E6%A1%88%EF%BC%88%E8%AF%A6%E7%BB%86%E7%89%88%EF%BC%89%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80%E6%8C%87%E7%9A%84%E6%98%AF%E5%90%8C%E4%B8%80%E9%A1%B5%E9%9D%A2%E5%9C%A8%E4%B8%8D%E5%90%8C%E5%B1%8F%E5%B9%95%E5%B0%BA%E5%AF%B8%E4%B8%8B%E6%9C%89%E4%B8%8D%E5%90%8C%E7%9A%84%E5%B8%83%E5%B1%80%E3%80%82%E4%BC%A0%E7%BB%9F%E7%9A%84%E5%BC%80%E5%8F%91%E6%96%B9%E5%BC%8F%E6%98%AFPC%E7%AB%AF%E5%BC%80%E5%8F%91%E4%B8%80%E5%A5%97%EF%BC%8C%20-%20%E6%8E%98%E9%87%91(1)/" title="发布于 2024-10-20 09:20">前端响应式布局原理与方案（详细版）响应式布局指的是同一页面在不同屏幕尺寸下有不同的布局。传统的开发方式是PC端开发一套， - 掘金(1)</a>
+                    
+                </div>
+            </div>
+            
+    <div class="article-comments">
+        
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+    
+ 
+        </div>
+    
+</div>
+    <div id="footer">
+    <div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>
+</div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar">
+                    <img src="/image/sidebar/avatar.jpg">
+                </div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user">
+                        
+                            <a href="javascript:;" target="_self"><span>Aspirai</span></a>
+                        
+                    </div>
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul>
+                    
+                        <li class=""><a href="/" class="" target="_self"><span class="iconfont icon-home-fill"></span>首页</a></li>
+                    
+                        <li class=""><a href="/category" class="" target="_self"><span class="iconfont icon-folder-fill"></span>分类</a></li>
+                    
+                        <li class=""><a href="/tag" class="" target="_self"><span class="iconfont icon-discount-fill"></span>标签</a></li>
+                    
+                        <li class=""><a href="/archive" class="" target="_self"><span class="iconfont icon-calendar-fill"></span>归档</a></li>
+                    
+                        <li class=""><a href="/friend" class="" target="_self"><span class="iconfont icon-link"></span>友情链接</a></li>
+                    
+                </ul> 
+            </div> 
+            <div class="menu-link">
+                <div class="box">
+                    <div class="image-box"></div>
+                </div>
+                
+                    <a name="QQ" href="javascript:;" class="image" target="_self" data="/image/sidebar/qq.png"><span class="iconfont icon-qq"></span></a>
+                
+            </div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="/css/search.css">
+<script type="text/javascript" src="/js/iscroll.js"></script>
+<script type="text/javascript" src="/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+    
+    <link type="text/css" rel="stylesheet" href="/css/APlayer.css">
+    <script type="text/javascript" src="/js/APlayer.min.js"></script>
+    <script type="text/javascript" src="/js/Meting.min.js"></script>
+    <script>
+        var meting_api = 'https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&auth=:auth&r=:r';
+    </script>
+    <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+
+    <div class="wrap-right">
+    <div class="wrap-right-hide">
+         <div class="wrap-right-button favorites">
+            <div class="iconbox" switch="false">
+                <span class="iconfont icon-favorites"></span>
+            </div>
+            <span class="icontext">关注</span>
+         </div>
+        <div class="wrap-right-button search">
+            <div class="iconbox">
+                <span class="iconfont icon-search-menu"></span>
+            </div>
+            <span class="icontext">搜索</span>
+        </div>
+        <div class="wrap-right-button menu-button">
+            <div class="iconbox">
+                <span class="iconfont icon-menu"></span>
+            </div>
+            <span class="icontext">菜单</span>
+        </div>
+        <div class="wrap-right-button mode">
+            <div class="light">
+                <div class="iconbox">
+                    <span class="iconfont icon-daymode"></span>
+                </div>
+                <span class="icontext">浅色模式</span>
+            </div>
+            <div class="dark">
+                <div class="iconbox">
+                    <span class="iconfont icon-nightmode-fill"></span>
+                </div>
+                <span class="icontext">深色模式</span>
+            </div>
+        </div>
+        <div class="wrap-right-button bottom">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">跳至底部</span>
+        </div>
+    </div>
+    <div class="wrap-right-show">
+        <div class="wrap-right-button set">
+            <div class="iconbox">
+                <span class="iconfont icon-setting"></span>
+            </div>
+            <span class="icontext">设置</span>
+        </div>
+        <div class="wrap-right-button top">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">返回顶部</span>
+        </div>
+    </div>
+</div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : "Aspirai",
+        GitHubRepositories : "Hexo-LiveForCode",
+
+        User             : "Aspirai",
+        UserAvatar       : "/image/sidebar/avatar.jpg",
+        WebsiteStartDate : "2020-01-01",
+        Home             : "",
+
+        WebsiteTitleBlur         : "(◍´꒳`◍) Hi, Aspirai",
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : "(*´∇｀*) 欢迎回来!",
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : {
+            light : "/image/website/logo/logo.png",
+            dark  : "/image/website/logo/logo-dark.png"
+        },
+
+        ProgressBar : {
+            id       : "topProgressBar",
+            color    : "#77B6FF",
+            height   : "2px",
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound : {
+                tension  : 16,
+                friction : 5
+            },
+            spinner : {
+                id     : "spinner",
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : "#F0F0F0",
+                    stroke     : "#272633",
+                    base       : "",
+                    child      : "#272633"
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : "rgba(255, 255, 255, .2)",
+            clearOffset : 0.3
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : "60%",
+            colorBrightness  : "50%",
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : "random",
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                "/image/header/home.jpg",
+            
+                "/image/header/home.png",
+            
+        ],
+        HomeBannerText  : "",
+
+        ArticleHeaderImage : [
+            
+                "/image/header/article.jpg",
+            
+        ],
+
+        OtherBannerText : "",
+
+        Error : {
+            icon    : "icon-swimming",
+            title   : "PAGE NOT FOUND",
+            content : [
+                
+                    "很抱歉，您访问的页面不存在！",
+                
+                    "可能是输入地址有误或该地址已变更。",
+                
+            ],
+            buttons : [
+                
+                    {
+                        icon  : "icon-home",
+                        text  : "返回首页",
+                        href  : "/",
+                        class : ""
+                    },
+                
+            ]
+        },
+
+        MenuNotice : {
+            enable : false,
+            notice : "简单地活着，肆意而又精彩！",
+            speed  : 20
+        },
+        MenuList : [
+            
+                {
+                    name   : "首页",
+                    icon   : "icon-home-fill",
+                    href   : "/",
+                    type   : "index",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "分类",
+                    icon   : "icon-folder-fill",
+                    href   : "/category",
+                    type   : "category",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "标签",
+                    icon   : "icon-discount-fill",
+                    href   : "/tag",
+                    type   : "tag",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "归档",
+                    icon   : "icon-calendar-fill",
+                    href   : "/archive",
+                    type   : "archive",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "友情链接",
+                    icon   : "icon-link",
+                    href   : "/friend",
+                    type   : "friend",
+                    class  : "",
+                    target : "_self"
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        name   : "QQ",
+                        icon   : "icon-qq",
+                        href   : "javascript:;",
+                        class  : "image",
+                        target : "_self",
+                        image  : "/image/sidebar/qq.png"
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : "<div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>",
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                "Based on cnblogs theme SimpleMemory.",
+                            
+                                "",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "SimpleMemory Author:",
+                            
+                                "BNDong",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "Theme:",
+                            
+                                "LiveForCode",
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : "",
+
+        Donate : {
+            paypal  : "",
+            bitcoin : "",
+            alipay  : "/image/donate/alipay.png",
+            wechat  : "/image/donate/wechat.png"
+        },
+
+        Search : {
+            applicationID : "010C3EANT8",
+            apiKey        : "c7abab9f11b79102b9aff7fe6d41447d",
+            indexName     : "Notes",
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : "搜索",
+                empty       : "未发现与 「${query}」 相关的内容",
+                stats       : "${hits} 条相关条目，使用了 ${time} 毫秒",
+            }
+        }, 
+
+        Comment : {
+            switch : true,
+            type   : "Valine",
+        },
+
+        Waline : {
+            el              : ".comments-content",
+            serverURL       : "",
+            path            : window.location.pathname,
+            meta            : "['nick', 'mail', 'link']",
+            requiredMeta    : "['nick', 'mail']",
+            pageSize        : 10,
+            lang            : "zh-cn",
+            locale: {
+                admin       : "博主",
+                anonymous   : "匿名用户",
+                sofa        : "快来做第一个评论的人吧 ~",
+                placeholder : "你是我一生只会遇见一次的惊喜...",
+            },
+            dark            : "html[color-scheme='dark']",
+            search          : false,
+            pageview        : true,
+            comment         : true,
+            copyright       : false,
+        },
+
+        Valine : {
+            el             : ".comments-content",
+            appId          : "srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz",
+            appKey         : "8uVSP1q6UlALVC5igYfIfv2h",
+            serverURLs     : "",
+            placeholder    : "你是我一生只会遇见一次的惊喜...",
+            avatar         : "mm",
+            meta           : "nick,mail,link",
+            requiredFields : "nick,mail",
+            pageSize       : 5,
+            lang           : "zh-cn",
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : ".toc",
+            contentSelector       : ".article-body",
+            headingSelector       : "h1, h2, h3, h4, h5",
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : ".toc",
+            positionFixedClass    : "toc-fixed",
+            fixedSidebarOffset    : "",
+        },
+
+        Require : {
+            baseUrl     : "/js/",
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : "Meting"
+        },
+        APlayer : {
+            container : ".aplayer",
+            fixed     : true,
+            autoplay  : false,
+            loop      : "all",
+            order     : "random",
+            preload   : "auto",
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : "Endless Tears",
+                        artist : "CLIFF EDGE",
+                        cover  : "/music/cover/Endless Tears.jpg",
+                        url    : "/music/song/Endless Tears.mp3",
+                        lrc    : "/music/lrc/Endless Tears.lrc"
+                    },
+                
+            ]
+        },
+        Meting : {
+            api      : "https://api.i-meto.com/meting/api",
+            id       : "3778678", 
+            lrcshow  : false, 
+            server   : "netease", 
+            type     : "playlist", 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : "all", 
+            order    : "random", 
+            preload  : "auto", 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : true,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : "/image/website/lazyload.svg"
+        },
+  
+        Style : {
+            aplayer          : "/css/APlayer.css",
+            archive          : "/css/archive.css",
+            base             : "/css/base.css",
+            clipboard        : "/css/clipboard.css",
+            code             : "/css/code.css",
+            donate           : "/css/donate.css",
+            fancybox         : "/css/jquery.fancybox.css",
+            footer           : "/css/footer.css",
+            iconfont         : "/iconfont/iconfont.css",
+            index            : "/css/index.css",
+            menuBubble       : "/css/menu-bubble.css",
+            mouse            : "/css/mouse.css",
+            page             : "/css/page.css",
+            post             : "/css/post.css",
+            search           : "/css/search.css",
+            tocbot           : "/css/tocbot.css",
+            valine           : "/css/valine.css",
+            waline           : "/css/waline.css",
+            walineCustom     : "/css/waline-custom.css"
+        },
+
+        Script: {
+            aplayer          : "/js/APlayer.min.js",
+            config           : "/js/require.config.js",
+            index            : "/js/index.js",
+            instantSearch    : "/js/instantsearch.min.js",
+            iscroll          : "/js/iscroll.js",
+            jQuery           : "/js/jquery-3.4.1.min.js",
+            loading          : "/js/loading.js",
+            meting           : "/js/Meting.min.js",
+            require          : "/js/require.min.js",
+            waline           : "/js/waline.mjs",
+            pageview         : "/js/pageview.mjs",
+            comment          : "/js/comment.mjs",
+        },
+
+        Font: {
+            LongCang    : "/font/LongCang.css",
+            Monda       : "/font/Monda.css",
+            NotoSansSC  : "/font/NotoSansSC.css",
+            NotoSerifSC : "/font/NotoSerifSC.css",
+            Playball    : "/font/Playball.css",
+            PTMono      : "/font/PTMono.css",
+            Roboto      : "/font/Roboto.css",
+            RobotoSlab  : "/font/RobotoSlab.css",
+            Rosario     : "/font/Rosario.css",
+            UbuntuMono  : "/font/UbuntuMono.css"
+        },
+
+        Suffix : {
+            about : "时间带不走你眼中的光辉"
+        },
+            
+        Theme : {
+            url  : "https://github.com/first19326/Hexo-LiveForCode",
+            name : "Hexo - Live For Code"
+        }  
+    };
+</script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</body>
+</html>

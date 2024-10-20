@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>
+        
+            npx与npm的差异解析，以及包管理器yarn与Node版本管理工具nvm的使用方法详解
+        
+    </title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSerifSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="/font/Roboto.css">
+    <link type="text/css" rel="stylesheet" href="/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="/css/base.css">
+    <link type="text/css" rel="stylesheet" href="/css/code.css">
+
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <a id="cover"></a>
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
+<div id="header" class="header">
+    <div class="vertical">
+        <div class="inner">
+            
+                <h1 class="header-subtitle">npx与npm的差异解析，以及包管理器yarn与Node版本管理工具nvm的使用方法详解</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2024-10-20
+                        </span>
+                        
+                            
+                                <span id="/2024/10/20/npx与npm的差异解析，以及包管理器yarn与Node版本管理工具nvm的使用方法详解/" class="leancloud_visitors" data-flag-title="npx与npm的差异解析，以及包管理器yarn与Node版本管理工具nvm的使用方法详解">
+                                    <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                                </span>
+                            
+                            
+                                <span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/10/20/npx与npm的差异解析，以及包管理器yarn与Node版本管理工具nvm的使用方法详解/"></span>
+                                </span>
+                              
+                        
+                    </p>
+                    
+                        
+                            <span class="category-color">开发工具</span>
+                        
+                    
+                    
+                        
+                            <span class="tag-color">npm</span>
+                        
+                    
+                </div>
+            
+        </div>
+    </div>
+    
+</div>
+<div id="container">
+    
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <h4 id="转换"><a href="#转换" class="headerlink" title="转换"></a>转换</h4><p>通常情况下，将 <code>npm</code> 命令转换为 <code>yarn</code> 命令的方式非常简单，下面是常见的转换示例：</p>
+<h5 id="1-安装依赖包"><a href="#1-安装依赖包" class="headerlink" title="1. 安装依赖包"></a>1. <strong>安装依赖包</strong></h5><ul>
+<li><strong>npm</strong>: <code>npm install package-name</code></li>
+<li><strong>yarn</strong>: <code>yarn add package-name</code></li>
+</ul>
+<h5 id="2-全局安装"><a href="#2-全局安装" class="headerlink" title="2. 全局安装"></a>2. <strong>全局安装</strong></h5><ul>
+<li><strong>npm</strong>: <code>npm install -g package-name</code></li>
+<li><strong>yarn</strong>: <code>yarn global add package-name</code></li>
+</ul>
+<h5 id="3-开发环境依赖"><a href="#3-开发环境依赖" class="headerlink" title="3. 开发环境依赖"></a>3. <strong>开发环境依赖</strong></h5><ul>
+<li><strong>npm</strong>: <code>npm install package-name --save-dev</code></li>
+<li><strong>yarn</strong>: <code>yarn add package-name --dev</code></li>
+</ul>
+<h5 id="4-卸载依赖"><a href="#4-卸载依赖" class="headerlink" title="4. 卸载依赖"></a>4. <strong>卸载依赖</strong></h5><ul>
+<li><strong>npm</strong>: <code>npm uninstall package-name</code></li>
+<li><strong>yarn</strong>: <code>yarn remove package-name</code></li>
+</ul>
+<h5 id="5-安装所有依赖"><a href="#5-安装所有依赖" class="headerlink" title="5. 安装所有依赖"></a>5. <strong>安装所有依赖</strong></h5><ul>
+<li><strong>npm</strong>: <code>npm install</code></li>
+<li><strong>yarn</strong>: <code>yarn install</code> 或 <code>yarn</code></li>
+</ul>
+<h5 id="6-查看已安装的全局包"><a href="#6-查看已安装的全局包" class="headerlink" title="6. 查看已安装的全局包"></a>6. <strong>查看已安装的全局包</strong></h5><ul>
+<li><strong>npm</strong>: <code>npm list -g --depth=0</code></li>
+<li><strong>yarn</strong>: <code>yarn global list</code></li>
+</ul>
+<h5 id="7-更新包"><a href="#7-更新包" class="headerlink" title="7. 更新包"></a>7. <strong>更新包</strong></h5><ul>
+<li><strong>npm</strong>: <code>npm update package-name</code></li>
+<li><strong>yarn</strong>: <code>yarn upgrade package-name</code></li>
+</ul>
+<p>这些是常见的 <code>npm</code> 到 <code>yarn</code> 的转换模式。如果使用 <code>npm</code> 的命令比较复杂，通常可以参考 <code>yarn</code> 的<a target="_blank" rel="noopener" href="https://classic.yarnpkg.com/en/docs/">官方文档</a>进行更深入的转换。</p>
+<ul>
+<li><ul>
+<li><ul>
+<li><a href="#npx_1">一、npx介绍及使用</a></li>
+<li><ul>
+<li><a href="#1npx__5">1、npx 是什么</a></li>
+<li><a href="#2npx__25">2、npx 会把远端的包下载到本地吗?</a></li>
+<li><a href="#3npx___29">3、npx 执行完成之后， 下载的包是否会被删除？</a></li>
+<li><a href="#4npxnpm_34">4、npx和npm的区别</a></li>
+</ul>
+</li>
+<li><a href="#yarn_41">二、yarn介绍及使用</a></li>
+<li><ul>
+<li><a href="#1Yarn_43">1、Yarn是什么？</a></li>
+<li><a href="#2Yarn_46">2、Yarn的常见场景：</a></li>
+<li><a href="#3Yarn_56">3、Yarn常用命令</a></li>
+</ul>
+</li>
+<li><a href="#nvm_122">三、nvm介绍及使用</a></li>
+<li><ul>
+<li><a href="#1nvm_124">1、nvm是什么？</a></li>
+<li><a href="#2nvm_127">2、nvm的安装</a></li>
+<li><a href="#3nvm_133">3、nvm的使用</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="一、npx介绍及使用"><a href="#一、npx介绍及使用" class="headerlink" title="一、npx介绍及使用"></a>一、<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=npx&spm=1001.2101.3001.7020">npx</a>介绍及使用</h4><p>平时<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%AE%89%E8%A3%85node&spm=1001.2101.3001.7020">安装node</a>模块的时候，经常使用的命令是npm。其实还有另外一个命令，叫做npx。网上的说法都是：npx是npm命令的升级版本，功能非常强大。</p>
+<h5 id="1、npx-是什么"><a href="#1、npx-是什么" class="headerlink" title="1、npx 是什么"></a>1、npx 是什么</h5><p>npx是一个由Node.js官方提供的用于快速执行npm包中的可执行文件的工具。它可以帮助我们在不全局安装某些包的情况下，直接运行该包提供的命令行工具。npx会在执行时，检查本地项目中是否安装了对应的依赖，如果没有安装则会自动下载安装，并执行命令。如果本地已经存在该依赖，则直接执行命令。</p>
+<p>使用npx时，可以在命令行中输入要执行的包名加上其参数，例如：</p>
+<p>用npx创建vue项目</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx @vue/cli create your-project-name</span><br></pre></td></tr></table></figure>
+
+<p>用npx创建react项目</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx create-react-app your-project-name</span><br></pre></td></tr></table></figure>
+
+<h5 id="2、npx-会把远端的包下载到本地吗"><a href="#2、npx-会把远端的包下载到本地吗" class="headerlink" title="2、npx 会把远端的包下载到本地吗?"></a>2、npx 会把远端的包下载到本地吗?</h5><p>npx 不会像 npm 或 yarn 一样将包下载到本地的 node_modules 目录中。相反，它会在执行命令时，在本地缓存中寻找并下载包，然后执行该包中的命令。这样可以避免在开发过程中在全局安装大量的包，同时也可以确保使用的是最新版本的包。</p>
+<h5 id="3、npx-执行完成之后，-下载的包是否会被删除？"><a href="#3、npx-执行完成之后，-下载的包是否会被删除？" class="headerlink" title="3、npx 执行完成之后， 下载的包是否会被删除？"></a>3、npx 执行完成之后， 下载的包是否会被删除？</h5><p>是的，npx会在执行完命令后删除下载的包。这是因为npx会在执行命令之前，将需要执行的包下载到一个临时目录中，并在执行完毕后删除该目录。这样可以避免在本地留下不必要的依赖包。如果需要保留依赖包，可以使用–no-cleanup选项来禁止删除下载的包。</p>
+<h5 id="4、npx和npm的区别"><a href="#4、npx和npm的区别" class="headerlink" title="4、npx和npm的区别"></a>4、npx和npm的区别</h5><p>npx侧重于执行命令的，执行某个模块命令。虽然会自动安装模块，但是重在执行某个命令。</p>
+<p>npm侧重于安装或者卸载某个模块的。重在安装，并不具备执行某个模块的功能。</p>
+<h4 id="二、yarn介绍及使用"><a href="#二、yarn介绍及使用" class="headerlink" title="二、yarn介绍及使用"></a>二、yarn介绍及使用</h4><h5 id="1、Yarn是什么？"><a href="#1、Yarn是什么？" class="headerlink" title="1、Yarn是什么？"></a>1、Yarn是什么？</h5><p>Yarn是一个流行的JavaScript包管理器，它提供了方便的方式来安装、管理、更新和删除JavaScript库和框架。Yarn可以与npm（Node Package Manager）互操作，并且具有更高的性能和更可靠的网络连接。</p>
+<h5 id="2、Yarn的常见场景："><a href="#2、Yarn的常见场景：" class="headerlink" title="2、Yarn的常见场景："></a>2、Yarn的常见场景：</h5><ul>
+<li>安装依赖：使用Yarn可以轻松地安装项目所需的JavaScript库和框架。通过运行yarn install命令，Yarn会读取项目中的package.json文件，并安装所有列出的依赖项。</li>
+<li>版本控制：Yarn支持版本控制，可以轻松地管理依赖项的版本。通过运行yarn upgrade命令，可以更新所有依赖项到最新版本。而通过yarn downgrade命令，可以将特定依赖项降级到以前的版本。</li>
+<li>发布包：Yarn也允许你发布自己的JavaScript包到npm仓库。通过运行yarn publish命令，可以准备一个npm包并将其发布到npm仓库。</li>
+<li>链接依赖：Yarn支持链接依赖项，允许开发人员在不同项目之间共享依赖项。通过运行yarn link命令，可以将一个项目的依赖项链接到另一个项目。</li>
+<li>脚本执行：Yarn允许在项目中使用自定义脚本。通过在package.json文件中定义脚本命令，可以轻松地执行自定义脚本，例如运行测试、构建应用程序或启动开发服务器等。</li>
+</ul>
+<p>总之，Yarn是一个功能强大的工具，可以帮助开发人员更有效地管理JavaScript项目中的依赖项和脚本。</p>
+<h5 id="3、Yarn常用命令"><a href="#3、Yarn常用命令" class="headerlink" title="3、Yarn常用命令"></a>3、Yarn常用命令</h5><p>安装yarn命令:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g yarn</span><br></pre></td></tr></table></figure>
+
+<p>查看版本号</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn version</span><br></pre></td></tr></table></figure>
+
+<p>初始化项目</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn init </span><br></pre></td></tr></table></figure>
+
+<p>查看全部配置项</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn config list</span><br></pre></td></tr></table></figure>
+
+<p>显示某配置项</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn config get &lt;key&gt;</span><br></pre></td></tr></table></figure>
+
+<p>删除某配置项</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn config delete &lt;key&gt;</span><br></pre></td></tr></table></figure>
+
+<p>设置配置项</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn config set &lt;key&gt; &lt;value&gt; [-g|--global]</span><br></pre></td></tr></table></figure>
+
+<p>安装包命令，该命令会根据packge.json文件安装依赖包，生成node_modules文件夹。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn install xxx</span><br></pre></td></tr></table></figure>
+
+<p>强制重新下载所有包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn install --force</span><br></pre></td></tr></table></figure>
+
+<p>添加包，该命令会自动更新package.json和yarn.lock</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add [package]</span><br></pre></td></tr></table></figure>
+
+<p>删除包，该命令会自动更新package.json和yarn.lock</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn remove &lt;packageName&gt; </span><br></pre></td></tr></table></figure>
+
+<p>发布包</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn publish</span><br></pre></td></tr></table></figure>
+
+<p>查看缓存</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn cache</span><br></pre></td></tr></table></figure>
+
+<p>运行脚本，该命令执行在 package.json 中 scripts 属性下定义的脚本。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn run </span><br></pre></td></tr></table></figure>
+
+<p>打包，该命令将源码编译成dist目录下发行文件。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn build </span><br></pre></td></tr></table></figure>
+
+<h4 id="三、nvm介绍及使用"><a href="#三、nvm介绍及使用" class="headerlink" title="三、nvm介绍及使用"></a>三、nvm介绍及使用</h4><h5 id="1、nvm是什么？"><a href="#1、nvm是什么？" class="headerlink" title="1、nvm是什么？"></a>1、nvm是什么？</h5><p>nvm是一个node的版本管理工具，可以简单操作node版本的切换、安装、查看等等，与npm不同的是，npm是依赖包的管理工具。</p>
+<h5 id="2、nvm的安装"><a href="#2、nvm的安装" class="headerlink" title="2、nvm的安装"></a>2、nvm的安装</h5><p>1.下载<br>2.安装</p>
+<blockquote>
+<p>安装后的目录：C:\Users\admin\AppData\Roaming\nvm</p>
+</blockquote>
+<h5 id="3、nvm的使用"><a href="#3、nvm的使用" class="headerlink" title="3、nvm的使用"></a>3、nvm的使用</h5><p>1.看安装的所有node.js的版本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm ls</span><br></pre></td></tr></table></figure>
+
+<p>2.查显示可以安装的所有node.js的版本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm list available</span><br></pre></td></tr></table></figure>
+
+<p>4.安装所对应的版本。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nvm install 版本号 </span><br><span class="line"></span><br><span class="line">// 例如：nvm install 16.20.1</span><br></pre></td></tr></table></figure>
+
+<p>5.&#x2F;&#x2F; 切换到使用指定的nodejs版本</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nvm use 版本号</span><br></pre></td></tr></table></figure>
+
+<p>6.检测是否切换完成，新开一个cmd</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
+
+<p>8、删除已安装node</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nvm uninstall 版本  </span><br><span class="line"></span><br><span class="line">// 例如：nvm uninstall 14.19.0</span><br></pre></td></tr></table></figure>
+
+<p>源：<a target="_blank" rel="noopener" href="https://blog.csdn.net/shanghai597/article/details/133930521">https://blog.csdn.net/shanghai597/article/details/133930521</a></p>
+
+                
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box">
+    <div class="suffix-box-left">
+        <img src="/image/sidebar/avatar.jpg" alt="Aspirai">
+    </div>
+    <div class="suffix-box-right">
+        <span class="suffix-box-title">文章作者：</span>Aspirai
+        <br>
+        <span class="suffix-box-title">文章出处：</span><a href="/2024/10/20/npx%E4%B8%8Enpm%E7%9A%84%E5%B7%AE%E5%BC%82%E8%A7%A3%E6%9E%90%EF%BC%8C%E4%BB%A5%E5%8F%8A%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8yarn%E4%B8%8ENode%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7nvm%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%E8%AF%A6%E8%A7%A3/" target="_blank">npx与npm的差异解析，以及包管理器yarn与Node版本管理工具nvm的使用方法详解</a>
+        <br>
+        <span class="suffix-box-title">作者签名：</span>时间带不走你眼中的光辉
+        <br>
+        <span class="suffix-box-title">版权声明：</span>文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+        <br>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+                
+                    <div class="category">
+                        分类：
+                        
+                            <a href="/category/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a>
+                        
+                    </div>
+                
+                
+                    <div class="tag">
+                        标签：
+                        
+                            <a href="/tag/npm/">npm</a>
+                        
+                    </div>
+                
+                <div class="article-prev-next">
+                    
+                        <a href="/2024/10/20/npm%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" class="prev-prefix">« </a> 上一篇：    <a href="/2024/10/20/npm%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/" title="发布于 2024-10-20 09:10">npm常用指令</a>
+                        <br>
+                    
+                    
+                        <a href="/2024/10/20/ChatGPT%E4%B8%AD%E6%96%87%E6%8F%90%E7%A4%BA%E8%AF%8D/" class="next-prefix">» </a> 下一篇：    <a href="/2024/10/20/ChatGPT%E4%B8%AD%E6%96%87%E6%8F%90%E7%A4%BA%E8%AF%8D/" title="发布于 2024-10-20 09:09">ChatGPT中文提示词</a>
+                    
+                </div>
+            </div>
+            
+    <div class="article-comments">
+        
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+    
+ 
+        </div>
+    
+</div>
+    <div id="footer">
+    <div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>
+</div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar">
+                    <img src="/image/sidebar/avatar.jpg">
+                </div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user">
+                        
+                            <a href="javascript:;" target="_self"><span>Aspirai</span></a>
+                        
+                    </div>
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul>
+                    
+                        <li class=""><a href="/" class="" target="_self"><span class="iconfont icon-home-fill"></span>首页</a></li>
+                    
+                        <li class=""><a href="/category" class="" target="_self"><span class="iconfont icon-folder-fill"></span>分类</a></li>
+                    
+                        <li class=""><a href="/tag" class="" target="_self"><span class="iconfont icon-discount-fill"></span>标签</a></li>
+                    
+                        <li class=""><a href="/archive" class="" target="_self"><span class="iconfont icon-calendar-fill"></span>归档</a></li>
+                    
+                        <li class=""><a href="/friend" class="" target="_self"><span class="iconfont icon-link"></span>友情链接</a></li>
+                    
+                </ul> 
+            </div> 
+            <div class="menu-link">
+                <div class="box">
+                    <div class="image-box"></div>
+                </div>
+                
+                    <a name="QQ" href="javascript:;" class="image" target="_self" data="/image/sidebar/qq.png"><span class="iconfont icon-qq"></span></a>
+                
+            </div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="/css/search.css">
+<script type="text/javascript" src="/js/iscroll.js"></script>
+<script type="text/javascript" src="/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+    
+    <link type="text/css" rel="stylesheet" href="/css/APlayer.css">
+    <script type="text/javascript" src="/js/APlayer.min.js"></script>
+    <script type="text/javascript" src="/js/Meting.min.js"></script>
+    <script>
+        var meting_api = 'https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&auth=:auth&r=:r';
+    </script>
+    <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+
+    <div class="wrap-right">
+    <div class="wrap-right-hide">
+         <div class="wrap-right-button favorites">
+            <div class="iconbox" switch="false">
+                <span class="iconfont icon-favorites"></span>
+            </div>
+            <span class="icontext">关注</span>
+         </div>
+        <div class="wrap-right-button search">
+            <div class="iconbox">
+                <span class="iconfont icon-search-menu"></span>
+            </div>
+            <span class="icontext">搜索</span>
+        </div>
+        <div class="wrap-right-button menu-button">
+            <div class="iconbox">
+                <span class="iconfont icon-menu"></span>
+            </div>
+            <span class="icontext">菜单</span>
+        </div>
+        <div class="wrap-right-button mode">
+            <div class="light">
+                <div class="iconbox">
+                    <span class="iconfont icon-daymode"></span>
+                </div>
+                <span class="icontext">浅色模式</span>
+            </div>
+            <div class="dark">
+                <div class="iconbox">
+                    <span class="iconfont icon-nightmode-fill"></span>
+                </div>
+                <span class="icontext">深色模式</span>
+            </div>
+        </div>
+        <div class="wrap-right-button bottom">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">跳至底部</span>
+        </div>
+    </div>
+    <div class="wrap-right-show">
+        <div class="wrap-right-button set">
+            <div class="iconbox">
+                <span class="iconfont icon-setting"></span>
+            </div>
+            <span class="icontext">设置</span>
+        </div>
+        <div class="wrap-right-button top">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">返回顶部</span>
+        </div>
+    </div>
+</div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : "Aspirai",
+        GitHubRepositories : "Hexo-LiveForCode",
+
+        User             : "Aspirai",
+        UserAvatar       : "/image/sidebar/avatar.jpg",
+        WebsiteStartDate : "2020-01-01",
+        Home             : "",
+
+        WebsiteTitleBlur         : "(◍´꒳`◍) Hi, Aspirai",
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : "(*´∇｀*) 欢迎回来!",
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : {
+            light : "/image/website/logo/logo.png",
+            dark  : "/image/website/logo/logo-dark.png"
+        },
+
+        ProgressBar : {
+            id       : "topProgressBar",
+            color    : "#77B6FF",
+            height   : "2px",
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound : {
+                tension  : 16,
+                friction : 5
+            },
+            spinner : {
+                id     : "spinner",
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : "#F0F0F0",
+                    stroke     : "#272633",
+                    base       : "",
+                    child      : "#272633"
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : "rgba(255, 255, 255, .2)",
+            clearOffset : 0.3
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : "60%",
+            colorBrightness  : "50%",
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : "random",
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                "/image/header/home.jpg",
+            
+                "/image/header/home.png",
+            
+        ],
+        HomeBannerText  : "",
+
+        ArticleHeaderImage : [
+            
+                "/image/header/article.jpg",
+            
+        ],
+
+        OtherBannerText : "",
+
+        Error : {
+            icon    : "icon-swimming",
+            title   : "PAGE NOT FOUND",
+            content : [
+                
+                    "很抱歉，您访问的页面不存在！",
+                
+                    "可能是输入地址有误或该地址已变更。",
+                
+            ],
+            buttons : [
+                
+                    {
+                        icon  : "icon-home",
+                        text  : "返回首页",
+                        href  : "/",
+                        class : ""
+                    },
+                
+            ]
+        },
+
+        MenuNotice : {
+            enable : false,
+            notice : "简单地活着，肆意而又精彩！",
+            speed  : 20
+        },
+        MenuList : [
+            
+                {
+                    name   : "首页",
+                    icon   : "icon-home-fill",
+                    href   : "/",
+                    type   : "index",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "分类",
+                    icon   : "icon-folder-fill",
+                    href   : "/category",
+                    type   : "category",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "标签",
+                    icon   : "icon-discount-fill",
+                    href   : "/tag",
+                    type   : "tag",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "归档",
+                    icon   : "icon-calendar-fill",
+                    href   : "/archive",
+                    type   : "archive",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "友情链接",
+                    icon   : "icon-link",
+                    href   : "/friend",
+                    type   : "friend",
+                    class  : "",
+                    target : "_self"
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        name   : "QQ",
+                        icon   : "icon-qq",
+                        href   : "javascript:;",
+                        class  : "image",
+                        target : "_self",
+                        image  : "/image/sidebar/qq.png"
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : "<div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>",
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                "Based on cnblogs theme SimpleMemory.",
+                            
+                                "",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "SimpleMemory Author:",
+                            
+                                "BNDong",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "Theme:",
+                            
+                                "LiveForCode",
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : "",
+
+        Donate : {
+            paypal  : "",
+            bitcoin : "",
+            alipay  : "/image/donate/alipay.png",
+            wechat  : "/image/donate/wechat.png"
+        },
+
+        Search : {
+            applicationID : "010C3EANT8",
+            apiKey        : "c7abab9f11b79102b9aff7fe6d41447d",
+            indexName     : "Notes",
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : "搜索",
+                empty       : "未发现与 「${query}」 相关的内容",
+                stats       : "${hits} 条相关条目，使用了 ${time} 毫秒",
+            }
+        }, 
+
+        Comment : {
+            switch : true,
+            type   : "Valine",
+        },
+
+        Waline : {
+            el              : ".comments-content",
+            serverURL       : "",
+            path            : window.location.pathname,
+            meta            : "['nick', 'mail', 'link']",
+            requiredMeta    : "['nick', 'mail']",
+            pageSize        : 10,
+            lang            : "zh-cn",
+            locale: {
+                admin       : "博主",
+                anonymous   : "匿名用户",
+                sofa        : "快来做第一个评论的人吧 ~",
+                placeholder : "你是我一生只会遇见一次的惊喜...",
+            },
+            dark            : "html[color-scheme='dark']",
+            search          : false,
+            pageview        : true,
+            comment         : true,
+            copyright       : false,
+        },
+
+        Valine : {
+            el             : ".comments-content",
+            appId          : "srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz",
+            appKey         : "8uVSP1q6UlALVC5igYfIfv2h",
+            serverURLs     : "",
+            placeholder    : "你是我一生只会遇见一次的惊喜...",
+            avatar         : "mm",
+            meta           : "nick,mail,link",
+            requiredFields : "nick,mail",
+            pageSize       : 5,
+            lang           : "zh-cn",
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : ".toc",
+            contentSelector       : ".article-body",
+            headingSelector       : "h1, h2, h3, h4, h5",
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : ".toc",
+            positionFixedClass    : "toc-fixed",
+            fixedSidebarOffset    : "",
+        },
+
+        Require : {
+            baseUrl     : "/js/",
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : "Meting"
+        },
+        APlayer : {
+            container : ".aplayer",
+            fixed     : true,
+            autoplay  : false,
+            loop      : "all",
+            order     : "random",
+            preload   : "auto",
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : "Endless Tears",
+                        artist : "CLIFF EDGE",
+                        cover  : "/music/cover/Endless Tears.jpg",
+                        url    : "/music/song/Endless Tears.mp3",
+                        lrc    : "/music/lrc/Endless Tears.lrc"
+                    },
+                
+            ]
+        },
+        Meting : {
+            api      : "https://api.i-meto.com/meting/api",
+            id       : "3778678", 
+            lrcshow  : false, 
+            server   : "netease", 
+            type     : "playlist", 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : "all", 
+            order    : "random", 
+            preload  : "auto", 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : true,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : "/image/website/lazyload.svg"
+        },
+  
+        Style : {
+            aplayer          : "/css/APlayer.css",
+            archive          : "/css/archive.css",
+            base             : "/css/base.css",
+            clipboard        : "/css/clipboard.css",
+            code             : "/css/code.css",
+            donate           : "/css/donate.css",
+            fancybox         : "/css/jquery.fancybox.css",
+            footer           : "/css/footer.css",
+            iconfont         : "/iconfont/iconfont.css",
+            index            : "/css/index.css",
+            menuBubble       : "/css/menu-bubble.css",
+            mouse            : "/css/mouse.css",
+            page             : "/css/page.css",
+            post             : "/css/post.css",
+            search           : "/css/search.css",
+            tocbot           : "/css/tocbot.css",
+            valine           : "/css/valine.css",
+            waline           : "/css/waline.css",
+            walineCustom     : "/css/waline-custom.css"
+        },
+
+        Script: {
+            aplayer          : "/js/APlayer.min.js",
+            config           : "/js/require.config.js",
+            index            : "/js/index.js",
+            instantSearch    : "/js/instantsearch.min.js",
+            iscroll          : "/js/iscroll.js",
+            jQuery           : "/js/jquery-3.4.1.min.js",
+            loading          : "/js/loading.js",
+            meting           : "/js/Meting.min.js",
+            require          : "/js/require.min.js",
+            waline           : "/js/waline.mjs",
+            pageview         : "/js/pageview.mjs",
+            comment          : "/js/comment.mjs",
+        },
+
+        Font: {
+            LongCang    : "/font/LongCang.css",
+            Monda       : "/font/Monda.css",
+            NotoSansSC  : "/font/NotoSansSC.css",
+            NotoSerifSC : "/font/NotoSerifSC.css",
+            Playball    : "/font/Playball.css",
+            PTMono      : "/font/PTMono.css",
+            Roboto      : "/font/Roboto.css",
+            RobotoSlab  : "/font/RobotoSlab.css",
+            Rosario     : "/font/Rosario.css",
+            UbuntuMono  : "/font/UbuntuMono.css"
+        },
+
+        Suffix : {
+            about : "时间带不走你眼中的光辉"
+        },
+            
+        Theme : {
+            url  : "https://github.com/first19326/Hexo-LiveForCode",
+            name : "Hexo - Live For Code"
+        }  
+    };
+</script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</body>
+</html>

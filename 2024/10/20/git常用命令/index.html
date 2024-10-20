@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>
+        
+            git常用命令
+        
+    </title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSerifSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="/font/Roboto.css">
+    <link type="text/css" rel="stylesheet" href="/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="/css/base.css">
+    <link type="text/css" rel="stylesheet" href="/css/code.css">
+
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <a id="cover"></a>
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
+<div id="header" class="header">
+    <div class="vertical">
+        <div class="inner">
+            
+                <h1 class="header-subtitle">git常用命令</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2024-10-20
+                        </span>
+                        
+                            
+                                <span id="/2024/10/20/git常用命令/" class="leancloud_visitors" data-flag-title="git常用命令">
+                                    <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                                </span>
+                            
+                            
+                                <span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/10/20/git常用命令/"></span>
+                                </span>
+                              
+                        
+                    </p>
+                    
+                        
+                            <span class="category-color">开发工具</span>
+                        
+                    
+                    
+                        
+                            <span class="tag-color">git</span>
+                        
+                    
+                </div>
+            
+        </div>
+    </div>
+    
+</div>
+<div id="container">
+    
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><h3 id="1-推送、拉取、提交"><a href="#1-推送、拉取、提交" class="headerlink" title="1.推送、拉取、提交"></a>1.推送、拉取、提交</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">查看仓库状态</span><br><span class="line">git status</span><br><span class="line"></span><br><span class="line">添加文件到暂存区</span><br><span class="line">git add .</span><br><span class="line"></span><br><span class="line">提交文件到仓库</span><br><span class="line">git commit -m &quot;feat: 增加 Initial 功能&quot;</span><br><span class="line">| 类别     | 含义                                     |</span><br><span class="line">| -------- | ---------------------------------------- |</span><br><span class="line">| feat     | 新功能                                   |</span><br><span class="line">| fix      | 修复 bug                                 |</span><br><span class="line">| style    | 样式修改（UI校验）                       |</span><br><span class="line">| docs     | 文档更新                                 |</span><br><span class="line">| refactor | 重构代码(既没有新增功能，也没有修复 bug) |</span><br><span class="line">| perf     | 优化相关，比如提升性能、体验             |</span><br><span class="line">| test     | 增加测试，包括单元测试、集成测试等       |</span><br><span class="line">| build    | 构建系统或外部依赖项的更改               |</span><br><span class="line">| ci       | 自动化流程配置或脚本修改                 |</span><br><span class="line">| revert   | 回退某个commit提交                       |</span><br><span class="line"></span><br><span class="line">查看仓库状态</span><br><span class="line">git status</span><br><span class="line"></span><br><span class="line">提交到远程仓库</span><br><span class="line">git push</span><br><span class="line"></span><br><span class="line">查看修改前后对比</span><br><span class="line">git diff readme.txt</span><br><span class="line"></span><br><span class="line">查看最近提交日志</span><br><span class="line">git log</span><br><span class="line"></span><br><span class="line">回退版本</span><br><span class="line">git reset -- hard 版本号</span><br><span class="line"></span><br><span class="line">查看远程仓库信息</span><br><span class="line">git remote -v</span><br><span class="line"></span><br><span class="line">拉取远程仓库最新内容到本地</span><br><span class="line">git pull</span><br><span class="line"></span><br><span class="line">强制推送本地到远端（会覆盖他人修改内容，尽量不使用）</span><br><span class="line">git push -force</span><br><span class="line"></span><br><span class="line">修改最后一次的提交</span><br><span class="line">git commit --amend</span><br><span class="line">保存:wq</span><br><span class="line">注：需使用git push --forceqiang&#x27;z</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-常用其他命令"><a href="#2-常用其他命令" class="headerlink" title="2.常用其他命令"></a>2.常用其他命令</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#SSH链接克隆仓库</span><br><span class="line">git clone LINK</span><br><span class="line"></span><br><span class="line">#推送并设置上游分支（用于创建了一个新的本地分支并且还没有将它推送到远程仓库）</span><br><span class="line">git push --set-upstream origin master</span><br><span class="line">将当前 master 分支推送到远程仓库并设置上游分支</span><br><span class="line"></span><br><span class="line">#查看当前分支</span><br><span class="line">git branch</span><br><span class="line"></span><br><span class="line">#切换当前分支到master</span><br><span class="line">git checkout master</span><br><span class="line"></span><br><span class="line">#自动设置上游分支（终端或命令行）</span><br><span class="line">git config --global push.autoSetupRemote true</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-本地分支落后推送解决"><a href="#3-本地分支落后推送解决" class="headerlink" title="3.本地分支落后推送解决"></a>3.本地分支落后推送解决</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#本地分支比远程分支落后【 ! [rejected] master -&gt; master (non-fast-forward) 】</span><br><span class="line"></span><br><span class="line">1.使用 git pull 命令将远程分支的变化合并到本地分支：</span><br><span class="line">git pull origin master</span><br><span class="line"></span><br><span class="line">2.解决冲突（如果有）</span><br><span class="line">git add FILE</span><br><span class="line"></span><br><span class="line">3.提交合并</span><br><span class="line">git commit -m &quot;Resolved merge conflicts&quot;</span><br><span class="line"></span><br><span class="line">4.推送本地分支到远程仓库</span><br><span class="line">git push origin master</span><br><span class="line"></span><br><span class="line">5.查看本地分支和远程分支关联</span><br><span class="line">git branch -vv</span><br><span class="line"></span><br><span class="line">6.检索上游分支</span><br><span class="line">git fetch</span><br><span class="line"></span><br><span class="line">7.关联本地分支和远程分支跟踪关系</span><br><span class="line">git branch --set-upstream-to=origin/master master</span><br><span class="line"></span><br><span class="line">8.允许合并不相关历史</span><br><span class="line">git pull origin master --allow-unrelated-histories</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-将本地分支推送到指定的远程仓库"><a href="#4-将本地分支推送到指定的远程仓库" class="headerlink" title="4.将本地分支推送到指定的远程仓库"></a>4.将本地分支推送到指定的远程仓库</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">1.添加远程仓库（如果尚未添加）</span><br><span class="line">git remote add origin LINK</span><br><span class="line"></span><br><span class="line">2.拉取远程仓库的最新变化</span><br><span class="line">git pull origin master</span><br><span class="line"></span><br><span class="line">3.推送本地分支到远程仓库</span><br><span class="line">git push origin master</span><br><span class="line"></span><br><span class="line">4.解决冲突并提交（如果有冲突）：</span><br><span class="line">git add &lt;conflict_file&gt;</span><br><span class="line">git commit -m &quot;Resolved merge conflicts&quot;</span><br><span class="line">强制推送！</span><br><span class="line">git push --force origin master</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-配置-Git-使用-SSH-远程仓库"><a href="#5-配置-Git-使用-SSH-远程仓库" class="headerlink" title="5.配置 Git 使用 SSH 远程仓库"></a>5.配置 Git 使用 SSH 远程仓库</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1.修改远程仓库地址为 SSH：</span><br><span class="line">如果远程仓库地址当前使用的是 HTTPS URL，需要将其修改为 SSH URL。删除原有的 HTTPS 远程仓库：</span><br><span class="line">git remote remove origin</span><br><span class="line"></span><br><span class="line">2.添加 SSH 远程仓库：</span><br><span class="line">git remote add origin git@github.com:Aspirai/taro.git</span><br><span class="line"></span><br><span class="line">3.验证远程仓库地址：</span><br><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
+
+<h3 id="6-修改远程仓库名后，修改本地推送链接"><a href="#6-修改远程仓库名后，修改本地推送链接" class="headerlink" title="6.修改远程仓库名后，修改本地推送链接"></a>6.修改远程仓库名后，修改本地推送链接</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1.本地查看远程仓库名</span><br><span class="line">git remote -v</span><br><span class="line"></span><br><span class="line">2.设置新远程仓库名(xxxx为新仓库名)</span><br><span class="line">git remote set-url origin xxxx.git</span><br></pre></td></tr></table></figure>
+
+<h3 id="7-创建新GitHub仓库并关联本地仓库"><a href="#7-创建新GitHub仓库并关联本地仓库" class="headerlink" title="7.创建新GitHub仓库并关联本地仓库"></a>7.创建新GitHub仓库并关联本地仓库</h3><figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>初始化本地仓库</span><br><span class="line">git init</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>添加所有文件到本地仓库</span><br><span class="line">git add .</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span>提交文件到本地仓库(inital是提交的注释)</span><br><span class="line">git commit -m <span class="string">&quot;inital&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="number">4.</span>关联远程仓库(git<span class="meta">@github</span>.<span class="property">com</span>:xxxx是远程仓库地址)</span><br><span class="line">git remote add origin git<span class="meta">@github</span>.<span class="property">com</span>:xxxx</span><br><span class="line"></span><br><span class="line"><span class="number">5.</span>推送本地仓库到远程仓库(-u 的作用是将本地分支推送到远程仓库，并设置该分支与远程分支关联)</span><br><span class="line">git push –u origin <span class="title function_">master</span></span><br><span class="line">(将本地的 master 分支推送到远程仓库 origin，并将本地的 master 分支与远程的 origin/master 分支关联起来。之后可以直接使用 git push 或 git pull 进行同步操作。)</span><br></pre></td></tr></table></figure>
+
+<p>1.若是报错rejected</p>
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240921191719235.png" alt="image-20240921191719235"></p>
+<p>1.1.方法一：<strong>先拉取一下再推送</strong></p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin master --allow-unrelated-histories</span><br></pre></td></tr></table></figure>
+
+<p>**<code>git pull origin master</code>**：拉取远程 <code>origin</code> 仓库的 <code>master</code> 分支。</p>
+<p>**<code>--allow-unrelated-histories</code>**：允许合并两个没有共同历史的仓库。</p>
+<p>1.2方法二：<strong>放弃本地更改，直接拉取远程代码</strong></p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git fetch origin</span><br><span class="line">git reset --hard origin/master</span><br></pre></td></tr></table></figure>
+
+<p>1.3方法三：<strong>强制覆盖远程仓库</strong></p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin master --force</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="8-移除本地关联的远程仓库"><a href="#8-移除本地关联的远程仓库" class="headerlink" title="8.移除本地关联的远程仓库"></a>8.移除本地关联的远程仓库</h3><p>1.<code>git remote remove origin</code></p>
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240921190119226.png" alt="image-20240921190119226"></p>
+<h3 id="9-恢复force命令"><a href="#9-恢复force命令" class="headerlink" title="9.恢复force命令"></a>9.恢复force命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 找到被强制推送前的提交记录</span></span><br><span class="line">git reflog</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将仓库恢复到该记录</span></span><br><span class="line">git reset --hard abc123</span><br><span class="line"></span><br><span class="line"><span class="comment"># 再次推送到远程仓库</span></span><br><span class="line">git push --force-with-lease</span><br></pre></td></tr></table></figure>
+
+<p><code>--force-with-lease</code> 是 <code>--force</code> 的安全版本，它只会强制推送当前本地分支的修改，而不会覆盖其他人对远程仓库的改动。</p>
+<h3 id="10-修改上次提交信息"><a href="#10-修改上次提交信息" class="headerlink" title="10.修改上次提交信息"></a>10.修改上次提交信息</h3><ol>
+<li><p>开始交互式 rebase：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase -i HEAD~N</span><br></pre></td></tr></table></figure>
+<p>其中，<code>N</code> 是你想修改的最近的提交数量。</p>
+</li>
+<li><p>在弹出的编辑器中，将需要修改的提交改为 <code>edit</code>。</p>
+</li>
+<li><p>对于每个需要修改的提交，运行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit --amend --author=<span class="string">&quot;新的用户名 &lt;新的邮箱&gt;&quot;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>最后，继续 rebase 过程：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase --<span class="built_in">continue</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="git规范提交格式"><a href="#git规范提交格式" class="headerlink" title="git规范提交格式"></a>git规范提交格式</h2><ul>
+<li><pre><code>git commit -m &lt;type&gt;[optional scope]: &lt;description&gt; //注意冒号后面有空格
+
+- type：提交的类型（如新增、修改、更新等）
+- optional scope：涉及的模块，可选
+- description：任务描述
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### type类型：</span><br><span class="line"></span><br><span class="line">| 类别     | 含义                                     |</span><br><span class="line">| -------- | ---------------------------------------- |</span><br><span class="line">| feat     | 新功能                                   |</span><br><span class="line">| fix      | 修复 bug                                 |</span><br><span class="line">| style    | 样式修改（UI校验）                       |</span><br><span class="line">| docs     | 文档更新                                 |</span><br><span class="line">| refactor | 重构代码(既没有新增功能，也没有修复 bug) |</span><br><span class="line">| perf     | 优化相关，比如提升性能、体验             |</span><br><span class="line">| test     | 增加测试，包括单元测试、集成测试等       |</span><br><span class="line">| build    | 构建系统或外部依赖项的更改               |</span><br><span class="line">| ci       | 自动化流程配置或脚本修改                 |</span><br><span class="line">| revert   | 回退某个commit提交                       |</span><br><span class="line"></span><br><span class="line">### 示例：</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+<p>git commit -m ‘feat: 增加 xxx 功能’<br>git commit -m ‘bug: 修复 xxx 功能’</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## git常用提交命令</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>mkdir： XX (创建一个空目录 XX指目录名)</p>
+<p>pwd： 显示当前目录的路径。</p>
+<p>git init 把当前的目录变成可以管理的git仓库，生成隐藏.git文件。</p>
+<p>git add XX 把xx文件添加到暂存区去。</p>
+<p>git commit –m “XX” 提交文件 –m 后面的是注释。</p>
+<p>git status 查看仓库状态</p>
+<p>git diff XX 查看XX文件修改了那些内容</p>
+<p>git log 查看历史记录</p>
+<p>git reset –hard HEAD^ 或者 git reset –hard HEAD~ 回退到上一个版本<br>(如果想回退到100个版本，使用git reset –hard HEAD~100 )</p>
+<p>cat XX 查看XX文件内容</p>
+<p>git reflog 查看历史记录的版本号id</p>
+<p>git checkout – XX 把XX文件在工作区的修改全部撤销。</p>
+<p>git rm XX 删除XX文件</p>
+<p>git remote add origin <a target="_blank" rel="noopener" href="https://github.com/tugenhua0707/testgit">https://github.com/tugenhua0707/testgit</a> 关联一个远程库</p>
+<p>git push –u(第一次要用-u 以后不需要) origin master 把当前master分支推送到远程库</p>
+<p>git clone <a target="_blank" rel="noopener" href="https://github.com/tugenhua0707/testgit">https://github.com/tugenhua0707/testgit</a> 从远程库中克隆</p>
+<p>git checkout –b dev 创建dev分支 并切换到dev分支上</p>
+<p>git branch 查看当前所有的分支</p>
+<p>git checkout master 切换回master分支</p>
+<p>git merge dev 在当前的分支上合并dev分支</p>
+<p>git branch –d dev 删除dev分支</p>
+<p>git branch name 创建分支</p>
+<p>git stash 把当前的工作隐藏起来 等以后恢复现场后继续工作</p>
+<p>git stash list 查看所有被隐藏的文件列表</p>
+<p>git stash apply 恢复被隐藏的文件，但是内容不删除</p>
+<p>git stash drop 删除文件</p>
+<p>git stash pop 恢复文件的同时 也删除文件</p>
+<p>git remote 查看远程库的信息</p>
+<p>git remote –v 查看远程库的详细信息</p>
+<p>git push origin master Git会把master分支推送到远程库对应的远程分支上</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## 拉取远程恢复到本地</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>git pull orgin master：<br>先将远程仓库master中的信息同步到本地仓库master中</p>
+<p>git checkout – test001.txt (或还原全部 git checkout – *)<br>将工作区修改的文件直接还原为最新版本</p>
+<p>git push orgin master:<br>orgin是远程主机，master表示是远程服务器上的master分支和本地分支重名的简写，分支名是可以修改的</p>
+<p>git reset HEAD<br>回退至当前版本(本地仓库,并移出暂存区)</p>
+<p>git reset HEAD^<br>回退至上个版本(本地仓库,并移出暂存区)</p>
+<p>git reset –hard HEAD^<br>回退至上一个版本(本地仓库,并移出暂存区,同时更新工作区的文件)</p>
+<p>git reset –hard HEAD^^<br>回退至上上个版本(本地仓库,并移出暂存区,同时更新工作区的文件)</p>
+<p>git reset –hard commitID<br>回退到某一次提交记录(不可逆,之前的提交记录会清除)</p>
+<p>git revert commitID -m 1<br>撤销某一次的提交记录</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">## git设置邮箱和用户名</span><br><span class="line"></span><br><span class="line">1.用户名和邮箱的作用</span><br><span class="line"></span><br><span class="line">​    用户名和邮箱地址是本地git客户端的一个变量 . 用户每次提交代码都会记录用户名和邮箱 .</span><br><span class="line"></span><br><span class="line">2.设置</span><br><span class="line">2.1设置用户名</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>git config –global user.name “username”</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">2.2设置邮箱 (没有双引号)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>git config –global user.email <a href="mailto:&#117;&#115;&#x65;&#114;&#x65;&#x6d;&#97;&#105;&#x6c;&#x40;&#x71;&#113;&#46;&#99;&#111;&#x6d;">&#117;&#115;&#x65;&#114;&#x65;&#x6d;&#97;&#105;&#x6c;&#x40;&#x71;&#113;&#46;&#99;&#111;&#x6d;</a></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">3.查看用户名和密码</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>git config user.name<br>git config user.email</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">4.查看其他配置信息(git设置列表)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>git config –list</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">5.制定身份配置文件</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>git config –local include.path &#x2F;path&#x2F;to&#x2F;another&#x2F;config&#x2F;file</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">## git使用ssh关联GitHub方式</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>$ cd ~  &#x2F;&#x2F;&#x2F;保证当前路径在”~”下<br>$ ssh-keygen -t rsa -C “你的邮箱地址” -f 文件的名称 &#x2F;&#x2F;&#x2F;建议填写自己真实有效的邮箱地址</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```tsx</span><br><span class="line">PS C:\Users\Administrator&gt; cd .ssh</span><br><span class="line">PS C:\Users\Administrator\.ssh&gt; ssh-keygen -t rsa -C &quot;xxxx@qq.com&quot; -f test_library</span><br></pre></td></tr></table></figure>
+
+<p>结果：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Enter file in which to save the key (/c/Users/xxxx_000/.ssh/id_rsa):   ///不填直接回车</span><br><span class="line">Enter passphrase (empty for no passphrase):   ///输入密码（直接回车）</span><br><span class="line">Enter same passphrase again:   ///再次确认密码（直接回车）</span><br></pre></td></tr></table></figure>
+
+<p>*本机已完成ssh key设置，其存放路径为：c:&#x2F;Users&#x2F;用户名&#x2F;.ssh&#x2F;下。</p>
+<p>将id_rsa.pub 中的一大串内容拷贝到GitHub上</p>
+<h2 id="覆盖远程Github仓库"><a href="#覆盖远程Github仓库" class="headerlink" title="覆盖远程Github仓库"></a>覆盖远程Github仓库</h2><ol>
+<li>使用 git push 命令覆盖远程仓库：</li>
+</ol>
+<p>​    – 首先确认本地仓库与远程仓库关联，可以使用 <code>git remote -v</code> 命令查看关联信息。<br>​    – 在进行覆盖操作前，请确认没有其他人正在操作远程仓库，避免冲突。<br>​    – 使用 <code>git push -f &lt;远程仓库名称&gt; &lt;本地分支名称&gt;</code> 命令进行强制推送。例如：<code>git push -f origin main</code>。</p>
+<ol start="2">
+<li>强制同步远程仓库：</li>
+</ol>
+<p>​    – 使用 <code>git fetch &lt;远程仓库名称&gt; &lt;远程分支名称&gt;</code> 命令将远程仓库最新代码拉取到本地。<br>​    – 然后使用 <code>git reset –hard &lt;远程仓库名称&gt;/&lt;远程分支名称&gt;</code> 命令强制本地仓库回退到远程仓库的最新状态。</p>
+<ol start="3">
+<li>删除远程仓库重新创建：</li>
+</ol>
+<p>​    – 首先在 GitHub 上删除远程仓库。在仓库页面的 “Settings” 下方找到 “Danger Zone”，点击 “Delete this repository”。<br>​    – 在本地仓库中使用 <code>git remote remove &lt;远程仓库名称&gt;</code> 命令删除与远程仓库的关联。<br>​    – 使用 <code>git remote add &lt;远程仓库名称&gt; &lt;远程仓库链接&gt;</code> 命令重新关联远程仓库。<br>​    – 最后使用 <code>git push -u &lt;远程仓库名称&gt; &lt;本地分支名称&gt;</code> 命令推送本地仓库到新创建的远程仓库。</p>
+<ol start="4">
+<li>使用 git revert 命令：</li>
+</ol>
+<p>​    – 使用 <code>git log</code> 命令查看提交历史，找到要回退的提交的 commit hash。<br>​    – 使用 <code>git revert </code> 命令创建一个新的提交来撤销指定的历史提交。<br>​    – 使用 <code>git push</code> 命令将新的提交推送到远程仓库。</p>
+<ol start="5">
+<li>使用 git rebase 命令：</li>
+</ol>
+<p>​    – 使用 <code>git log</code> 命令查看提交历史，找到要覆盖的提交的 commit hash。<br>​    – 使用 <code>git rebase -i </code> 命令进入交互式 rebase 操作。<br>​    – 在弹出的界面中，将要覆盖的提交标记为 <code>edit</code>。<br>​    – 使用 <code>git commit –amend</code> 命令修改提交内容，然后使用 <code>git rebase –continue</code> 命令继续 rebase。<br>​    – 最后使用 <code>git push -f &lt;远程仓库名称&gt; &lt;本地分支名称&gt;</code> 命令强制推送到远程仓库。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// Vertex Shader</span><br><span class="line">attribute vec3 aPosition;</span><br><span class="line">void main() &#123;</span><br><span class="line">    gl_Position = vec4(aPosition, 1.0);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// Fragment Shader</span><br><span class="line">precision mediump float;</span><br><span class="line">void main() &#123;</span><br><span class="line">    gl_FragColor = vec4(1.0, 0.5, 0.0, 1.0); // Orange color</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="增加git下载默认缓存"><a href="#增加git下载默认缓存" class="headerlink" title="增加git下载默认缓存"></a>增加git下载默认缓存</h2><figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 500M</span><br><span class="line">git config --<span class="variable language_">global</span> http.<span class="property">postBuffer</span> <span class="number">524288000</span></span><br><span class="line"></span><br><span class="line"># 降低并发</span><br><span class="line">git config --<span class="variable language_">global</span> http.<span class="property">maxRequestBuffer</span> 100M</span><br><span class="line">git config --<span class="variable language_">global</span> core.<span class="property">compression</span> <span class="number">9</span></span><br></pre></td></tr></table></figure>
+
+
+                
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box">
+    <div class="suffix-box-left">
+        <img src="/image/sidebar/avatar.jpg" alt="Aspirai">
+    </div>
+    <div class="suffix-box-right">
+        <span class="suffix-box-title">文章作者：</span>Aspirai
+        <br>
+        <span class="suffix-box-title">文章出处：</span><a href="/2024/10/20/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" target="_blank">git常用命令</a>
+        <br>
+        <span class="suffix-box-title">作者签名：</span>时间带不走你眼中的光辉
+        <br>
+        <span class="suffix-box-title">版权声明：</span>文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+        <br>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+                
+                    <div class="category">
+                        分类：
+                        
+                            <a href="/category/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a>
+                        
+                    </div>
+                
+                
+                    <div class="tag">
+                        标签：
+                        
+                            <a href="/tag/git/">git</a>
+                        
+                    </div>
+                
+                <div class="article-prev-next">
+                    
+                        <a href="/2024/10/20/%E5%9C%A8github%E4%B8%AD%EF%BC%8C%E7%BB%99README.md%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87/" class="prev-prefix">« </a> 上一篇：    <a href="/2024/10/20/%E5%9C%A8github%E4%B8%AD%EF%BC%8C%E7%BB%99README.md%E6%B7%BB%E5%8A%A0%E5%9B%BE%E7%89%87/" title="发布于 2024-10-20 09:16">在github中，给README.md添加图片</a>
+                        <br>
+                    
+                    
+                        <a href="/2024/10/20/Windows%20CMD%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/" class="next-prefix">» </a> 下一篇：    <a href="/2024/10/20/Windows%20CMD%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/" title="发布于 2024-10-20 09:10">Windows CMD常用命令大全</a>
+                    
+                </div>
+            </div>
+            
+    <div class="article-comments">
+        
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+    
+ 
+        </div>
+    
+</div>
+    <div id="footer">
+    <div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>
+</div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar">
+                    <img src="/image/sidebar/avatar.jpg">
+                </div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user">
+                        
+                            <a href="javascript:;" target="_self"><span>Aspirai</span></a>
+                        
+                    </div>
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul>
+                    
+                        <li class=""><a href="/" class="" target="_self"><span class="iconfont icon-home-fill"></span>首页</a></li>
+                    
+                        <li class=""><a href="/category" class="" target="_self"><span class="iconfont icon-folder-fill"></span>分类</a></li>
+                    
+                        <li class=""><a href="/tag" class="" target="_self"><span class="iconfont icon-discount-fill"></span>标签</a></li>
+                    
+                        <li class=""><a href="/archive" class="" target="_self"><span class="iconfont icon-calendar-fill"></span>归档</a></li>
+                    
+                        <li class=""><a href="/friend" class="" target="_self"><span class="iconfont icon-link"></span>友情链接</a></li>
+                    
+                </ul> 
+            </div> 
+            <div class="menu-link">
+                <div class="box">
+                    <div class="image-box"></div>
+                </div>
+                
+                    <a name="QQ" href="javascript:;" class="image" target="_self" data="/image/sidebar/qq.png"><span class="iconfont icon-qq"></span></a>
+                
+            </div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="/css/search.css">
+<script type="text/javascript" src="/js/iscroll.js"></script>
+<script type="text/javascript" src="/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+    
+    <link type="text/css" rel="stylesheet" href="/css/APlayer.css">
+    <script type="text/javascript" src="/js/APlayer.min.js"></script>
+    <script type="text/javascript" src="/js/Meting.min.js"></script>
+    <script>
+        var meting_api = 'https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&auth=:auth&r=:r';
+    </script>
+    <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+
+    <div class="wrap-right">
+    <div class="wrap-right-hide">
+         <div class="wrap-right-button favorites">
+            <div class="iconbox" switch="false">
+                <span class="iconfont icon-favorites"></span>
+            </div>
+            <span class="icontext">关注</span>
+         </div>
+        <div class="wrap-right-button search">
+            <div class="iconbox">
+                <span class="iconfont icon-search-menu"></span>
+            </div>
+            <span class="icontext">搜索</span>
+        </div>
+        <div class="wrap-right-button menu-button">
+            <div class="iconbox">
+                <span class="iconfont icon-menu"></span>
+            </div>
+            <span class="icontext">菜单</span>
+        </div>
+        <div class="wrap-right-button mode">
+            <div class="light">
+                <div class="iconbox">
+                    <span class="iconfont icon-daymode"></span>
+                </div>
+                <span class="icontext">浅色模式</span>
+            </div>
+            <div class="dark">
+                <div class="iconbox">
+                    <span class="iconfont icon-nightmode-fill"></span>
+                </div>
+                <span class="icontext">深色模式</span>
+            </div>
+        </div>
+        <div class="wrap-right-button bottom">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">跳至底部</span>
+        </div>
+    </div>
+    <div class="wrap-right-show">
+        <div class="wrap-right-button set">
+            <div class="iconbox">
+                <span class="iconfont icon-setting"></span>
+            </div>
+            <span class="icontext">设置</span>
+        </div>
+        <div class="wrap-right-button top">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">返回顶部</span>
+        </div>
+    </div>
+</div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : "Aspirai",
+        GitHubRepositories : "Hexo-LiveForCode",
+
+        User             : "Aspirai",
+        UserAvatar       : "/image/sidebar/avatar.jpg",
+        WebsiteStartDate : "2020-01-01",
+        Home             : "",
+
+        WebsiteTitleBlur         : "(◍´꒳`◍) Hi, Aspirai",
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : "(*´∇｀*) 欢迎回来!",
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : {
+            light : "/image/website/logo/logo.png",
+            dark  : "/image/website/logo/logo-dark.png"
+        },
+
+        ProgressBar : {
+            id       : "topProgressBar",
+            color    : "#77B6FF",
+            height   : "2px",
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound : {
+                tension  : 16,
+                friction : 5
+            },
+            spinner : {
+                id     : "spinner",
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : "#F0F0F0",
+                    stroke     : "#272633",
+                    base       : "",
+                    child      : "#272633"
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : "rgba(255, 255, 255, .2)",
+            clearOffset : 0.3
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : "60%",
+            colorBrightness  : "50%",
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : "random",
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                "/image/header/home.jpg",
+            
+                "/image/header/home.png",
+            
+        ],
+        HomeBannerText  : "",
+
+        ArticleHeaderImage : [
+            
+                "/image/header/article.jpg",
+            
+        ],
+
+        OtherBannerText : "",
+
+        Error : {
+            icon    : "icon-swimming",
+            title   : "PAGE NOT FOUND",
+            content : [
+                
+                    "很抱歉，您访问的页面不存在！",
+                
+                    "可能是输入地址有误或该地址已变更。",
+                
+            ],
+            buttons : [
+                
+                    {
+                        icon  : "icon-home",
+                        text  : "返回首页",
+                        href  : "/",
+                        class : ""
+                    },
+                
+            ]
+        },
+
+        MenuNotice : {
+            enable : false,
+            notice : "简单地活着，肆意而又精彩！",
+            speed  : 20
+        },
+        MenuList : [
+            
+                {
+                    name   : "首页",
+                    icon   : "icon-home-fill",
+                    href   : "/",
+                    type   : "index",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "分类",
+                    icon   : "icon-folder-fill",
+                    href   : "/category",
+                    type   : "category",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "标签",
+                    icon   : "icon-discount-fill",
+                    href   : "/tag",
+                    type   : "tag",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "归档",
+                    icon   : "icon-calendar-fill",
+                    href   : "/archive",
+                    type   : "archive",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "友情链接",
+                    icon   : "icon-link",
+                    href   : "/friend",
+                    type   : "friend",
+                    class  : "",
+                    target : "_self"
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        name   : "QQ",
+                        icon   : "icon-qq",
+                        href   : "javascript:;",
+                        class  : "image",
+                        target : "_self",
+                        image  : "/image/sidebar/qq.png"
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : "<div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>",
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                "Based on cnblogs theme SimpleMemory.",
+                            
+                                "",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "SimpleMemory Author:",
+                            
+                                "BNDong",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "Theme:",
+                            
+                                "LiveForCode",
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : "",
+
+        Donate : {
+            paypal  : "",
+            bitcoin : "",
+            alipay  : "/image/donate/alipay.png",
+            wechat  : "/image/donate/wechat.png"
+        },
+
+        Search : {
+            applicationID : "010C3EANT8",
+            apiKey        : "c7abab9f11b79102b9aff7fe6d41447d",
+            indexName     : "Notes",
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : "搜索",
+                empty       : "未发现与 「${query}」 相关的内容",
+                stats       : "${hits} 条相关条目，使用了 ${time} 毫秒",
+            }
+        }, 
+
+        Comment : {
+            switch : true,
+            type   : "Valine",
+        },
+
+        Waline : {
+            el              : ".comments-content",
+            serverURL       : "",
+            path            : window.location.pathname,
+            meta            : "['nick', 'mail', 'link']",
+            requiredMeta    : "['nick', 'mail']",
+            pageSize        : 10,
+            lang            : "zh-cn",
+            locale: {
+                admin       : "博主",
+                anonymous   : "匿名用户",
+                sofa        : "快来做第一个评论的人吧 ~",
+                placeholder : "你是我一生只会遇见一次的惊喜...",
+            },
+            dark            : "html[color-scheme='dark']",
+            search          : false,
+            pageview        : true,
+            comment         : true,
+            copyright       : false,
+        },
+
+        Valine : {
+            el             : ".comments-content",
+            appId          : "srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz",
+            appKey         : "8uVSP1q6UlALVC5igYfIfv2h",
+            serverURLs     : "",
+            placeholder    : "你是我一生只会遇见一次的惊喜...",
+            avatar         : "mm",
+            meta           : "nick,mail,link",
+            requiredFields : "nick,mail",
+            pageSize       : 5,
+            lang           : "zh-cn",
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : ".toc",
+            contentSelector       : ".article-body",
+            headingSelector       : "h1, h2, h3, h4, h5",
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : ".toc",
+            positionFixedClass    : "toc-fixed",
+            fixedSidebarOffset    : "",
+        },
+
+        Require : {
+            baseUrl     : "/js/",
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : "Meting"
+        },
+        APlayer : {
+            container : ".aplayer",
+            fixed     : true,
+            autoplay  : false,
+            loop      : "all",
+            order     : "random",
+            preload   : "auto",
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : "Endless Tears",
+                        artist : "CLIFF EDGE",
+                        cover  : "/music/cover/Endless Tears.jpg",
+                        url    : "/music/song/Endless Tears.mp3",
+                        lrc    : "/music/lrc/Endless Tears.lrc"
+                    },
+                
+            ]
+        },
+        Meting : {
+            api      : "https://api.i-meto.com/meting/api",
+            id       : "3778678", 
+            lrcshow  : false, 
+            server   : "netease", 
+            type     : "playlist", 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : "all", 
+            order    : "random", 
+            preload  : "auto", 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : true,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : "/image/website/lazyload.svg"
+        },
+  
+        Style : {
+            aplayer          : "/css/APlayer.css",
+            archive          : "/css/archive.css",
+            base             : "/css/base.css",
+            clipboard        : "/css/clipboard.css",
+            code             : "/css/code.css",
+            donate           : "/css/donate.css",
+            fancybox         : "/css/jquery.fancybox.css",
+            footer           : "/css/footer.css",
+            iconfont         : "/iconfont/iconfont.css",
+            index            : "/css/index.css",
+            menuBubble       : "/css/menu-bubble.css",
+            mouse            : "/css/mouse.css",
+            page             : "/css/page.css",
+            post             : "/css/post.css",
+            search           : "/css/search.css",
+            tocbot           : "/css/tocbot.css",
+            valine           : "/css/valine.css",
+            waline           : "/css/waline.css",
+            walineCustom     : "/css/waline-custom.css"
+        },
+
+        Script: {
+            aplayer          : "/js/APlayer.min.js",
+            config           : "/js/require.config.js",
+            index            : "/js/index.js",
+            instantSearch    : "/js/instantsearch.min.js",
+            iscroll          : "/js/iscroll.js",
+            jQuery           : "/js/jquery-3.4.1.min.js",
+            loading          : "/js/loading.js",
+            meting           : "/js/Meting.min.js",
+            require          : "/js/require.min.js",
+            waline           : "/js/waline.mjs",
+            pageview         : "/js/pageview.mjs",
+            comment          : "/js/comment.mjs",
+        },
+
+        Font: {
+            LongCang    : "/font/LongCang.css",
+            Monda       : "/font/Monda.css",
+            NotoSansSC  : "/font/NotoSansSC.css",
+            NotoSerifSC : "/font/NotoSerifSC.css",
+            Playball    : "/font/Playball.css",
+            PTMono      : "/font/PTMono.css",
+            Roboto      : "/font/Roboto.css",
+            RobotoSlab  : "/font/RobotoSlab.css",
+            Rosario     : "/font/Rosario.css",
+            UbuntuMono  : "/font/UbuntuMono.css"
+        },
+
+        Suffix : {
+            about : "时间带不走你眼中的光辉"
+        },
+            
+        Theme : {
+            url  : "https://github.com/first19326/Hexo-LiveForCode",
+            name : "Hexo - Live For Code"
+        }  
+    };
+</script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</body>
+</html>

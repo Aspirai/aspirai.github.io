@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>
+        
+            类微信聊天框效果
+        
+    </title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSerifSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="/font/Roboto.css">
+    <link type="text/css" rel="stylesheet" href="/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="/css/base.css">
+    <link type="text/css" rel="stylesheet" href="/css/code.css">
+
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <a id="cover"></a>
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
+<div id="header" class="header">
+    <div class="vertical">
+        <div class="inner">
+            
+                <h1 class="header-subtitle">类微信聊天框效果</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2024-10-20
+                        </span>
+                        
+                            
+                                <span id="/2024/10/20/类微信聊天框效果/" class="leancloud_visitors" data-flag-title="类微信聊天框效果">
+                                    <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                                </span>
+                            
+                            
+                                <span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/10/20/类微信聊天框效果/"></span>
+                                </span>
+                              
+                        
+                    </p>
+                    
+                        
+                            <span class="category-color">前端开发</span>
+                        
+                    
+                    
+                        
+                            <span class="tag-color">HTML-CSS</span>
+                        
+                    
+                </div>
+            
+        </div>
+    </div>
+    
+</div>
+<div id="container">
+    
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <h1 id="一、类微信聊天框效果"><a href="#一、类微信聊天框效果" class="headerlink" title="一、类微信聊天框效果"></a>一、类微信聊天框效果</h1><ul>
+<li>背景：设置类似微信聊天框效果</li>
+<li>技术定位：中级</li>
+<li>技术应用场景：聊天框；</li>
+<li>整体思路：设置自动换行，限制滚动高度，设置元素及其子元素；</li>
+</ul>
+<h1 id="二、效果展示"><a href="#二、效果展示" class="headerlink" title="二、效果展示"></a>二、效果展示</h1><p><img src="https://lcnm2fuxr31h.feishu.cn/space/api/box/stream/download/asynccode/?code=MDVkNzU1ODE2OTY2ODMzNDJkODdkNzk3ZDM3Y2Q0MGRfYmtYaldkUGx3aXZZd0hDQVVVclBRRXNGb3UyaXVFVXdfVG9rZW46Q0ZCUGJQb2djb1VNS094OUVVRGNpTm1nblBLXzE3MjU2MjQwODY6MTcyNTYyNzY4Nl9WNA" alt="img"></p>
+<h1 id="三、设置步骤"><a href="#三、设置步骤" class="headerlink" title="三、设置步骤"></a>三、设置步骤</h1><h2 id="3-1-使用Textarea组件实现自动换行"><a href="#3-1-使用Textarea组件实现自动换行" class="headerlink" title="3.1 使用Textarea组件实现自动换行"></a>3.1 使用Textarea组件实现自动换行</h2><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">Textarea</span></span><br><span class="line">  className=<span class="string">&#x27;input&#x27;</span></span><br><span class="line">  value=&#123;inputValue&#125;</span><br><span class="line">  onInput=&#123;<span class="function">(<span class="params">e</span>) =&gt;</span> <span class="title function_">setInputValue</span>(e.<span class="property">detail</span>.<span class="property">value</span>)&#125;</span><br><span class="line">  onConfirm=&#123;handleSend&#125;</span><br><span class="line">  cursorSpacing=&#123;<span class="number">10</span>&#125; <span class="comment">// 光标与键盘的距离</span></span><br><span class="line">  maxlength=&#123;-<span class="number">1</span>&#125; <span class="comment">// 最大输入长度: -1 时不限制</span></span><br><span class="line">  adjustKeyboardTo <span class="comment">// 键盘弹起时，是否自动上推页面</span></span><br><span class="line">  autoHeight <span class="comment">// 是否自动增高</span></span><br><span class="line">  showConfirmBar=&#123;<span class="literal">false</span>&#125; <span class="comment">// 是否显示键盘上方带有”完成“按钮那一栏</span></span><br><span class="line">/&gt;</span><br><span class="line">.<span class="property">input</span> &#123;</span><br><span class="line">  <span class="attr">height</span>: 2em;</span><br><span class="line">  <span class="comment">// 注意不要设置上下padding，否则会导致输入框初始加载时异常高度变高</span></span><br><span class="line">  <span class="attr">padding</span>: 0px 20px 0px 20px;</span><br><span class="line">  border-<span class="attr">radius</span>: 50px;</span><br><span class="line">  font-<span class="attr">size</span>: 1em;</span><br><span class="line">  <span class="attr">color</span>: #<span class="number">000</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-2-限制滚动高度"><a href="#3-2-限制滚动高度" class="headerlink" title="3.2 限制滚动高度"></a>3.2 限制滚动高度</h2><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="comment">/* 添加父容器 */</span>&#125;</span><br><span class="line">&lt;<span class="title class_">View</span> className=<span class="string">&#x27;textarea-container&#x27;</span>&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">Textarea</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">    <span class="attr">className</span>=<span class="string">&#x27;input&#x27;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">    <span class="attr">value</span>=<span class="string">&#123;inputValue&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">    <span class="attr">onInput</span>=<span class="string">&#123;(e)</span> =&gt;</span> setInputValue(e.detail.value)&#125;</span></span><br><span class="line"><span class="language-xml">    onConfirm=&#123;handleSend&#125;</span></span><br><span class="line"><span class="language-xml">    cursorSpacing=&#123;10&#125; // 光标与键盘的距离</span></span><br><span class="line"><span class="language-xml">    maxlength=&#123;-1&#125; // 最大输入长度: -1 时不限制</span></span><br><span class="line"><span class="language-xml">    adjustKeyboardTo // 键盘弹起时，是否自动上推页面</span></span><br><span class="line"><span class="language-xml">    autoHeight // 是否自动增高</span></span><br><span class="line"><span class="language-xml">    showConfirmBar=&#123;false&#125; // 是否显示键盘上方带有”完成“按钮那一栏</span></span><br><span class="line"><span class="language-xml">  /&gt;</span></span><br><span class="line">&lt;/<span class="title class_">View</span>&gt;</span><br><span class="line">.<span class="property">textarea</span>-container &#123;</span><br><span class="line">  box-<span class="attr">sizing</span>: border-box;</span><br><span class="line">  overflow-<span class="attr">y</span>: auto;</span><br><span class="line">  <span class="attr">flex</span>: <span class="number">1</span>;</span><br><span class="line">  min-<span class="attr">height</span>: 2em;</span><br><span class="line">  max-<span class="attr">height</span>: 12em;</span><br><span class="line">  <span class="attr">border</span>: none;</span><br><span class="line">  border-<span class="attr">radius</span>: 50px;</span><br><span class="line">  <span class="attr">display</span>: flex;</span><br><span class="line">  align-<span class="attr">items</span>: center;</span><br><span class="line">  justify-<span class="attr">content</span>: center;</span><br><span class="line">  background-<span class="attr">color</span>: <span class="title function_">rgba</span>(<span class="number">120</span>, <span class="number">175</span>, <span class="number">221</span>, <span class="number">0.15</span>);</span><br><span class="line">  <span class="attr">border</span>: 1px solid <span class="title function_">rgba</span>(<span class="number">38</span>, <span class="number">100</span>, <span class="number">235</span>, <span class="number">1</span>);</span><br><span class="line">  .<span class="property">input</span> &#123;</span><br><span class="line">    <span class="attr">height</span>: 2em;</span><br><span class="line">    <span class="comment">// 注意不要设置上下padding，否则会导致输入框异常高度变高</span></span><br><span class="line">    <span class="attr">padding</span>: 0px 20px 0px 20px;</span><br><span class="line">    border-<span class="attr">radius</span>: 50px;</span><br><span class="line">    font-<span class="attr">size</span>: 1em;</span><br><span class="line">    <span class="attr">color</span>: #<span class="number">000</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-3-隐藏滚动条"><a href="#3-3-隐藏滚动条" class="headerlink" title="3.3 隐藏滚动条"></a>3.3 隐藏滚动条</h2><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.textarea-container</span> &#123;</span><br><span class="line">  <span class="attribute">box-sizing</span>: border-box;</span><br><span class="line">  <span class="attribute">overflow-y</span>: auto;</span><br><span class="line">  <span class="attribute">flex</span>: <span class="number">1</span>;</span><br><span class="line">  <span class="attribute">min-height</span>: <span class="number">2em</span>;</span><br><span class="line">  <span class="attribute">max-height</span>: <span class="number">12em</span>;</span><br><span class="line">  <span class="attribute">border</span>: none;</span><br><span class="line">  <span class="attribute">border-radius</span>: <span class="number">50px</span>;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">  <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(<span class="number">120</span>, <span class="number">175</span>, <span class="number">221</span>, <span class="number">0.15</span>);</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="built_in">rgba</span>(<span class="number">38</span>, <span class="number">100</span>, <span class="number">235</span>, <span class="number">1</span>);</span><br><span class="line">  <span class="comment">// 隐藏滚动条</span></span><br><span class="line">  &amp;::-webkit-scrollbar &#123;</span><br><span class="line">    <span class="attribute">display</span>: none;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">color</span>: transparent;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-class">.input</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">2em</span>;</span><br><span class="line">    <span class="comment">// 注意不要设置上下padding，否则会导致输入框异常高度变高</span></span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0px</span> <span class="number">20px</span> <span class="number">0px</span> <span class="number">20px</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">1em</span>;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#000</span>;</span><br><span class="line">    &amp;::-webkit-scrollbar &#123;</span><br><span class="line">      <span class="attribute">display</span>: none;</span><br><span class="line">      <span class="attribute">width</span>: <span class="number">0</span>;</span><br><span class="line">      <span class="attribute">height</span>: <span class="number">0</span>;</span><br><span class="line">      <span class="attribute">color</span>: transparent;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-4-元素始终位于底部"><a href="#3-4-元素始终位于底部" class="headerlink" title="3.4 元素始终位于底部"></a>3.4 元素始终位于底部</h2><figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 曾曾祖父元素设置固定定位</span></span><br><span class="line"><span class="selector-class">.input-container</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: fixed;</span><br><span class="line">  <span class="attribute">bottom</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 曾祖父元素设置上边框</span></span><br><span class="line"><span class="selector-class">.input-bottom</span> &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">20px</span> <span class="number">0</span> <span class="number">30px</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">&lt;View className=&#x27;<span class="selector-tag">input</span>-container&#x27;&gt;</span><br><span class="line">  &lt;View className=&#x27;<span class="selector-tag">input</span>-<span class="attribute">bottom</span>&#x27;&gt;</span><br><span class="line">    &lt;View className=&#x27;<span class="selector-tag">input</span>-<span class="attribute">background</span>&#x27;&gt;</span><br><span class="line">      &lt;View className=&#x27;<span class="selector-tag">input</span>-<span class="attribute">top</span>&#x27;&gt;</span><br><span class="line">        &lt;<span class="selector-tag">Image</span></span><br><span class="line">          className=&#x27;<span class="attribute">icon</span>&#x27;</span><br><span class="line">          <span class="attribute">src</span>=&#123;<span class="built_in">require</span>(&#x27;../../assets/chat/voice.svg&#x27;)&#125;</span><br><span class="line">          style=&#123;&#123; <span class="attribute">height</span>: <span class="string">&#x27;35px&#x27;</span>, width: <span class="string">&#x27;35px&#x27;</span>, marginRight: <span class="string">&#x27;10px&#x27;</span> &#125;&#125;</span><br><span class="line">        /&gt;</span><br><span class="line">        &#123;<span class="comment">/* 添加父元素 */</span>&#125;</span><br><span class="line">        &lt;View className=&#x27;<span class="selector-tag">textarea</span>-container&#x27;&gt;</span><br><span class="line">          &lt;<span class="selector-tag">Textarea</span></span><br><span class="line">            className=&#x27;<span class="selector-tag">input</span>&#x27;</span><br><span class="line">            value=&#123;inputValue&#125;</span><br><span class="line">            onInput=&#123;(e) =&gt; <span class="built_in">setInputValue</span>(e.detail.value)&#125;</span><br><span class="line">            onConfirm=&#123;handleSend&#125;</span><br><span class="line">            cursorSpacing=&#123;<span class="number">10</span>&#125; <span class="comment">// 光标与键盘的距离</span></span><br><span class="line">            maxlength=&#123;-<span class="number">1</span>&#125; <span class="comment">// 最大输入长度: -1 时不限制</span></span><br><span class="line">            adjustKeyboardTo <span class="comment">// 键盘弹起时，是否自动上推页面</span></span><br><span class="line">            autoHeight <span class="comment">// 是否自动增高</span></span><br><span class="line">            showConfirmBar=&#123;false&#125; <span class="comment">// 是否显示键盘上方带有”完成“按钮那一栏</span></span><br><span class="line">          /&gt;</span><br><span class="line">        &lt;/View&gt;</span><br><span class="line">        &lt;<span class="selector-tag">Image</span></span><br><span class="line">          className=&#x27;<span class="attribute">icon</span>&#x27;</span><br><span class="line">          <span class="attribute">src</span>=&#123;<span class="built_in">require</span>(&#x27;../../assets/chat/add-one.svg&#x27;)&#125;</span><br><span class="line">          style=&#123;&#123; <span class="attribute">height</span>: <span class="string">&#x27;40px&#x27;</span>, width: <span class="string">&#x27;40px&#x27;</span>, marginLeft: <span class="string">&#x27;10px&#x27;</span> &#125;&#125;</span><br><span class="line">          onClick=&#123;toggleExpand&#125;</span><br><span class="line">        /&gt;</span><br><span class="line">      &lt;/View&gt;</span><br><span class="line">    &lt;/View&gt;</span><br><span class="line">  &lt;/View&gt;</span><br><span class="line">&lt;/View&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-5-添加子选项及其动画效果"><a href="#3-5-添加子选项及其动画效果" class="headerlink" title="3.5 添加子选项及其动画效果"></a>3.5 添加子选项及其动画效果</h2><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">View</span> className=<span class="string">&#x27;input-container&#x27;</span>&gt;</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">View</span> <span class="attr">className</span>=<span class="string">&#x27;input-bottom&#x27;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;<span class="name">View</span> <span class="attr">className</span>=<span class="string">&#x27;input-background&#x27;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">View</span> <span class="attr">className</span>=<span class="string">&#x27;input-top&#x27;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Image</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">className</span>=<span class="string">&#x27;icon&#x27;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">src</span>=<span class="string">&#123;require(</span>&#x27;<span class="attr">..</span>/<span class="attr">..</span>/<span class="attr">assets</span>/<span class="attr">chat</span>/<span class="attr">voice.svg</span>&#x27;)&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">style</span>=<span class="string">&#123;&#123;</span> <span class="attr">height:</span> &#x27;<span class="attr">35px</span>&#x27;, <span class="attr">width:</span> &#x27;<span class="attr">35px</span>&#x27;, <span class="attr">marginRight:</span> &#x27;<span class="attr">10px</span>&#x27; &#125;&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        /&gt;</span></span></span><br><span class="line"><span class="language-xml">        &#123;/* 添加父元素 */&#125;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">View</span> <span class="attr">className</span>=<span class="string">&#x27;textarea-container&#x27;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">Textarea</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">className</span>=<span class="string">&#x27;input&#x27;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">value</span>=<span class="string">&#123;inputValue&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">onInput</span>=<span class="string">&#123;(e)</span> =&gt;</span> setInputValue(e.detail.value)&#125;</span></span><br><span class="line"><span class="language-xml">            onConfirm=&#123;handleSend&#125;</span></span><br><span class="line"><span class="language-xml">            cursorSpacing=&#123;10&#125; // 光标与键盘的距离</span></span><br><span class="line"><span class="language-xml">            maxlength=&#123;-1&#125; // 最大输入长度: -1 时不限制</span></span><br><span class="line"><span class="language-xml">            adjustKeyboardTo // 键盘弹起时，是否自动上推页面</span></span><br><span class="line"><span class="language-xml">            autoHeight // 是否自动增高</span></span><br><span class="line"><span class="language-xml">            showConfirmBar=&#123;false&#125; // 是否显示键盘上方带有”完成“按钮那一栏</span></span><br><span class="line"><span class="language-xml">          /&gt;</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">View</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Image</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">className</span>=<span class="string">&#x27;icon&#x27;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">src</span>=<span class="string">&#123;require(</span>&#x27;<span class="attr">..</span>/<span class="attr">..</span>/<span class="attr">assets</span>/<span class="attr">chat</span>/<span class="attr">add-one.svg</span>&#x27;)&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">style</span>=<span class="string">&#123;&#123;</span> <span class="attr">height:</span> &#x27;<span class="attr">40px</span>&#x27;, <span class="attr">width:</span> &#x27;<span class="attr">40px</span>&#x27;, <span class="attr">marginLeft:</span> &#x27;<span class="attr">10px</span>&#x27; &#125;&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">onClick</span>=<span class="string">&#123;toggleExpand&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">View</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      &#123;isExpanded &amp;&amp; (</span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">View</span> <span class="attr">className</span>=<span class="string">&#x27;options&#x27;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">View</span> <span class="attr">className</span>=<span class="string">&#x27;option&#x27;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">View</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              <span class="attr">className</span>=<span class="string">&#x27;icon&#x27;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              <span class="attr">style</span>=<span class="string">&#123;&#123;</span> <span class="attr">backgroundColor:</span> &#x27;#<span class="attr">2664EB</span>&#x27;, <span class="attr">width:</span> &#x27;<span class="attr">70px</span>&#x27;, <span class="attr">height:</span> &#x27;<span class="attr">70px</span>&#x27;, <span class="attr">borderRadius:</span> &#x27;<span class="attr">20px</span>&#x27; &#125;&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            &gt;</span></span></span><br><span class="line"><span class="language-xml">              <span class="tag">&lt;<span class="name">Image</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                <span class="attr">src</span>=<span class="string">&#123;require(</span>&#x27;<span class="attr">..</span>/<span class="attr">..</span>/<span class="attr">assets</span>/<span class="attr">chat</span>/<span class="attr">comments.svg</span>&#x27;)&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                <span class="attr">style</span>=<span class="string">&#123;&#123;</span> <span class="attr">height:</span> &#x27;<span class="attr">35px</span>&#x27;, <span class="attr">width:</span> &#x27;<span class="attr">35px</span>&#x27; &#125;&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              /&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">View</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">Text</span> <span class="attr">style</span>=<span class="string">&#123;&#123;</span> <span class="attr">fontSize:</span> &#x27;<span class="attr">12px</span>&#x27;, <span class="attr">marginTop:</span> &#x27;<span class="attr">10px</span>&#x27; &#125;&#125;&gt;</span>大家都在问<span class="tag">&lt;/<span class="name">Text</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">View</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;<span class="name">View</span> <span class="attr">className</span>=<span class="string">&#x27;option&#x27;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">View</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              <span class="attr">className</span>=<span class="string">&#x27;icon&#x27;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              <span class="attr">style</span>=<span class="string">&#123;&#123;</span> <span class="attr">backgroundColor:</span> &#x27;#<span class="attr">85E1E0</span>&#x27;, <span class="attr">width:</span> &#x27;<span class="attr">70px</span>&#x27;, <span class="attr">height:</span> &#x27;<span class="attr">70px</span>&#x27;, <span class="attr">borderRadius:</span> &#x27;<span class="attr">20px</span>&#x27; &#125;&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            &gt;</span></span></span><br><span class="line"><span class="language-xml">              <span class="tag">&lt;<span class="name">Image</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                <span class="attr">src</span>=<span class="string">&#123;require(</span>&#x27;<span class="attr">..</span>/<span class="attr">..</span>/<span class="attr">assets</span>/<span class="attr">chat</span>/<span class="attr">like.svg</span>&#x27;)&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">                <span class="attr">style</span>=<span class="string">&#123;&#123;</span> <span class="attr">height:</span> &#x27;<span class="attr">35px</span>&#x27;, <span class="attr">width:</span> &#x27;<span class="attr">35px</span>&#x27; &#125;&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">              /&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;/<span class="name">View</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">            <span class="tag">&lt;<span class="name">Text</span> <span class="attr">style</span>=<span class="string">&#123;&#123;</span> <span class="attr">fontSize:</span> &#x27;<span class="attr">12px</span>&#x27;, <span class="attr">marginTop:</span> &#x27;<span class="attr">10px</span>&#x27; &#125;&#125;&gt;</span>收藏<span class="tag">&lt;/<span class="name">Text</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">          <span class="tag">&lt;/<span class="name">View</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;/<span class="name">View</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      )&#125;</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">View</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">View</span>&gt;</span></span></span><br><span class="line">&lt;/<span class="title class_">View</span>&gt;</span><br><span class="line">.<span class="property">input</span>-container &#123;</span><br><span class="line">  <span class="attr">display</span>: flex;</span><br><span class="line">  flex-<span class="attr">direction</span>: column;</span><br><span class="line">  align-<span class="attr">items</span>: center;</span><br><span class="line">  <span class="attr">position</span>: fixed;</span><br><span class="line">  <span class="attr">bottom</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attr">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attr">transition</span>: all <span class="number">0.</span>3s;</span><br><span class="line">  background-<span class="attr">color</span>: white;</span><br><span class="line">  border-<span class="attr">top</span>: 1px solid #ccc;</span><br><span class="line">  border-<span class="attr">radius</span>: 30px;</span><br><span class="line">  .<span class="property">input</span>-bottom &#123;</span><br><span class="line">    <span class="attr">width</span>: 100vw;</span><br><span class="line">    <span class="attr">display</span>: flex;</span><br><span class="line">    justify-<span class="attr">content</span>: center;</span><br><span class="line">    <span class="comment">// border: 1px solid #000;</span></span><br><span class="line">    .<span class="property">input</span>-background &#123;</span><br><span class="line">      <span class="attr">width</span>: <span class="number">90</span>%;</span><br><span class="line">      <span class="comment">// border: 1px solid #000;</span></span><br><span class="line">      .<span class="property">input</span>-top &#123;</span><br><span class="line">        <span class="attr">display</span>: flex;</span><br><span class="line">        justify-<span class="attr">content</span>: center;</span><br><span class="line">        align-<span class="attr">items</span>: flex-end;</span><br><span class="line">        <span class="attr">margin</span>: 20px <span class="number">0</span> 30px <span class="number">0</span>;</span><br><span class="line">        .<span class="property">textarea</span>-container &#123;</span><br><span class="line">          margin-<span class="attr">bottom</span>: 3px;</span><br><span class="line">          box-<span class="attr">sizing</span>: border-box;</span><br><span class="line">          overflow-<span class="attr">y</span>: auto;</span><br><span class="line">          <span class="attr">flex</span>: <span class="number">1</span>;</span><br><span class="line">          min-<span class="attr">height</span>: 2em;</span><br><span class="line">          max-<span class="attr">height</span>: 12em;</span><br><span class="line">          <span class="attr">border</span>: none;</span><br><span class="line">          border-<span class="attr">radius</span>: 50px;</span><br><span class="line">          <span class="comment">// overflow: hidden;</span></span><br><span class="line">          <span class="attr">display</span>: flex;</span><br><span class="line">          align-<span class="attr">items</span>: center;</span><br><span class="line">          justify-<span class="attr">content</span>: center;</span><br><span class="line">          <span class="comment">// padding: 20px 0 20px 0;</span></span><br><span class="line">          <span class="comment">// border: 1px solid #000;</span></span><br><span class="line">          background-<span class="attr">color</span>: <span class="title function_">rgba</span>(<span class="number">120</span>, <span class="number">175</span>, <span class="number">221</span>, <span class="number">0.15</span>);</span><br><span class="line">          <span class="attr">border</span>: 1px solid <span class="title function_">rgba</span>(<span class="number">38</span>, <span class="number">100</span>, <span class="number">235</span>, <span class="number">1</span>);</span><br><span class="line">          <span class="comment">// 隐藏滚动条</span></span><br><span class="line">          &amp;::-webkit-scrollbar &#123;</span><br><span class="line">            <span class="attr">display</span>: none;</span><br><span class="line">            <span class="attr">width</span>: <span class="number">0</span>;</span><br><span class="line">            <span class="attr">height</span>: <span class="number">0</span>;</span><br><span class="line">            <span class="attr">color</span>: transparent;</span><br><span class="line">          &#125;</span><br><span class="line">          .<span class="property">input</span> &#123;</span><br><span class="line">            <span class="attr">height</span>: 2em;</span><br><span class="line">            <span class="comment">// 注意不要设置上下padding，否则会导致输入框初始加载时异常高度变高</span></span><br><span class="line">            <span class="attr">padding</span>: 0px 20px 0px 20px;</span><br><span class="line">            border-<span class="attr">radius</span>: 50px;</span><br><span class="line">            font-<span class="attr">size</span>: 1em;</span><br><span class="line">            <span class="attr">color</span>: #<span class="number">000</span>;</span><br><span class="line">            &amp;::-webkit-scrollbar &#123;</span><br><span class="line">              <span class="attr">display</span>: none;</span><br><span class="line">              <span class="attr">width</span>: <span class="number">0</span>;</span><br><span class="line">              <span class="attr">height</span>: <span class="number">0</span>;</span><br><span class="line">              <span class="attr">color</span>: transparent;</span><br><span class="line">            &#125;</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      .<span class="property">options</span> &#123;</span><br><span class="line">        <span class="attr">height</span>: 35vh;</span><br><span class="line">        <span class="comment">// border: 1px solid #000;</span></span><br><span class="line">        <span class="attr">display</span>: grid;</span><br><span class="line">        grid-template-<span class="attr">columns</span>: 1fr 1fr 1fr 1fr;</span><br><span class="line">        grid-template-<span class="attr">rows</span>: 1fr 1fr;</span><br><span class="line">        <span class="attr">gap</span>: 40px;</span><br><span class="line">        place-<span class="attr">items</span>: center; <span class="comment">// 实现选项居中</span></span><br><span class="line">        box-<span class="attr">sizing</span>: border-box;</span><br><span class="line">        <span class="attr">padding</span>: 3vh <span class="number">0</span>;</span><br><span class="line">        .<span class="property">option</span> &#123;</span><br><span class="line">          <span class="attr">display</span>: flex;</span><br><span class="line">          flex-<span class="attr">direction</span>: column;</span><br><span class="line">          align-<span class="attr">items</span>: center;</span><br><span class="line">          .<span class="property">icon</span> &#123;</span><br><span class="line">            <span class="attr">width</span>: 70px;</span><br><span class="line">            <span class="attr">height</span>: 70px;</span><br><span class="line">            border-<span class="attr">radius</span>: 20px;</span><br><span class="line">            <span class="attr">display</span>: flex;</span><br><span class="line">            justify-<span class="attr">content</span>: center;</span><br><span class="line">            align-<span class="attr">items</span>: center;</span><br><span class="line">            <span class="comment">// border: 1px solid #000;</span></span><br><span class="line">          &#125;</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="四、总结"><a href="#四、总结" class="headerlink" title="四、总结"></a>四、总结</h1><ol>
+<li>注：设置<code>Textarea</code>时，内边距不能设置上下内边距；</li>
+</ol>
+
+                
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box">
+    <div class="suffix-box-left">
+        <img src="/image/sidebar/avatar.jpg" alt="Aspirai">
+    </div>
+    <div class="suffix-box-right">
+        <span class="suffix-box-title">文章作者：</span>Aspirai
+        <br>
+        <span class="suffix-box-title">文章出处：</span><a href="/2024/10/20/%E7%B1%BB%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%A1%86%E6%95%88%E6%9E%9C/" target="_blank">类微信聊天框效果</a>
+        <br>
+        <span class="suffix-box-title">作者签名：</span>时间带不走你眼中的光辉
+        <br>
+        <span class="suffix-box-title">版权声明：</span>文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+        <br>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+                
+                    <div class="category">
+                        分类：
+                        
+                            <a href="/category/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
+                        
+                    </div>
+                
+                
+                    <div class="tag">
+                        标签：
+                        
+                            <a href="/tag/HTML-CSS/">HTML-CSS</a>
+                        
+                    </div>
+                
+                <div class="article-prev-next">
+                    
+                        <a href="/2024/10/20/%E6%9E%84%E5%BB%BA%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80%EF%BC%8CCSS%E8%AF%A5%E6%9C%89%E7%9A%84%E8%A7%86%E8%A7%92--CSS%E7%AF%87%EF%BC%88%E4%BA%8C%EF%BC%89%E6%9C%AC%E6%96%87%E4%BB%8B%E7%BB%8D%E4%BA%86%E4%BC%A0%E7%BB%9F%E5%B8%83%E5%B1%80%E7%9A%84%E7%BC%BA%E9%99%B7%EF%BC%8C%E6%8E%A2%E8%AE%A8%E4%BA%86%E4%B8%A4%E7%A7%8D%E5%93%8D%E5%BA%94%E5%BC%8F%E8%AE%BE%E8%AE%A1%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%9A%E4%B8%80%E6%98%AF%EF%BC%9Arem%20-%20%E6%8E%98%E9%87%91/" class="prev-prefix">« </a> 上一篇：    <a href="/2024/10/20/%E6%9E%84%E5%BB%BA%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80%EF%BC%8CCSS%E8%AF%A5%E6%9C%89%E7%9A%84%E8%A7%86%E8%A7%92--CSS%E7%AF%87%EF%BC%88%E4%BA%8C%EF%BC%89%E6%9C%AC%E6%96%87%E4%BB%8B%E7%BB%8D%E4%BA%86%E4%BC%A0%E7%BB%9F%E5%B8%83%E5%B1%80%E7%9A%84%E7%BC%BA%E9%99%B7%EF%BC%8C%E6%8E%A2%E8%AE%A8%E4%BA%86%E4%B8%A4%E7%A7%8D%E5%93%8D%E5%BA%94%E5%BC%8F%E8%AE%BE%E8%AE%A1%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%9A%E4%B8%80%E6%98%AF%EF%BC%9Arem%20-%20%E6%8E%98%E9%87%91/" title="发布于 2024-10-20 09:20">构建响应式布局，CSS该有的视角--CSS篇（二）本文介绍了传统布局的缺陷，探讨了两种响应式设计的解决方案：一是：rem - 掘金</a>
+                        <br>
+                    
+                    
+                        <a href="/2024/10/20/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%60index.config.ts%60%E5%B8%B8%E8%A7%81%E9%85%8D%E7%BD%AE%E9%A1%B9/" class="next-prefix">» </a> 下一篇：    <a href="/2024/10/20/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%60index.config.ts%60%E5%B8%B8%E8%A7%81%E9%85%8D%E7%BD%AE%E9%A1%B9/" title="发布于 2024-10-20 09:19">微信小程序`index.config.ts`常见配置项</a>
+                    
+                </div>
+            </div>
+            
+    <div class="article-comments">
+        
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+    
+ 
+        </div>
+    
+</div>
+    <div id="footer">
+    <div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>
+</div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar">
+                    <img src="/image/sidebar/avatar.jpg">
+                </div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user">
+                        
+                            <a href="javascript:;" target="_self"><span>Aspirai</span></a>
+                        
+                    </div>
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul>
+                    
+                        <li class=""><a href="/" class="" target="_self"><span class="iconfont icon-home-fill"></span>首页</a></li>
+                    
+                        <li class=""><a href="/category" class="" target="_self"><span class="iconfont icon-folder-fill"></span>分类</a></li>
+                    
+                        <li class=""><a href="/tag" class="" target="_self"><span class="iconfont icon-discount-fill"></span>标签</a></li>
+                    
+                        <li class=""><a href="/archive" class="" target="_self"><span class="iconfont icon-calendar-fill"></span>归档</a></li>
+                    
+                        <li class=""><a href="/friend" class="" target="_self"><span class="iconfont icon-link"></span>友情链接</a></li>
+                    
+                </ul> 
+            </div> 
+            <div class="menu-link">
+                <div class="box">
+                    <div class="image-box"></div>
+                </div>
+                
+                    <a name="QQ" href="javascript:;" class="image" target="_self" data="/image/sidebar/qq.png"><span class="iconfont icon-qq"></span></a>
+                
+            </div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="/css/search.css">
+<script type="text/javascript" src="/js/iscroll.js"></script>
+<script type="text/javascript" src="/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+    
+    <link type="text/css" rel="stylesheet" href="/css/APlayer.css">
+    <script type="text/javascript" src="/js/APlayer.min.js"></script>
+    <script type="text/javascript" src="/js/Meting.min.js"></script>
+    <script>
+        var meting_api = 'https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&auth=:auth&r=:r';
+    </script>
+    <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+
+    <div class="wrap-right">
+    <div class="wrap-right-hide">
+         <div class="wrap-right-button favorites">
+            <div class="iconbox" switch="false">
+                <span class="iconfont icon-favorites"></span>
+            </div>
+            <span class="icontext">关注</span>
+         </div>
+        <div class="wrap-right-button search">
+            <div class="iconbox">
+                <span class="iconfont icon-search-menu"></span>
+            </div>
+            <span class="icontext">搜索</span>
+        </div>
+        <div class="wrap-right-button menu-button">
+            <div class="iconbox">
+                <span class="iconfont icon-menu"></span>
+            </div>
+            <span class="icontext">菜单</span>
+        </div>
+        <div class="wrap-right-button mode">
+            <div class="light">
+                <div class="iconbox">
+                    <span class="iconfont icon-daymode"></span>
+                </div>
+                <span class="icontext">浅色模式</span>
+            </div>
+            <div class="dark">
+                <div class="iconbox">
+                    <span class="iconfont icon-nightmode-fill"></span>
+                </div>
+                <span class="icontext">深色模式</span>
+            </div>
+        </div>
+        <div class="wrap-right-button bottom">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">跳至底部</span>
+        </div>
+    </div>
+    <div class="wrap-right-show">
+        <div class="wrap-right-button set">
+            <div class="iconbox">
+                <span class="iconfont icon-setting"></span>
+            </div>
+            <span class="icontext">设置</span>
+        </div>
+        <div class="wrap-right-button top">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">返回顶部</span>
+        </div>
+    </div>
+</div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : "Aspirai",
+        GitHubRepositories : "Hexo-LiveForCode",
+
+        User             : "Aspirai",
+        UserAvatar       : "/image/sidebar/avatar.jpg",
+        WebsiteStartDate : "2020-01-01",
+        Home             : "",
+
+        WebsiteTitleBlur         : "(◍´꒳`◍) Hi, Aspirai",
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : "(*´∇｀*) 欢迎回来!",
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : {
+            light : "/image/website/logo/logo.png",
+            dark  : "/image/website/logo/logo-dark.png"
+        },
+
+        ProgressBar : {
+            id       : "topProgressBar",
+            color    : "#77B6FF",
+            height   : "2px",
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound : {
+                tension  : 16,
+                friction : 5
+            },
+            spinner : {
+                id     : "spinner",
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : "#F0F0F0",
+                    stroke     : "#272633",
+                    base       : "",
+                    child      : "#272633"
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : "rgba(255, 255, 255, .2)",
+            clearOffset : 0.3
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : "60%",
+            colorBrightness  : "50%",
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : "random",
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                "/image/header/home.jpg",
+            
+                "/image/header/home.png",
+            
+        ],
+        HomeBannerText  : "",
+
+        ArticleHeaderImage : [
+            
+                "/image/header/article.jpg",
+            
+        ],
+
+        OtherBannerText : "",
+
+        Error : {
+            icon    : "icon-swimming",
+            title   : "PAGE NOT FOUND",
+            content : [
+                
+                    "很抱歉，您访问的页面不存在！",
+                
+                    "可能是输入地址有误或该地址已变更。",
+                
+            ],
+            buttons : [
+                
+                    {
+                        icon  : "icon-home",
+                        text  : "返回首页",
+                        href  : "/",
+                        class : ""
+                    },
+                
+            ]
+        },
+
+        MenuNotice : {
+            enable : false,
+            notice : "简单地活着，肆意而又精彩！",
+            speed  : 20
+        },
+        MenuList : [
+            
+                {
+                    name   : "首页",
+                    icon   : "icon-home-fill",
+                    href   : "/",
+                    type   : "index",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "分类",
+                    icon   : "icon-folder-fill",
+                    href   : "/category",
+                    type   : "category",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "标签",
+                    icon   : "icon-discount-fill",
+                    href   : "/tag",
+                    type   : "tag",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "归档",
+                    icon   : "icon-calendar-fill",
+                    href   : "/archive",
+                    type   : "archive",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "友情链接",
+                    icon   : "icon-link",
+                    href   : "/friend",
+                    type   : "friend",
+                    class  : "",
+                    target : "_self"
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        name   : "QQ",
+                        icon   : "icon-qq",
+                        href   : "javascript:;",
+                        class  : "image",
+                        target : "_self",
+                        image  : "/image/sidebar/qq.png"
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : "<div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>",
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                "Based on cnblogs theme SimpleMemory.",
+                            
+                                "",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "SimpleMemory Author:",
+                            
+                                "BNDong",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "Theme:",
+                            
+                                "LiveForCode",
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : "",
+
+        Donate : {
+            paypal  : "",
+            bitcoin : "",
+            alipay  : "/image/donate/alipay.png",
+            wechat  : "/image/donate/wechat.png"
+        },
+
+        Search : {
+            applicationID : "010C3EANT8",
+            apiKey        : "c7abab9f11b79102b9aff7fe6d41447d",
+            indexName     : "Notes",
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : "搜索",
+                empty       : "未发现与 「${query}」 相关的内容",
+                stats       : "${hits} 条相关条目，使用了 ${time} 毫秒",
+            }
+        }, 
+
+        Comment : {
+            switch : true,
+            type   : "Valine",
+        },
+
+        Waline : {
+            el              : ".comments-content",
+            serverURL       : "",
+            path            : window.location.pathname,
+            meta            : "['nick', 'mail', 'link']",
+            requiredMeta    : "['nick', 'mail']",
+            pageSize        : 10,
+            lang            : "zh-cn",
+            locale: {
+                admin       : "博主",
+                anonymous   : "匿名用户",
+                sofa        : "快来做第一个评论的人吧 ~",
+                placeholder : "你是我一生只会遇见一次的惊喜...",
+            },
+            dark            : "html[color-scheme='dark']",
+            search          : false,
+            pageview        : true,
+            comment         : true,
+            copyright       : false,
+        },
+
+        Valine : {
+            el             : ".comments-content",
+            appId          : "srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz",
+            appKey         : "8uVSP1q6UlALVC5igYfIfv2h",
+            serverURLs     : "",
+            placeholder    : "你是我一生只会遇见一次的惊喜...",
+            avatar         : "mm",
+            meta           : "nick,mail,link",
+            requiredFields : "nick,mail",
+            pageSize       : 5,
+            lang           : "zh-cn",
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : ".toc",
+            contentSelector       : ".article-body",
+            headingSelector       : "h1, h2, h3, h4, h5",
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : ".toc",
+            positionFixedClass    : "toc-fixed",
+            fixedSidebarOffset    : "",
+        },
+
+        Require : {
+            baseUrl     : "/js/",
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : "Meting"
+        },
+        APlayer : {
+            container : ".aplayer",
+            fixed     : true,
+            autoplay  : false,
+            loop      : "all",
+            order     : "random",
+            preload   : "auto",
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : "Endless Tears",
+                        artist : "CLIFF EDGE",
+                        cover  : "/music/cover/Endless Tears.jpg",
+                        url    : "/music/song/Endless Tears.mp3",
+                        lrc    : "/music/lrc/Endless Tears.lrc"
+                    },
+                
+            ]
+        },
+        Meting : {
+            api      : "https://api.i-meto.com/meting/api",
+            id       : "3778678", 
+            lrcshow  : false, 
+            server   : "netease", 
+            type     : "playlist", 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : "all", 
+            order    : "random", 
+            preload  : "auto", 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : true,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : "/image/website/lazyload.svg"
+        },
+  
+        Style : {
+            aplayer          : "/css/APlayer.css",
+            archive          : "/css/archive.css",
+            base             : "/css/base.css",
+            clipboard        : "/css/clipboard.css",
+            code             : "/css/code.css",
+            donate           : "/css/donate.css",
+            fancybox         : "/css/jquery.fancybox.css",
+            footer           : "/css/footer.css",
+            iconfont         : "/iconfont/iconfont.css",
+            index            : "/css/index.css",
+            menuBubble       : "/css/menu-bubble.css",
+            mouse            : "/css/mouse.css",
+            page             : "/css/page.css",
+            post             : "/css/post.css",
+            search           : "/css/search.css",
+            tocbot           : "/css/tocbot.css",
+            valine           : "/css/valine.css",
+            waline           : "/css/waline.css",
+            walineCustom     : "/css/waline-custom.css"
+        },
+
+        Script: {
+            aplayer          : "/js/APlayer.min.js",
+            config           : "/js/require.config.js",
+            index            : "/js/index.js",
+            instantSearch    : "/js/instantsearch.min.js",
+            iscroll          : "/js/iscroll.js",
+            jQuery           : "/js/jquery-3.4.1.min.js",
+            loading          : "/js/loading.js",
+            meting           : "/js/Meting.min.js",
+            require          : "/js/require.min.js",
+            waline           : "/js/waline.mjs",
+            pageview         : "/js/pageview.mjs",
+            comment          : "/js/comment.mjs",
+        },
+
+        Font: {
+            LongCang    : "/font/LongCang.css",
+            Monda       : "/font/Monda.css",
+            NotoSansSC  : "/font/NotoSansSC.css",
+            NotoSerifSC : "/font/NotoSerifSC.css",
+            Playball    : "/font/Playball.css",
+            PTMono      : "/font/PTMono.css",
+            Roboto      : "/font/Roboto.css",
+            RobotoSlab  : "/font/RobotoSlab.css",
+            Rosario     : "/font/Rosario.css",
+            UbuntuMono  : "/font/UbuntuMono.css"
+        },
+
+        Suffix : {
+            about : "时间带不走你眼中的光辉"
+        },
+            
+        Theme : {
+            url  : "https://github.com/first19326/Hexo-LiveForCode",
+            name : "Hexo - Live For Code"
+        }  
+    };
+</script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</body>
+</html>

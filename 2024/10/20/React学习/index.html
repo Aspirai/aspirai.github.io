@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>
+        
+            React学习
+        
+    </title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSerifSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="/font/Roboto.css">
+    <link type="text/css" rel="stylesheet" href="/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="/css/base.css">
+    <link type="text/css" rel="stylesheet" href="/css/code.css">
+
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <a id="cover"></a>
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
+<div id="header" class="header">
+    <div class="vertical">
+        <div class="inner">
+            
+                <h1 class="header-subtitle">React学习</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2024-10-20
+                        </span>
+                        
+                            
+                                <span id="/2024/10/20/React学习/" class="leancloud_visitors" data-flag-title="React学习">
+                                    <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                                </span>
+                            
+                            
+                                <span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/10/20/React学习/"></span>
+                                </span>
+                              
+                        
+                    </p>
+                    
+                        
+                            <span class="category-color">前端开发</span>
+                        
+                    
+                    
+                        
+                            <span class="tag-color">react</span>
+                        
+                    
+                </div>
+            
+        </div>
+    </div>
+    
+</div>
+<div id="container">
+    
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <h2 id="React学习"><a href="#React学习" class="headerlink" title="React学习"></a>React学习</h2><h4 id="1-创建虚拟DOM"><a href="#1-创建虚拟DOM" class="headerlink" title="1.创建虚拟DOM"></a>1.创建虚拟DOM</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">const VDOM = // 此处一定不要写引号，因为不是字符串</span><br><span class="line">    &lt;h1 id=&#x27;title&#x27;&gt;</span><br><span class="line">        &lt;span&gt;Hello React!&lt;/span&gt;</span><br><span class="line">    &lt;/h1&gt; </span><br></pre></td></tr></table></figure>
+
+<h4 id="2-渲染虚拟DOM到页面"><a href="#2-渲染虚拟DOM到页面" class="headerlink" title="2.渲染虚拟DOM到页面"></a>2.渲染虚拟DOM到页面</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(VDOM, document.getElementById(&#x27;test&#x27;))</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-关于虚拟DOM"><a href="#3-关于虚拟DOM" class="headerlink" title="3.关于虚拟DOM"></a>3.关于虚拟DOM</h4><p>​      1. 本质是Object类型的对象（一般对象）</p>
+<p>​      2.虚拟DOM比较“轻”，真实DOM比较“重”，因为虚拟DOM是React内部在用，无需真实DOM上那么多的属性</p>
+<p>​      3.虚拟DOM最终会被React转为真实DOM，呈现在页面上</p>
+<h4 id="4-JSX语法规则"><a href="#4-JSX语法规则" class="headerlink" title="4.JSX语法规则"></a>4.JSX语法规则</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">JSX语法规则：</span><br><span class="line">1. 定义虚拟DOM时，不要写引号；</span><br><span class="line">2. 标签中混入JS表达式时要用&#123;&#125;；</span><br><span class="line">3. 样式的类名指定不要用class，要用className；</span><br><span class="line">4. 内联样式，要用style=&#123;&#123;key:value&#125;&#125;的形式；</span><br><span class="line">5. 虚拟DOM只能有一个根标签；</span><br><span class="line">6. 标签必须闭合；</span><br><span class="line">7. 标签首字母</span><br><span class="line">    1. 若小写字母开头，则将该标签转为html中的同名元素，若html中无该标签对应的同名元素，则报错；</span><br><span class="line">    2. 若大写字母开头，React就去渲染对应的组件，若组件没有定义，则报错；</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-函数式组件的定义"><a href="#5-函数式组件的定义" class="headerlink" title="5.函数式组件的定义"></a>5.函数式组件的定义</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/babel&quot;&gt;//babel编译后开启严格模式</span><br><span class="line">    // 1. 创建函数式组件(首字母大写)</span><br><span class="line">    function MyComponent()&#123;</span><br><span class="line">        console.log(this);</span><br><span class="line">        return &lt;h2&gt;我是用函数定义的组件(使用于【简单组件】的定义)&lt;/h2&gt;</span><br><span class="line">    &#125;</span><br><span class="line">    // 2. 渲染虚拟DOM到页面</span><br><span class="line">    ReactDOM.render(&lt;MyComponent/&gt;,document.getElementById(&#x27;test&#x27;))</span><br><span class="line">    /*</span><br><span class="line">        执行了ReactDOM.render(&lt;MyComponent/&gt;,document.getElementById(&#x27;test&#x27;))后,发生了什么？</span><br><span class="line">        1.React解析组件标签，找到了MyComponent组件</span><br><span class="line">        2.发现组件是使用函数定义的，随后调用该函数，将返回的虚拟DOM转为真实DOM，随后渲染到页面中</span><br><span class="line">        1. ReactDOM.render()会将&lt;MyComponent/&gt;组件渲染到页面中的id为test的div中</span><br><span class="line">        2. 首先会调用MyComponent()函数，得到一个React元素</span><br><span class="line">        3. 然后将React元素转为真实DOM元素，最后插入到页面中</span><br><span class="line">    */</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-1-组件实例的三大属性—state"><a href="#6-1-组件实例的三大属性—state" class="headerlink" title="6.1.组件实例的三大属性—state"></a>6.1.组件实例的三大属性—state</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/babel&quot;&gt;//babel编译后开启严格模式</span><br><span class="line">    // 1.创建组件</span><br><span class="line">    class Weather extends React.Component&#123;</span><br><span class="line">        // 构造器调用几次？---1次</span><br><span class="line">        constructor(props)&#123;</span><br><span class="line">            console.log(&#x27;constructor&#x27;);</span><br><span class="line">            super(props)</span><br><span class="line">            // 初始化状态</span><br><span class="line">            this.state = &#123;</span><br><span class="line">                isHot:true,</span><br><span class="line">                wind:&#x27;微风&#x27;</span><br><span class="line">            &#125;</span><br><span class="line">            // 解决changeWeather中this指向问题</span><br><span class="line">            this.changeWeather = this.changeWeather.bind(this)//bind的功能是改变this指向，此处的bind(this)指向的是Weather组件实例对象</span><br><span class="line">        &#125;</span><br><span class="line">        // render调用几次？---1+n次 1是初始化调用，n是状态更新调用</span><br><span class="line">        render()&#123;</span><br><span class="line">            const &#123;isHot,wind&#125; = this.state</span><br><span class="line">            console.log(this);</span><br><span class="line">            // return &lt;h1&gt;今天天气很&#123;this.state.isHot ? &#x27;炎热&#x27; : &#x27;凉爽&#x27;&#125;&lt;/h1&gt;</span><br><span class="line">            return &lt;h1 id=&quot;title&quot; onClick = &#123;this.changeWeather&#125;&gt;今天天气很&#123;isHot ? &#x27;炎热&#x27; : &#x27;凉爽&#x27;&#125;,&#123;wind&#125;&lt;/h1&gt;</span><br><span class="line">            // onclick中的c要大写，demo后面不要加括号</span><br><span class="line">        &#125;</span><br><span class="line">        // changeWeather调用几次？---点几次调几次</span><br><span class="line">        changeWeather()&#123;</span><br><span class="line">            // changeWeather放在了那里？---Weather的原型对象中，供实例使用</span><br><span class="line">            // 由于changeWeather是作为onClick的回调函数，所以它内部的this是undefined</span><br><span class="line">            // console.log(&#x27;标题被点击了&#x27;);</span><br><span class="line"></span><br><span class="line">            // 获取原来的isHot值</span><br><span class="line">            const isHot = this.state.isHot</span><br><span class="line"></span><br><span class="line">            // 严重注意：状态（state）不能直接更改，下面这行就是直接更改！！！</span><br><span class="line">            this.state.isHot = !isHot</span><br><span class="line">            // 严重注意：状态必须通过setState()来更改</span><br><span class="line">            this.setState(&#123;isHot:!isHot&#125;)</span><br><span class="line">            console.log(this.state.isHot);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    // 2. 渲染虚拟DOM到页面</span><br><span class="line">    ReactDOM.render(&lt;Weather/&gt;,document.getElementById(&#x27;test&#x27;))</span><br><span class="line">    </span><br><span class="line">    const title = document.getElementById(&#x27;title&#x27;)</span><br><span class="line">    /*  title.addEventListener(&#x27;click&#x27;,()=&gt;&#123;</span><br><span class="line">        console.log(&#x27;标题被点击了&#x27;);</span><br><span class="line">    &#125;)</span><br><span class="line">    title.onclick = ()=&gt;&#123;</span><br><span class="line">        console.log(&#x27;标题被点击了&#x27;);</span><br><span class="line">    &#125; */</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-2组件三大属性—props"><a href="#6-2组件三大属性—props" class="headerlink" title="6.2组件三大属性—props"></a>6.2组件三大属性—props</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">props是React组件中用于传递数据的一种机制。它们是从父组件传递到子组件的不可变数据。子组件通过props接收从父组件传递过来的数据。props可以包含任何类型的数据，包括基本数据类型、对象、数组、甚至是函数。</span><br><span class="line"></span><br><span class="line">如何使用props</span><br><span class="line">定义父组件：在父组件中，你可以将数据作为属性传递给子组件。</span><br><span class="line"></span><br><span class="line">**传递props**：在JSX中，你可以像设置HTML属性一样设置props。</span><br><span class="line"></span><br><span class="line">**子组件中接收props**：在子组件中，你可以通过this.props（类组件）或函数组件的参数来访问props。</span><br><span class="line"></span><br><span class="line">// 父组件</span><br><span class="line">class ParentComponent extends React.Component &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return &lt;ChildComponent name=&quot;John&quot; /&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 子组件</span><br><span class="line">class ChildComponent extends React.Component &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    return &lt;h1&gt;Hello, &#123;this.props.name&#125;&lt;/h1&gt;;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 父组件</span><br><span class="line">function ParentComponent() &#123;</span><br><span class="line">  return &lt;ChildComponent name=&quot;John&quot; /&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 子组件</span><br><span class="line">function ChildComponent(props) &#123;</span><br><span class="line">  return &lt;h1&gt;Hello, &#123;props.name&#125;&lt;/h1&gt;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">在这两个示例中，ParentComponent将name属性作为props传递给ChildComponent，ChildComponent通过props接收并使用这个值。</span><br></pre></td></tr></table></figure>
+
+<h5 id="6-3组件三大属性—refs"><a href="#6-3组件三大属性—refs" class="headerlink" title="6.3组件三大属性—refs"></a>6.3组件三大属性—refs</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">Refs 是一个 获取 DOM节点或 React元素实例的工具。在 React 中 Refs 提供了一种方式，允许用户访问DOM 节点或者在render方法中创建的React元素。refs应谨慎使用，因为它绕过了React的声明式更新机制。</span><br><span class="line">在 React单项数据流中，props是父子组件交互的唯一方式。要修改一个子组件，需要通过的新的props来重新渲染。 但是在某些情况下，需要在数据流之外强制修改子组件。被修改的子组件可能是一个React组件实例，也可能是一个DOM元素。对于这两种情况，React 都通过 Refs的使用提供了具体的解决方案。</span><br><span class="line"></span><br><span class="line">如何使用refs</span><br><span class="line">**创建ref**：使用React.createRef()创建一个ref，并将其赋值给一个类组件的属性。</span><br><span class="line"></span><br><span class="line">**附加ref**：通过ref属性将创建的ref附加到元素上。</span><br><span class="line"></span><br><span class="line">**访问ref**：通过ref的current属性访问对应的DOM节点或React元素。</span><br><span class="line"></span><br><span class="line">示例</span><br><span class="line">类组件中使用refs</span><br><span class="line">class MyComponent extends React.Component &#123;</span><br><span class="line">  constructor(props) &#123;</span><br><span class="line">    super(props);</span><br><span class="line">    // 创建ref</span><br><span class="line">    this.myInput = React.createRef();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  focusTextInput = () =&gt; &#123;</span><br><span class="line">    // 使用current访问DOM节点，并调用DOM API</span><br><span class="line">    this.myInput.current.focus();</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    return (</span><br><span class="line">      &lt;div&gt;</span><br><span class="line">        &lt;input type=&quot;text&quot; ref=&#123;this.myInput&#125; /&gt;</span><br><span class="line">        &lt;button onClick=&#123;this.focusTextInput&#125;&gt;Focus the input&lt;/button&gt;</span><br><span class="line">      &lt;/div&gt;</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">函数组件中使用refs（使用useRef钩子）</span><br><span class="line">import React, &#123; useRef &#125; from &#x27;react&#x27;;</span><br><span class="line"></span><br><span class="line">function MyComponent() &#123;</span><br><span class="line">  // 创建ref</span><br><span class="line">  const myInput = useRef(null);</span><br><span class="line"></span><br><span class="line">  const focusTextInput = () =&gt; &#123;</span><br><span class="line">    // 使用current访问DOM节点，并调用DOM API</span><br><span class="line">    myInput.current.focus();</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  return (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;input type=&quot;text&quot; ref=&#123;myInput&#125; /&gt;</span><br><span class="line">      &lt;button onClick=&#123;focusTextInput&#125;&gt;Focus the input&lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line">在这两个示例中，我们创建了一个ref来引用&lt;input&gt;元素，并在点击按钮时，通过ref直接访问该元素并调用其focus方法。这展示了如何使用refs来直接操作DOM。</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-类的基本知识"><a href="#7-类的基本知识" class="headerlink" title="7.类的基本知识"></a>7.类的基本知识</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    // 创建一个Person类</span><br><span class="line">    class Person&#123;</span><br><span class="line">        // 构造器</span><br><span class="line">        constructor(name,age)&#123;</span><br><span class="line">            this.name = name;</span><br><span class="line">            this.age = age;</span><br><span class="line">        &#125;</span><br><span class="line">        // 一般方法</span><br><span class="line">        speak()&#123;</span><br><span class="line">            // speak方法放在了那里？---类的原型对象中，供实例使用</span><br><span class="line">            // 通过Person实例调用speak时，speak中的this就是Person实例</span><br><span class="line">            console.log(&#x27;我是&#x27;+this.name+&#x27;,今年&#x27;+this.age+&#x27;岁&#x27;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    // 创建一个Person类的实例对象</span><br><span class="line">    const p = new Person(&#x27;tom&#x27;,18);</span><br><span class="line">    const d = new Person(&#x27;jerry&#x27;,19);</span><br><span class="line">    console.log(p);</span><br><span class="line">    console.log(d);</span><br><span class="line">    p.speak();</span><br><span class="line">    d.speak();</span><br><span class="line">    p.speak.call(&#123;a:1,b:2&#125;); // 我是undefined,今年undefined岁. 说明this指向了&#123;a:1,b:2&#125;.call()方法可以改变this指向.call的功能是改变this指向，但不调用函数</span><br><span class="line"></span><br><span class="line">    // 创建一个Students类，继承于Person</span><br><span class="line">    class Student extends Person&#123;</span><br><span class="line">        constructor(name,age,grade)&#123;</span><br><span class="line">            // 调用父类的构造器</span><br><span class="line">            super(name,age);//super()方法是调用父类的构造器，super()必须在this之前调用</span><br><span class="line">            this.grade = grade;</span><br><span class="line">            this.school = &#x27;尚硅谷&#x27;;</span><br><span class="line">        &#125;</span><br><span class="line">        // 重写父类的方法</span><br><span class="line">        speak()&#123;</span><br><span class="line">            console.log(&#x27;我是&#x27;+this.name+&#x27;,今年&#x27;+this.age+&#x27;岁,上&#x27;+this.grade);</span><br><span class="line">        &#125;</span><br><span class="line">        study()&#123;</span><br><span class="line">            // study方法放在了那里？---类的原型对象中，供实例使用</span><br><span class="line">            // 通过Student实例调用study时，study中的this就是Student实例</span><br><span class="line">            console.log(&#x27;我在学习&#x27;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    const s = new Student(&#x27;jack&#x27;,20,&#x27;高一&#x27;);</span><br><span class="line">    console.log(s);</span><br><span class="line">    s.speak();</span><br><span class="line">    s.study();</span><br><span class="line"></span><br><span class="line">    /*</span><br><span class="line">        总结：</span><br><span class="line">            1.类中的构造器不是必须写的，要对实例进行一些初始化的操作，如添加指定属性时才写。</span><br><span class="line">            2.如果A类继承了B类，那么在A类的构造器中的super必须调用的</span><br><span class="line">            3.类中所定义的方法，都是放在了类的原型对象上的，供实例去使用的</span><br><span class="line">    */</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="8-类式组件"><a href="#8-类式组件" class="headerlink" title="8.类式组件"></a>8.类式组件</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/babel&quot;&gt;</span><br><span class="line">    // 1. 创建类式组件</span><br><span class="line">    class MyComponent extends React.Component&#123;</span><br><span class="line">        render() &#123;</span><br><span class="line">            // render是放在那里的？---MyComponnet的原型对象中，供实例使用</span><br><span class="line">            // render中的this是谁？---MyComponent的实例对象 &lt;=&gt; MyComponent组件实例对象</span><br><span class="line">            console.log(this);</span><br><span class="line">            return &lt;h2&gt;我是用类定义的组件(使用于【复杂组件】的定义)&lt;/h2&gt;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    // 2. 渲染虚拟DOM到页面</span><br><span class="line">    ReactDOM.render(&lt;MyComponent/&gt;,document.getElementById(&#x27;test&#x27;))</span><br><span class="line">    /*</span><br><span class="line">        执行了ReactDOM.render(&lt;MyComponent/&gt;,document.getElementById(&#x27;test&#x27;))后,发生了什么？</span><br><span class="line">            1.React解析组件标签，找到了MyComponent组件</span><br><span class="line">            2.发现组件是使用类定义的，随后new出来，调用render方法</span><br><span class="line">            3.将render返回的虚拟DOM转为真实DOM，随后渲染到页面中</span><br><span class="line">    */</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="9-原生事件绑定"><a href="#9-原生事件绑定" class="headerlink" title="9.原生事件绑定"></a>9.原生事件绑定</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;button id=&quot;btn1&quot;&gt;按钮1&lt;/button&gt;</span><br><span class="line">&lt;button id=&quot;btn2&quot;&gt;按钮2&lt;/button&gt;</span><br><span class="line">&lt;button id=&quot;btn3&quot; onclick=&quot;demo()&quot;&gt;按钮3&lt;/button&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">    const btn1 = document.getElementById(&#x27;btn1&#x27;)</span><br><span class="line">    btn1.addEventListener(&#x27;click&#x27;,()=&gt;&#123;</span><br><span class="line">        console.log(&#x27;btn1被点击了&#x27;);</span><br><span class="line">        alert(&#x27;btn1被点击了&#x27;)</span><br><span class="line">    &#125;)</span><br><span class="line">    const btn2 = document.getElementById(&#x27;btn2&#x27;)</span><br><span class="line">    btn2.onclick= ()=&gt;&#123;</span><br><span class="line">        console.log(&#x27;btn2被点击了&#x27;);</span><br><span class="line">        alert(&#x27;btn2被点击了&#x27;)</span><br><span class="line">    &#125;</span><br><span class="line">    function demo()&#123;</span><br><span class="line">        console.log(&#x27;btn3被点击了&#x27;);</span><br><span class="line">        alert(&#x27;btn3被点击了&#x27;)</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="10-state的简写方式"><a href="#10-state的简写方式" class="headerlink" title="10.state的简写方式"></a>10.state的简写方式</h4><p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240711160023222.png" alt="image-20240711160023222"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// 自定义方法---要用赋值语句的形式+箭头函数</span><br><span class="line">changeWeather= () =&gt; &#123;</span><br><span class="line">    const isHot = this.state.isHot</span><br><span class="line">    this.setState(&#123;isHot:!isHot&#125;)</span><br><span class="line">&#125;</span><br><span class="line">这段代码定义了一个名为 changeWeather 的箭头函数，用于在组件的状态中切换 isHot 属性的值。</span><br></pre></td></tr></table></figure>
+
+<h4 id="11-props属性的基本使用"><a href="#11-props属性的基本使用" class="headerlink" title="11.props属性的基本使用"></a>11.props属性的基本使用</h4><p>props代表属性的缩写。它们是从父组件传递到子组件的不可变数据。常用于传递数据（父组件通过props向子组件传递数据，子组件通过this.props访问这些数据、配置组件（通过props可以配置组件的外观或行为）、限制类型。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=&quot;text/babel&quot;&gt;//babel编译后开启严格模式</span><br><span class="line">// 创建组件</span><br><span class="line">class Person extends React.Component&#123;</span><br><span class="line">    render()&#123;</span><br><span class="line">        const &#123;name, age, sex&#125; = this.props</span><br><span class="line">        return(</span><br><span class="line">            &lt;ul&gt;</span><br><span class="line">                &lt;li&gt;姓名：&#123;name&#125;&lt;/li&gt;</span><br><span class="line">                &lt;li&gt;性别：&#123;sex&#125;&lt;/li&gt;</span><br><span class="line">                &lt;li&gt;年龄：&#123;age + 1&#125;&lt;/li&gt;</span><br><span class="line">            &lt;/ul&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">Person.propTypes = &#123;</span><br><span class="line">    // 限制name必须是字符串，且必须传递</span><br><span class="line">    name:PropTypes.string.isRequired,</span><br><span class="line">    // 限制性别必须是字符串</span><br><span class="line">    sex:PropTypes.string,</span><br><span class="line">    // 限制age必须是数字</span><br><span class="line">    age:PropTypes.number,</span><br><span class="line">    // 限制speak必须是函数</span><br><span class="line">    speak:PropTypes.func,</span><br><span class="line">&#125;</span><br><span class="line">// 默认属性值</span><br><span class="line">Person.defaultProps = &#123;</span><br><span class="line">    sex: &#x27;不男不女&#x27;,</span><br><span class="line">    age: 18</span><br><span class="line">&#125;</span><br><span class="line">// 渲染虚拟DOM到页面</span><br><span class="line">// Number类型在标签中需要加&#123;&#125;，否则会被当做字符串</span><br><span class="line">// 类型的限制，必要的限制，默认的限制</span><br><span class="line">ReactDOM.render(&lt;Person name=&quot;tom&quot; age=&#123;18&#125; sex=&quot;男&quot; speak=&#123;speak&#125;/&gt;,document.getElementById(&#x27;test&#x27;))</span><br><span class="line">ReactDOM.render(&lt;Person name=&quot;Axi&quot; age=&#123;17&#125; sex=&quot;女&quot;/&gt;,document.getElementById(&#x27;test1&#x27;))</span><br><span class="line">const p = &#123;name:&#x27;lucy&#x27;,age:16,sex:&#x27;女&#x27;&#125;</span><br><span class="line">// ReactDOM.render(&lt;Person name=&#123;p.name&#125; age=&#123;p.age&#125; sex=&#123;p.sex&#125;/&gt;,document.getElementById(&#x27;test2&#x27;))</span><br><span class="line">ReactDOM.render(&lt;Person &#123;...p&#125;/&gt;,document.getElementById(&#x27;test2&#x27;))</span><br><span class="line">// babel加react语法支持允许使用展开运算符展开对象，这里的&#123;...p&#125;是展开对象。这里的&#123;&#125;起分隔符的作用，不是复制对象。</span><br><span class="line">// ...p并不能随意使用，只能在标签内使用</span><br><span class="line">// console.log(&#x27;@&#x27;,...p);</span><br><span class="line"></span><br><span class="line">function speak()&#123;</span><br><span class="line">    console.log(&#x27;hello&#x27;);</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="12-refs的使用"><a href="#12-refs的使用" class="headerlink" title="12.refs的使用"></a>12.refs的使用</h4><p><code>refs</code>在React中的作用主要是提供了一种方式，允许我们访问DOM节点或在render方法中创建的React元素。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1.</span><br><span class="line">myRef = React.createRef()</span><br><span class="line">showDate = ()=&gt;&#123;console.log(this.myRef.current.value)&#125;</span><br><span class="line">onClick or onBlur = &#123;this.showDate&#125;</span><br><span class="line">2.</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="13什么是受控组件，什么是非受控组件"><a href="#13什么是受控组件，什么是非受控组件" class="headerlink" title="13什么是受控组件，什么是非受控组件"></a>13什么是受控组件，什么是非受控组件</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">受控组件是React的一种模式，其中表单数据是由React组件的状态管理的。在受控组件中，表单的值通过React的状态来控制。每当表单元素的值发生变化时，都会调用一个事件处理函数（如onChange），该函数会更新组件的状态，而状态的更新又会反过来设置表单元素的值。</span><br><span class="line"></span><br><span class="line">在非受控组件中，表单数据直接由DOM节点管理，而不是由React组件的状态管理。这意味着你使用ref来从DOM节点中直接获取表单元素的值，而不是通过每次输入变化时更新组件的状态。</span><br></pre></td></tr></table></figure>
+
+<h4 id="14react中的事件处理"><a href="#14react中的事件处理" class="headerlink" title="14react中的事件处理"></a>14react中的事件处理</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">React中的事件处理通过在JSX中指定事件处理函数、在组件中定义这些函数、使用事件对象和ref来访问DOM元素，以及利用React的合成事件系统，来响应用户的交互操作。</span><br></pre></td></tr></table></figure>
+
+<h4 id="15不用高阶函数"><a href="#15不用高阶函数" class="headerlink" title="15不用高阶函数"></a>15不用高阶函数</h4><p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240711215954482.png" alt="image-20240711215954482"></p>
+<h4 id="16生命周期（旧）"><a href="#16生命周期（旧）" class="headerlink" title="16生命周期（旧）"></a>16生命周期（旧）</h4><p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240712093741777.png" alt="image-20240712093741777"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">1.初始化阶段:由ReactDom.render()触发---初次渲染</span><br><span class="line">    1.constructor()</span><br><span class="line">    2.componentWillMount()</span><br><span class="line">    3.render()</span><br><span class="line">    4.componentDidMount()</span><br><span class="line">2.更新阶段:由组件内部this.setsate()或父组件重新render触发</span><br><span class="line">    1.shouldcomponentUpdate()</span><br><span class="line">    2.componentWillUpdate()</span><br><span class="line">    3.render()</span><br><span class="line">    4.componentDidUpdate()</span><br><span class="line">3.卸载组件:由ReactDoM.unmountcomponentAtNode()触发</span><br><span class="line">    1.componentWillUnmount()</span><br></pre></td></tr></table></figure>
+
+<h4 id="17生命周期（新）"><a href="#17生命周期（新）" class="headerlink" title="17生命周期（新）"></a>17生命周期（新）</h4><p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240712100357148.png" alt="image-20240712100357148"></p>
+<p>新版本中componentWillMount、componentWillReceiveProps、componentWillUpdate三个周期需要在前面添加UNSAFE_</p>
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240712110923140.png" alt="image-20240712110923140"></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">1.初始化阶段:由ReactDoM.render()发---初次渲染</span><br><span class="line">    1.constructor()</span><br><span class="line">    2.getDerivedstateFromProps</span><br><span class="line">    3.render()</span><br><span class="line">    4.componentDidMount()</span><br><span class="line">2，更新阶段:由组件内部this.setsate()或父组件重新render触发</span><br><span class="line">    1.getDerivedstateFromProps</span><br><span class="line">    2.shouldcomponentUpdate()</span><br><span class="line">    3.render()</span><br><span class="line">    4.getsnapshotBeforeUpdate</span><br><span class="line">    5.componentDidUpdate()</span><br><span class="line">3.卸载组件:由ReactDoM.unmountcomponentAtNode()触发</span><br><span class="line">	1.componentWillUnmount()</span><br></pre></td></tr></table></figure>
+
+<h4 id="18-key的作用"><a href="#18-key的作用" class="headerlink" title="18.key的作用"></a>18.key的作用</h4><p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240712112629899.png" alt="image-20240712112629899"></p>
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240712113554202.png" alt="image-20240712113554202"></p>
+<h4 id="19-todoList案例"><a href="#19-todoList案例" class="headerlink" title="19.todoList案例"></a>19.todoList案例</h4><p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240712175915721.png" alt="image-20240712175915721"></p>
+<h4 id="20-Ajax"><a href="#20-Ajax" class="headerlink" title="20.Ajax"></a>20.Ajax</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">方法一：设置package.json ----设置proxy为服务器地址，只能设置一个</span><br><span class="line">遇到问题：</span><br><span class="line">1、修改package.json文件后需重新启动项目</span><br><span class="line">2、项目启动后3000端口被占用，浏览器起3001端口，app.js却用localhost:3000调用则失败</span><br><span class="line"></span><br><span class="line">方法二、配置setupProxy.js文件---src文件夹下新创建setupProxy.js文件</span><br><span class="line">遇到问题：1.http-proxy-middleware引入方式不同，我这个是高版本引入方式如下图配置文件，低版本引入方式为 </span><br><span class="line"> const proxy = require(&#x27;http-proxy-middleware&#x27;)</span><br><span class="line">如引入方式错误，则启动项目浏览器打开页面为无法访问</span><br></pre></td></tr></table></figure>
+
+<h4 id="21-解构赋值"><a href="#21-解构赋值" class="headerlink" title="21.解构赋值"></a>21.解构赋值</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 连续解构赋值</span><br><span class="line">let obj = &#123;a:&#123;b:&#123;c:1&#125;&#125;&#125;;</span><br><span class="line">let obj2 = &#123;a:&#123;b:1&#125;&#125;;</span><br><span class="line">console.log(obj.a.b.c); // 1</span><br><span class="line">const &#123;a:&#123;b:data&#125;&#125; = obj;</span><br><span class="line">console.log(c); // 1</span><br><span class="line">const &#123;a:&#123;b:data2&#125;&#125; = obj2;</span><br><span class="line">console.log(data2); // 1</span><br></pre></td></tr></table></figure>
+
+<h4 id="22-搜索案例"><a href="#22-搜索案例" class="headerlink" title="22.搜索案例"></a>22.搜索案例</h4><p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240712232415581.png" alt="image-20240712232415581"></p>
+<h4 id="23-路由管理"><a href="#23-路由管理" class="headerlink" title="23.路由管理"></a>23.路由管理</h4><p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240713105029073.png" alt="image-20240713105029073"></p>
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240713110755387.png" alt="image-20240713110755387"></p>
+<h4 id="24-NavLink与Link"><a href="#24-NavLink与Link" class="headerlink" title="24.NavLink与Link"></a>24.NavLink与Link</h4><p>​	Link标签用于实现在Route中切换组件；NavLink是Link的up，含有activeClassName属性，在点击属性后可以给当前元素添加类名，从而控制元素间点击后样式的切换</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;NavLink activeClassName=&quot;aspire&quot; className=&quot;list-group-item&quot; to=&quot;/about&quot;&gt;About&lt;/NavLink&gt;</span><br><span class="line">&lt;NavLink activeClassName=&quot;aspire&quot; className=&quot;list-group-item&quot; to=&quot;/home&quot;&gt;Home&lt;/NavLink&gt;</span><br><span class="line">              </span><br><span class="line">&lt;Link className=&quot;list-group-item&quot; to=&quot;/about&quot;&gt;About&lt;/Link&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="25-NavLink的封装"><a href="#25-NavLink的封装" class="headerlink" title="25.NavLink的封装"></a>25.NavLink的封装</h4><p>1.NavLink放置到一般组件中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">import &#123; NavLink &#125; from &#x27;react-router-dom&#x27;</span><br><span class="line"></span><br><span class="line">export default class MyNavLink extends Component &#123;</span><br><span class="line">  render() &#123;</span><br><span class="line">    console.log(&#x27;MyNavLink&#x27;, this.props)</span><br><span class="line">    return (</span><br><span class="line">      // children属性是NavLink组件的属性，用于在NavLink标签中添加子节点</span><br><span class="line">      &lt;NavLink activeClassName=&quot;aspire&quot; className=&quot;list-group-item&quot; &#123;...this.props&#125;/&gt;</span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2.使用NavLink</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;MyNavLink to=&quot;/about&quot;&gt;About&lt;/MyNavLink&gt;</span><br><span class="line">&lt;MyNavLink to=&quot;/home&quot;&gt;Home&lt;/MyNavLink&gt;</span><br></pre></td></tr></table></figure>
+
+<p>注：标签内容是一个特殊的props属性，在传递过程中以children参数名传递；若在封装时标签自闭合，则children默认显示为标签内容</p>
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240713115826137.png" alt="image-20240713115826137"></p>
+<h4 id="26-Switch路由只匹配第一个路由"><a href="#26-Switch路由只匹配第一个路由" class="headerlink" title="26.Switch路由只匹配第一个路由"></a>26.Switch路由只匹配第一个路由</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import &#123; Switch, Route &#125; from &#x27;react-router-dom&#x27;</span><br><span class="line"></span><br><span class="line">&lt;Switch&gt; &#123;/* 只匹配其中一个路由 */&#125;</span><br><span class="line">  &#123;/* 注册路由 */&#125;</span><br><span class="line">  &lt;Route path=&quot;/about&quot; component=&#123;About&#125; /&gt;</span><br><span class="line">  &lt;Route path=&quot;/home&quot; component=&#123;Home&#125; /&gt;</span><br><span class="line">  &lt;Route path=&quot;/home&quot; component=&#123;Test&#125; /&gt;</span><br><span class="line">&lt;/Switch&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240713120730722.png" alt="image-20240713120730722"></p>
+<h4 id="27-解决多级路径刷新页面样式丢失问题"><a href="#27-解决多级路径刷新页面样式丢失问题" class="headerlink" title="27.解决多级路径刷新页面样式丢失问题"></a>27.解决多级路径刷新页面样式丢失问题</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">1. --&gt;</span><br><span class="line">&quot;./&quot;的意思是当前路径去请求 --&gt;</span><br><span class="line">删除&quot;.&quot;的意思是直接在当前地址去请求 --&gt;</span><br><span class="line">2. --&gt;</span><br><span class="line">通过&quot;%PUBLIC_URL%/路径&quot;访问，为绝对路径 --&gt;</span><br><span class="line">3. --&gt;</span><br><span class="line">通过HsahRouter访问 --&gt;</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240713133508348.png" alt="image-20240713133508348"></p>
+<h4 id="28-路由严格匹配问题"><a href="#28-路由严格匹配问题" class="headerlink" title="28.路由严格匹配问题"></a>28.路由严格匹配问题</h4><p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240713134152748.png" alt="image-20240713134152748"></p>
+<h4 id="29-默认路由"><a href="#29-默认路由" class="headerlink" title="29.默认路由"></a>29.默认路由</h4><p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240713142033565.png" alt="image-20240713142033565"></p>
+<h4 id="30-嵌套路由"><a href="#30-嵌套路由" class="headerlink" title="30.嵌套路由"></a>30.嵌套路由</h4><p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240713144604867.png" alt="image-20240713144604867"></p>
+<h4 id="31-向路由组件传递参数"><a href="#31-向路由组件传递参数" class="headerlink" title="31.向路由组件传递参数"></a>31.向路由组件传递参数</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">1.循环解析数组内值</span><br><span class="line">&#123;</span><br><span class="line">    messageArr.map((msgObj) =&gt; &#123;</span><br><span class="line">        return (</span><br><span class="line">            &lt;li key=&#123;msgObj.id&#125;&gt;</span><br><span class="line">                &#123;/* 向路由组件传递params参数 */&#125;</span><br><span class="line">                &lt;Link to=&#123;`/home/message/detail/$&#123;msgObj.id&#125;/$&#123;msgObj.title&#125;`&#125;&gt;&#123;msgObj.title&#125;&lt;/Link&gt;&amp;nbsp;&amp;nbsp;</span><br><span class="line">            &lt;/li&gt;</span><br><span class="line">        )</span><br><span class="line">    &#125;)</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> 2.接收参数并将参数传递给子组件</span><br><span class="line"> &lt;Route path=&#123;`/home/message/detail/:id/:title`&#125; component=&#123;Detail&#125; /&gt;</span><br><span class="line"> </span><br><span class="line"> 3.子组件接收参数</span><br><span class="line"> const &#123; id, title &#125; = this.props.match.params</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240713154311232.png" alt="image-20240713154311232"></p>
+<h4 id="32-路由传参之search"><a href="#32-路由传参之search" class="headerlink" title="32.路由传参之search"></a>32.路由传参之search</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">import qs from &#x27;querystring&#x27;</span><br><span class="line"></span><br><span class="line">let obj = &#123;name: &#x27;tom&#x27;, age: 18&#125; // name=tom&amp;age=18   key=value&amp;key=value 称为urlencoded编码格式</span><br><span class="line">console.log(qs.stringify(obj)) // name=tom&amp;age=18</span><br><span class="line"></span><br><span class="line">let str = &#x27;name=tom&amp;age=18&#x27;</span><br><span class="line">console.log(qs.parse(str)) // &#123; name: &#x27;tom&#x27;, age: &#x27;18&#x27; &#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240713160633870.png" alt="image-20240713160633870"></p>
+<h4 id="33-路由传参之state"><a href="#33-路由传参之state" class="headerlink" title="33.路由传参之state"></a>33.路由传参之state</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1.&#123;/* 向路由组件传递state参数 */&#125;</span><br><span class="line">&lt;Link to=&#123;&#123; pathname: &#x27;/home/message/detail&#x27;, state: &#123; id: msgObj.id, title: msgObj.title &#125; &#125;&#125;&gt;&#123;msgObj.title&#125;&lt;/Link&gt;&amp;nbsp;&amp;nbsp;</span><br><span class="line"></span><br><span class="line">2.&#123;/* state无需声明接受，正常注册路由即可 */&#125;</span><br><span class="line">&lt;Route path=&#123;`/home/message/detail`&#125; component=&#123;Detail&#125; /&gt;</span><br><span class="line"></span><br><span class="line">3.// 接收state参数</span><br><span class="line">const &#123; id, title &#125; = this.props.location.state || &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240713162057835.png" alt="image-20240713162057835"></p>
+<h4 id="34-编程式路由"><a href="#34-编程式路由" class="headerlink" title="34.编程式路由"></a>34.编程式路由</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line">1.</span><br><span class="line">replaceShow = (id, title) =&gt; &#123;</span><br><span class="line">    // replace跳转+携带params参数</span><br><span class="line">    // this.props.history.replace(`/home/message/detail/$&#123;id&#125;/$&#123;title&#125;`)</span><br><span class="line">    // replace跳转+携带search参数</span><br><span class="line">    // this.props.history.replace(`/home/message/detail/?id=$&#123;id&#125;&amp;title=$&#123;title&#125;`)</span><br><span class="line">    // replace跳转+携带state参数</span><br><span class="line">    this.props.history.replace(`/home/message/detail`, &#123; id, title &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">2.</span><br><span class="line">pushShow = (id, title) =&gt; &#123;</span><br><span class="line">    // push跳转+携带params参数</span><br><span class="line">    // this.props.history.push(`/home/message/detail/$&#123;id&#125;/$&#123;title&#125;`)</span><br><span class="line">    // push跳转+携带search参数</span><br><span class="line">    // this.props.history.push(`/home/message/detail/?id=$&#123;id&#125;&amp;title=$&#123;title&#125;`) </span><br><span class="line">    // push跳转+携带state参数</span><br><span class="line">    this.props.history.push(`/home/message/detail`, &#123; id, title &#125;)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">3.</span><br><span class="line">// 回退</span><br><span class="line">goBack = () =&gt; &#123;</span><br><span class="line">    this.props.history.goBack()</span><br><span class="line">&#125;</span><br><span class="line">// 前进</span><br><span class="line">goForward = () =&gt; &#123;</span><br><span class="line">    this.props.history.goForward()</span><br><span class="line">&#125;</span><br><span class="line">// 前进2步</span><br><span class="line">go = () =&gt; &#123;</span><br><span class="line">    this.props.history.go(2)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">4.</span><br><span class="line">&#123;/* 向路由组件传递params参数 */&#125;</span><br><span class="line">&#123;/* &lt;Link to=&#123;`/home/message/detail/$&#123;msgObj.id&#125;/$&#123;msgObj.title&#125;`&#125;&gt;&#123;msgObj.title&#125;&lt;/Link&gt;&amp;nbsp;&amp;nbsp; */&#125;</span><br><span class="line">&#123;/* 向路由组件传递search参数 */&#125;</span><br><span class="line">&#123;/* &lt;Link to=&#123;`/home/message/detail/?id=$&#123;msgObj.id&#125;&amp;title=$&#123;msgObj.title&#125;`&#125;&gt;&#123;msgObj.title&#125;&lt;/Link&gt;&amp;nbsp;&amp;nbsp; */&#125;</span><br><span class="line">&#123;/* 向路由组件传递state参数 */&#125;</span><br><span class="line">&lt;Link to=&#123;&#123; pathname: &#x27;/home/message/detail&#x27;, state: &#123; id: msgObj.id, title: msgObj.title &#125; &#125;&#125;&gt;&#123;msgObj.title&#125;&lt;/Link&gt;&amp;nbsp;&amp;nbsp;</span><br><span class="line">&lt;button onClick=&#123;() =&gt; this.pushShow(msgObj.id, msgObj.title)&#125;&gt;push查看&lt;/button&gt;</span><br><span class="line">&amp;nbsp;&amp;nbsp;</span><br><span class="line">&lt;button onClick=&#123;() =&gt; this.replaceShow(msgObj.id, msgObj.title)&#125;&gt;replace查看&lt;/button&gt;</span><br><span class="line"></span><br><span class="line">5.</span><br><span class="line">&#123;/* 声明接受params */&#125;</span><br><span class="line">&#123;/* &lt;Route path=&#123;`/home/message/detail/:id/:title`&#125; component=&#123;Detail&#125; /&gt; */&#125;</span><br><span class="line">&#123;/* search无需声明接受，正常注册路由即可 */&#125;</span><br><span class="line">&#123;/* &lt;Route path=&#123;`/home/message/detail`&#125; component=&#123;Detail&#125; /&gt; */&#125;</span><br><span class="line">&#123;/* state无需声明接受，正常注册路由即可 */&#125;</span><br><span class="line">&lt;Route path=&#123;`/home/message/detail`&#125; component=&#123;Detail&#125; /&gt;</span><br><span class="line">&lt;button onClick=&#123;() =&gt; this.props.history.goBack()&#125;&gt;回退&lt;/button&gt;</span><br><span class="line">&amp;nbsp;&amp;nbsp;</span><br><span class="line">&lt;button onClick=&#123;() =&gt; this.props.history.goForward()&#125;&gt;前进&lt;/button&gt;</span><br><span class="line">&amp;nbsp;&amp;nbsp;</span><br><span class="line">&lt;button onClick=&#123;() =&gt; this.props.history.go(2)&#125;&gt;go(2)&lt;/button&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">6.</span><br><span class="line">// 接收params参数</span><br><span class="line">// const &#123; id, title &#125; = this.props.match.params</span><br><span class="line">console.log(this.props)</span><br><span class="line">    </span><br><span class="line">// 接收search参数</span><br><span class="line">// const &#123; search &#125; = this.props.location</span><br><span class="line">// const &#123; id, title &#125; = qs.parse(search.slice(1))</span><br><span class="line">// 接收state参数</span><br><span class="line">const &#123; id, title &#125; = this.props.location.state || &#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240713171032387.png" alt="image-20240713171032387"></p>
+<h4 id="35-withRouter"><a href="#35-withRouter" class="headerlink" title="35.withRouter"></a>35.withRouter</h4><p>withRouter是一个高阶组件, 用来给一般组件传递路由组件的三大属性: history, location, match</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// withRouter是一个高阶组件, 用来给一般组件传递路由组件的三大属性: history, location, match</span><br><span class="line">import &#123; withRouter &#125; from &#x27;react-router-dom&#x27;</span><br><span class="line"></span><br><span class="line">export default withRouter(Header)</span><br></pre></td></tr></table></figure>
+
+<h4 id="36-BrowserRouter与HashRouter的区别"><a href="#36-BrowserRouter与HashRouter的区别" class="headerlink" title="36.BrowserRouter与HashRouter的区别"></a>36.BrowserRouter与HashRouter的区别</h4><p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240713172430483.png" alt="image-20240713172430483"></p>
+<h4 id="37-React中减少一个挂载标签（jsx不渲染"><a href="#37-React中减少一个挂载标签（jsx不渲染" class="headerlink" title="37.React中减少一个挂载标签（jsx不渲染"></a>37.React中减少一个挂载标签（jsx不渲染</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">import &#123;Fragment&#125; from &#x27;react&#x27;</span><br><span class="line">&lt;Fragment&gt;&lt;/Fragment&gt; //return&#123;&#125;中必须返回一个主div，Fragment可以代替并不返回div标签</span><br><span class="line">&lt;&gt;&lt;/&gt;	//空标签也可以</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;Fragment key=&#123;1&#125;&gt;&lt;/Fragment&gt; //fragment可以携带一个key值，参与bian</span><br><span class="line">空标签不能</span><br></pre></td></tr></table></figure>
+
+
+                
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box">
+    <div class="suffix-box-left">
+        <img src="/image/sidebar/avatar.jpg" alt="Aspirai">
+    </div>
+    <div class="suffix-box-right">
+        <span class="suffix-box-title">文章作者：</span>Aspirai
+        <br>
+        <span class="suffix-box-title">文章出处：</span><a href="/2024/10/20/React%E5%AD%A6%E4%B9%A0/" target="_blank">React学习</a>
+        <br>
+        <span class="suffix-box-title">作者签名：</span>时间带不走你眼中的光辉
+        <br>
+        <span class="suffix-box-title">版权声明：</span>文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+        <br>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+                
+                    <div class="category">
+                        分类：
+                        
+                            <a href="/category/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
+                        
+                    </div>
+                
+                
+                    <div class="tag">
+                        标签：
+                        
+                            <a href="/tag/react/">react</a>
+                        
+                    </div>
+                
+                <div class="article-prev-next">
+                    
+                        <a href="/2024/10/20/ReactRouter6%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/" class="prev-prefix">« </a> 上一篇：    <a href="/2024/10/20/ReactRouter6%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/" title="发布于 2024-10-20 09:22">ReactRouter6快速上手</a>
+                        <br>
+                    
+                    
+                        <a href="/2024/10/20/React%E6%89%A9%E5%B1%95/" class="next-prefix">» </a> 下一篇：    <a href="/2024/10/20/React%E6%89%A9%E5%B1%95/" title="发布于 2024-10-20 09:22">React扩展</a>
+                    
+                </div>
+            </div>
+            
+    <div class="article-comments">
+        
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+    
+ 
+        </div>
+    
+</div>
+    <div id="footer">
+    <div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>
+</div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar">
+                    <img src="/image/sidebar/avatar.jpg">
+                </div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user">
+                        
+                            <a href="javascript:;" target="_self"><span>Aspirai</span></a>
+                        
+                    </div>
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul>
+                    
+                        <li class=""><a href="/" class="" target="_self"><span class="iconfont icon-home-fill"></span>首页</a></li>
+                    
+                        <li class=""><a href="/category" class="" target="_self"><span class="iconfont icon-folder-fill"></span>分类</a></li>
+                    
+                        <li class=""><a href="/tag" class="" target="_self"><span class="iconfont icon-discount-fill"></span>标签</a></li>
+                    
+                        <li class=""><a href="/archive" class="" target="_self"><span class="iconfont icon-calendar-fill"></span>归档</a></li>
+                    
+                        <li class=""><a href="/friend" class="" target="_self"><span class="iconfont icon-link"></span>友情链接</a></li>
+                    
+                </ul> 
+            </div> 
+            <div class="menu-link">
+                <div class="box">
+                    <div class="image-box"></div>
+                </div>
+                
+                    <a name="QQ" href="javascript:;" class="image" target="_self" data="/image/sidebar/qq.png"><span class="iconfont icon-qq"></span></a>
+                
+            </div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="/css/search.css">
+<script type="text/javascript" src="/js/iscroll.js"></script>
+<script type="text/javascript" src="/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+    
+    <link type="text/css" rel="stylesheet" href="/css/APlayer.css">
+    <script type="text/javascript" src="/js/APlayer.min.js"></script>
+    <script type="text/javascript" src="/js/Meting.min.js"></script>
+    <script>
+        var meting_api = 'https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&auth=:auth&r=:r';
+    </script>
+    <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+
+    <div class="wrap-right">
+    <div class="wrap-right-hide">
+         <div class="wrap-right-button favorites">
+            <div class="iconbox" switch="false">
+                <span class="iconfont icon-favorites"></span>
+            </div>
+            <span class="icontext">关注</span>
+         </div>
+        <div class="wrap-right-button search">
+            <div class="iconbox">
+                <span class="iconfont icon-search-menu"></span>
+            </div>
+            <span class="icontext">搜索</span>
+        </div>
+        <div class="wrap-right-button menu-button">
+            <div class="iconbox">
+                <span class="iconfont icon-menu"></span>
+            </div>
+            <span class="icontext">菜单</span>
+        </div>
+        <div class="wrap-right-button mode">
+            <div class="light">
+                <div class="iconbox">
+                    <span class="iconfont icon-daymode"></span>
+                </div>
+                <span class="icontext">浅色模式</span>
+            </div>
+            <div class="dark">
+                <div class="iconbox">
+                    <span class="iconfont icon-nightmode-fill"></span>
+                </div>
+                <span class="icontext">深色模式</span>
+            </div>
+        </div>
+        <div class="wrap-right-button bottom">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">跳至底部</span>
+        </div>
+    </div>
+    <div class="wrap-right-show">
+        <div class="wrap-right-button set">
+            <div class="iconbox">
+                <span class="iconfont icon-setting"></span>
+            </div>
+            <span class="icontext">设置</span>
+        </div>
+        <div class="wrap-right-button top">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">返回顶部</span>
+        </div>
+    </div>
+</div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : "Aspirai",
+        GitHubRepositories : "Hexo-LiveForCode",
+
+        User             : "Aspirai",
+        UserAvatar       : "/image/sidebar/avatar.jpg",
+        WebsiteStartDate : "2020-01-01",
+        Home             : "",
+
+        WebsiteTitleBlur         : "(◍´꒳`◍) Hi, Aspirai",
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : "(*´∇｀*) 欢迎回来!",
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : {
+            light : "/image/website/logo/logo.png",
+            dark  : "/image/website/logo/logo-dark.png"
+        },
+
+        ProgressBar : {
+            id       : "topProgressBar",
+            color    : "#77B6FF",
+            height   : "2px",
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound : {
+                tension  : 16,
+                friction : 5
+            },
+            spinner : {
+                id     : "spinner",
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : "#F0F0F0",
+                    stroke     : "#272633",
+                    base       : "",
+                    child      : "#272633"
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : "rgba(255, 255, 255, .2)",
+            clearOffset : 0.3
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : "60%",
+            colorBrightness  : "50%",
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : "random",
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                "/image/header/home.jpg",
+            
+                "/image/header/home.png",
+            
+        ],
+        HomeBannerText  : "",
+
+        ArticleHeaderImage : [
+            
+                "/image/header/article.jpg",
+            
+        ],
+
+        OtherBannerText : "",
+
+        Error : {
+            icon    : "icon-swimming",
+            title   : "PAGE NOT FOUND",
+            content : [
+                
+                    "很抱歉，您访问的页面不存在！",
+                
+                    "可能是输入地址有误或该地址已变更。",
+                
+            ],
+            buttons : [
+                
+                    {
+                        icon  : "icon-home",
+                        text  : "返回首页",
+                        href  : "/",
+                        class : ""
+                    },
+                
+            ]
+        },
+
+        MenuNotice : {
+            enable : false,
+            notice : "简单地活着，肆意而又精彩！",
+            speed  : 20
+        },
+        MenuList : [
+            
+                {
+                    name   : "首页",
+                    icon   : "icon-home-fill",
+                    href   : "/",
+                    type   : "index",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "分类",
+                    icon   : "icon-folder-fill",
+                    href   : "/category",
+                    type   : "category",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "标签",
+                    icon   : "icon-discount-fill",
+                    href   : "/tag",
+                    type   : "tag",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "归档",
+                    icon   : "icon-calendar-fill",
+                    href   : "/archive",
+                    type   : "archive",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "友情链接",
+                    icon   : "icon-link",
+                    href   : "/friend",
+                    type   : "friend",
+                    class  : "",
+                    target : "_self"
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        name   : "QQ",
+                        icon   : "icon-qq",
+                        href   : "javascript:;",
+                        class  : "image",
+                        target : "_self",
+                        image  : "/image/sidebar/qq.png"
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : "<div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>",
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                "Based on cnblogs theme SimpleMemory.",
+                            
+                                "",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "SimpleMemory Author:",
+                            
+                                "BNDong",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "Theme:",
+                            
+                                "LiveForCode",
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : "",
+
+        Donate : {
+            paypal  : "",
+            bitcoin : "",
+            alipay  : "/image/donate/alipay.png",
+            wechat  : "/image/donate/wechat.png"
+        },
+
+        Search : {
+            applicationID : "010C3EANT8",
+            apiKey        : "c7abab9f11b79102b9aff7fe6d41447d",
+            indexName     : "Notes",
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : "搜索",
+                empty       : "未发现与 「${query}」 相关的内容",
+                stats       : "${hits} 条相关条目，使用了 ${time} 毫秒",
+            }
+        }, 
+
+        Comment : {
+            switch : true,
+            type   : "Valine",
+        },
+
+        Waline : {
+            el              : ".comments-content",
+            serverURL       : "",
+            path            : window.location.pathname,
+            meta            : "['nick', 'mail', 'link']",
+            requiredMeta    : "['nick', 'mail']",
+            pageSize        : 10,
+            lang            : "zh-cn",
+            locale: {
+                admin       : "博主",
+                anonymous   : "匿名用户",
+                sofa        : "快来做第一个评论的人吧 ~",
+                placeholder : "你是我一生只会遇见一次的惊喜...",
+            },
+            dark            : "html[color-scheme='dark']",
+            search          : false,
+            pageview        : true,
+            comment         : true,
+            copyright       : false,
+        },
+
+        Valine : {
+            el             : ".comments-content",
+            appId          : "srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz",
+            appKey         : "8uVSP1q6UlALVC5igYfIfv2h",
+            serverURLs     : "",
+            placeholder    : "你是我一生只会遇见一次的惊喜...",
+            avatar         : "mm",
+            meta           : "nick,mail,link",
+            requiredFields : "nick,mail",
+            pageSize       : 5,
+            lang           : "zh-cn",
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : ".toc",
+            contentSelector       : ".article-body",
+            headingSelector       : "h1, h2, h3, h4, h5",
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : ".toc",
+            positionFixedClass    : "toc-fixed",
+            fixedSidebarOffset    : "",
+        },
+
+        Require : {
+            baseUrl     : "/js/",
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : "Meting"
+        },
+        APlayer : {
+            container : ".aplayer",
+            fixed     : true,
+            autoplay  : false,
+            loop      : "all",
+            order     : "random",
+            preload   : "auto",
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : "Endless Tears",
+                        artist : "CLIFF EDGE",
+                        cover  : "/music/cover/Endless Tears.jpg",
+                        url    : "/music/song/Endless Tears.mp3",
+                        lrc    : "/music/lrc/Endless Tears.lrc"
+                    },
+                
+            ]
+        },
+        Meting : {
+            api      : "https://api.i-meto.com/meting/api",
+            id       : "3778678", 
+            lrcshow  : false, 
+            server   : "netease", 
+            type     : "playlist", 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : "all", 
+            order    : "random", 
+            preload  : "auto", 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : true,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : "/image/website/lazyload.svg"
+        },
+  
+        Style : {
+            aplayer          : "/css/APlayer.css",
+            archive          : "/css/archive.css",
+            base             : "/css/base.css",
+            clipboard        : "/css/clipboard.css",
+            code             : "/css/code.css",
+            donate           : "/css/donate.css",
+            fancybox         : "/css/jquery.fancybox.css",
+            footer           : "/css/footer.css",
+            iconfont         : "/iconfont/iconfont.css",
+            index            : "/css/index.css",
+            menuBubble       : "/css/menu-bubble.css",
+            mouse            : "/css/mouse.css",
+            page             : "/css/page.css",
+            post             : "/css/post.css",
+            search           : "/css/search.css",
+            tocbot           : "/css/tocbot.css",
+            valine           : "/css/valine.css",
+            waline           : "/css/waline.css",
+            walineCustom     : "/css/waline-custom.css"
+        },
+
+        Script: {
+            aplayer          : "/js/APlayer.min.js",
+            config           : "/js/require.config.js",
+            index            : "/js/index.js",
+            instantSearch    : "/js/instantsearch.min.js",
+            iscroll          : "/js/iscroll.js",
+            jQuery           : "/js/jquery-3.4.1.min.js",
+            loading          : "/js/loading.js",
+            meting           : "/js/Meting.min.js",
+            require          : "/js/require.min.js",
+            waline           : "/js/waline.mjs",
+            pageview         : "/js/pageview.mjs",
+            comment          : "/js/comment.mjs",
+        },
+
+        Font: {
+            LongCang    : "/font/LongCang.css",
+            Monda       : "/font/Monda.css",
+            NotoSansSC  : "/font/NotoSansSC.css",
+            NotoSerifSC : "/font/NotoSerifSC.css",
+            Playball    : "/font/Playball.css",
+            PTMono      : "/font/PTMono.css",
+            Roboto      : "/font/Roboto.css",
+            RobotoSlab  : "/font/RobotoSlab.css",
+            Rosario     : "/font/Rosario.css",
+            UbuntuMono  : "/font/UbuntuMono.css"
+        },
+
+        Suffix : {
+            about : "时间带不走你眼中的光辉"
+        },
+            
+        Theme : {
+            url  : "https://github.com/first19326/Hexo-LiveForCode",
+            name : "Hexo - Live For Code"
+        }  
+    };
+</script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</body>
+</html>

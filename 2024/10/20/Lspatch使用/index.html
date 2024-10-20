@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>
+        
+            Lspatch使用
+        
+    </title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSerifSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="/font/Roboto.css">
+    <link type="text/css" rel="stylesheet" href="/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="/css/base.css">
+    <link type="text/css" rel="stylesheet" href="/css/code.css">
+
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <a id="cover"></a>
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
+<div id="header" class="header">
+    <div class="vertical">
+        <div class="inner">
+            
+                <h1 class="header-subtitle">Lspatch使用</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2024-10-20
+                        </span>
+                        
+                            
+                                <span id="/2024/10/20/Lspatch使用/" class="leancloud_visitors" data-flag-title="Lspatch使用">
+                                    <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                                </span>
+                            
+                            
+                                <span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/10/20/Lspatch使用/"></span>
+                                </span>
+                              
+                        
+                    </p>
+                    
+                        
+                            <span class="category-color">生活小知识</span>
+                        
+                    
+                    
+                        
+                            <span class="tag-color">模块</span>
+                        
+                    
+                </div>
+            
+        </div>
+    </div>
+    
+</div>
+<div id="container">
+    
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>通过使用模块，Android用户可以轻松地增加新功能、修改现有功能或增强应用程序的性能。<br>但是，使用模块修改一般需要超级用户权限，也就是所谓的ROOT权限。这极大限度的限制了用户对于模块的使用。<br>好在，Lsposed框架的开发队伍开发了一款名为Lspatch的工具，提供了一种免ROOT使用模块的方法。<br>这篇文章，就来带大家了解LSPatch的使用。</p>
+<blockquote>
+<p>Tips：<br>请<strong>遵守各软件的用户使用守则</strong>，<strong>尊重各公司的知识产权</strong>，谨慎进行模块注入操作！本文中的操作仅作演示之用。<br>微信、QQ和支付宝等应用对于模块注入一向是保持<strong>零容忍</strong>的态度，使用模块极易带来<strong>封号风险</strong>！请知悉。</p>
+</blockquote>
+<hr>
+<h1 id="模块与框架"><a href="#模块与框架" class="headerlink" title="模块与框架"></a>模块与框架</h1><p>在操作之前，先来了解几个概念。</p>
+<p>Xposed框架、LSPosed框架以及它们的模块是广受Android手机用户欢迎的强大工具。这些框架和模块为用户提供了修改和个性化Android设备的能力，无需修改系统文件，让用户能够充分发挥他们设备的潜力。</p>
+<p>Xposed框架是一款强大的Android框架，通过在Android运行时拦截和修改方法调用，实现了对设备行为和功能的定制。它为开发者提供了创建模块的平台，这些模块可以扩展或修改应用程序甚至整个系统的功能。通过安装和激活不同的Xposed模块，用户可以根据自己的喜好和需求进行各种定制，如主题切换、广告拦截、系统设置调整等。</p>
+<p>与此类似，LSPosed是Xposed框架的一个开源替代实现，致力于提供与Xposed类似的功能。LSPosed允许用户在不修改系统文件的情况下，修改Android设备的行为。它与Xposed模块相兼容，用户可以通过安装和激活LSPosed模块来进一步扩展和定制他们的设备。</p>
+<p>LSPosed 框架和原版 Xposed 框架的不同之处:</p>
+<blockquote>
+<ol>
+<li>LSPosed 只有注入被勾选的应用，其他应用运行在干净的环境</li>
+<li>LSPosed 极难被检测，文件系统没有可疑痕迹，不需要安装独立的管理器应用</li>
+</ol>
+</blockquote>
+<p>模块是Xposed和LSPosed的核心，它们是为这些框架开发的插件或附加组件。通过使用这些模块，用户可以轻松地增加新功能、修改现有功能或增强应用程序的性能。Xposed模块和LSPosed模块是由社区中的开发者开发的，为用户提供了丰富的选择。用户可以根据自己的需求选择并安装这些模块，以个性化和定制他们的Android设备。</p>
+<p>Lspatch，Lsposed提供的免ROOT使用模块的方案，完美的解决了非ROOT设备无法使用模块的痛。它通过修改应用，使应用进程留有LSP的处理方案，从而可以使用模块，而无需ROOT。传统的模块方案，则是通过ROOT权限，修改应用进程及数据。形象点讲，Lspatch采用从应用内部修改的方案，而传统的Xposed方案则是从外部借助root权限修改。</p>
+<p>根据这个原理，Lspatch还实现了便携模式：可以直接打包被修改的应用及注入的模块，实现脱离Lspatch环境运行。</p>
+<h1 id="准备"><a href="#准备" class="headerlink" title="&gt; 准备"></a>&gt; 准备</h1><ol>
+<li><p>Lspatch:<a target="_blank" rel="noopener" href="https://github.com/LSPosed/LSPatch">https://github.com/LSPosed/LSPatch</a></p>
+</li>
+<li><p>适用的模块，如Qa模块(全面叫QAuxiliary):<a target="_blank" rel="noopener" href="https://github.com/cinit/QAuxiliary">https://github.com/cinit/QAuxiliary</a></p>
+</li>
+<li><p>要更改的应用安装包，如QQ安装包:<a target="_blank" rel="noopener" href="https://im.qq.com/download">https://im.qq.com/download</a></p>
+</li>
+<li><p>一部安卓手机，可以使用模拟器，但千万不要使用安卓子系统，因为没有文件目录体系。</p>
+</li>
+</ol>
+<p>把上面的资源全部放到安卓手机里。注意要<strong>明确文件的路径（如 &#x2F;download ）</strong>，以便使用。</p>
+<h1 id="便携模式"><a href="#便携模式" class="headerlink" title="&gt; 便携模式"></a>&gt; 便携模式</h1><p>便携模式可以直接把注入模块后的应用打包。<br>这样的应用运行不需要依靠Lspatch，可以分享给其他人。</p>
+<ol>
+<li><p>安装Lspatch。<br>lspatch安装完长这样:<br><a target="_blank" rel="noopener" href="https://img2023.cnblogs.com/blog/3044840/202301/3044840-20230123104020192-976092438.png"><img src="https://img2023.cnblogs.com/blog/3044840/202301/3044840-20230123104020192-976092438.png" alt="img"></a><br>shizuku我们不理，目前用不着。</p>
+</li>
+<li><p>安装完成后，进入Lspatch，下方点击管理，点击加号:<br><a target="_blank" rel="noopener" href="https://img2023.cnblogs.com/blog/3044840/202301/3044840-20230123104316291-106658595.png"><img src="https://img2023.cnblogs.com/blog/3044840/202301/3044840-20230123104316291-106658595.png" alt="img"></a><br>首次使用会提示选择一个目录来存储已修复的apk，选择自己方便调用的文件夹，并给予存储权限。</p>
+</li>
+<li><p>此时弹出框有两个选项:<br><a target="_blank" rel="noopener" href="https://img2023.cnblogs.com/blog/3044840/202301/3044840-20230123110052476-42252646.png"><img src="https://img2023.cnblogs.com/blog/3044840/202301/3044840-20230123110052476-42252646.png" alt="img"></a><br>如果已经安装QQ，可以选择下面的”选择已安装的应用程序”;<br>如果未安装，选择上面”从存储目录中选择(多个)apk”.<br>然后在弹出的界面找到要修改的应用(或安装包).选择完毕进入修补界面如下:<br><a target="_blank" rel="noopener" href="https://img2023.cnblogs.com/blog/3044840/202301/3044840-20230123110152987-1086773061.png"><img src="https://img2023.cnblogs.com/blog/3044840/202301/3044840-20230123110152987-1086773061.png" alt="img"></a></p>
+</li>
+<li><p>选择便携模式，点击”嵌入模块”,选择模块qa。<br><a target="_blank" rel="noopener" href="https://img2023.cnblogs.com/blog/3044840/202301/3044840-20230123110526966-1947196900.png"><img src="https://img2023.cnblogs.com/blog/3044840/202301/3044840-20230123110526966-1947196900.png" alt="img"></a><br><a target="_blank" rel="noopener" href="https://img2023.cnblogs.com/blog/3044840/202301/3044840-20230123110403942-1429620359.png"><img src="https://img2023.cnblogs.com/blog/3044840/202301/3044840-20230123110403942-1429620359.png" alt="img"></a></p>
+</li>
+<li><p>点击右下角“开始修补”，等待修补完成。<br><a target="_blank" rel="noopener" href="https://img2023.cnblogs.com/blog/3044840/202301/3044840-20230123110556745-1167412557.png"><img src="https://img2023.cnblogs.com/blog/3044840/202301/3044840-20230123110556745-1167412557.png" alt="img"></a></p>
+</li>
+<li><p>进入手机的文件管理器，查找apk<br><a target="_blank" rel="noopener" href="https://img2023.cnblogs.com/blog/3044840/202301/3044840-20230123110829420-807054232.png"><img src="https://img2023.cnblogs.com/blog/3044840/202301/3044840-20230123110829420-807054232.png" alt="img"></a><br>这样，我们便得到了修改后的应用。</p>
+</li>
+</ol>
+<h1 id="本地模式"><a href="#本地模式" class="headerlink" title="&gt; 本地模式"></a>&gt; 本地模式</h1><p>本地模式，顾名思义只能在本地运行。<br>它不再嵌入模块，而只是修改应用以模块得以使用。<br>缺点很明显，即需要Lspatch在后台运行，应用才可正常运作。<br>优点是可以灵活管理模块，模块更新不需要重新打包。</p>
+<ol>
+<li><p>同便携模式1-3步，进入修补界面，选择本地模式。<br><a target="_blank" rel="noopener" href="https://img2023.cnblogs.com/blog/3044840/202301/3044840-20230123110152987-1086773061.png"><img src="https://img2023.cnblogs.com/blog/3044840/202301/3044840-20230123110152987-1086773061.png" alt="img"></a></p>
+</li>
+<li><p>直接开始修补。</p>
+</li>
+<li><p>修补完成后，手动找到安装包安装。(lspatch中的安装键需shizuku赋权，如果你会用shizuku也可以。)</p>
+</li>
+<li><p>安装后重启手机(这是一个好习惯)，打开Lspatch。在管理-应用里面会发现修补好的应用，点击后选择作用域，选择要使用的模块。<br><a target="_blank" rel="noopener" href="https://img2023.cnblogs.com/blog/3044840/202301/3044840-20230126200854121-1621665622.png"><img src="https://img2023.cnblogs.com/blog/3044840/202301/3044840-20230126200854121-1621665622.png" alt="img"></a><br><a target="_blank" rel="noopener" href="https://img2023.cnblogs.com/blog/3044840/202301/3044840-20230126200910608-888981367.png"><img src="https://img2023.cnblogs.com/blog/3044840/202301/3044840-20230126200910608-888981367.png" alt="img"></a><br>此时的模块需安装。</p>
+</li>
+</ol>
+<h1 id="控制台合成安装包"><a href="#控制台合成安装包" class="headerlink" title="&gt; 控制台合成安装包"></a>&gt; 控制台合成安装包</h1><p>Lspatch还提供了另一种打包方式:从电脑打包.<br>通过他提供的一个jar包，打包出来本地模式或便携模式的包。</p>
+<p>准备:</p>
+<ol>
+<li>Java环境 推荐使用集成的Java开发环境，如Android Studio，安装后无需启动Android Studio即可使用Java</li>
+<li><code>lspatch.jar</code> <a target="_blank" rel="noopener" href="https://github.com/LSPosed/LSPatch/releases/latest">https://github.com/LSPosed/LSPatch/releases/latest</a></li>
+<li>应用、模块的apk</li>
+<li>一台计算机，可以是Linux或者Windows，MacOS没试，理论上可以。</li>
+</ol>
+<p>在<code>lspatch.jar</code>所在的目录运行cmd.<br>控制台输入以下命令:</p>
+<ul>
+<li>本地模式:<code>java -jar lspatch.jar xxx.apk -manager -l 2</code></li>
+<li>便携模式:<code>java -jar lspatch.jar xxx.apk [-m 模块1.apk [-m 模块2.apk ...]] -l 2</code></li>
+</ul>
+<p><code>xxx.apk</code>为要修改的应用安装包.</p>
+<h1 id="FAQ"><a href="#FAQ" class="headerlink" title="&gt; FAQ"></a>&gt; FAQ</h1><p>Q1: 本地模式修补后在管理-应用-【修补好的应用】-模块作用域里找不到模块?<br>A1: 模块要先安装在手机里。</p>
+<p>Q2: 电脑控制台无法正常运行lspatch.jar，提示<code>Java.lang.UnsupportedClassVersionError</code>?<br>A2: 运行JSE版本过低。推荐直接安装Java集成开发环境，如IDEA、Android Studio，可以避免java版本过低。</p>
+<p>Q3: 首次使用会提示选择一个目录来存储已修复的apk，可是没有目录？<br>A3: Lspatch应用设置-权限设置-读写文件权限-允许。<br>Q3.1: 还是不行?<br>A3.1: 不要在Windows Subsystem for Android™ 上测试。若非如此，请重启手机。</p>
+<p>Q4: 便携模式找不到生成后的安装包?<br>A4: 请检查修补日志最后一行是否提示出错。新版安卓隐私政策升级，文件管理器可能无法及时读取到文件，请手动到第二步的目录下查找或重启手机。</p>
+<p>Q5: 应用修补后按”安装”提示Shizuku服务未连接?<br>A5: 属正常情况。Lspatch可搭配Shizuku使用，方便卸载、安装应用等操作。没有Shizuku的用户可以手动卸载原应用后手动安装修补完的应用。</p>
+<p>Q6: 应用修补后，安装失败，提示“签名不一致”？<br>A6: 请先卸载原有应用。</p>
+<h1 id="再次提醒"><a href="#再次提醒" class="headerlink" title="&gt; 再次提醒"></a>&gt; 再次提醒</h1><p>再次提醒：遵守应用使用守则，避免被封号或惹官司！</p>
+<blockquote>
+<ul>
+<li>微信软件许可及服务协议：<a target="_blank" rel="noopener" href="https://weixin.qq.com/cgi-bin/readtemplate?t=weixin_agreement&s=default&cc=CN">https://weixin.qq.com/cgi-bin/readtemplate?t=weixin_agreement&amp;s&#x3D;default&amp;cc&#x3D;CN</a></li>
+</ul>
+<p>8.2.1 除非法律允许或腾讯书面许可，你使用本软件过程中不得从事下列行为：<br>8.2.1.5 通过修改或伪造软件运行中的指令、数据，增加、删减、变动软件的功能或运行效果，或者将用于上述用途的软件、方法进行运营或向公众传播，无论这些行为是否为商业目的；<br>8.2.1.6 通过非腾讯开发、授权的第三方软件、插件、外挂、系统，登录或使用腾讯软件及服务，或制作、发布、传播上述工具；<br>8.2.1.7 自行或者授权他人、第三方软件对本软件及其组件、模块、数据进行干扰；<br>8.2.1.8 其他未经腾讯明示授权的行为。</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>QQ软件许可及服务协议：<a target="_blank" rel="noopener" href="https://rule.tencent.com/rule/preview/46a15f24-e42c-4cb6-a308-2347139b1201">https://rule.tencent.com/rule/preview/46a15f24-e42c-4cb6-a308-2347139b1201</a></li>
+</ul>
+<p>8.1.10 基于用户体验、QQ或相关服务平台运营安全、平台规则要求及健康发展等综合因素，腾讯有权选择提供服务的对象，决定功能设置，决定功能开放、数据接口和相关数据披露的对象和范围。针对以下情形，有权视具体情况中止或终止提供相关服务，包括但不限于：（1）违反法律法规或本协议的。<br>8.2.2 软件使用<br>除非法律法规允许或腾讯书面许可，您不得从事下列行为：<br>（5）通过修改或伪造软件运行中的指令、数据，增加、删减、变动软件的功能或运行效果，或者将用于上述用途的软件、方法进行运营或向公众传播，无论这些行为是否为商业目的。（6）通过非腾讯开发、授权的第三方软件、插件、外挂、系统，登录或使用本软件和&#x2F;或本服务，或制作、发布、传播上述工具。（7）自行、授权他人或利用第三方软件对本软件和&#x2F;或本服务及其组件、模块、数据等进行干扰。</p>
+</blockquote>
+<p>源： <a target="_blank" rel="noopener" href="https://www.cnblogs.com/yuito/p/android_uselsp.html">https://www.cnblogs.com/yuito/p/android_uselsp.html</a></p>
+
+                
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box">
+    <div class="suffix-box-left">
+        <img src="/image/sidebar/avatar.jpg" alt="Aspirai">
+    </div>
+    <div class="suffix-box-right">
+        <span class="suffix-box-title">文章作者：</span>Aspirai
+        <br>
+        <span class="suffix-box-title">文章出处：</span><a href="/2024/10/20/Lspatch%E4%BD%BF%E7%94%A8/" target="_blank">Lspatch使用</a>
+        <br>
+        <span class="suffix-box-title">作者签名：</span>时间带不走你眼中的光辉
+        <br>
+        <span class="suffix-box-title">版权声明：</span>文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+        <br>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+                
+                    <div class="category">
+                        分类：
+                        
+                            <a href="/category/%E7%94%9F%E6%B4%BB%E5%B0%8F%E7%9F%A5%E8%AF%86/">生活小知识</a>
+                        
+                    </div>
+                
+                
+                    <div class="tag">
+                        标签：
+                        
+                            <a href="/tag/%E6%A8%A1%E5%9D%97/">模块</a>
+                        
+                    </div>
+                
+                <div class="article-prev-next">
+                    
+                        <a href="/2024/10/20/Lsky%20%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/" class="prev-prefix">« </a> 上一篇：    <a href="/2024/10/20/Lsky%20%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/" title="发布于 2024-10-20 09:31">Lsky 图床搭建</a>
+                        <br>
+                    
+                    
+                        <a href="/2024/10/20/Windows%20%E5%BC%80%E6%9C%BA%E4%B8%8D%E7%99%BB%E9%99%86%20%E8%87%AA%E5%90%AF%E5%8A%A8%E8%BD%AF%E4%BB%B6/" class="next-prefix">» </a> 下一篇：    <a href="/2024/10/20/Windows%20%E5%BC%80%E6%9C%BA%E4%B8%8D%E7%99%BB%E9%99%86%20%E8%87%AA%E5%90%AF%E5%8A%A8%E8%BD%AF%E4%BB%B6/" title="发布于 2024-10-20 09:31">Windows 开机不登陆 自启动软件</a>
+                    
+                </div>
+            </div>
+            
+    <div class="article-comments">
+        
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+    
+ 
+        </div>
+    
+</div>
+    <div id="footer">
+    <div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>
+</div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar">
+                    <img src="/image/sidebar/avatar.jpg">
+                </div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user">
+                        
+                            <a href="javascript:;" target="_self"><span>Aspirai</span></a>
+                        
+                    </div>
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul>
+                    
+                        <li class=""><a href="/" class="" target="_self"><span class="iconfont icon-home-fill"></span>首页</a></li>
+                    
+                        <li class=""><a href="/category" class="" target="_self"><span class="iconfont icon-folder-fill"></span>分类</a></li>
+                    
+                        <li class=""><a href="/tag" class="" target="_self"><span class="iconfont icon-discount-fill"></span>标签</a></li>
+                    
+                        <li class=""><a href="/archive" class="" target="_self"><span class="iconfont icon-calendar-fill"></span>归档</a></li>
+                    
+                        <li class=""><a href="/friend" class="" target="_self"><span class="iconfont icon-link"></span>友情链接</a></li>
+                    
+                </ul> 
+            </div> 
+            <div class="menu-link">
+                <div class="box">
+                    <div class="image-box"></div>
+                </div>
+                
+                    <a name="QQ" href="javascript:;" class="image" target="_self" data="/image/sidebar/qq.png"><span class="iconfont icon-qq"></span></a>
+                
+            </div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="/css/search.css">
+<script type="text/javascript" src="/js/iscroll.js"></script>
+<script type="text/javascript" src="/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+    
+    <link type="text/css" rel="stylesheet" href="/css/APlayer.css">
+    <script type="text/javascript" src="/js/APlayer.min.js"></script>
+    <script type="text/javascript" src="/js/Meting.min.js"></script>
+    <script>
+        var meting_api = 'https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&auth=:auth&r=:r';
+    </script>
+    <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+
+    <div class="wrap-right">
+    <div class="wrap-right-hide">
+         <div class="wrap-right-button favorites">
+            <div class="iconbox" switch="false">
+                <span class="iconfont icon-favorites"></span>
+            </div>
+            <span class="icontext">关注</span>
+         </div>
+        <div class="wrap-right-button search">
+            <div class="iconbox">
+                <span class="iconfont icon-search-menu"></span>
+            </div>
+            <span class="icontext">搜索</span>
+        </div>
+        <div class="wrap-right-button menu-button">
+            <div class="iconbox">
+                <span class="iconfont icon-menu"></span>
+            </div>
+            <span class="icontext">菜单</span>
+        </div>
+        <div class="wrap-right-button mode">
+            <div class="light">
+                <div class="iconbox">
+                    <span class="iconfont icon-daymode"></span>
+                </div>
+                <span class="icontext">浅色模式</span>
+            </div>
+            <div class="dark">
+                <div class="iconbox">
+                    <span class="iconfont icon-nightmode-fill"></span>
+                </div>
+                <span class="icontext">深色模式</span>
+            </div>
+        </div>
+        <div class="wrap-right-button bottom">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">跳至底部</span>
+        </div>
+    </div>
+    <div class="wrap-right-show">
+        <div class="wrap-right-button set">
+            <div class="iconbox">
+                <span class="iconfont icon-setting"></span>
+            </div>
+            <span class="icontext">设置</span>
+        </div>
+        <div class="wrap-right-button top">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">返回顶部</span>
+        </div>
+    </div>
+</div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : "Aspirai",
+        GitHubRepositories : "Hexo-LiveForCode",
+
+        User             : "Aspirai",
+        UserAvatar       : "/image/sidebar/avatar.jpg",
+        WebsiteStartDate : "2020-01-01",
+        Home             : "",
+
+        WebsiteTitleBlur         : "(◍´꒳`◍) Hi, Aspirai",
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : "(*´∇｀*) 欢迎回来!",
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : {
+            light : "/image/website/logo/logo.png",
+            dark  : "/image/website/logo/logo-dark.png"
+        },
+
+        ProgressBar : {
+            id       : "topProgressBar",
+            color    : "#77B6FF",
+            height   : "2px",
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound : {
+                tension  : 16,
+                friction : 5
+            },
+            spinner : {
+                id     : "spinner",
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : "#F0F0F0",
+                    stroke     : "#272633",
+                    base       : "",
+                    child      : "#272633"
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : "rgba(255, 255, 255, .2)",
+            clearOffset : 0.3
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : "60%",
+            colorBrightness  : "50%",
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : "random",
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                "/image/header/home.jpg",
+            
+                "/image/header/home.png",
+            
+        ],
+        HomeBannerText  : "",
+
+        ArticleHeaderImage : [
+            
+                "/image/header/article.jpg",
+            
+        ],
+
+        OtherBannerText : "",
+
+        Error : {
+            icon    : "icon-swimming",
+            title   : "PAGE NOT FOUND",
+            content : [
+                
+                    "很抱歉，您访问的页面不存在！",
+                
+                    "可能是输入地址有误或该地址已变更。",
+                
+            ],
+            buttons : [
+                
+                    {
+                        icon  : "icon-home",
+                        text  : "返回首页",
+                        href  : "/",
+                        class : ""
+                    },
+                
+            ]
+        },
+
+        MenuNotice : {
+            enable : false,
+            notice : "简单地活着，肆意而又精彩！",
+            speed  : 20
+        },
+        MenuList : [
+            
+                {
+                    name   : "首页",
+                    icon   : "icon-home-fill",
+                    href   : "/",
+                    type   : "index",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "分类",
+                    icon   : "icon-folder-fill",
+                    href   : "/category",
+                    type   : "category",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "标签",
+                    icon   : "icon-discount-fill",
+                    href   : "/tag",
+                    type   : "tag",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "归档",
+                    icon   : "icon-calendar-fill",
+                    href   : "/archive",
+                    type   : "archive",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "友情链接",
+                    icon   : "icon-link",
+                    href   : "/friend",
+                    type   : "friend",
+                    class  : "",
+                    target : "_self"
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        name   : "QQ",
+                        icon   : "icon-qq",
+                        href   : "javascript:;",
+                        class  : "image",
+                        target : "_self",
+                        image  : "/image/sidebar/qq.png"
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : "<div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>",
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                "Based on cnblogs theme SimpleMemory.",
+                            
+                                "",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "SimpleMemory Author:",
+                            
+                                "BNDong",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "Theme:",
+                            
+                                "LiveForCode",
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : "",
+
+        Donate : {
+            paypal  : "",
+            bitcoin : "",
+            alipay  : "/image/donate/alipay.png",
+            wechat  : "/image/donate/wechat.png"
+        },
+
+        Search : {
+            applicationID : "010C3EANT8",
+            apiKey        : "c7abab9f11b79102b9aff7fe6d41447d",
+            indexName     : "Notes",
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : "搜索",
+                empty       : "未发现与 「${query}」 相关的内容",
+                stats       : "${hits} 条相关条目，使用了 ${time} 毫秒",
+            }
+        }, 
+
+        Comment : {
+            switch : true,
+            type   : "Valine",
+        },
+
+        Waline : {
+            el              : ".comments-content",
+            serverURL       : "",
+            path            : window.location.pathname,
+            meta            : "['nick', 'mail', 'link']",
+            requiredMeta    : "['nick', 'mail']",
+            pageSize        : 10,
+            lang            : "zh-cn",
+            locale: {
+                admin       : "博主",
+                anonymous   : "匿名用户",
+                sofa        : "快来做第一个评论的人吧 ~",
+                placeholder : "你是我一生只会遇见一次的惊喜...",
+            },
+            dark            : "html[color-scheme='dark']",
+            search          : false,
+            pageview        : true,
+            comment         : true,
+            copyright       : false,
+        },
+
+        Valine : {
+            el             : ".comments-content",
+            appId          : "srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz",
+            appKey         : "8uVSP1q6UlALVC5igYfIfv2h",
+            serverURLs     : "",
+            placeholder    : "你是我一生只会遇见一次的惊喜...",
+            avatar         : "mm",
+            meta           : "nick,mail,link",
+            requiredFields : "nick,mail",
+            pageSize       : 5,
+            lang           : "zh-cn",
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : ".toc",
+            contentSelector       : ".article-body",
+            headingSelector       : "h1, h2, h3, h4, h5",
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : ".toc",
+            positionFixedClass    : "toc-fixed",
+            fixedSidebarOffset    : "",
+        },
+
+        Require : {
+            baseUrl     : "/js/",
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : "Meting"
+        },
+        APlayer : {
+            container : ".aplayer",
+            fixed     : true,
+            autoplay  : false,
+            loop      : "all",
+            order     : "random",
+            preload   : "auto",
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : "Endless Tears",
+                        artist : "CLIFF EDGE",
+                        cover  : "/music/cover/Endless Tears.jpg",
+                        url    : "/music/song/Endless Tears.mp3",
+                        lrc    : "/music/lrc/Endless Tears.lrc"
+                    },
+                
+            ]
+        },
+        Meting : {
+            api      : "https://api.i-meto.com/meting/api",
+            id       : "3778678", 
+            lrcshow  : false, 
+            server   : "netease", 
+            type     : "playlist", 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : "all", 
+            order    : "random", 
+            preload  : "auto", 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : true,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : "/image/website/lazyload.svg"
+        },
+  
+        Style : {
+            aplayer          : "/css/APlayer.css",
+            archive          : "/css/archive.css",
+            base             : "/css/base.css",
+            clipboard        : "/css/clipboard.css",
+            code             : "/css/code.css",
+            donate           : "/css/donate.css",
+            fancybox         : "/css/jquery.fancybox.css",
+            footer           : "/css/footer.css",
+            iconfont         : "/iconfont/iconfont.css",
+            index            : "/css/index.css",
+            menuBubble       : "/css/menu-bubble.css",
+            mouse            : "/css/mouse.css",
+            page             : "/css/page.css",
+            post             : "/css/post.css",
+            search           : "/css/search.css",
+            tocbot           : "/css/tocbot.css",
+            valine           : "/css/valine.css",
+            waline           : "/css/waline.css",
+            walineCustom     : "/css/waline-custom.css"
+        },
+
+        Script: {
+            aplayer          : "/js/APlayer.min.js",
+            config           : "/js/require.config.js",
+            index            : "/js/index.js",
+            instantSearch    : "/js/instantsearch.min.js",
+            iscroll          : "/js/iscroll.js",
+            jQuery           : "/js/jquery-3.4.1.min.js",
+            loading          : "/js/loading.js",
+            meting           : "/js/Meting.min.js",
+            require          : "/js/require.min.js",
+            waline           : "/js/waline.mjs",
+            pageview         : "/js/pageview.mjs",
+            comment          : "/js/comment.mjs",
+        },
+
+        Font: {
+            LongCang    : "/font/LongCang.css",
+            Monda       : "/font/Monda.css",
+            NotoSansSC  : "/font/NotoSansSC.css",
+            NotoSerifSC : "/font/NotoSerifSC.css",
+            Playball    : "/font/Playball.css",
+            PTMono      : "/font/PTMono.css",
+            Roboto      : "/font/Roboto.css",
+            RobotoSlab  : "/font/RobotoSlab.css",
+            Rosario     : "/font/Rosario.css",
+            UbuntuMono  : "/font/UbuntuMono.css"
+        },
+
+        Suffix : {
+            about : "时间带不走你眼中的光辉"
+        },
+            
+        Theme : {
+            url  : "https://github.com/first19326/Hexo-LiveForCode",
+            name : "Hexo - Live For Code"
+        }  
+    };
+</script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</body>
+</html>

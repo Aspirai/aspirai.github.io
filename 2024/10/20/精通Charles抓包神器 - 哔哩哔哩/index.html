@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>
+        
+            精通Charles抓包神器 - 哔哩哔哩
+        
+    </title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSerifSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="/font/Roboto.css">
+    <link type="text/css" rel="stylesheet" href="/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="/css/base.css">
+    <link type="text/css" rel="stylesheet" href="/css/code.css">
+
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <a id="cover"></a>
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
+<div id="header" class="header">
+    <div class="vertical">
+        <div class="inner">
+            
+                <h1 class="header-subtitle">精通Charles抓包神器 - 哔哩哔哩</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2024-10-20
+                        </span>
+                        
+                            
+                                <span id="/2024/10/20/精通Charles抓包神器 - 哔哩哔哩/" class="leancloud_visitors" data-flag-title="精通Charles抓包神器 - 哔哩哔哩">
+                                    <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                                </span>
+                            
+                            
+                                <span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/10/20/精通Charles抓包神器 - 哔哩哔哩/"></span>
+                                </span>
+                              
+                        
+                    </p>
+                    
+                        
+                            <span class="category-color">前端开发</span>
+                        
+                    
+                    
+                        
+                            <span class="tag-color">测试工具</span>
+                        
+                            <span class="tag-color">Charles</span>
+                        
+                    
+                </div>
+            
+        </div>
+    </div>
+    
+</div>
+<div id="container">
+    
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <h2 id="Charles-功能介绍"><a href="#Charles-功能介绍" class="headerlink" title="Charles 功能介绍"></a>Charles 功能介绍</h2><p><code>Charles</code> 是在 <code>PC</code> 端常用的网络请求截取工具，无论前端还是后端开发者，都是应该必备的工作提效利器！</p>
+<h2 id="电脑端抓包配置"><a href="#电脑端抓包配置" class="headerlink" title="电脑端抓包配置"></a>电脑端抓包配置</h2><p>本文Mac电脑为例</p>
+<h3 id="首先官网下载-charles"><a href="#首先官网下载-charles" class="headerlink" title="首先官网下载 charles"></a>首先官网下载 charles</h3><p>charles 官方下载地址 <a target="_blank" rel="noopener" href="http://www.charlesproxy.com/download/charles">http://www.charlesproxy.com/download/charles</a> 官方下载地址</p>
+<h3 id="下载安装证书"><a href="#下载安装证书" class="headerlink" title="下载安装证书"></a>下载安装证书</h3><h5 id="下载安装CA证书"><a href="#下载安装CA证书" class="headerlink" title="下载安装CA证书"></a>下载安装CA证书</h5><p>安装 <code>CA</code> 证书的目的是为了抓包 <code>https</code> 请求，完成 <code>SSL</code> 证书校验(这部分会在原理篇单独讲解)</p>
+<p>操作步骤：点击顶部工具栏的 <code>Help</code>-–&gt; <code>SSL Proying</code> —&gt; <code>Install Charles Root Certificate</code></p>
+<p><img src="https://i0.hdslb.com/bfs/new_dyn/13d5a0f23553984e02c1f87705b0e3da381340790.jpg@1256w_!web-article-pic.avif" alt="图片"></p>
+<h5 id="安装证书并设置为始终信任"><a href="#安装证书并设置为始终信任" class="headerlink" title="安装证书并设置为始终信任"></a>安装证书并设置为始终信任</h5><p>上面的证书安装成功最后一步，会确定是否添加证书到钥匙串，选择添加到本地项目</p>
+<p><img src="https://i0.hdslb.com/bfs/new_dyn/818b6eb3fc86692280bb89ca5091fb21381340790.png@1256w_!web-article-pic.avif" alt="图片"></p>
+<p>证书添加成功会弹出钥匙串访问页面，然后找到 <code>Charles Proxy</code> 证书</p>
+<p><img src="https://i0.hdslb.com/bfs/new_dyn/a38c0ba15369488fa31f9f7c021e4d25381340790.png@1256w_!web-article-pic.avif" alt="图片"></p>
+<p>双击证书会进入详情页面，提示此证书不被信任，点击信任按钮，修改为<strong>始终信任</strong></p>
+<p><img src="https://i0.hdslb.com/bfs/new_dyn/a9814a99e76b1a0da952a50ae442f2a5381340790.png@1256w_!web-article-pic.avif" alt="图片"></p>
+<p>image.png</p>
+<h2 id="Charles-代理服务器设置"><a href="#Charles-代理服务器设置" class="headerlink" title="Charles 代理服务器设置"></a>Charles 代理服务器设置</h2><h3 id="配置-Http-代理"><a href="#配置-Http-代理" class="headerlink" title="配置 Http 代理"></a>配置 Http 代理</h3><p>设置代理，操作步骤：在顶部工具栏选择 <code>Proxy</code> —&gt; <code>Proxy setting</code></p>
+<p><img src="https://i0.hdslb.com/bfs/new_dyn/b1632e2517e5e8b0feef50ee1d921758381340790.png@1256w_!web-article-pic.avif" alt="图片"></p>
+<p>选择 <code>Proxies</code> 开始配置，<code>port</code> 默认端口为 <code>8888</code>，若端口被占用需手动自行修改</p>
+<p><code>Enable transparent HTTP proxying</code> (透明 <code>HTTP</code> 代理)</p>
+<p>透明代理使 <code>Charles</code> 能够去支持那些不支持 <code>HTTP</code> 代理服务器的客户端，或者说不知道正在使用 <code>HTTP</code> 代理服务器，例如 <code>TCP/IP</code> 连接由路由器或防火墙重定向到 <code>Charles</code></p>
+<p><img src="https://i0.hdslb.com/bfs/new_dyn/cd98b18f10d997b7c4c6d9cf233d2eba381340790.png@1256w_!web-article-pic.avif" alt="图片"></p>
+<h3 id="配置-Https-代理"><a href="#配置-Https-代理" class="headerlink" title="配置 Https 代理"></a>配置 Https 代理</h3><p>目前大多数的网络请求接口都是 <code>https</code>，<code>Charles</code>也需要配置 <code>SSL</code> 代理进行抓包 操作步骤：顶部工具栏—&gt; <code>Proxy</code> —&gt; <code>SSL Proxying Settings</code></p>
+<p><img src="https://i0.hdslb.com/bfs/new_dyn/e10e75147af3ca05db14a11021896aa4381340790.png@1256w_!web-article-pic.avif" alt="图片"></p>
+<p>选择后出现如下页面，<code>IP</code> 设置为通配符，代表任意服务器IP，端口设为443，当然端口也可以设置为;https的默认端口为 <code>443</code> ，一般来说企业不会去修改它。当然端口配置为<code>*</code>更严谨一些</p>
+<p><img src="https://i0.hdslb.com/bfs/new_dyn/a6f74e3347c11b5e2443cdf078b853fa381340790.png@1256w_!web-article-pic.avif" alt="图片"></p>
+<h2 id="移动端抓包配置"><a href="#移动端抓包配置" class="headerlink" title="移动端抓包配置"></a>移动端抓包配置</h2><p>本文Android手机为例</p>
+<h3 id="移动端配置"><a href="#移动端配置" class="headerlink" title="移动端配置"></a>移动端配置</h3><p>首先需要修改手机网络，调整手机 <code>wifi</code> 和电脑在同一局域网中，</p>
+<p>操作步骤：长按使用的 <code>wifi</code> –&gt; 修改网络–&gt;选择高级选项–&gt;手动代理–&gt;代理服务器主机名设置为电脑 <code>ip</code> 地址，代理端口设置为 <code>8888</code> –&gt; 完成后点击保存。</p>
+<h3 id="移动端证书下载"><a href="#移动端证书下载" class="headerlink" title="移动端证书下载"></a>移动端证书下载</h3><p>， 操作步骤：点击电脑安装的<code>Charles</code>顶部工具栏–&gt; 选择 <code>Help</code>--&gt; <code>Install Charles Root Certificate on Mobile Device or Remote Browser</code></p>
+<p><img src="https://i0.hdslb.com/bfs/new_dyn/31b6eda58ba80bbf46ee9df1302dd0f7381340790.png@1256w_!web-article-pic.avif" alt="图片"></p>
+<p><code>Charles</code> 页面会弹出是否接受移动端连接？并安装证书</p>
+<p><img src="https://i0.hdslb.com/bfs/new_dyn/bd0a12d5481b83fec2b3ff60a920470f381340790.png@1256w_!web-article-pic.avif" alt="图片"></p>
+<p>确认配置你的设备使用 <code>Charles</code></p>
+<p><img src="https://i0.hdslb.com/bfs/new_dyn/64898f073de657ed0bb02eb8ff279ba0381340790.png@1256w_!web-article-pic.avif" alt="图片"></p>
+<p><img src="https://i0.hdslb.com/bfs/new_dyn/0cb15878eaeb3984fd16c82e3b9c3696381340790.png@1256w_!web-article-pic.avif" alt="图片"></p>
+<p>看到这部分内容后，到手机浏览器输入地址 <code>chls.pro/ssl</code> 下载证书，在浏览器中回车开始下载，等待下载完成。</p>
+<p><img src="https://i0.hdslb.com/bfs/new_dyn/66301f0469b8b82ef2026979e167d885381340790.png@1256w_!web-article-pic.avif" alt="图片"></p>
+<h3 id="使用证书"><a href="#使用证书" class="headerlink" title="使用证书"></a>使用证书</h3><p>证书下载完成后，需要在手机中设置使用证书。</p>
+<p>操作步骤：<code>Android</code> 手机–&gt;密码隐私与安全–&gt;系统安全–&gt;加密与凭据–&gt; 从存储设备安装–&gt;找到设备刚刚下载的证书进行安装–&gt;安装成功后可以去信任的凭据–&gt;用户</p>
+<h3 id="开始抓包"><a href="#开始抓包" class="headerlink" title="开始抓包"></a>开始抓包</h3><p>以上信息完成后，我们就可以在移动端抓包了，抓到的接口数据会显示到 <code>Charles</code> 中。</p>
+<p>以抓取掘金接口为例子,在 <code>Android</code> 掘金<code>APP</code> 点击进入一篇文章。</p>
+<p>在 <code>Charles</code> 中会显示调用的所有接口</p>
+<p><img src="https://i0.hdslb.com/bfs/new_dyn/6e2babbdd5057a700fc608532498bada381340790.png@1256w_!web-article-pic.avif" alt="图片"></p>
+<blockquote>
+<p>其实根据这些数据可以做很多事情，也可以做一些数据分析，这里就不展开讲了。</p>
+</blockquote>
+<h2 id="Charles-基础视图介绍"><a href="#Charles-基础视图介绍" class="headerlink" title="Charles 基础视图介绍"></a>Charles 基础视图介绍</h2><p><img src="https://i0.hdslb.com/bfs/new_dyn/36e2428fa9b968dbd5936fec60b96255381340790.png@1256w_!web-article-pic.avif" alt="图片"></p>
+<h2 id="Charles-抓包常用技巧"><a href="#Charles-抓包常用技巧" class="headerlink" title="Charles 抓包常用技巧"></a>Charles 抓包常用技巧</h2><h3 id="Repeat"><a href="#Repeat" class="headerlink" title="Repeat"></a>Repeat</h3><p>通过 <code>Charles</code> 重复发送请求，可以自定义重复发送请求的并发数量或时间间隔，不可修改请求内容。</p>
+<p>右键请求接口，会看到 <code>Repeat</code> 和 <code>Repeat Advanced</code></p>
+<p><img src="https://i0.hdslb.com/bfs/new_dyn/3e8325e9cc3fa1e32917bcb15d0923c9381340790.png@1256w_!web-article-pic.avif" alt="图片"></p>
+<p><img src="https://i0.hdslb.com/bfs/new_dyn/c762684a0272708f0a7ffa3c3d497a9c381340790.png@1256w_!web-article-pic.avif" alt="图片"></p>
+<p>自定义设置完成点击<code>ok</code>，<code>Charles</code> 中会重新打开一个 <code>session</code> 会话按照自定义设置发送请求。</p>
+<h3 id="Rewrite"><a href="#Rewrite" class="headerlink" title="Rewrite"></a>Rewrite</h3><p>重写请求，主要对某些匹配请求的 <code>header、host、url、path、query param、response status、body</code> 进行 <code>rewrite</code>。</p>
+<p>选中 <code>Enable Rewrite</code> —&gt;输入需要重写的接名称—&gt;点击 <code>add</code> 按钮会在侧边栏显示(重写获取文章接口)—&gt;编写添加要映射的接口—&gt;点击 <code>ok</code></p>
+<p><img src="https://i0.hdslb.com/bfs/new_dyn/734b6edd4e3d8fca98f548b1f7fc210a381340790.png@1256w_!web-article-pic.avif" alt="图片"></p>
+<p>点击右上方 <code>add</code>按钮会弹出下面的页面，编辑要重写的接口地址相关。</p>
+<p><img src="https://i0.hdslb.com/bfs/new_dyn/7f4ded0ca83d0d5cac3ab2245a4675c3381340790.png@1256w_!web-article-pic.avif" alt="图片"></p>
+<p>接下来点击右下方的 <code>add</code> 按钮,填写需要重写的具体内容</p>
+<p><img src="https://i0.hdslb.com/bfs/new_dyn/edce841132d59f085e62f88719b9110f381340790.png@1256w_!web-article-pic.avif" alt="图片"></p>
+<p>这里使用获取文章接口为例子，重写了响应数据中的 <code>err_msg</code> 字段，修改为<code>哈哈</code>。</p>
+<p><img src="https://i0.hdslb.com/bfs/new_dyn/c67dfdea7af9e963eb98357567a14329381340790.png@1256w_!web-article-pic.avif" alt="图片"></p>
+<p>重写成功后返回的数据</p>
+<p><img src="https://i0.hdslb.com/bfs/new_dyn/3624a7e9cdbc443a97578db3e639a40a381340790.png@1256w_!web-article-pic.avif" alt="图片"></p>
+<h3 id="Map-Local"><a href="#Map-Local" class="headerlink" title="Map Local"></a>Map Local</h3><p>映射本地: 将接口的请求重定向到本地文件 比较常用的一个场景，移动端或者网页端开发者可能用到比较多，类似 <code>Mock</code> 数据</p>
+<p>操作步骤：点击顶部工具栏 <code>Tools</code>-–&gt;点击 <code>Map Local</code> 弹出如下页面</p>
+<p><img src="https://i0.hdslb.com/bfs/new_dyn/b082b8dd4b77f7247a347d5dfd2f834a381340790.png@1256w_!web-article-pic.avif" alt="图片"></p>
+<p>选中 <code>Enable Map Local</code> —&gt;点击 <code>add</code> 按钮会弹出 <code>Edit Mapping</code> 窗口—&gt;编写添加要映射的接口—&gt;点击 <code>ok</code></p>
+<p><img src="https://i0.hdslb.com/bfs/new_dyn/3e63ee91b02f17fe3a28e1ecb4241653381340790.png@1256w_!web-article-pic.avif" alt="图片"></p>
+<h3 id="Map-Remote"><a href="#Map-Remote" class="headerlink" title="Map Remote"></a>Map Remote</h3><p>映射远程: 对于后端开发者可用接口调试错误，直接映射到本地代码开发的 <code>127.0.0.1</code> ,这样可以直接用移动端或者网页端调试真实场景</p>
+<p><img src="https://i0.hdslb.com/bfs/new_dyn/e5e15a8aabda9c6b1940d9c8071edc9e381340790.png@1256w_!web-article-pic.avif" alt="图片"></p>
+<p><img src="https://i0.hdslb.com/bfs/new_dyn/9c9f66f678b68e43b1faaeacb8841a64381340790.png@1256w_!web-article-pic.avif" alt="图片"></p>
+<h3 id="Throttle-Setting"><a href="#Throttle-Setting" class="headerlink" title="Throttle Setting"></a>Throttle Setting</h3><p>模拟网络环境进行接口请求，点击工具栏–&gt; <code>Proxy</code>--&gt; <code>Throttle Setting</code></p>
+<p><img src="https://i0.hdslb.com/bfs/new_dyn/c5957fd191448f1858c46d038ece9f75381340790.png@1256w_!web-article-pic.avif" alt="图片"></p>
+<p><img src="https://i0.hdslb.com/bfs/new_dyn/688f78a1cb8894fe83dc33f9e8e6ca36381340790.png@1256w_!web-article-pic.avif" alt="图片"></p>
+<p>选择 <code>Enable Throtting</code> –&gt;选择要模拟的网络环境–&gt;点击<code>ok</code></p>
+<p>再次调用接口时候就会按照设置的网络环境请求。<br>源:哔哩哔哩</p>
+
+                
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box">
+    <div class="suffix-box-left">
+        <img src="/image/sidebar/avatar.jpg" alt="Aspirai">
+    </div>
+    <div class="suffix-box-right">
+        <span class="suffix-box-title">文章作者：</span>Aspirai
+        <br>
+        <span class="suffix-box-title">文章出处：</span><a href="/2024/10/20/%E7%B2%BE%E9%80%9ACharles%E6%8A%93%E5%8C%85%E7%A5%9E%E5%99%A8%20-%20%E5%93%94%E5%93%A9%E5%93%94%E5%93%A9/" target="_blank">精通Charles抓包神器 - 哔哩哔哩</a>
+        <br>
+        <span class="suffix-box-title">作者签名：</span>时间带不走你眼中的光辉
+        <br>
+        <span class="suffix-box-title">版权声明：</span>文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+        <br>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+                
+                    <div class="category">
+                        分类：
+                        
+                            <a href="/category/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
+                        
+                    </div>
+                
+                
+                    <div class="tag">
+                        标签：
+                        
+                            <a href="/tag/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/">测试工具</a>
+                        
+                            <a href="/tag/Charles/">Charles</a>
+                        
+                    </div>
+                
+                <div class="article-prev-next">
+                    
+                        <a href="/2024/10/20/%E4%BC%98%E9%9B%85%E7%9A%84%E5%AE%89%E8%A3%85Burp%20Suite%EF%BC%88%E7%A0%B4%E8%A7%A3%E5%92%8C%E6%B1%89%E5%8C%96%EF%BC%89%20-%20Tcilay-xi%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD/" class="prev-prefix">« </a> 上一篇：    <a href="/2024/10/20/%E4%BC%98%E9%9B%85%E7%9A%84%E5%AE%89%E8%A3%85Burp%20Suite%EF%BC%88%E7%A0%B4%E8%A7%A3%E5%92%8C%E6%B1%89%E5%8C%96%EF%BC%89%20-%20Tcilay-xi%20-%20%E5%8D%9A%E5%AE%A2%E5%9B%AD/" title="发布于 2024-10-20 09:25">优雅的安装Burp Suite（破解和汉化） - Tcilay-xi - 博客园</a>
+                        <br>
+                    
+                    
+                        <a href="/2024/10/20/%E6%90%AD%E5%BB%BAWebSocket%E6%B5%8B%E8%AF%95/" class="next-prefix">» </a> 下一篇：    <a href="/2024/10/20/%E6%90%AD%E5%BB%BAWebSocket%E6%B5%8B%E8%AF%95/" title="发布于 2024-10-20 09:25">搭建WebSocket测试</a>
+                    
+                </div>
+            </div>
+            
+    <div class="article-comments">
+        
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+    
+ 
+        </div>
+    
+</div>
+    <div id="footer">
+    <div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>
+</div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar">
+                    <img src="/image/sidebar/avatar.jpg">
+                </div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user">
+                        
+                            <a href="javascript:;" target="_self"><span>Aspirai</span></a>
+                        
+                    </div>
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul>
+                    
+                        <li class=""><a href="/" class="" target="_self"><span class="iconfont icon-home-fill"></span>首页</a></li>
+                    
+                        <li class=""><a href="/category" class="" target="_self"><span class="iconfont icon-folder-fill"></span>分类</a></li>
+                    
+                        <li class=""><a href="/tag" class="" target="_self"><span class="iconfont icon-discount-fill"></span>标签</a></li>
+                    
+                        <li class=""><a href="/archive" class="" target="_self"><span class="iconfont icon-calendar-fill"></span>归档</a></li>
+                    
+                        <li class=""><a href="/friend" class="" target="_self"><span class="iconfont icon-link"></span>友情链接</a></li>
+                    
+                </ul> 
+            </div> 
+            <div class="menu-link">
+                <div class="box">
+                    <div class="image-box"></div>
+                </div>
+                
+                    <a name="QQ" href="javascript:;" class="image" target="_self" data="/image/sidebar/qq.png"><span class="iconfont icon-qq"></span></a>
+                
+            </div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="/css/search.css">
+<script type="text/javascript" src="/js/iscroll.js"></script>
+<script type="text/javascript" src="/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+    
+    <link type="text/css" rel="stylesheet" href="/css/APlayer.css">
+    <script type="text/javascript" src="/js/APlayer.min.js"></script>
+    <script type="text/javascript" src="/js/Meting.min.js"></script>
+    <script>
+        var meting_api = 'https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&auth=:auth&r=:r';
+    </script>
+    <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+
+    <div class="wrap-right">
+    <div class="wrap-right-hide">
+         <div class="wrap-right-button favorites">
+            <div class="iconbox" switch="false">
+                <span class="iconfont icon-favorites"></span>
+            </div>
+            <span class="icontext">关注</span>
+         </div>
+        <div class="wrap-right-button search">
+            <div class="iconbox">
+                <span class="iconfont icon-search-menu"></span>
+            </div>
+            <span class="icontext">搜索</span>
+        </div>
+        <div class="wrap-right-button menu-button">
+            <div class="iconbox">
+                <span class="iconfont icon-menu"></span>
+            </div>
+            <span class="icontext">菜单</span>
+        </div>
+        <div class="wrap-right-button mode">
+            <div class="light">
+                <div class="iconbox">
+                    <span class="iconfont icon-daymode"></span>
+                </div>
+                <span class="icontext">浅色模式</span>
+            </div>
+            <div class="dark">
+                <div class="iconbox">
+                    <span class="iconfont icon-nightmode-fill"></span>
+                </div>
+                <span class="icontext">深色模式</span>
+            </div>
+        </div>
+        <div class="wrap-right-button bottom">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">跳至底部</span>
+        </div>
+    </div>
+    <div class="wrap-right-show">
+        <div class="wrap-right-button set">
+            <div class="iconbox">
+                <span class="iconfont icon-setting"></span>
+            </div>
+            <span class="icontext">设置</span>
+        </div>
+        <div class="wrap-right-button top">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">返回顶部</span>
+        </div>
+    </div>
+</div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : "Aspirai",
+        GitHubRepositories : "Hexo-LiveForCode",
+
+        User             : "Aspirai",
+        UserAvatar       : "/image/sidebar/avatar.jpg",
+        WebsiteStartDate : "2020-01-01",
+        Home             : "",
+
+        WebsiteTitleBlur         : "(◍´꒳`◍) Hi, Aspirai",
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : "(*´∇｀*) 欢迎回来!",
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : {
+            light : "/image/website/logo/logo.png",
+            dark  : "/image/website/logo/logo-dark.png"
+        },
+
+        ProgressBar : {
+            id       : "topProgressBar",
+            color    : "#77B6FF",
+            height   : "2px",
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound : {
+                tension  : 16,
+                friction : 5
+            },
+            spinner : {
+                id     : "spinner",
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : "#F0F0F0",
+                    stroke     : "#272633",
+                    base       : "",
+                    child      : "#272633"
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : "rgba(255, 255, 255, .2)",
+            clearOffset : 0.3
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : "60%",
+            colorBrightness  : "50%",
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : "random",
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                "/image/header/home.jpg",
+            
+                "/image/header/home.png",
+            
+        ],
+        HomeBannerText  : "",
+
+        ArticleHeaderImage : [
+            
+                "/image/header/article.jpg",
+            
+        ],
+
+        OtherBannerText : "",
+
+        Error : {
+            icon    : "icon-swimming",
+            title   : "PAGE NOT FOUND",
+            content : [
+                
+                    "很抱歉，您访问的页面不存在！",
+                
+                    "可能是输入地址有误或该地址已变更。",
+                
+            ],
+            buttons : [
+                
+                    {
+                        icon  : "icon-home",
+                        text  : "返回首页",
+                        href  : "/",
+                        class : ""
+                    },
+                
+            ]
+        },
+
+        MenuNotice : {
+            enable : false,
+            notice : "简单地活着，肆意而又精彩！",
+            speed  : 20
+        },
+        MenuList : [
+            
+                {
+                    name   : "首页",
+                    icon   : "icon-home-fill",
+                    href   : "/",
+                    type   : "index",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "分类",
+                    icon   : "icon-folder-fill",
+                    href   : "/category",
+                    type   : "category",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "标签",
+                    icon   : "icon-discount-fill",
+                    href   : "/tag",
+                    type   : "tag",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "归档",
+                    icon   : "icon-calendar-fill",
+                    href   : "/archive",
+                    type   : "archive",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "友情链接",
+                    icon   : "icon-link",
+                    href   : "/friend",
+                    type   : "friend",
+                    class  : "",
+                    target : "_self"
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        name   : "QQ",
+                        icon   : "icon-qq",
+                        href   : "javascript:;",
+                        class  : "image",
+                        target : "_self",
+                        image  : "/image/sidebar/qq.png"
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : "<div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>",
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                "Based on cnblogs theme SimpleMemory.",
+                            
+                                "",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "SimpleMemory Author:",
+                            
+                                "BNDong",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "Theme:",
+                            
+                                "LiveForCode",
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : "",
+
+        Donate : {
+            paypal  : "",
+            bitcoin : "",
+            alipay  : "/image/donate/alipay.png",
+            wechat  : "/image/donate/wechat.png"
+        },
+
+        Search : {
+            applicationID : "010C3EANT8",
+            apiKey        : "c7abab9f11b79102b9aff7fe6d41447d",
+            indexName     : "Notes",
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : "搜索",
+                empty       : "未发现与 「${query}」 相关的内容",
+                stats       : "${hits} 条相关条目，使用了 ${time} 毫秒",
+            }
+        }, 
+
+        Comment : {
+            switch : true,
+            type   : "Valine",
+        },
+
+        Waline : {
+            el              : ".comments-content",
+            serverURL       : "",
+            path            : window.location.pathname,
+            meta            : "['nick', 'mail', 'link']",
+            requiredMeta    : "['nick', 'mail']",
+            pageSize        : 10,
+            lang            : "zh-cn",
+            locale: {
+                admin       : "博主",
+                anonymous   : "匿名用户",
+                sofa        : "快来做第一个评论的人吧 ~",
+                placeholder : "你是我一生只会遇见一次的惊喜...",
+            },
+            dark            : "html[color-scheme='dark']",
+            search          : false,
+            pageview        : true,
+            comment         : true,
+            copyright       : false,
+        },
+
+        Valine : {
+            el             : ".comments-content",
+            appId          : "srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz",
+            appKey         : "8uVSP1q6UlALVC5igYfIfv2h",
+            serverURLs     : "",
+            placeholder    : "你是我一生只会遇见一次的惊喜...",
+            avatar         : "mm",
+            meta           : "nick,mail,link",
+            requiredFields : "nick,mail",
+            pageSize       : 5,
+            lang           : "zh-cn",
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : ".toc",
+            contentSelector       : ".article-body",
+            headingSelector       : "h1, h2, h3, h4, h5",
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : ".toc",
+            positionFixedClass    : "toc-fixed",
+            fixedSidebarOffset    : "",
+        },
+
+        Require : {
+            baseUrl     : "/js/",
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : "Meting"
+        },
+        APlayer : {
+            container : ".aplayer",
+            fixed     : true,
+            autoplay  : false,
+            loop      : "all",
+            order     : "random",
+            preload   : "auto",
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : "Endless Tears",
+                        artist : "CLIFF EDGE",
+                        cover  : "/music/cover/Endless Tears.jpg",
+                        url    : "/music/song/Endless Tears.mp3",
+                        lrc    : "/music/lrc/Endless Tears.lrc"
+                    },
+                
+            ]
+        },
+        Meting : {
+            api      : "https://api.i-meto.com/meting/api",
+            id       : "3778678", 
+            lrcshow  : false, 
+            server   : "netease", 
+            type     : "playlist", 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : "all", 
+            order    : "random", 
+            preload  : "auto", 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : true,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : "/image/website/lazyload.svg"
+        },
+  
+        Style : {
+            aplayer          : "/css/APlayer.css",
+            archive          : "/css/archive.css",
+            base             : "/css/base.css",
+            clipboard        : "/css/clipboard.css",
+            code             : "/css/code.css",
+            donate           : "/css/donate.css",
+            fancybox         : "/css/jquery.fancybox.css",
+            footer           : "/css/footer.css",
+            iconfont         : "/iconfont/iconfont.css",
+            index            : "/css/index.css",
+            menuBubble       : "/css/menu-bubble.css",
+            mouse            : "/css/mouse.css",
+            page             : "/css/page.css",
+            post             : "/css/post.css",
+            search           : "/css/search.css",
+            tocbot           : "/css/tocbot.css",
+            valine           : "/css/valine.css",
+            waline           : "/css/waline.css",
+            walineCustom     : "/css/waline-custom.css"
+        },
+
+        Script: {
+            aplayer          : "/js/APlayer.min.js",
+            config           : "/js/require.config.js",
+            index            : "/js/index.js",
+            instantSearch    : "/js/instantsearch.min.js",
+            iscroll          : "/js/iscroll.js",
+            jQuery           : "/js/jquery-3.4.1.min.js",
+            loading          : "/js/loading.js",
+            meting           : "/js/Meting.min.js",
+            require          : "/js/require.min.js",
+            waline           : "/js/waline.mjs",
+            pageview         : "/js/pageview.mjs",
+            comment          : "/js/comment.mjs",
+        },
+
+        Font: {
+            LongCang    : "/font/LongCang.css",
+            Monda       : "/font/Monda.css",
+            NotoSansSC  : "/font/NotoSansSC.css",
+            NotoSerifSC : "/font/NotoSerifSC.css",
+            Playball    : "/font/Playball.css",
+            PTMono      : "/font/PTMono.css",
+            Roboto      : "/font/Roboto.css",
+            RobotoSlab  : "/font/RobotoSlab.css",
+            Rosario     : "/font/Rosario.css",
+            UbuntuMono  : "/font/UbuntuMono.css"
+        },
+
+        Suffix : {
+            about : "时间带不走你眼中的光辉"
+        },
+            
+        Theme : {
+            url  : "https://github.com/first19326/Hexo-LiveForCode",
+            name : "Hexo - Live For Code"
+        }  
+    };
+</script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>
+        
+            GitHub 常见规范
+        
+    </title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSerifSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="/font/Roboto.css">
+    <link type="text/css" rel="stylesheet" href="/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="/css/base.css">
+    <link type="text/css" rel="stylesheet" href="/css/code.css">
+
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <a id="cover"></a>
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
+<div id="header" class="header">
+    <div class="vertical">
+        <div class="inner">
+            
+                <h1 class="header-subtitle">GitHub 常见规范</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2024-10-20
+                        </span>
+                        
+                            
+                                <span id="/2024/10/20/GitHub 常见规范/" class="leancloud_visitors" data-flag-title="GitHub 常见规范">
+                                    <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                                </span>
+                            
+                            
+                                <span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/10/20/GitHub 常见规范/"></span>
+                                </span>
+                              
+                        
+                    </p>
+                    
+                        
+                            <span class="category-color">开发工具</span>
+                        
+                    
+                    
+                        
+                            <span class="tag-color">Github</span>
+                        
+                    
+                </div>
+            
+        </div>
+    </div>
+    
+</div>
+<div id="container">
+    
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <h2 id="GitHub-常见规范"><a href="#GitHub-常见规范" class="headerlink" title="GitHub 常见规范"></a>GitHub 常见规范</h2><p>   良好的 commit 信息有助于了解每次代码更改的目的。通常使用 <a target="_blank" rel="noopener" href="https://www.conventionalcommits.org/">Conventional Commits</a> 规范，例如：</p>
+<ul>
+<li><p><strong>格式</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;type&gt;(&lt;scope&gt;): &lt;subject&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>常见类型</strong>：</p>
+<ul>
+<li><code>feat</code>: 新功能</li>
+<li><code>fix</code>: 修复 bug</li>
+<li><code>docs</code>: 修改文档</li>
+<li><code>style</code>: 代码格式修改（空格、缩进等）</li>
+<li><code>refactor</code>: 代码重构（不影响功能）</li>
+<li><code>test</code>: 添加或修改测试</li>
+<li><code>chore</code>: 构建过程或辅助工具的变动</li>
+</ul>
+</li>
+</ul>
+<p>   <strong>示例</strong>：<br>   <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">feat(auth): add login feature</span><br><span class="line">fix(api): handle missing token <span class="keyword">in</span> request header</span><br></pre></td></tr></table></figure></p>
+<h3 id="2-Pull-Request-PR-规范"><a href="#2-Pull-Request-PR-规范" class="headerlink" title="2. Pull Request (PR) 规范"></a>2. <strong>Pull Request (PR) 规范</strong></h3><ul>
+<li><p><strong>PR 名称</strong>应简明扼要描述更改内容，例如：</p>
+<ul>
+<li><code>Add login feature</code></li>
+<li><code>Fix bug with user authentication</code></li>
+</ul>
+</li>
+<li><p><strong>PR 描述</strong>应包括：</p>
+<ul>
+<li><strong>背景</strong>信息：为什么需要这个更改？</li>
+<li><strong>更改内容</strong>：详细描述具体改动。</li>
+<li><strong>关联问题</strong>：使用 <code>Closes #issue_number</code> 关联 Issue。</li>
+</ul>
+</li>
+<li><p><strong>标签</strong>：为 PR 设置相应标签，表明 PR 类型、优先级、审核状态等。</p>
+</li>
+</ul>
+<h3 id="3-分支管理规范"><a href="#3-分支管理规范" class="headerlink" title="3. 分支管理规范"></a>3. <strong>分支管理规范</strong></h3><p>   分支管理通常采用 <strong>Git Flow</strong> 或 <strong>GitHub Flow</strong> 规范：</p>
+<ul>
+<li><p><strong>Git Flow</strong>:</p>
+<ul>
+<li><code>main</code> 或 <code>master</code>：生产环境的代码，保持稳定。</li>
+<li><code>develop</code>：开发中的代码，包含即将发布的功能。</li>
+<li><code>feature/branch-name</code>：用于开发新功能的分支。</li>
+<li><code>hotfix/branch-name</code>：紧急修复的分支。</li>
+</ul>
+</li>
+<li><p><strong>GitHub Flow</strong>（较为简洁）：</p>
+<ul>
+<li><code>main</code>：主分支，包含稳定代码。</li>
+<li><strong>feature branches</strong>：为每个新功能或修复创建分支。</li>
+</ul>
+</li>
+</ul>
+<h3 id="4-Issue-规范"><a href="#4-Issue-规范" class="headerlink" title="4. Issue 规范"></a>4. <strong>Issue 规范</strong></h3><ul>
+<li><strong>清晰的问题描述</strong>：描述清楚问题的原因、重现步骤、期望的行为。</li>
+<li><strong>标签</strong>：使用标签标记 Issue 的类型（<code>bug</code>, <code>enhancement</code>）和优先级。</li>
+<li><strong>指派和项目板</strong>：将 Issue 指派给特定开发人员，并分配到项目中进行跟踪。</li>
+</ul>
+<h3 id="5-代码审查-Code-Review-规范"><a href="#5-代码审查-Code-Review-规范" class="headerlink" title="5. 代码审查 (Code Review) 规范"></a>5. <strong>代码审查 (Code Review) 规范</strong></h3><ul>
+<li><strong>保持简洁</strong>：每个 PR 尽量只包含一项功能或修复。</li>
+<li><strong>审核重点</strong>：关注代码逻辑、可维护性、潜在的 bug 和性能问题。</li>
+<li><strong>提供具体反馈</strong>：在进行代码审查时，提供建设性的反馈，并提出改进建议。</li>
+</ul>
+<h3 id="6-README-文件规范"><a href="#6-README-文件规范" class="headerlink" title="6. README 文件规范"></a>6. <strong>README 文件规范</strong></h3><p>   一个清晰的 <code>README.md</code> 文件帮助新用户快速了解项目并开始使用。常见的内容包括：</p>
+<ul>
+<li><strong>项目简介</strong>：简要描述项目的目的和功能。</li>
+<li><strong>安装步骤</strong>：如何安装和运行项目。</li>
+<li><strong>使用示例</strong>：如何使用项目的基本功能。</li>
+<li><strong>贡献指南</strong>：如何贡献代码、提交 Issue 或 PR。</li>
+<li><strong>许可证信息</strong>：列出项目的开源许可证。</li>
+</ul>
+<h3 id="7-代码风格规范"><a href="#7-代码风格规范" class="headerlink" title="7. 代码风格规范"></a>7. <strong>代码风格规范</strong></h3><ul>
+<li>使用代码格式化工具，例如 <a target="_blank" rel="noopener" href="https://prettier.io/">Prettier</a> 和 <a target="_blank" rel="noopener" href="https://eslint.org/">ESLint</a>，确保统一的代码风格。</li>
+<li>配置 <code>.editorconfig</code> 文件来控制缩进、换行符等编辑器设置。</li>
+<li>在项目中设置代码风格规则，如 Airbnb 的 JavaScript 规范。</li>
+</ul>
+<h3 id="8-版本管理-SemVer"><a href="#8-版本管理-SemVer" class="headerlink" title="8. 版本管理 (SemVer)"></a>8. <strong>版本管理 (SemVer)</strong></h3><p>   使用 <a target="_blank" rel="noopener" href="https://semver.org/">语义化版本</a>（Semantic Versioning）对版本进行管理。版本号格式为 <code>MAJOR.MINOR.PATCH</code>：</p>
+<ul>
+<li><code>MAJOR</code>：重大变更，通常是破坏性更新。</li>
+<li><code>MINOR</code>：新增功能，不会破坏现有功能。</li>
+<li><code>PATCH</code>：小修复或改进，不涉及重大变更。</li>
+</ul>
+<h3 id="9-Contributing-文档"><a href="#9-Contributing-文档" class="headerlink" title="9. Contributing 文档"></a>9. <strong>Contributing 文档</strong></h3><p>   提供一个 <code>CONTRIBUTING.md</code> 文件，说明如何贡献代码，包括：</p>
+<ul>
+<li>提交 Issue 的流程</li>
+<li>如何 fork 项目并创建 PR</li>
+<li>代码风格和测试要求</li>
+</ul>
+<h3 id="10-LICENSE-文件"><a href="#10-LICENSE-文件" class="headerlink" title="10. LICENSE 文件"></a>10. <strong>LICENSE 文件</strong></h3><p>   在项目中包含一个 <code>LICENSE</code> 文件，明确项目的开源协议，如 MIT、GPL、Apache 等。</p>
+<p>这些规范有助于确保项目代码的可维护性、可读性以及协作效率。</p>
+<h3 id="11-仓库名称"><a href="#11-仓库名称" class="headerlink" title="11.仓库名称"></a>11.仓库名称</h3><p>在 GitHub 或其他版本控制平台上，仓库名称的规范性非常重要，以便于识别和管理项目。以下是一些常见的仓库名称规范和建议：</p>
+<h4 id="1-简洁明了"><a href="#1-简洁明了" class="headerlink" title="1. 简洁明了"></a>1. <strong>简洁明了</strong></h4><ul>
+<li>仓库名称应简短易读，直接描述项目的功能或目的。</li>
+<li>避免使用冗长或复杂的单词。</li>
+</ul>
+<p>   <strong>示例</strong>:</p>
+<ul>
+<li><code>todolist</code>（任务清单应用）</li>
+<li><code>weather-api</code>（天气 API）</li>
+</ul>
+<h4 id="2-使用小写字母"><a href="#2-使用小写字母" class="headerlink" title="2. 使用小写字母"></a>2. <strong>使用小写字母</strong></h4><ul>
+<li>推荐使用全小写字母来命名仓库，避免大写字母混用，以减少拼写错误和兼容性问题。</li>
+</ul>
+<p>   <strong>示例</strong>:</p>
+<ul>
+<li><code>ecommerce-website</code>（电商网站）</li>
+<li><code>blog-engine</code>（博客引擎）</li>
+</ul>
+<h4 id="3-使用连字符分隔单词"><a href="#3-使用连字符分隔单词" class="headerlink" title="3. 使用连字符分隔单词"></a>3. <strong>使用连字符分隔单词</strong></h4><ul>
+<li>使用 <code>-</code> 连字符分隔多个单词，而不是使用下划线 <code>_</code> 或驼峰命名法。这种格式更易读并符合 GitHub 的惯例。</li>
+</ul>
+<p>   <strong>示例</strong>:</p>
+<ul>
+<li><code>image-processing-tool</code>（图像处理工具）</li>
+<li><code>machine-learning-models</code>（机器学习模型）</li>
+</ul>
+<h4 id="4-避免使用特殊字符"><a href="#4-避免使用特殊字符" class="headerlink" title="4. 避免使用特殊字符"></a>4. <strong>避免使用特殊字符</strong></h4><ul>
+<li>仓库名称中避免使用特殊字符（如 <code>@</code>、<code>#</code>、<code>$</code>、<code>%</code> 等），这会造成一些平台或系统的兼容性问题。</li>
+</ul>
+<p>   <strong>建议</strong>: 只使用字母、数字和 <code>-</code>。</p>
+<h4 id="5-遵循语义化"><a href="#5-遵循语义化" class="headerlink" title="5. 遵循语义化"></a>5. <strong>遵循语义化</strong></h4><ul>
+<li>仓库名称应尽可能表达项目的核心功能或性质。</li>
+<li>如果是一个库或工具，可以使用 <code>-lib</code> 或 <code>-tool</code> 后缀标明。</li>
+</ul>
+<p>   <strong>示例</strong>:</p>
+<ul>
+<li><code>auth-service</code>（身份验证服务）</li>
+<li><code>data-visualization-tool</code>（数据可视化工具）</li>
+</ul>
+<h4 id="6-添加组织或项目类型前缀"><a href="#6-添加组织或项目类型前缀" class="headerlink" title="6. 添加组织或项目类型前缀"></a>6. <strong>添加组织或项目类型前缀</strong></h4><ul>
+<li>如果项目属于特定组织或平台，建议加上前缀以表明项目的归属或用途。</li>
+</ul>
+<p>   <strong>示例</strong>:</p>
+<ul>
+<li><code>taro-weather-app</code>（Taro框架的天气小程序）</li>
+<li><code>react-blog-template</code>（React 博客模板）</li>
+</ul>
+<h4 id="7-版本信息"><a href="#7-版本信息" class="headerlink" title="7. 版本信息"></a>7. <strong>版本信息</strong></h4><ul>
+<li>如果仓库有不同的主要版本，可以在仓库名中附加版本号。</li>
+</ul>
+<p>   <strong>示例</strong>:</p>
+<ul>
+<li><code>project-v2</code>（项目第二版）</li>
+</ul>
+<h4 id="8-避免与其他流行项目同名"><a href="#8-避免与其他流行项目同名" class="headerlink" title="8. 避免与其他流行项目同名"></a>8. <strong>避免与其他流行项目同名</strong></h4><ul>
+<li>避免仓库名称与其他常见项目冲突，尤其是在开源项目或公共平台上，这样可以避免混淆。</li>
+</ul>
+<hr>
+<h4 id="仓库名称的格式建议"><a href="#仓库名称的格式建议" class="headerlink" title="仓库名称的格式建议"></a>仓库名称的格式建议</h4><ol>
+<li><p><strong>项目名-用途</strong>：<code>projectname-purpose</code></p>
+<ul>
+<li><code>chatapp-api</code>（聊天应用的 API）</li>
+<li><code>portfolio-website</code>（个人作品集网站）</li>
+</ul>
+</li>
+<li><p><strong>项目名-语言或框架</strong>：<code>projectname-framework</code></p>
+<ul>
+<li><code>ecommerce-react</code>（电商项目使用 React）</li>
+<li><code>personal-website-vue</code>（个人网站使用 Vue）</li>
+</ul>
+</li>
+</ol>
+
+                
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box">
+    <div class="suffix-box-left">
+        <img src="/image/sidebar/avatar.jpg" alt="Aspirai">
+    </div>
+    <div class="suffix-box-right">
+        <span class="suffix-box-title">文章作者：</span>Aspirai
+        <br>
+        <span class="suffix-box-title">文章出处：</span><a href="/2024/10/20/GitHub%20%E5%B8%B8%E8%A7%81%E8%A7%84%E8%8C%83/" target="_blank">GitHub 常见规范</a>
+        <br>
+        <span class="suffix-box-title">作者签名：</span>时间带不走你眼中的光辉
+        <br>
+        <span class="suffix-box-title">版权声明：</span>文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+        <br>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+                
+                    <div class="category">
+                        分类：
+                        
+                            <a href="/category/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a>
+                        
+                    </div>
+                
+                
+                    <div class="tag">
+                        标签：
+                        
+                            <a href="/tag/Github/">Github</a>
+                        
+                    </div>
+                
+                <div class="article-prev-next">
+                    
+                        <a href="/2024/10/20/%E6%83%B3%E4%B8%80%E5%B0%8F%E6%97%B6%E4%B8%8A%E6%89%8Bobsidian%EF%BC%9F%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86%E3%80%82%E3%80%90%E7%8E%A9%E8%BD%ACObsidian%E7%9A%84%E4%BF%9D%E5%A7%86%E7%BA%A7%E6%95%99%E7%A8%8B%E3%80%91%20-%20%E7%9F%A5%E4%B9%8E/" class="prev-prefix">« </a> 上一篇：    <a href="/2024/10/20/%E6%83%B3%E4%B8%80%E5%B0%8F%E6%97%B6%E4%B8%8A%E6%89%8Bobsidian%EF%BC%9F%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E5%A4%9F%E4%BA%86%E3%80%82%E3%80%90%E7%8E%A9%E8%BD%ACObsidian%E7%9A%84%E4%BF%9D%E5%A7%86%E7%BA%A7%E6%95%99%E7%A8%8B%E3%80%91%20-%20%E7%9F%A5%E4%B9%8E/" title="发布于 2024-10-20 09:16">想一小时上手obsidian？这一篇就够了。【玩转Obsidian的保姆级教程】 - 知乎</a>
+                        <br>
+                    
+                    
+                        <a href="/2024/10/20/Github%20%E7%94%9F%E6%88%90SSH%E7%A7%98%E9%92%A5%EF%BC%88%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%EF%BC%89/" class="next-prefix">» </a> 下一篇：    <a href="/2024/10/20/Github%20%E7%94%9F%E6%88%90SSH%E7%A7%98%E9%92%A5%EF%BC%88%E8%AF%A6%E7%BB%86%E6%95%99%E7%A8%8B%EF%BC%89/" title="发布于 2024-10-20 09:16">Github 生成SSH秘钥（详细教程）</a>
+                    
+                </div>
+            </div>
+            
+    <div class="article-comments">
+        
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+    
+ 
+        </div>
+    
+</div>
+    <div id="footer">
+    <div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>
+</div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar">
+                    <img src="/image/sidebar/avatar.jpg">
+                </div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user">
+                        
+                            <a href="javascript:;" target="_self"><span>Aspirai</span></a>
+                        
+                    </div>
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul>
+                    
+                        <li class=""><a href="/" class="" target="_self"><span class="iconfont icon-home-fill"></span>首页</a></li>
+                    
+                        <li class=""><a href="/category" class="" target="_self"><span class="iconfont icon-folder-fill"></span>分类</a></li>
+                    
+                        <li class=""><a href="/tag" class="" target="_self"><span class="iconfont icon-discount-fill"></span>标签</a></li>
+                    
+                        <li class=""><a href="/archive" class="" target="_self"><span class="iconfont icon-calendar-fill"></span>归档</a></li>
+                    
+                        <li class=""><a href="/friend" class="" target="_self"><span class="iconfont icon-link"></span>友情链接</a></li>
+                    
+                </ul> 
+            </div> 
+            <div class="menu-link">
+                <div class="box">
+                    <div class="image-box"></div>
+                </div>
+                
+                    <a name="QQ" href="javascript:;" class="image" target="_self" data="/image/sidebar/qq.png"><span class="iconfont icon-qq"></span></a>
+                
+            </div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="/css/search.css">
+<script type="text/javascript" src="/js/iscroll.js"></script>
+<script type="text/javascript" src="/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+    
+    <link type="text/css" rel="stylesheet" href="/css/APlayer.css">
+    <script type="text/javascript" src="/js/APlayer.min.js"></script>
+    <script type="text/javascript" src="/js/Meting.min.js"></script>
+    <script>
+        var meting_api = 'https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&auth=:auth&r=:r';
+    </script>
+    <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+
+    <div class="wrap-right">
+    <div class="wrap-right-hide">
+         <div class="wrap-right-button favorites">
+            <div class="iconbox" switch="false">
+                <span class="iconfont icon-favorites"></span>
+            </div>
+            <span class="icontext">关注</span>
+         </div>
+        <div class="wrap-right-button search">
+            <div class="iconbox">
+                <span class="iconfont icon-search-menu"></span>
+            </div>
+            <span class="icontext">搜索</span>
+        </div>
+        <div class="wrap-right-button menu-button">
+            <div class="iconbox">
+                <span class="iconfont icon-menu"></span>
+            </div>
+            <span class="icontext">菜单</span>
+        </div>
+        <div class="wrap-right-button mode">
+            <div class="light">
+                <div class="iconbox">
+                    <span class="iconfont icon-daymode"></span>
+                </div>
+                <span class="icontext">浅色模式</span>
+            </div>
+            <div class="dark">
+                <div class="iconbox">
+                    <span class="iconfont icon-nightmode-fill"></span>
+                </div>
+                <span class="icontext">深色模式</span>
+            </div>
+        </div>
+        <div class="wrap-right-button bottom">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">跳至底部</span>
+        </div>
+    </div>
+    <div class="wrap-right-show">
+        <div class="wrap-right-button set">
+            <div class="iconbox">
+                <span class="iconfont icon-setting"></span>
+            </div>
+            <span class="icontext">设置</span>
+        </div>
+        <div class="wrap-right-button top">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">返回顶部</span>
+        </div>
+    </div>
+</div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : "Aspirai",
+        GitHubRepositories : "Hexo-LiveForCode",
+
+        User             : "Aspirai",
+        UserAvatar       : "/image/sidebar/avatar.jpg",
+        WebsiteStartDate : "2020-01-01",
+        Home             : "",
+
+        WebsiteTitleBlur         : "(◍´꒳`◍) Hi, Aspirai",
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : "(*´∇｀*) 欢迎回来!",
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : {
+            light : "/image/website/logo/logo.png",
+            dark  : "/image/website/logo/logo-dark.png"
+        },
+
+        ProgressBar : {
+            id       : "topProgressBar",
+            color    : "#77B6FF",
+            height   : "2px",
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound : {
+                tension  : 16,
+                friction : 5
+            },
+            spinner : {
+                id     : "spinner",
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : "#F0F0F0",
+                    stroke     : "#272633",
+                    base       : "",
+                    child      : "#272633"
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : "rgba(255, 255, 255, .2)",
+            clearOffset : 0.3
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : "60%",
+            colorBrightness  : "50%",
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : "random",
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                "/image/header/home.jpg",
+            
+                "/image/header/home.png",
+            
+        ],
+        HomeBannerText  : "",
+
+        ArticleHeaderImage : [
+            
+                "/image/header/article.jpg",
+            
+        ],
+
+        OtherBannerText : "",
+
+        Error : {
+            icon    : "icon-swimming",
+            title   : "PAGE NOT FOUND",
+            content : [
+                
+                    "很抱歉，您访问的页面不存在！",
+                
+                    "可能是输入地址有误或该地址已变更。",
+                
+            ],
+            buttons : [
+                
+                    {
+                        icon  : "icon-home",
+                        text  : "返回首页",
+                        href  : "/",
+                        class : ""
+                    },
+                
+            ]
+        },
+
+        MenuNotice : {
+            enable : false,
+            notice : "简单地活着，肆意而又精彩！",
+            speed  : 20
+        },
+        MenuList : [
+            
+                {
+                    name   : "首页",
+                    icon   : "icon-home-fill",
+                    href   : "/",
+                    type   : "index",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "分类",
+                    icon   : "icon-folder-fill",
+                    href   : "/category",
+                    type   : "category",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "标签",
+                    icon   : "icon-discount-fill",
+                    href   : "/tag",
+                    type   : "tag",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "归档",
+                    icon   : "icon-calendar-fill",
+                    href   : "/archive",
+                    type   : "archive",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "友情链接",
+                    icon   : "icon-link",
+                    href   : "/friend",
+                    type   : "friend",
+                    class  : "",
+                    target : "_self"
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        name   : "QQ",
+                        icon   : "icon-qq",
+                        href   : "javascript:;",
+                        class  : "image",
+                        target : "_self",
+                        image  : "/image/sidebar/qq.png"
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : "<div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>",
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                "Based on cnblogs theme SimpleMemory.",
+                            
+                                "",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "SimpleMemory Author:",
+                            
+                                "BNDong",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "Theme:",
+                            
+                                "LiveForCode",
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : "",
+
+        Donate : {
+            paypal  : "",
+            bitcoin : "",
+            alipay  : "/image/donate/alipay.png",
+            wechat  : "/image/donate/wechat.png"
+        },
+
+        Search : {
+            applicationID : "010C3EANT8",
+            apiKey        : "c7abab9f11b79102b9aff7fe6d41447d",
+            indexName     : "Notes",
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : "搜索",
+                empty       : "未发现与 「${query}」 相关的内容",
+                stats       : "${hits} 条相关条目，使用了 ${time} 毫秒",
+            }
+        }, 
+
+        Comment : {
+            switch : true,
+            type   : "Valine",
+        },
+
+        Waline : {
+            el              : ".comments-content",
+            serverURL       : "",
+            path            : window.location.pathname,
+            meta            : "['nick', 'mail', 'link']",
+            requiredMeta    : "['nick', 'mail']",
+            pageSize        : 10,
+            lang            : "zh-cn",
+            locale: {
+                admin       : "博主",
+                anonymous   : "匿名用户",
+                sofa        : "快来做第一个评论的人吧 ~",
+                placeholder : "你是我一生只会遇见一次的惊喜...",
+            },
+            dark            : "html[color-scheme='dark']",
+            search          : false,
+            pageview        : true,
+            comment         : true,
+            copyright       : false,
+        },
+
+        Valine : {
+            el             : ".comments-content",
+            appId          : "srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz",
+            appKey         : "8uVSP1q6UlALVC5igYfIfv2h",
+            serverURLs     : "",
+            placeholder    : "你是我一生只会遇见一次的惊喜...",
+            avatar         : "mm",
+            meta           : "nick,mail,link",
+            requiredFields : "nick,mail",
+            pageSize       : 5,
+            lang           : "zh-cn",
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : ".toc",
+            contentSelector       : ".article-body",
+            headingSelector       : "h1, h2, h3, h4, h5",
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : ".toc",
+            positionFixedClass    : "toc-fixed",
+            fixedSidebarOffset    : "",
+        },
+
+        Require : {
+            baseUrl     : "/js/",
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : "Meting"
+        },
+        APlayer : {
+            container : ".aplayer",
+            fixed     : true,
+            autoplay  : false,
+            loop      : "all",
+            order     : "random",
+            preload   : "auto",
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : "Endless Tears",
+                        artist : "CLIFF EDGE",
+                        cover  : "/music/cover/Endless Tears.jpg",
+                        url    : "/music/song/Endless Tears.mp3",
+                        lrc    : "/music/lrc/Endless Tears.lrc"
+                    },
+                
+            ]
+        },
+        Meting : {
+            api      : "https://api.i-meto.com/meting/api",
+            id       : "3778678", 
+            lrcshow  : false, 
+            server   : "netease", 
+            type     : "playlist", 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : "all", 
+            order    : "random", 
+            preload  : "auto", 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : true,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : "/image/website/lazyload.svg"
+        },
+  
+        Style : {
+            aplayer          : "/css/APlayer.css",
+            archive          : "/css/archive.css",
+            base             : "/css/base.css",
+            clipboard        : "/css/clipboard.css",
+            code             : "/css/code.css",
+            donate           : "/css/donate.css",
+            fancybox         : "/css/jquery.fancybox.css",
+            footer           : "/css/footer.css",
+            iconfont         : "/iconfont/iconfont.css",
+            index            : "/css/index.css",
+            menuBubble       : "/css/menu-bubble.css",
+            mouse            : "/css/mouse.css",
+            page             : "/css/page.css",
+            post             : "/css/post.css",
+            search           : "/css/search.css",
+            tocbot           : "/css/tocbot.css",
+            valine           : "/css/valine.css",
+            waline           : "/css/waline.css",
+            walineCustom     : "/css/waline-custom.css"
+        },
+
+        Script: {
+            aplayer          : "/js/APlayer.min.js",
+            config           : "/js/require.config.js",
+            index            : "/js/index.js",
+            instantSearch    : "/js/instantsearch.min.js",
+            iscroll          : "/js/iscroll.js",
+            jQuery           : "/js/jquery-3.4.1.min.js",
+            loading          : "/js/loading.js",
+            meting           : "/js/Meting.min.js",
+            require          : "/js/require.min.js",
+            waline           : "/js/waline.mjs",
+            pageview         : "/js/pageview.mjs",
+            comment          : "/js/comment.mjs",
+        },
+
+        Font: {
+            LongCang    : "/font/LongCang.css",
+            Monda       : "/font/Monda.css",
+            NotoSansSC  : "/font/NotoSansSC.css",
+            NotoSerifSC : "/font/NotoSerifSC.css",
+            Playball    : "/font/Playball.css",
+            PTMono      : "/font/PTMono.css",
+            Roboto      : "/font/Roboto.css",
+            RobotoSlab  : "/font/RobotoSlab.css",
+            Rosario     : "/font/Rosario.css",
+            UbuntuMono  : "/font/UbuntuMono.css"
+        },
+
+        Suffix : {
+            about : "时间带不走你眼中的光辉"
+        },
+            
+        Theme : {
+            url  : "https://github.com/first19326/Hexo-LiveForCode",
+            name : "Hexo - Live For Code"
+        }  
+    };
+</script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>
+        
+            ReactRouter6快速上手
+        
+    </title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSerifSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="/font/Roboto.css">
+    <link type="text/css" rel="stylesheet" href="/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="/css/base.css">
+    <link type="text/css" rel="stylesheet" href="/css/code.css">
+
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <a id="cover"></a>
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
+<div id="header" class="header">
+    <div class="vertical">
+        <div class="inner">
+            
+                <h1 class="header-subtitle">ReactRouter6快速上手</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2024-10-20
+                        </span>
+                        
+                            
+                                <span id="/2024/10/20/ReactRouter6快速上手/" class="leancloud_visitors" data-flag-title="ReactRouter6快速上手">
+                                    <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                                </span>
+                            
+                            
+                                <span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/10/20/ReactRouter6快速上手/"></span>
+                                </span>
+                              
+                        
+                    </p>
+                    
+                        
+                            <span class="category-color">前端开发</span>
+                        
+                    
+                    
+                        
+                            <span class="tag-color">react</span>
+                        
+                    
+                </div>
+            
+        </div>
+    </div>
+    
+</div>
+<div id="container">
+    
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <h1 id=""><a href="#" class="headerlink" title=""></a><img src="https://ftp.bmp.ovh/imgs/2022/02/f86f98dd6ff7d01b.png" style="width:50%;margin-left:50%;transform:translateX(-50%)" /></h1><h1 id="React-Router-6-快速上手"><a href="#React-Router-6-快速上手" class="headerlink" title="React Router 6 快速上手"></a>React Router 6 快速上手</h1><h2 id="1-概述"><a href="#1-概述" class="headerlink" title="1.概述"></a>1.概述</h2><ol>
+<li><p>React Router 以三个不同的包发布到 npm 上，它们分别为：</p>
+<ol>
+<li>react-router: 路由的核心库，提供了很多的：组件、钩子。</li>
+<li><strong style="color:#dd4d40"><strong>react-router-dom:</strong></strong > <strong style="color:#dd4d40">包含react-router所有内容，并添加一些专门用于 DOM 的组件，例如 <code>&lt;BrowserRouter&gt;</code>等 </strong>。</li>
+<li>react-router-native: 包括react-router所有内容，并添加一些专门用于ReactNative的API，例如:<code>&lt;NativeRouter&gt;</code>等。</li>
+</ol>
+</li>
+<li><p>与React Router 5.x 版本相比，改变了什么？</p>
+<ol>
+<li><p>内置组件的变化：移除<code>&lt;Switch/&gt;</code> ，新增 <code>&lt;Routes/&gt;</code>等。</p>
+</li>
+<li><p>语法的变化：<code>component=&#123;About&#125;</code> 变为 <code>element=&#123;&lt;About/&gt;&#125;</code>等。</p>
+</li>
+<li><p>新增多个hook：<code>useParams</code>、<code>useNavigate</code>、<code>useMatch</code>等。</p>
+</li>
+<li><p><strong style="color:#dd4d40">官方明确推荐函数式组件了！！！</strong></p>
+<p>……</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="2-Component"><a href="#2-Component" class="headerlink" title="2.Component"></a>2.Component</h2><h3 id="1"><a href="#1" class="headerlink" title="1. &lt;BrowserRouter&gt;"></a>1. <code>&lt;BrowserRouter&gt;</code></h3><ol>
+<li><p>说明：<code>&lt;BrowserRouter&gt; </code>用于包裹整个应用。</p>
+</li>
+<li><p>示例代码：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&quot;react&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">ReactDOM</span> <span class="keyword">from</span> <span class="string">&quot;react-dom&quot;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">BrowserRouter</span> &#125; <span class="keyword">from</span> <span class="string">&quot;react-router-dom&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="title class_">ReactDOM</span>.<span class="title function_">render</span>(</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">BrowserRouter</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    &#123;/* 整体结构（通常为App组件） */&#125;</span></span><br><span class="line"><span class="language-xml">  <span class="tag">&lt;/<span class="name">BrowserRouter</span>&gt;</span></span>,root</span><br><span class="line">);</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="2"><a href="#2" class="headerlink" title="2. &lt;HashRouter&gt;"></a>2. <code>&lt;HashRouter&gt;</code></h3><ol>
+<li>说明：作用与<code>&lt;BrowserRouter&gt;</code>一样，但<code>&lt;HashRouter&gt;</code>修改的是地址栏的hash值。</li>
+<li>备注：6.x版本中<code>&lt;HashRouter&gt;</code>、<code>&lt;BrowserRouter&gt; </code> 的用法与 5.x 相同。</li>
+</ol>
+<h3 id="3-与"><a href="#3-与" class="headerlink" title="3. &lt;Routes/&gt; 与 &lt;Route/&gt;"></a>3. <code>&lt;Routes/&gt; 与 &lt;Route/&gt;</code></h3><ol>
+<li><p>v6版本中移出了先前的<code>&lt;Switch&gt;</code>，引入了新的替代者：<code>&lt;Routes&gt;</code>。</p>
+</li>
+<li><p><code>&lt;Routes&gt;</code> 和 <code>&lt;Route&gt;</code>要配合使用，且必须要用<code>&lt;Routes&gt;</code>包裹<code>&lt;Route&gt;</code>。</p>
+</li>
+<li><p><code>&lt;Route&gt;</code> 相当于一个 if 语句，如果其路径与当前 URL 匹配，则呈现其对应的组件。</p>
+</li>
+<li><p><code>&lt;Route caseSensitive&gt;</code> 属性用于指定：匹配时是否区分大小写（默认为 false）。</p>
+</li>
+<li><p>当URL发生变化时，<code>&lt;Routes&gt; </code>都会查看其所有子<code> &lt;Route&gt;</code> 元素以找到最佳匹配并呈现组件 。</p>
+</li>
+<li><p><code>&lt;Route&gt;</code> 也可以嵌套使用，且可配合<code>useRoutes()</code>配置 “路由表” ，但需要通过 <code>&lt;Outlet&gt;</code> 组件来渲染其子路由。</p>
+</li>
+<li><p>示例代码：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">Routes</span>&gt;</span><br><span class="line">    <span class="comment">/*path属性用于定义路径，element属性用于定义当前路径所对应的组件*/</span></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;/login&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">Login</span> /&gt;</span>&#125;&gt;<span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line">		<span class="comment">/*用于定义嵌套路由，home是一级路由，对应的路径/home*/</span></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;home&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">Home</span> /&gt;</span>&#125;&gt;</span></span><br><span class="line"><span class="language-xml">       /*test1 和 test2 是二级路由,对应的路径是/home/test1 或 /home/test2*/</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;test1&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">Test</span>/&gt;</span>&#125;&gt;<span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;test2&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">Test2</span>/&gt;</span>&#125;&gt;<span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">		<span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span></span><br><span class="line">	</span><br><span class="line">		<span class="comment">//Route也可以不写element属性, 这时就是用于展示嵌套的路由 .所对应的路径是/users/xxx</span></span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;users&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">       <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;xxx&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">Demo</span> /&gt;</span>&#125; /&gt;</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">Route</span>&gt;</span></span></span><br><span class="line">&lt;/<span class="title class_">Routes</span>&gt;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="4"><a href="#4" class="headerlink" title="4. &lt;Link&gt;"></a>4. <code>&lt;Link&gt;</code></h3><ol>
+<li><p>作用: 修改URL，且不发送网络请求（路由链接）。</p>
+</li>
+<li><p>注意: 外侧需要用<code>&lt;BrowserRouter&gt;</code>或<code>&lt;HashRouter&gt;</code>包裹。</p>
+</li>
+<li><p>示例代码：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Link</span> &#125; <span class="keyword">from</span> <span class="string">&quot;react-router-dom&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">Test</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    	<span class="tag">&lt;<span class="name">Link</span> <span class="attr">to</span>=<span class="string">&quot;/路径&quot;</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">Link</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="5"><a href="#5" class="headerlink" title="5. &lt;NavLink&gt;"></a>5. <code>&lt;NavLink&gt;</code></h3><ol>
+<li><p>作用: 与<code>&lt;Link&gt;</code>组件类似，且可实现导航的“高亮”效果。</p>
+</li>
+<li><p>示例代码：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 注意: NavLink默认类名是active，下面是指定自定义的class</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//自定义样式</span></span><br><span class="line">&lt;<span class="title class_">NavLink</span></span><br><span class="line">    to=<span class="string">&quot;login&quot;</span></span><br><span class="line">    className=&#123;<span class="function">(<span class="params">&#123; isActive &#125;</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;home&#x27;</span>, isActive)</span><br><span class="line">        <span class="keyword">return</span> isActive ? <span class="string">&#x27;base one&#x27;</span> : <span class="string">&#x27;base&#x27;</span></span><br><span class="line">    &#125;&#125;</span><br><span class="line">&gt;login&lt;/<span class="title class_">NavLink</span>&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">	默认情况下，当Home的子组件匹配成功，Home的导航也会高亮，</span></span><br><span class="line"><span class="comment">	当NavLink上添加了end属性后，若Home的子组件匹配成功，则Home的导航没有高亮效果。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">NavLink</span> <span class="attr">to</span>=<span class="string">&quot;home&quot;</span> <span class="attr">end</span> &gt;</span>home<span class="tag">&lt;/<span class="name">NavLink</span>&gt;</span></span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="6"><a href="#6" class="headerlink" title="6. &lt;Navigate&gt;"></a>6. <code>&lt;Navigate&gt;</code></h3><ol>
+<li><p>作用：只要<code>&lt;Navigate&gt;</code>组件被渲染，就会修改路径，切换视图。</p>
+</li>
+<li><p><code>replace</code>属性用于控制跳转模式（push 或 replace，默认是push）。</p>
+</li>
+<li><p>示例代码：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span>,&#123;useState&#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123;<span class="title class_">Navigate</span>&#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">Home</span>(<span class="params"></span>) &#123;</span><br><span class="line">	<span class="keyword">const</span> [sum,setSum] = <span class="title function_">useState</span>(<span class="number">1</span>)</span><br><span class="line">	<span class="keyword">return</span> (</span><br><span class="line">		<span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">			<span class="tag">&lt;<span class="name">h3</span>&gt;</span>我是Home的内容<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">			&#123;/* 根据sum的值决定是否切换视图 */&#125;</span></span><br><span class="line"><span class="language-xml">			&#123;sum === 1 ? <span class="tag">&lt;<span class="name">h4</span>&gt;</span>sum的值为&#123;sum&#125;<span class="tag">&lt;/<span class="name">h4</span>&gt;</span> : <span class="tag">&lt;<span class="name">Navigate</span> <span class="attr">to</span>=<span class="string">&quot;/about&quot;</span> <span class="attr">replace</span>=<span class="string">&#123;true&#125;/</span>&gt;</span>&#125;</span></span><br><span class="line"><span class="language-xml">			<span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span>=&gt;</span>setSum(2)&#125;&gt;点我将sum变为2<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">	)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="7"><a href="#7" class="headerlink" title="7. &lt;Outlet&gt;"></a>7. <code>&lt;Outlet&gt;</code></h3><ol>
+<li><p>当<code>&lt;Route&gt;</code>产生嵌套时，渲染其对应的后续子路由。</p>
+</li>
+<li><p>示例代码：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//根据路由表生成对应的路由规则</span></span><br><span class="line"><span class="keyword">const</span> element = <span class="title function_">useRoutes</span>([</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>:<span class="string">&#x27;/about&#x27;</span>,</span><br><span class="line">    <span class="attr">element</span>:<span class="language-xml"><span class="tag">&lt;<span class="name">About</span>/&gt;</span></span></span><br><span class="line">  &#125;,</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="attr">path</span>:<span class="string">&#x27;/home&#x27;</span>,</span><br><span class="line">    <span class="attr">element</span>:<span class="language-xml"><span class="tag">&lt;<span class="name">Home</span>/&gt;</span></span>,</span><br><span class="line">    <span class="attr">children</span>:[</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">path</span>:<span class="string">&#x27;news&#x27;</span>,</span><br><span class="line">        <span class="attr">element</span>:<span class="language-xml"><span class="tag">&lt;<span class="name">News</span>/&gt;</span></span></span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="attr">path</span>:<span class="string">&#x27;message&#x27;</span>,</span><br><span class="line">        <span class="attr">element</span>:<span class="language-xml"><span class="tag">&lt;<span class="name">Message</span>/&gt;</span></span>,</span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  &#125;</span><br><span class="line">])</span><br><span class="line"></span><br><span class="line"><span class="comment">//Home.js</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123;<span class="title class_">NavLink</span>,<span class="title class_">Outlet</span>&#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">Home</span>(<span class="params"></span>) &#123;</span><br><span class="line">	<span class="keyword">return</span> (</span><br><span class="line">		<span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">			<span class="tag">&lt;<span class="name">h2</span>&gt;</span>Home组件内容<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">			<span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">				<span class="tag">&lt;<span class="name">ul</span> <span class="attr">className</span>=<span class="string">&quot;nav nav-tabs&quot;</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">					<span class="tag">&lt;<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">						<span class="tag">&lt;<span class="name">NavLink</span> <span class="attr">className</span>=<span class="string">&quot;list-group-item&quot;</span> <span class="attr">to</span>=<span class="string">&quot;news&quot;</span>&gt;</span>News<span class="tag">&lt;/<span class="name">NavLink</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">					<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">					<span class="tag">&lt;<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">						<span class="tag">&lt;<span class="name">NavLink</span> <span class="attr">className</span>=<span class="string">&quot;list-group-item&quot;</span> <span class="attr">to</span>=<span class="string">&quot;message&quot;</span>&gt;</span>Message<span class="tag">&lt;/<span class="name">NavLink</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">					<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">				<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">				&#123;/* 指定路由组件呈现的位置 */&#125;</span></span><br><span class="line"><span class="language-xml">				<span class="tag">&lt;<span class="name">Outlet</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">	)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="3-Hooks"><a href="#3-Hooks" class="headerlink" title="3.Hooks"></a>3.Hooks</h2><h3 id="1-useRoutes"><a href="#1-useRoutes" class="headerlink" title="1. useRoutes()"></a>1. useRoutes()</h3><ol>
+<li><p>作用：根据路由表，动态创建<code>&lt;Routes&gt;</code>和<code>&lt;Route&gt;</code>。</p>
+</li>
+<li><p>示例代码：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//路由表配置：src/routes/index.js</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">About</span> <span class="keyword">from</span> <span class="string">&#x27;../pages/About&#x27;</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Home</span> <span class="keyword">from</span> <span class="string">&#x27;../pages/Home&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123;<span class="title class_">Navigate</span>&#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> [</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="attr">path</span>:<span class="string">&#x27;/about&#x27;</span>,</span><br><span class="line">		<span class="attr">element</span>:<span class="language-xml"><span class="tag">&lt;<span class="name">About</span>/&gt;</span></span></span><br><span class="line">	&#125;,</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="attr">path</span>:<span class="string">&#x27;/home&#x27;</span>,</span><br><span class="line">		<span class="attr">element</span>:<span class="language-xml"><span class="tag">&lt;<span class="name">Home</span>/&gt;</span></span></span><br><span class="line">	&#125;,</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="attr">path</span>:<span class="string">&#x27;/&#x27;</span>,</span><br><span class="line">		<span class="attr">element</span>:<span class="language-xml"><span class="tag">&lt;<span class="name">Navigate</span> <span class="attr">to</span>=<span class="string">&quot;/about&quot;</span>/&gt;</span></span></span><br><span class="line">	&#125;</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="comment">//App.jsx</span></span><br><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123;<span class="title class_">NavLink</span>,useRoutes&#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span></span><br><span class="line"><span class="keyword">import</span> routes <span class="keyword">from</span> <span class="string">&#x27;./routes&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">App</span>(<span class="params"></span>) &#123;</span><br><span class="line">	<span class="comment">//根据路由表生成对应的路由规则</span></span><br><span class="line">	<span class="keyword">const</span> element = <span class="title function_">useRoutes</span>(routes)</span><br><span class="line">	<span class="keyword">return</span> (</span><br><span class="line">		<span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">			......</span></span><br><span class="line"><span class="language-xml">      &#123;/* 注册路由 */&#125;</span></span><br><span class="line"><span class="language-xml">      &#123;element&#125;</span></span><br><span class="line"><span class="language-xml">		  ......</span></span><br><span class="line"><span class="language-xml">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">	)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="2-useNavigate"><a href="#2-useNavigate" class="headerlink" title="2. useNavigate()"></a>2. useNavigate()</h3><ol>
+<li><p>作用：返回一个函数用来实现编程式导航。</p>
+</li>
+<li><p>示例代码：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123;useNavigate&#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">Demo</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> navigate = <span class="title function_">useNavigate</span>()</span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">handle</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    <span class="comment">//第一种使用方式：指定具体的路径</span></span><br><span class="line">    <span class="title function_">navigate</span>(<span class="string">&#x27;/login&#x27;</span>, &#123;</span><br><span class="line">      <span class="attr">replace</span>: <span class="literal">false</span>,</span><br><span class="line">      <span class="attr">state</span>: &#123;<span class="attr">a</span>:<span class="number">1</span>, <span class="attr">b</span>:<span class="number">2</span>&#125;</span><br><span class="line">    &#125;) </span><br><span class="line">    <span class="comment">//第二种使用方式：传入数值进行前进或后退，类似于5.x中的 history.go()方法</span></span><br><span class="line">    <span class="title function_">navigate</span>(-<span class="number">1</span>)</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;handle&#125;</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="3-useParams"><a href="#3-useParams" class="headerlink" title="3. useParams()"></a>3. useParams()</h3><ol>
+<li><p>作用：回当前匹配路由的<code>params</code>参数，类似于5.x中的<code>match.params</code>。</p>
+</li>
+<li><p>示例代码：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">Routes</span>, <span class="title class_">Route</span>, useParams &#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">User</span> <span class="keyword">from</span> <span class="string">&#x27;./pages/User.jsx&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">ProfilePage</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="comment">// 获取URL中携带过来的params参数</span></span><br><span class="line">  <span class="keyword">let</span> &#123; id &#125; = <span class="title function_">useParams</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">function</span> <span class="title function_">App</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">Routes</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">&quot;users/:id&quot;</span> <span class="attr">element</span>=<span class="string">&#123;</span>&lt;<span class="attr">User</span> /&gt;</span>&#125;/&gt;</span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">Routes</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="4-useSearchParams"><a href="#4-useSearchParams" class="headerlink" title="4. useSearchParams()"></a>4. useSearchParams()</h3><ol>
+<li><p>作用：用于读取和修改当前位置的 URL 中的查询字符串。</p>
+</li>
+<li><p>返回一个包含两个值的数组，内容分别为：当前的seaech参数、更新search的函数。</p>
+</li>
+<li><p>示例代码：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123;useSearchParams&#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">Detail</span>(<span class="params"></span>) &#123;</span><br><span class="line">	<span class="keyword">const</span> [search,setSearch] = <span class="title function_">useSearchParams</span>()</span><br><span class="line">	<span class="keyword">const</span> id = search.<span class="title function_">get</span>(<span class="string">&#x27;id&#x27;</span>)</span><br><span class="line">	<span class="keyword">const</span> title = search.<span class="title function_">get</span>(<span class="string">&#x27;title&#x27;</span>)</span><br><span class="line">	<span class="keyword">const</span> content = search.<span class="title function_">get</span>(<span class="string">&#x27;content&#x27;</span>)</span><br><span class="line">	<span class="keyword">return</span> (</span><br><span class="line">		<span class="language-xml"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">			<span class="tag">&lt;<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">				<span class="tag">&lt;<span class="name">button</span> <span class="attr">onClick</span>=<span class="string">&#123;()</span>=&gt;</span>setSearch(&#x27;id=008&amp;title=哈哈&amp;content=嘻嘻&#x27;)&#125;&gt;点我更新一下收到的search参数<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">			<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">			<span class="tag">&lt;<span class="name">li</span>&gt;</span>消息编号：&#123;id&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">			<span class="tag">&lt;<span class="name">li</span>&gt;</span>消息标题：&#123;title&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">			<span class="tag">&lt;<span class="name">li</span>&gt;</span>消息内容：&#123;content&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">		<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line">	)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="5-useLocation"><a href="#5-useLocation" class="headerlink" title="5. useLocation()"></a>5. useLocation()</h3><ol>
+<li><p>作用：获取当前 location 信息，对标5.x中的路由组件的<code>location</code>属性。</p>
+</li>
+<li><p>示例代码：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">React</span> <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span></span><br><span class="line"><span class="keyword">import</span> &#123;useLocation&#125; <span class="keyword">from</span> <span class="string">&#x27;react-router-dom&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">Detail</span>(<span class="params"></span>) &#123;</span><br><span class="line">	<span class="keyword">const</span> x = <span class="title function_">useLocation</span>()</span><br><span class="line">	<span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;@&#x27;</span>,x)</span><br><span class="line">  <span class="comment">// x就是location对象: </span></span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment">		&#123;</span></span><br><span class="line"><span class="comment">      hash: &quot;&quot;,</span></span><br><span class="line"><span class="comment">      key: &quot;ah9nv6sz&quot;,</span></span><br><span class="line"><span class="comment">      pathname: &quot;/login&quot;,</span></span><br><span class="line"><span class="comment">      search: &quot;?name=zs&amp;age=18&quot;,</span></span><br><span class="line"><span class="comment">      state: &#123;a: 1, b: 2&#125;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">	*/</span></span><br><span class="line">	<span class="keyword">return</span> (</span><br><span class="line">		<span class="language-xml"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">			<span class="tag">&lt;<span class="name">li</span>&gt;</span>消息编号：&#123;id&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">			<span class="tag">&lt;<span class="name">li</span>&gt;</span>消息标题：&#123;title&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">			<span class="tag">&lt;<span class="name">li</span>&gt;</span>消息内容：&#123;content&#125;<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">		<span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span></span><br><span class="line">	)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">  </span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="6-useMatch"><a href="#6-useMatch" class="headerlink" title="6. useMatch()"></a>6. useMatch()</h3><ol>
+<li><p>作用：返回当前匹配信息，对标5.x中的路由组件的<code>match</code>属性。</p>
+</li>
+<li><p>示例代码：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="title class_">Route</span> path=<span class="string">&quot;/login/:page/:pageSize&quot;</span> element=&#123;<span class="language-xml"><span class="tag">&lt;<span class="name">Login</span> /&gt;</span></span>&#125;/&gt;</span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">NavLink</span> <span class="attr">to</span>=<span class="string">&quot;/login/1/10&quot;</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">NavLink</span>&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">Login</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> match = <span class="title function_">useMatch</span>(<span class="string">&#x27;/login/:x/:y&#x27;</span>)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">log</span>(match) <span class="comment">//输出match对象</span></span><br><span class="line">  <span class="comment">//match对象内容如下：</span></span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  	&#123;</span></span><br><span class="line"><span class="comment">      params: &#123;x: &#x27;1&#x27;, y: &#x27;10&#x27;&#125;</span></span><br><span class="line"><span class="comment">      pathname: &quot;/LoGin/1/10&quot;  </span></span><br><span class="line"><span class="comment">      pathnameBase: &quot;/LoGin/1/10&quot;</span></span><br><span class="line"><span class="comment">      pattern: &#123;</span></span><br><span class="line"><span class="comment">      	path: &#x27;/login/:x/:y&#x27;, </span></span><br><span class="line"><span class="comment">      	caseSensitive: false, </span></span><br><span class="line"><span class="comment">      	end: false</span></span><br><span class="line"><span class="comment">      &#125;</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">  */</span></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">  	<span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Login<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="7-useInRouterContext"><a href="#7-useInRouterContext" class="headerlink" title="7. useInRouterContext()"></a>7. useInRouterContext()</h3><p>​			作用：如果组件在 <code>&lt;Router&gt;</code> 的上下文中呈现，则 <code>useInRouterContext</code> 钩子返回 true，否则返回 false。</p>
+<h3 id="8-useNavigationType"><a href="#8-useNavigationType" class="headerlink" title="8. useNavigationType()"></a>8. useNavigationType()</h3><ol>
+<li>作用：返回当前的导航类型（用户是如何来到当前页面的）。</li>
+<li>返回值：<code>POP</code>、<code>PUSH</code>、<code>REPLACE</code>。</li>
+<li>备注：<code>POP</code>是指在浏览器中直接打开了这个路由组件（刷新页面）。</li>
+</ol>
+<h3 id="9-useOutlet"><a href="#9-useOutlet" class="headerlink" title="9. useOutlet()"></a>9. useOutlet()</h3><ol>
+<li><p>作用：用来呈现当前组件中渲染的嵌套路由。</p>
+</li>
+<li><p>示例代码：</p>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> result = <span class="title function_">useOutlet</span>()</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(result)</span><br><span class="line"><span class="comment">// 如果嵌套路由没有挂载,则result为null</span></span><br><span class="line"><span class="comment">// 如果嵌套路由已经挂载,则展示嵌套的路由对象</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="10-useResolvedPath"><a href="#10-useResolvedPath" class="headerlink" title="10.useResolvedPath()"></a>10.useResolvedPath()</h3><ol>
+<li>作用：给定一个 URL值，解析其中的：path、search、hash值。</li>
+</ol>
+
+                
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box">
+    <div class="suffix-box-left">
+        <img src="/image/sidebar/avatar.jpg" alt="Aspirai">
+    </div>
+    <div class="suffix-box-right">
+        <span class="suffix-box-title">文章作者：</span>Aspirai
+        <br>
+        <span class="suffix-box-title">文章出处：</span><a href="/2024/10/20/ReactRouter6%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B/" target="_blank">ReactRouter6快速上手</a>
+        <br>
+        <span class="suffix-box-title">作者签名：</span>时间带不走你眼中的光辉
+        <br>
+        <span class="suffix-box-title">版权声明：</span>文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+        <br>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+                
+                    <div class="category">
+                        分类：
+                        
+                            <a href="/category/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
+                        
+                    </div>
+                
+                
+                    <div class="tag">
+                        标签：
+                        
+                            <a href="/tag/react/">react</a>
+                        
+                    </div>
+                
+                <div class="article-prev-next">
+                    
+                        <a href="/2024/10/20/%E7%BC%A9%E6%94%BEEcharts%E6%96%B9%E6%B3%95/" class="prev-prefix">« </a> 上一篇：    <a href="/2024/10/20/%E7%BC%A9%E6%94%BEEcharts%E6%96%B9%E6%B3%95/" title="发布于 2024-10-20 09:23">缩放Echarts方法</a>
+                        <br>
+                    
+                    
+                        <a href="/2024/10/20/React%E5%AD%A6%E4%B9%A0/" class="next-prefix">» </a> 下一篇：    <a href="/2024/10/20/React%E5%AD%A6%E4%B9%A0/" title="发布于 2024-10-20 09:22">React学习</a>
+                    
+                </div>
+            </div>
+            
+    <div class="article-comments">
+        
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+    
+ 
+        </div>
+    
+</div>
+    <div id="footer">
+    <div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>
+</div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar">
+                    <img src="/image/sidebar/avatar.jpg">
+                </div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user">
+                        
+                            <a href="javascript:;" target="_self"><span>Aspirai</span></a>
+                        
+                    </div>
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul>
+                    
+                        <li class=""><a href="/" class="" target="_self"><span class="iconfont icon-home-fill"></span>首页</a></li>
+                    
+                        <li class=""><a href="/category" class="" target="_self"><span class="iconfont icon-folder-fill"></span>分类</a></li>
+                    
+                        <li class=""><a href="/tag" class="" target="_self"><span class="iconfont icon-discount-fill"></span>标签</a></li>
+                    
+                        <li class=""><a href="/archive" class="" target="_self"><span class="iconfont icon-calendar-fill"></span>归档</a></li>
+                    
+                        <li class=""><a href="/friend" class="" target="_self"><span class="iconfont icon-link"></span>友情链接</a></li>
+                    
+                </ul> 
+            </div> 
+            <div class="menu-link">
+                <div class="box">
+                    <div class="image-box"></div>
+                </div>
+                
+                    <a name="QQ" href="javascript:;" class="image" target="_self" data="/image/sidebar/qq.png"><span class="iconfont icon-qq"></span></a>
+                
+            </div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="/css/search.css">
+<script type="text/javascript" src="/js/iscroll.js"></script>
+<script type="text/javascript" src="/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+    
+    <link type="text/css" rel="stylesheet" href="/css/APlayer.css">
+    <script type="text/javascript" src="/js/APlayer.min.js"></script>
+    <script type="text/javascript" src="/js/Meting.min.js"></script>
+    <script>
+        var meting_api = 'https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&auth=:auth&r=:r';
+    </script>
+    <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+
+    <div class="wrap-right">
+    <div class="wrap-right-hide">
+         <div class="wrap-right-button favorites">
+            <div class="iconbox" switch="false">
+                <span class="iconfont icon-favorites"></span>
+            </div>
+            <span class="icontext">关注</span>
+         </div>
+        <div class="wrap-right-button search">
+            <div class="iconbox">
+                <span class="iconfont icon-search-menu"></span>
+            </div>
+            <span class="icontext">搜索</span>
+        </div>
+        <div class="wrap-right-button menu-button">
+            <div class="iconbox">
+                <span class="iconfont icon-menu"></span>
+            </div>
+            <span class="icontext">菜单</span>
+        </div>
+        <div class="wrap-right-button mode">
+            <div class="light">
+                <div class="iconbox">
+                    <span class="iconfont icon-daymode"></span>
+                </div>
+                <span class="icontext">浅色模式</span>
+            </div>
+            <div class="dark">
+                <div class="iconbox">
+                    <span class="iconfont icon-nightmode-fill"></span>
+                </div>
+                <span class="icontext">深色模式</span>
+            </div>
+        </div>
+        <div class="wrap-right-button bottom">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">跳至底部</span>
+        </div>
+    </div>
+    <div class="wrap-right-show">
+        <div class="wrap-right-button set">
+            <div class="iconbox">
+                <span class="iconfont icon-setting"></span>
+            </div>
+            <span class="icontext">设置</span>
+        </div>
+        <div class="wrap-right-button top">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">返回顶部</span>
+        </div>
+    </div>
+</div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : "Aspirai",
+        GitHubRepositories : "Hexo-LiveForCode",
+
+        User             : "Aspirai",
+        UserAvatar       : "/image/sidebar/avatar.jpg",
+        WebsiteStartDate : "2020-01-01",
+        Home             : "",
+
+        WebsiteTitleBlur         : "(◍´꒳`◍) Hi, Aspirai",
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : "(*´∇｀*) 欢迎回来!",
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : {
+            light : "/image/website/logo/logo.png",
+            dark  : "/image/website/logo/logo-dark.png"
+        },
+
+        ProgressBar : {
+            id       : "topProgressBar",
+            color    : "#77B6FF",
+            height   : "2px",
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound : {
+                tension  : 16,
+                friction : 5
+            },
+            spinner : {
+                id     : "spinner",
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : "#F0F0F0",
+                    stroke     : "#272633",
+                    base       : "",
+                    child      : "#272633"
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : "rgba(255, 255, 255, .2)",
+            clearOffset : 0.3
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : "60%",
+            colorBrightness  : "50%",
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : "random",
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                "/image/header/home.jpg",
+            
+                "/image/header/home.png",
+            
+        ],
+        HomeBannerText  : "",
+
+        ArticleHeaderImage : [
+            
+                "/image/header/article.jpg",
+            
+        ],
+
+        OtherBannerText : "",
+
+        Error : {
+            icon    : "icon-swimming",
+            title   : "PAGE NOT FOUND",
+            content : [
+                
+                    "很抱歉，您访问的页面不存在！",
+                
+                    "可能是输入地址有误或该地址已变更。",
+                
+            ],
+            buttons : [
+                
+                    {
+                        icon  : "icon-home",
+                        text  : "返回首页",
+                        href  : "/",
+                        class : ""
+                    },
+                
+            ]
+        },
+
+        MenuNotice : {
+            enable : false,
+            notice : "简单地活着，肆意而又精彩！",
+            speed  : 20
+        },
+        MenuList : [
+            
+                {
+                    name   : "首页",
+                    icon   : "icon-home-fill",
+                    href   : "/",
+                    type   : "index",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "分类",
+                    icon   : "icon-folder-fill",
+                    href   : "/category",
+                    type   : "category",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "标签",
+                    icon   : "icon-discount-fill",
+                    href   : "/tag",
+                    type   : "tag",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "归档",
+                    icon   : "icon-calendar-fill",
+                    href   : "/archive",
+                    type   : "archive",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "友情链接",
+                    icon   : "icon-link",
+                    href   : "/friend",
+                    type   : "friend",
+                    class  : "",
+                    target : "_self"
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        name   : "QQ",
+                        icon   : "icon-qq",
+                        href   : "javascript:;",
+                        class  : "image",
+                        target : "_self",
+                        image  : "/image/sidebar/qq.png"
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : "<div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>",
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                "Based on cnblogs theme SimpleMemory.",
+                            
+                                "",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "SimpleMemory Author:",
+                            
+                                "BNDong",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "Theme:",
+                            
+                                "LiveForCode",
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : "",
+
+        Donate : {
+            paypal  : "",
+            bitcoin : "",
+            alipay  : "/image/donate/alipay.png",
+            wechat  : "/image/donate/wechat.png"
+        },
+
+        Search : {
+            applicationID : "010C3EANT8",
+            apiKey        : "c7abab9f11b79102b9aff7fe6d41447d",
+            indexName     : "Notes",
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : "搜索",
+                empty       : "未发现与 「${query}」 相关的内容",
+                stats       : "${hits} 条相关条目，使用了 ${time} 毫秒",
+            }
+        }, 
+
+        Comment : {
+            switch : true,
+            type   : "Valine",
+        },
+
+        Waline : {
+            el              : ".comments-content",
+            serverURL       : "",
+            path            : window.location.pathname,
+            meta            : "['nick', 'mail', 'link']",
+            requiredMeta    : "['nick', 'mail']",
+            pageSize        : 10,
+            lang            : "zh-cn",
+            locale: {
+                admin       : "博主",
+                anonymous   : "匿名用户",
+                sofa        : "快来做第一个评论的人吧 ~",
+                placeholder : "你是我一生只会遇见一次的惊喜...",
+            },
+            dark            : "html[color-scheme='dark']",
+            search          : false,
+            pageview        : true,
+            comment         : true,
+            copyright       : false,
+        },
+
+        Valine : {
+            el             : ".comments-content",
+            appId          : "srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz",
+            appKey         : "8uVSP1q6UlALVC5igYfIfv2h",
+            serverURLs     : "",
+            placeholder    : "你是我一生只会遇见一次的惊喜...",
+            avatar         : "mm",
+            meta           : "nick,mail,link",
+            requiredFields : "nick,mail",
+            pageSize       : 5,
+            lang           : "zh-cn",
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : ".toc",
+            contentSelector       : ".article-body",
+            headingSelector       : "h1, h2, h3, h4, h5",
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : ".toc",
+            positionFixedClass    : "toc-fixed",
+            fixedSidebarOffset    : "",
+        },
+
+        Require : {
+            baseUrl     : "/js/",
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : "Meting"
+        },
+        APlayer : {
+            container : ".aplayer",
+            fixed     : true,
+            autoplay  : false,
+            loop      : "all",
+            order     : "random",
+            preload   : "auto",
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : "Endless Tears",
+                        artist : "CLIFF EDGE",
+                        cover  : "/music/cover/Endless Tears.jpg",
+                        url    : "/music/song/Endless Tears.mp3",
+                        lrc    : "/music/lrc/Endless Tears.lrc"
+                    },
+                
+            ]
+        },
+        Meting : {
+            api      : "https://api.i-meto.com/meting/api",
+            id       : "3778678", 
+            lrcshow  : false, 
+            server   : "netease", 
+            type     : "playlist", 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : "all", 
+            order    : "random", 
+            preload  : "auto", 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : true,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : "/image/website/lazyload.svg"
+        },
+  
+        Style : {
+            aplayer          : "/css/APlayer.css",
+            archive          : "/css/archive.css",
+            base             : "/css/base.css",
+            clipboard        : "/css/clipboard.css",
+            code             : "/css/code.css",
+            donate           : "/css/donate.css",
+            fancybox         : "/css/jquery.fancybox.css",
+            footer           : "/css/footer.css",
+            iconfont         : "/iconfont/iconfont.css",
+            index            : "/css/index.css",
+            menuBubble       : "/css/menu-bubble.css",
+            mouse            : "/css/mouse.css",
+            page             : "/css/page.css",
+            post             : "/css/post.css",
+            search           : "/css/search.css",
+            tocbot           : "/css/tocbot.css",
+            valine           : "/css/valine.css",
+            waline           : "/css/waline.css",
+            walineCustom     : "/css/waline-custom.css"
+        },
+
+        Script: {
+            aplayer          : "/js/APlayer.min.js",
+            config           : "/js/require.config.js",
+            index            : "/js/index.js",
+            instantSearch    : "/js/instantsearch.min.js",
+            iscroll          : "/js/iscroll.js",
+            jQuery           : "/js/jquery-3.4.1.min.js",
+            loading          : "/js/loading.js",
+            meting           : "/js/Meting.min.js",
+            require          : "/js/require.min.js",
+            waline           : "/js/waline.mjs",
+            pageview         : "/js/pageview.mjs",
+            comment          : "/js/comment.mjs",
+        },
+
+        Font: {
+            LongCang    : "/font/LongCang.css",
+            Monda       : "/font/Monda.css",
+            NotoSansSC  : "/font/NotoSansSC.css",
+            NotoSerifSC : "/font/NotoSerifSC.css",
+            Playball    : "/font/Playball.css",
+            PTMono      : "/font/PTMono.css",
+            Roboto      : "/font/Roboto.css",
+            RobotoSlab  : "/font/RobotoSlab.css",
+            Rosario     : "/font/Rosario.css",
+            UbuntuMono  : "/font/UbuntuMono.css"
+        },
+
+        Suffix : {
+            about : "时间带不走你眼中的光辉"
+        },
+            
+        Theme : {
+            url  : "https://github.com/first19326/Hexo-LiveForCode",
+            name : "Hexo - Live For Code"
+        }  
+    };
+</script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</body>
+</html>

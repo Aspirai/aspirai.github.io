@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>
+        
+            Taro图片放大与缩小
+        
+    </title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSerifSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="/font/Roboto.css">
+    <link type="text/css" rel="stylesheet" href="/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="/css/base.css">
+    <link type="text/css" rel="stylesheet" href="/css/code.css">
+
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <a id="cover"></a>
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
+<div id="header" class="header">
+    <div class="vertical">
+        <div class="inner">
+            
+                <h1 class="header-subtitle">Taro图片放大与缩小</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2024-10-20
+                        </span>
+                        
+                            
+                                <span id="/2024/10/20/Taro图片放大与缩小/" class="leancloud_visitors" data-flag-title="Taro图片放大与缩小">
+                                    <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                                </span>
+                            
+                            
+                                <span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/10/20/Taro图片放大与缩小/"></span>
+                                </span>
+                              
+                        
+                    </p>
+                    
+                        
+                            <span class="category-color">前端开发</span>
+                        
+                    
+                    
+                        
+                            <span class="tag-color">Taro</span>
+                        
+                    
+                </div>
+            
+        </div>
+    </div>
+    
+</div>
+<div id="container">
+    
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <h2 id="Taro图片放大与缩小"><a href="#Taro图片放大与缩小" class="headerlink" title="Taro图片放大与缩小"></a>Taro图片放大与缩小</h2><h3 id="1-图片上传到页面"><a href="#1-图片上传到页面" class="headerlink" title="1 .图片上传到页面"></a>1 .图片上传到页面</h3><figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">View</span>, <span class="title class_">Image</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@tarojs/components&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Taro</span> <span class="keyword">from</span> <span class="string">&#x27;@tarojs/taro&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">AtButton</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;taro-ui&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">Demo</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> [path, setPath] = <span class="title function_">useState</span>(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">handleChooseImage</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    <span class="title class_">Taro</span>.<span class="title function_">chooseImage</span>(&#123;</span><br><span class="line">      <span class="attr">count</span>: <span class="number">1</span>,</span><br><span class="line">      <span class="attr">sizeType</span>: [<span class="string">&#x27;original&#x27;</span>],</span><br><span class="line">      <span class="attr">sourceType</span>: [<span class="string">&#x27;album&#x27;</span>, <span class="string">&#x27;camera&#x27;</span>],</span><br><span class="line">      <span class="attr">success</span>: <span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="title function_">setPath</span>(res.<span class="property">tempFilePaths</span>[<span class="number">0</span>]);</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">View</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">className</span>=<span class="string">&#x27;index&#x27;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">style</span>=<span class="string">&#123;&#123;</span> <span class="attr">width:</span> &#x27;<span class="attr">100vw</span>&#x27;, <span class="attr">height:</span> &#x27;<span class="attr">100vh</span>&#x27; &#125;&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">    &gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">View</span> <span class="attr">style</span>=<span class="string">&#123;&#123;</span> <span class="attr">border:</span> &#x27;<span class="attr">1px</span> <span class="attr">solid</span> <span class="attr">red</span>&#x27;, <span class="attr">width:</span> &#x27;<span class="attr">100vw</span>&#x27;, <span class="attr">height:</span> &#x27;<span class="attr">44vh</span>&#x27;, <span class="attr">display:</span> &#x27;<span class="attr">flex</span>&#x27;, <span class="attr">alignItems:</span> &#x27;<span class="attr">center</span>&#x27;, <span class="attr">justifyContent:</span> &#x27;<span class="attr">center</span>&#x27; &#125;&#125;&gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Image</span> <span class="attr">src</span>=<span class="string">&#123;path&#125;</span> /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">View</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">AtButton</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">type</span>=<span class="string">&#x27;primary&#x27;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-xml">          handleChooseImage();</span></span><br><span class="line"><span class="language-xml">        &#125;&#125;</span></span><br><span class="line"><span class="language-xml">      &gt;</span></span><br><span class="line"><span class="language-xml">        test</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">AtButton</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">View</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240826105106266.png" alt="image-20240826105106266"></p>
+<h3 id="2-图片放大"><a href="#2-图片放大" class="headerlink" title="2.图片放大"></a>2.图片放大</h3><h4 id="2-1预备知识："><a href="#2-1预备知识：" class="headerlink" title="2.1预备知识："></a>2.1预备知识：</h4><h5 id="1-CSS—-transform属性"><a href="#1-CSS—-transform属性" class="headerlink" title="1.CSS—-transform属性"></a>1.CSS—-transform属性</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1. 基本语法</span><br><span class="line">transform: function(value);</span><br><span class="line"></span><br><span class="line">2. 常用变换函数</span><br><span class="line">a. translate()：平移</span><br><span class="line"></span><br><span class="line">    translate(x, y): 移动元素到相对于其当前位置的指定 x 和 y 位置。单位可以是像素、百分比等。</span><br><span class="line">        translateX(x)：只在水平方向上移动。</span><br><span class="line">        translateY(y)：只在垂直方向上移动。</span><br><span class="line">    transform: translate(50px, 100px); /* 在 x 方向上移动 50px，在 y 方向上移动 100px */</span><br><span class="line"></span><br><span class="line">b. scale()：缩放</span><br><span class="line"></span><br><span class="line">    scale(x, y): 按照 x 和 y 方向的比例缩放元素。scale(2, 2) 会将元素放大两倍。</span><br><span class="line">        scaleX(x)：只在水平方向上缩放。</span><br><span class="line">        scaleY(y)：只在垂直方向上缩放。</span><br><span class="line">    transform: scale(1.5, 0.5); /* 水平方向放大 1.5 倍，垂直方向缩小为 0.5 倍 */</span><br><span class="line"></span><br><span class="line">c. rotate()：旋转</span><br><span class="line"></span><br><span class="line">    rotate(angle): 按照指定的角度旋转元素。角度可以是正值或负值，单位为度（deg）。</span><br><span class="line">    transform: rotate(45deg); /* 旋转 45 度 */</span><br><span class="line"></span><br><span class="line">d. skew()：倾斜</span><br><span class="line"></span><br><span class="line">    skew(x-angle, y-angle): 沿着 x 和 y 轴对元素进行倾斜变换。</span><br><span class="line">        skewX(x-angle)：只沿水平方向倾斜。</span><br><span class="line">        skewY(y-angle)：只沿垂直方向倾斜。</span><br><span class="line">    transform: skew(30deg, 20deg); /* 水平倾斜 30 度，垂直倾斜 20 度 */</span><br><span class="line"></span><br><span class="line">e. matrix()：矩阵变换</span><br><span class="line"></span><br><span class="line">    matrix(a, b, c, d, e, f): 以矩阵形式定义 2D 变换，允许更复杂的变换组合。</span><br><span class="line">    transform: matrix(1, 0.5, -0.5, 1, 0, 0); /* 使用矩阵实现复杂变换 */</span><br><span class="line"></span><br><span class="line">3. 组合变换</span><br><span class="line"></span><br><span class="line">    可以将多个 transform 函数组合在一起使用，用空格分隔它们。</span><br><span class="line">    transform: translate(50px, 100px) rotate(45deg) scale(1.2);</span><br><span class="line"></span><br><span class="line">4. 3D 变换</span><br><span class="line"></span><br><span class="line">除了 2D 变换外，transform 还支持 3D 变换：</span><br><span class="line">a. translate3d(x, y, z)：三维平移</span><br><span class="line"></span><br><span class="line">    沿着 x, y, z 轴平移。</span><br><span class="line"></span><br><span class="line">b. rotate3d(x, y, z, angle)：三维旋转</span><br><span class="line"></span><br><span class="line">    围绕 x, y, z 轴旋转。</span><br><span class="line"></span><br><span class="line">c. perspective(n)：设置透视效果</span><br><span class="line"></span><br><span class="line">    定义 3D 空间中物体与观察者之间的距离，单位为像素。</span><br><span class="line"></span><br><span class="line">transform: rotate3d(1, 1, 0, 45deg); /* 围绕 x 和 y 轴旋转 45 度 */</span><br><span class="line"></span><br><span class="line">5. transform-origin</span><br><span class="line">    控制 transform 变换的原点，默认原点是元素的中心。</span><br><span class="line">    transform-origin: top left; /* 将变换原点设置为元素的左上角 */</span><br><span class="line"></span><br><span class="line">6. 动画和过渡</span><br><span class="line">transform 属性与 transition 和 animation 结合使用时，可以产生平滑的过渡和复杂的动画效果。</span><br><span class="line"></span><br><span class="line">.box &#123;</span><br><span class="line">  transition: transform 0.5s ease;</span><br><span class="line">&#125;</span><br><span class="line">.box:hover &#123;</span><br><span class="line">  transform: rotate(45deg) scale(1.2);</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="2-Taro—-onTouchStart触摸事件的处理属性"><a href="#2-Taro—-onTouchStart触摸事件的处理属性" class="headerlink" title="2.Taro—-onTouchStart触摸事件的处理属性"></a>2.Taro—-onTouchStart触摸事件的处理属性</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">在 Taro 框架中，onTouchStart 是一个触摸事件的处理属性，用于捕获当用户手指第一次触摸屏幕时触发的事件。</span><br><span class="line">onTouchStart 的作用</span><br><span class="line"></span><br><span class="line">    onTouchStart 事件会在手指触碰到屏幕的那一瞬间触发。通常用于检测用户开始触摸的动作，可以结合其他触摸事件如 onTouchMove 和 onTouchEnd 一起使用，以处理更加复杂的手势操作。</span><br><span class="line"></span><br><span class="line">用法示例</span><br><span class="line"></span><br><span class="line">&lt;View</span><br><span class="line">  onTouchStart=&#123;(e) =&gt; &#123;</span><br><span class="line">    console.log(&#x27;触摸开始&#x27;, e);</span><br><span class="line">  &#125;&#125;</span><br><span class="line">&gt;</span><br><span class="line">  触摸我</span><br><span class="line">&lt;/View&gt;</span><br><span class="line"></span><br><span class="line">在这个示例中，当用户触摸到 View 组件时，会触发 onTouchStart 事件，触发后会执行事件处理函数，打印出 “触摸开始” 以及事件对象 e。</span><br><span class="line">事件对象</span><br><span class="line"></span><br><span class="line">onTouchStart 事件处理函数会收到一个事件对象 e，其中包含以下一些常用的属性：</span><br><span class="line"></span><br><span class="line">    e.touches: 当前触摸点的列表（会包含所有正在触摸的点）。</span><br><span class="line">    e.changedTouches: 当前状态改变的触摸点的列表。</span><br><span class="line">    e.timeStamp: 触发事件的时间戳。</span><br><span class="line"></span><br><span class="line">常见使用场景</span><br><span class="line"></span><br><span class="line">    处理手势操作，比如滑动开始的检测。</span><br><span class="line">    在拖动操作中，捕捉用户开始拖动的起点。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h5 id="3-Taro-其它触摸属性"><a href="#3-Taro-其它触摸属性" class="headerlink" title="3.Taro 其它触摸属性"></a>3.Taro 其它触摸属性</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">onTouchMove</span><br><span class="line">    描述: 当用户手指在屏幕上滑动时触发，类似于原生的 touchmove 事件。</span><br><span class="line">    场景: 用于跟踪手指的移动路径，常用于拖拽、滑动操作。</span><br><span class="line"></span><br><span class="line">onTouchEnd</span><br><span class="line">    描述: 当用户手指离开屏幕时触发，类似于原生的 touchend 事件。</span><br><span class="line">    场景: 用于检测触摸操作的结束，比如手势识别结束时的处理。</span><br><span class="line"></span><br><span class="line">onTouchCancel</span><br><span class="line">    描述: 当触摸操作被打断时（比如来电、弹窗等）触发，类似于原生的 touchcancel 事件。</span><br><span class="line">    场景: 处理因外部因素中断触摸的场景。</span><br><span class="line"></span><br><span class="line">onLongPress</span><br><span class="line">    描述: 当用户长时间按住屏幕时触发，类似于原生的 longpress 事件。</span><br><span class="line">    场景: 用于长按操作，比如调出菜单或执行特定操作。</span><br><span class="line"></span><br><span class="line">onTap</span><br><span class="line">    描述: 当用户轻触屏幕时触发，类似于点击事件，通常用于捕获点击操作。</span><br><span class="line">    场景: 用于响应用户点击动作，触发页面跳转、按钮点击等操作。</span><br><span class="line"></span><br><span class="line">onTouchForceChange</span><br><span class="line"></span><br><span class="line">    描述: 当压力变化时触发，适用于支持 3D Touch 或 Force Touch 的设备。</span><br><span class="line">    场景: 检测用户在屏幕上施加的压力变化。</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2代码编写"><a href="#2-2代码编写" class="headerlink" title="2.2代码编写"></a>2.2代码编写</h4><figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">View</span>, <span class="title class_">Image</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@tarojs/components&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Taro</span> <span class="keyword">from</span> <span class="string">&#x27;@tarojs/taro&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; useEffect, useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">AtButton</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;taro-ui&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">Demo</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> [path, setPath] = <span class="title function_">useState</span>(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">handleChooseImage</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    <span class="title class_">Taro</span>.<span class="title function_">chooseImage</span>(&#123;</span><br><span class="line">      <span class="attr">count</span>: <span class="number">1</span>,</span><br><span class="line">      <span class="attr">sizeType</span>: [<span class="string">&#x27;original&#x27;</span>],</span><br><span class="line">      <span class="attr">sourceType</span>: [<span class="string">&#x27;album&#x27;</span>, <span class="string">&#x27;camera&#x27;</span>],</span><br><span class="line">      <span class="attr">success</span>: <span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="title function_">setPath</span>(res.<span class="property">tempFilePaths</span>[<span class="number">0</span>]);</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> [scale, setScale] = <span class="title function_">useState</span>(<span class="number">1</span>); <span class="comment">// 图片缩放比例</span></span><br><span class="line">  <span class="keyword">const</span> [lastDistance, setLastDistance] = <span class="title function_">useState</span>(<span class="number">0</span>); <span class="comment">// 上一次两指距离</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">getDistance</span> = (<span class="params">touches</span>) =&gt; &#123; <span class="comment">// 计算两指距离</span></span><br><span class="line">    <span class="keyword">const</span> [touch1, touch2] = touches;</span><br><span class="line">    <span class="keyword">const</span> dx = touch2.<span class="property">clientX</span> - touch1.<span class="property">clientX</span>; <span class="comment">//</span></span><br><span class="line">    <span class="keyword">const</span> dy = touch2.<span class="property">clientY</span> - touch1.<span class="property">clientY</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Math</span>.<span class="title function_">sqrt</span>(dx * dx + dy * dy);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">handleTouchStart</span> = (<span class="params">e</span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (e.<span class="property">touches</span>.<span class="property">length</span> === <span class="number">2</span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> distance = <span class="title function_">getDistance</span>(e.<span class="property">touches</span>);</span><br><span class="line">      <span class="title function_">setLastDistance</span>(distance);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">handleTouchMove</span> = (<span class="params">e</span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (e.<span class="property">touches</span>.<span class="property">length</span> === <span class="number">2</span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> distance = <span class="title function_">getDistance</span>(e.<span class="property">touches</span>);</span><br><span class="line">      <span class="keyword">const</span> scaleChange = distance / lastDistance;</span><br><span class="line">      <span class="title function_">setScale</span>(<span class="function">(<span class="params">preScale</span>) =&gt;</span> <span class="title class_">Math</span>.<span class="title function_">max</span>(<span class="number">1</span>, preScale * scaleChange));</span><br><span class="line">      <span class="title function_">setLastDistance</span>(distance);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">View</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">className</span>=<span class="string">&#x27;index&#x27;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">style</span>=<span class="string">&#123;&#123;</span> <span class="attr">width:</span> &#x27;<span class="attr">100vw</span>&#x27;, <span class="attr">height:</span> &#x27;<span class="attr">100vh</span>&#x27; &#125;&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">    &gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">View</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">style</span>=<span class="string">&#123;&#123;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">border:</span> &#x27;<span class="attr">1px</span> <span class="attr">solid</span> <span class="attr">red</span>&#x27;,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">width:</span> &#x27;<span class="attr">100vw</span>&#x27;,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">height:</span> &#x27;<span class="attr">30vh</span>&#x27;,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">position:</span> &#x27;<span class="attr">relative</span>&#x27;,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">display:</span> &#x27;<span class="attr">flex</span>&#x27;,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">alignItems:</span> &#x27;<span class="attr">center</span>&#x27;,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">justifyContent:</span> &#x27;<span class="attr">center</span>&#x27;,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">overflow:</span> &#x27;<span class="attr">hidden</span>&#x27;,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        &#125;&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">onTouchStart</span>=<span class="string">&#123;handleTouchStart&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">onTouchMove</span>=<span class="string">&#123;handleTouchMove&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      &gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Image</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">src</span>=<span class="string">&#123;path&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">mode</span>=<span class="string">&#x27;aspectFit&#x27;</span> // <span class="attr">图片缩放模式</span> <span class="attr">保持宽高比缩放图片</span>，<span class="attr">使图片的长边能完全显示出来</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">style</span>=<span class="string">&#123;&#123;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">transform:</span> `<span class="attr">scale</span>($&#123;<span class="attr">scale</span>&#125;)`,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          &#125;&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">View</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">AtButton</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">type</span>=<span class="string">&#x27;primary&#x27;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-xml">          handleChooseImage();</span></span><br><span class="line"><span class="language-xml">        &#125;&#125;</span></span><br><span class="line"><span class="language-xml">      &gt;</span></span><br><span class="line"><span class="language-xml">        test</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">AtButton</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">View</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="3图片移动"><a href="#3图片移动" class="headerlink" title="3图片移动"></a>3图片移动</h3><figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">View</span>, <span class="title class_">Image</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@tarojs/components&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Taro</span> <span class="keyword">from</span> <span class="string">&#x27;@tarojs/taro&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; useEffect, useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">AtButton</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;taro-ui&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">Demo</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> [path, setPath] = <span class="title function_">useState</span>(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">handleChooseImage</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    <span class="title class_">Taro</span>.<span class="title function_">chooseImage</span>(&#123;</span><br><span class="line">      <span class="attr">count</span>: <span class="number">1</span>,</span><br><span class="line">      <span class="attr">sizeType</span>: [<span class="string">&#x27;original&#x27;</span>],</span><br><span class="line">      <span class="attr">sourceType</span>: [<span class="string">&#x27;album&#x27;</span>, <span class="string">&#x27;camera&#x27;</span>],</span><br><span class="line">      <span class="attr">success</span>: <span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="title function_">setPath</span>(res.<span class="property">tempFilePaths</span>[<span class="number">0</span>]);</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> [scale, setScale] = <span class="title function_">useState</span>(<span class="number">1</span>); <span class="comment">// 图片缩放比例</span></span><br><span class="line">  <span class="keyword">const</span> [lastDistance, setLastDistance] = <span class="title function_">useState</span>(<span class="number">0</span>); <span class="comment">// 上一次两指距离</span></span><br><span class="line">  <span class="keyword">const</span> [translateX, setTranslateX] = <span class="title function_">useState</span>(<span class="number">0</span>); <span class="comment">// 图片水平偏移</span></span><br><span class="line">  <span class="keyword">const</span> [translateY, setTranslateY] = <span class="title function_">useState</span>(<span class="number">0</span>); <span class="comment">// 图片垂直偏移</span></span><br><span class="line">  <span class="keyword">const</span> [lastTouch, setLastTouch] = <span class="title function_">useState</span>(&#123; <span class="attr">x</span>: <span class="number">0</span>, <span class="attr">y</span>: <span class="number">0</span> &#125;); <span class="comment">// 上一次触摸坐标 用于计算偏移量</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">getDistance</span> = (<span class="params">touches</span>) =&gt; &#123; <span class="comment">// 计算两指距离</span></span><br><span class="line">    <span class="keyword">const</span> [touch1, touch2] = touches;</span><br><span class="line">    <span class="keyword">const</span> dx = touch2.<span class="property">clientX</span> - touch1.<span class="property">clientX</span>; <span class="comment">//</span></span><br><span class="line">    <span class="keyword">const</span> dy = touch2.<span class="property">clientY</span> - touch1.<span class="property">clientY</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Math</span>.<span class="title function_">sqrt</span>(dx * dx + dy * dy);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">handleTouchStart</span> = (<span class="params">e</span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (e.<span class="property">touches</span>.<span class="property">length</span> === <span class="number">2</span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> distance = <span class="title function_">getDistance</span>(e.<span class="property">touches</span>);</span><br><span class="line">      <span class="title function_">setLastDistance</span>(distance);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.<span class="property">touches</span>.<span class="property">length</span> === <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="title function_">setLastTouch</span>(&#123;</span><br><span class="line">        <span class="attr">x</span>: e.<span class="property">touches</span>[<span class="number">0</span>].<span class="property">clientX</span>,</span><br><span class="line">        <span class="attr">y</span>: e.<span class="property">touches</span>[<span class="number">0</span>].<span class="property">clientY</span>,</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">handleTouchMove</span> = (<span class="params">e</span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (e.<span class="property">touches</span>.<span class="property">length</span> === <span class="number">2</span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> distance = <span class="title function_">getDistance</span>(e.<span class="property">touches</span>);</span><br><span class="line">      <span class="keyword">const</span> scaleChange = distance / lastDistance;</span><br><span class="line">      <span class="title function_">setScale</span>(<span class="function">(<span class="params">preScale</span>) =&gt;</span> <span class="title class_">Math</span>.<span class="title function_">max</span>(<span class="number">1</span>, preScale * scaleChange));</span><br><span class="line">      <span class="title function_">setLastDistance</span>(distance);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.<span class="property">touches</span>.<span class="property">length</span> === <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> dx = e.<span class="property">touches</span>[<span class="number">0</span>].<span class="property">clientX</span> - lastTouch.<span class="property">x</span>;</span><br><span class="line">      <span class="keyword">const</span> dy = e.<span class="property">touches</span>[<span class="number">0</span>].<span class="property">clientY</span> - lastTouch.<span class="property">y</span>;</span><br><span class="line">      <span class="title function_">setTranslateX</span>(<span class="function">(<span class="params">preTranslateX</span>) =&gt;</span> preTranslateX + dx);</span><br><span class="line">      <span class="title function_">setTranslateY</span>(<span class="function">(<span class="params">preTranslateY</span>) =&gt;</span> preTranslateY + dy);</span><br><span class="line">      <span class="title function_">setLastTouch</span>(&#123;</span><br><span class="line">        <span class="attr">x</span>: e.<span class="property">touches</span>[<span class="number">0</span>].<span class="property">clientX</span>,</span><br><span class="line">        <span class="attr">y</span>: e.<span class="property">touches</span>[<span class="number">0</span>].<span class="property">clientY</span>,</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">View</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">className</span>=<span class="string">&#x27;index&#x27;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">style</span>=<span class="string">&#123;&#123;</span> <span class="attr">width:</span> &#x27;<span class="attr">100vw</span>&#x27;, <span class="attr">height:</span> &#x27;<span class="attr">100vh</span>&#x27; &#125;&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">    &gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">View</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">style</span>=<span class="string">&#123;&#123;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">border:</span> &#x27;<span class="attr">1px</span> <span class="attr">solid</span> <span class="attr">red</span>&#x27;,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">width:</span> &#x27;<span class="attr">100vw</span>&#x27;,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">height:</span> &#x27;<span class="attr">30vh</span>&#x27;,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">position:</span> &#x27;<span class="attr">relative</span>&#x27;,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">display:</span> &#x27;<span class="attr">flex</span>&#x27;,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">alignItems:</span> &#x27;<span class="attr">center</span>&#x27;,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">justifyContent:</span> &#x27;<span class="attr">center</span>&#x27;,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">overflow:</span> &#x27;<span class="attr">hidden</span>&#x27;,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        &#125;&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">onTouchStart</span>=<span class="string">&#123;handleTouchStart&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">onTouchMove</span>=<span class="string">&#123;handleTouchMove&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      &gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Image</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">src</span>=<span class="string">&#123;path&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">mode</span>=<span class="string">&#x27;aspectFit&#x27;</span> // <span class="attr">图片缩放模式</span> <span class="attr">保持宽高比缩放图片</span>，<span class="attr">使图片的长边能完全显示出来</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">style</span>=<span class="string">&#123;&#123;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">transform:</span> `<span class="attr">translate</span>($&#123;<span class="attr">translateX</span>&#125;<span class="attr">px</span>, $&#123;<span class="attr">translateY</span>&#125;<span class="attr">px</span>) <span class="attr">scale</span>($&#123;<span class="attr">scale</span>&#125;)`,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          &#125;&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">View</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">AtButton</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">type</span>=<span class="string">&#x27;primary&#x27;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-xml">          handleChooseImage();</span></span><br><span class="line"><span class="language-xml">        &#125;&#125;</span></span><br><span class="line"><span class="language-xml">      &gt;</span></span><br><span class="line"><span class="language-xml">        test</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">AtButton</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">View</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-限制移动范围"><a href="#4-限制移动范围" class="headerlink" title="4.限制移动范围"></a>4.限制移动范围</h3><h4 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识:"></a>前置知识:</h4><h5 id="4-1-useRef—-创建可变的引用对象"><a href="#4-1-useRef—-创建可变的引用对象" class="headerlink" title="4.1 useRef—-创建可变的引用对象"></a>4.1 useRef—-创建可变的引用对象</h5><p>useRef 是 React 提供的一个 Hook，用于创建一个可变的引用对象（ref），这个对象在组件的整个生命周期内保持不变。useRef 最常见的用途是访问 DOM 元素或在组件中存储某个可变值，而不会触发组件的重新渲染。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">useRef 的用法</span><br><span class="line"></span><br><span class="line">import React, &#123; useRef &#125; from &#x27;react&#x27;;</span><br><span class="line"></span><br><span class="line">function MyComponent() &#123;</span><br><span class="line">  const myRef = useRef(null); // 创建一个 ref 对象，初始值为 null</span><br><span class="line"></span><br><span class="line">  return (</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;input ref=&#123;myRef&#125; type=&quot;text&quot; /&gt;</span><br><span class="line">      &lt;button onClick=&#123;() =&gt; myRef.current.focus()&#125;&gt;</span><br><span class="line">        Focus the input</span><br><span class="line">      &lt;/button&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">useRef 的特性和用途</span><br><span class="line"></span><br><span class="line">    访问 DOM 元素:</span><br><span class="line">        useRef 最常见的用途是访问 DOM 元素。你可以将 useRef 返回的 ref 对象附加到一个 DOM 元素上，通过 ref.current 可以直接访问该元素。</span><br><span class="line">        在上面的例子中，myRef.current 会指向 &lt;input&gt; 元素，点击按钮时，可以使用 myRef.current.focus() 来聚焦输入框。</span><br><span class="line"></span><br><span class="line">    持久化一个可变的值:</span><br><span class="line">        useRef 可以用来存储跨渲染周期的值，并且更新 useRef 的值不会触发组件的重新渲染。相比之下，使用 useState 更新值会导致组件重新渲染。</span><br><span class="line">        例如，你可以用 useRef 来存储计时器的 ID 或者某个组件的状态，这些状态不需要触发重新渲染。</span><br><span class="line"></span><br><span class="line">    保持数据的一致性:</span><br><span class="line">        由于 useRef 返回的对象在组件的整个生命周期内保持不变，因此它常被用来持有一些在多次渲染间保持一致的数据。</span><br><span class="line">        它常用于存储前一次渲染时的一些数据或引用。</span><br><span class="line"></span><br><span class="line">useRef vs useState</span><br><span class="line"></span><br><span class="line">    useState: 用于管理组件的状态，每次状态更新都会导致组件重新渲染。</span><br><span class="line">    useRef: 用于存储一个可变的值，该值的改变不会触发重新渲染。</span><br><span class="line"></span><br><span class="line">useRef vs createRef</span><br><span class="line"></span><br><span class="line">    useRef: 在每次渲染时返回同一个 ref 对象。</span><br><span class="line">    createRef: 每次渲染都会创建一个新的 ref 对象，通常只在类组件中使用。</span><br><span class="line"></span><br><span class="line">总结</span><br><span class="line"></span><br><span class="line">useRef 是一个非常有用的工具，既可以用于直接操作 DOM 元素，也可以用于存储在渲染周期间保持一致的数据。在需要访问 DOM 或者存储某些不会影响组件渲染的数据时，useRef 是一个理想的选择。</span><br></pre></td></tr></table></figure>
+
+<h4 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h4><figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">View</span>, <span class="title class_">Image</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;@tarojs/components&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="title class_">Taro</span> <span class="keyword">from</span> <span class="string">&#x27;@tarojs/taro&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; useEffect, useRef, useState &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; <span class="title class_">AtButton</span> &#125; <span class="keyword">from</span> <span class="string">&#x27;taro-ui&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">function</span> <span class="title function_">Demo</span>(<span class="params"></span>) &#123;</span><br><span class="line">  <span class="keyword">const</span> [path, setPath] = <span class="title function_">useState</span>(<span class="string">&#x27;&#x27;</span>);</span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">handleChooseImage</span> = (<span class="params"></span>) =&gt; &#123;</span><br><span class="line">    <span class="title class_">Taro</span>.<span class="title function_">chooseImage</span>(&#123;</span><br><span class="line">      <span class="attr">count</span>: <span class="number">1</span>,</span><br><span class="line">      <span class="attr">sizeType</span>: [<span class="string">&#x27;original&#x27;</span>],</span><br><span class="line">      <span class="attr">sourceType</span>: [<span class="string">&#x27;album&#x27;</span>, <span class="string">&#x27;camera&#x27;</span>],</span><br><span class="line">      <span class="attr">success</span>: <span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="title function_">setPath</span>(res.<span class="property">tempFilePaths</span>[<span class="number">0</span>]);</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> [scale, setScale] = <span class="title function_">useState</span>(<span class="number">1</span>); <span class="comment">// 图片缩放比例</span></span><br><span class="line">  <span class="keyword">const</span> [lastDistance, setLastDistance] = <span class="title function_">useState</span>(<span class="number">0</span>); <span class="comment">// 上一次两指距离</span></span><br><span class="line">  <span class="keyword">const</span> [translateX, setTranslateX] = <span class="title function_">useState</span>(<span class="number">0</span>); <span class="comment">// 图片水平偏移</span></span><br><span class="line">  <span class="keyword">const</span> [translateY, setTranslateY] = <span class="title function_">useState</span>(<span class="number">0</span>); <span class="comment">// 图片垂直偏移</span></span><br><span class="line">  <span class="keyword">const</span> [lastTouch, setLastTouch] = <span class="title function_">useState</span>(&#123; <span class="attr">x</span>: <span class="number">0</span>, <span class="attr">y</span>: <span class="number">0</span> &#125;); <span class="comment">// 上一次触摸坐标 用于计算偏移量</span></span><br><span class="line">  <span class="keyword">const</span> containerRef = <span class="title function_">useRef</span>(<span class="literal">null</span>); <span class="comment">// 图片容器ref</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">getDistance</span> = (<span class="params">touches</span>) =&gt; &#123;</span><br><span class="line">    <span class="comment">// 计算两指距离</span></span><br><span class="line">    <span class="keyword">const</span> [touch1, touch2] = touches;</span><br><span class="line">    <span class="keyword">const</span> dx = touch2.<span class="property">clientX</span> - touch1.<span class="property">clientX</span>; <span class="comment">//</span></span><br><span class="line">    <span class="keyword">const</span> dy = touch2.<span class="property">clientY</span> - touch1.<span class="property">clientY</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Math</span>.<span class="title function_">sqrt</span>(dx * dx + dy * dy);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">handleTouchStart</span> = (<span class="params">e</span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (e.<span class="property">touches</span>.<span class="property">length</span> === <span class="number">2</span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> distance = <span class="title function_">getDistance</span>(e.<span class="property">touches</span>);</span><br><span class="line">      <span class="title function_">setLastDistance</span>(distance);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.<span class="property">touches</span>.<span class="property">length</span> === <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="title function_">setLastTouch</span>(&#123;</span><br><span class="line">        <span class="attr">x</span>: e.<span class="property">touches</span>[<span class="number">0</span>].<span class="property">clientX</span>,</span><br><span class="line">        <span class="attr">y</span>: e.<span class="property">touches</span>[<span class="number">0</span>].<span class="property">clientY</span>,</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> <span class="title function_">handleTouchMove</span> = (<span class="params">e</span>) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (e.<span class="property">touches</span>.<span class="property">length</span> === <span class="number">2</span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> distance = <span class="title function_">getDistance</span>(e.<span class="property">touches</span>);</span><br><span class="line">      <span class="keyword">const</span> scaleChange = distance / lastDistance;</span><br><span class="line">      <span class="title function_">setScale</span>(<span class="function">(<span class="params">preScale</span>) =&gt;</span> <span class="title class_">Math</span>.<span class="title function_">max</span>(<span class="number">1</span>, preScale * scaleChange));</span><br><span class="line">      <span class="title function_">setLastDistance</span>(distance);</span><br><span class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (e.<span class="property">touches</span>.<span class="property">length</span> === <span class="number">1</span>) &#123;</span><br><span class="line">      <span class="keyword">const</span> dx = e.<span class="property">touches</span>[<span class="number">0</span>].<span class="property">clientX</span> - lastTouch.<span class="property">x</span>;</span><br><span class="line">      <span class="keyword">const</span> dy = e.<span class="property">touches</span>[<span class="number">0</span>].<span class="property">clientY</span> - lastTouch.<span class="property">y</span>;</span><br><span class="line"></span><br><span class="line">      <span class="title class_">Taro</span>.<span class="title function_">createSelectorQuery</span>()</span><br><span class="line">        .<span class="title function_">select</span>(<span class="string">`#<span class="subst">$&#123;containerRef.current.id&#125;</span>`</span>)</span><br><span class="line">        .<span class="title function_">boundingClientRect</span>()</span><br><span class="line">        .<span class="title function_">exec</span>(<span class="function">(<span class="params">res</span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">const</span> container = res[<span class="number">0</span>];</span><br><span class="line">          <span class="keyword">if</span> (container) &#123;</span><br><span class="line">            <span class="keyword">const</span> &#123; <span class="attr">width</span>: containerWidth, <span class="attr">height</span>: containerHeight &#125; = container;</span><br><span class="line"></span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;containerWidth&#x27;</span>, containerWidth);</span><br><span class="line">            <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&#x27;containerHeight&#x27;</span>, containerHeight);</span><br><span class="line">            <span class="keyword">const</span> imageWidth = containerWidth * scale;</span><br><span class="line">            <span class="keyword">const</span> imageHeight = containerHeight * scale;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">let</span> newTranslateX = translateX + dx;</span><br><span class="line">            <span class="keyword">let</span> newTranslateY = translateY + dy;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">const</span> maxTranslateX = <span class="title class_">Math</span>.<span class="title function_">max</span>(<span class="number">0</span>, (imageWidth - containerWidth) / <span class="number">2</span>); <span class="comment">// 图片最大水平位移</span></span><br><span class="line">            <span class="keyword">const</span> maxTranslateY = <span class="title class_">Math</span>.<span class="title function_">max</span>(<span class="number">0</span>, (imageHeight - containerHeight) / <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 限制图片位移不超出容器</span></span><br><span class="line">            newTranslateX = <span class="title class_">Math</span>.<span class="title function_">min</span>(<span class="title class_">Math</span>.<span class="title function_">max</span>(newTranslateX, -maxTranslateX), maxTranslateX);</span><br><span class="line">            newTranslateY = <span class="title class_">Math</span>.<span class="title function_">min</span>(<span class="title class_">Math</span>.<span class="title function_">max</span>(newTranslateY, -maxTranslateY), maxTranslateY);</span><br><span class="line"></span><br><span class="line">            <span class="title function_">setTranslateX</span>(newTranslateX);</span><br><span class="line">            <span class="title function_">setTranslateY</span>(newTranslateY);</span><br><span class="line">            <span class="title function_">setLastTouch</span>(&#123; <span class="attr">x</span>: e.<span class="property">touches</span>[<span class="number">0</span>].<span class="property">clientX</span>, <span class="attr">y</span>: e.<span class="property">touches</span>[<span class="number">0</span>].<span class="property">clientY</span> &#125;);</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">View</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">className</span>=<span class="string">&#x27;index&#x27;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      <span class="attr">style</span>=<span class="string">&#123;&#123;</span> <span class="attr">width:</span> &#x27;<span class="attr">100</span>%&#x27;, <span class="attr">height:</span> &#x27;<span class="attr">30vh</span>&#x27; &#125;&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">    &gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">View</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">style</span>=<span class="string">&#123;&#123;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">border:</span> &#x27;<span class="attr">1px</span> <span class="attr">solid</span> <span class="attr">red</span>&#x27;,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">width:</span> &#x27;<span class="attr">100</span>%&#x27;,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">height:</span> &#x27;<span class="attr">100</span>%&#x27;,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">display:</span> &#x27;<span class="attr">flex</span>&#x27;,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">alignItems:</span> &#x27;<span class="attr">center</span>&#x27;,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">justifyContent:</span> &#x27;<span class="attr">center</span>&#x27;,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">overflow:</span> &#x27;<span class="attr">hidden</span>&#x27;,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        &#125;&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">onTouchStart</span>=<span class="string">&#123;handleTouchStart&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">onTouchMove</span>=<span class="string">&#123;handleTouchMove&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">ref</span>=<span class="string">&#123;containerRef&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">id</span>=<span class="string">&#x27;container&#x27;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">      &gt;</span></span></span><br><span class="line"><span class="language-xml">        <span class="tag">&lt;<span class="name">Image</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">src</span>=<span class="string">&#123;path&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">mode</span>=<span class="string">&#x27;aspectFit&#x27;</span> // <span class="attr">图片缩放模式</span> <span class="attr">保持宽高比缩放图片</span>，<span class="attr">使图片的长边能完全显示出来</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          <span class="attr">style</span>=<span class="string">&#123;&#123;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">            <span class="attr">transform:</span> `<span class="attr">translate</span>($&#123;<span class="attr">translateX</span>&#125;<span class="attr">px</span>, $&#123;<span class="attr">translateY</span>&#125;<span class="attr">px</span>) <span class="attr">scale</span>($&#123;<span class="attr">scale</span>&#125;)`,</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">          &#125;&#125;</span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        /&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">View</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;<span class="name">AtButton</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">type</span>=<span class="string">&#x27;primary&#x27;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">        <span class="attr">onClick</span>=<span class="string">&#123;()</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="language-xml">          handleChooseImage();</span></span><br><span class="line"><span class="language-xml">        &#125;&#125;</span></span><br><span class="line"><span class="language-xml">      &gt;</span></span><br><span class="line"><span class="language-xml">        test</span></span><br><span class="line"><span class="language-xml">      <span class="tag">&lt;/<span class="name">AtButton</span>&gt;</span></span></span><br><span class="line"><span class="language-xml">    <span class="tag">&lt;/<span class="name">View</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+                
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box">
+    <div class="suffix-box-left">
+        <img src="/image/sidebar/avatar.jpg" alt="Aspirai">
+    </div>
+    <div class="suffix-box-right">
+        <span class="suffix-box-title">文章作者：</span>Aspirai
+        <br>
+        <span class="suffix-box-title">文章出处：</span><a href="/2024/10/20/Taro%E5%9B%BE%E7%89%87%E6%94%BE%E5%A4%A7%E4%B8%8E%E7%BC%A9%E5%B0%8F/" target="_blank">Taro图片放大与缩小</a>
+        <br>
+        <span class="suffix-box-title">作者签名：</span>时间带不走你眼中的光辉
+        <br>
+        <span class="suffix-box-title">版权声明：</span>文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+        <br>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+                
+                    <div class="category">
+                        分类：
+                        
+                            <a href="/category/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
+                        
+                    </div>
+                
+                
+                    <div class="tag">
+                        标签：
+                        
+                            <a href="/tag/Taro/">Taro</a>
+                        
+                    </div>
+                
+                <div class="article-prev-next">
+                    
+                        <a href="/2024/10/20/Taro+React%E5%BC%80%E5%8F%91%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F-echarts/" class="prev-prefix">« </a> 上一篇：    <a href="/2024/10/20/Taro+React%E5%BC%80%E5%8F%91%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F-echarts/" title="发布于 2024-10-20 09:23">Taro+React开发微信小程序-echarts</a>
+                        <br>
+                    
+                    
+                        <a href="/2024/10/20/%E4%BD%BF%E7%94%A8react%E5%92%8Cmobx/" class="next-prefix">» </a> 下一篇：    <a href="/2024/10/20/%E4%BD%BF%E7%94%A8react%E5%92%8Cmobx/" title="发布于 2024-10-20 09:23">使用react和mobx</a>
+                    
+                </div>
+            </div>
+            
+    <div class="article-comments">
+        
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+    
+ 
+        </div>
+    
+</div>
+    <div id="footer">
+    <div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>
+</div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar">
+                    <img src="/image/sidebar/avatar.jpg">
+                </div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user">
+                        
+                            <a href="javascript:;" target="_self"><span>Aspirai</span></a>
+                        
+                    </div>
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul>
+                    
+                        <li class=""><a href="/" class="" target="_self"><span class="iconfont icon-home-fill"></span>首页</a></li>
+                    
+                        <li class=""><a href="/category" class="" target="_self"><span class="iconfont icon-folder-fill"></span>分类</a></li>
+                    
+                        <li class=""><a href="/tag" class="" target="_self"><span class="iconfont icon-discount-fill"></span>标签</a></li>
+                    
+                        <li class=""><a href="/archive" class="" target="_self"><span class="iconfont icon-calendar-fill"></span>归档</a></li>
+                    
+                        <li class=""><a href="/friend" class="" target="_self"><span class="iconfont icon-link"></span>友情链接</a></li>
+                    
+                </ul> 
+            </div> 
+            <div class="menu-link">
+                <div class="box">
+                    <div class="image-box"></div>
+                </div>
+                
+                    <a name="QQ" href="javascript:;" class="image" target="_self" data="/image/sidebar/qq.png"><span class="iconfont icon-qq"></span></a>
+                
+            </div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="/css/search.css">
+<script type="text/javascript" src="/js/iscroll.js"></script>
+<script type="text/javascript" src="/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+    
+    <link type="text/css" rel="stylesheet" href="/css/APlayer.css">
+    <script type="text/javascript" src="/js/APlayer.min.js"></script>
+    <script type="text/javascript" src="/js/Meting.min.js"></script>
+    <script>
+        var meting_api = 'https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&auth=:auth&r=:r';
+    </script>
+    <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+
+    <div class="wrap-right">
+    <div class="wrap-right-hide">
+         <div class="wrap-right-button favorites">
+            <div class="iconbox" switch="false">
+                <span class="iconfont icon-favorites"></span>
+            </div>
+            <span class="icontext">关注</span>
+         </div>
+        <div class="wrap-right-button search">
+            <div class="iconbox">
+                <span class="iconfont icon-search-menu"></span>
+            </div>
+            <span class="icontext">搜索</span>
+        </div>
+        <div class="wrap-right-button menu-button">
+            <div class="iconbox">
+                <span class="iconfont icon-menu"></span>
+            </div>
+            <span class="icontext">菜单</span>
+        </div>
+        <div class="wrap-right-button mode">
+            <div class="light">
+                <div class="iconbox">
+                    <span class="iconfont icon-daymode"></span>
+                </div>
+                <span class="icontext">浅色模式</span>
+            </div>
+            <div class="dark">
+                <div class="iconbox">
+                    <span class="iconfont icon-nightmode-fill"></span>
+                </div>
+                <span class="icontext">深色模式</span>
+            </div>
+        </div>
+        <div class="wrap-right-button bottom">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">跳至底部</span>
+        </div>
+    </div>
+    <div class="wrap-right-show">
+        <div class="wrap-right-button set">
+            <div class="iconbox">
+                <span class="iconfont icon-setting"></span>
+            </div>
+            <span class="icontext">设置</span>
+        </div>
+        <div class="wrap-right-button top">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">返回顶部</span>
+        </div>
+    </div>
+</div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : "Aspirai",
+        GitHubRepositories : "Hexo-LiveForCode",
+
+        User             : "Aspirai",
+        UserAvatar       : "/image/sidebar/avatar.jpg",
+        WebsiteStartDate : "2020-01-01",
+        Home             : "",
+
+        WebsiteTitleBlur         : "(◍´꒳`◍) Hi, Aspirai",
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : "(*´∇｀*) 欢迎回来!",
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : {
+            light : "/image/website/logo/logo.png",
+            dark  : "/image/website/logo/logo-dark.png"
+        },
+
+        ProgressBar : {
+            id       : "topProgressBar",
+            color    : "#77B6FF",
+            height   : "2px",
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound : {
+                tension  : 16,
+                friction : 5
+            },
+            spinner : {
+                id     : "spinner",
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : "#F0F0F0",
+                    stroke     : "#272633",
+                    base       : "",
+                    child      : "#272633"
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : "rgba(255, 255, 255, .2)",
+            clearOffset : 0.3
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : "60%",
+            colorBrightness  : "50%",
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : "random",
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                "/image/header/home.jpg",
+            
+                "/image/header/home.png",
+            
+        ],
+        HomeBannerText  : "",
+
+        ArticleHeaderImage : [
+            
+                "/image/header/article.jpg",
+            
+        ],
+
+        OtherBannerText : "",
+
+        Error : {
+            icon    : "icon-swimming",
+            title   : "PAGE NOT FOUND",
+            content : [
+                
+                    "很抱歉，您访问的页面不存在！",
+                
+                    "可能是输入地址有误或该地址已变更。",
+                
+            ],
+            buttons : [
+                
+                    {
+                        icon  : "icon-home",
+                        text  : "返回首页",
+                        href  : "/",
+                        class : ""
+                    },
+                
+            ]
+        },
+
+        MenuNotice : {
+            enable : false,
+            notice : "简单地活着，肆意而又精彩！",
+            speed  : 20
+        },
+        MenuList : [
+            
+                {
+                    name   : "首页",
+                    icon   : "icon-home-fill",
+                    href   : "/",
+                    type   : "index",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "分类",
+                    icon   : "icon-folder-fill",
+                    href   : "/category",
+                    type   : "category",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "标签",
+                    icon   : "icon-discount-fill",
+                    href   : "/tag",
+                    type   : "tag",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "归档",
+                    icon   : "icon-calendar-fill",
+                    href   : "/archive",
+                    type   : "archive",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "友情链接",
+                    icon   : "icon-link",
+                    href   : "/friend",
+                    type   : "friend",
+                    class  : "",
+                    target : "_self"
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        name   : "QQ",
+                        icon   : "icon-qq",
+                        href   : "javascript:;",
+                        class  : "image",
+                        target : "_self",
+                        image  : "/image/sidebar/qq.png"
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : "<div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>",
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                "Based on cnblogs theme SimpleMemory.",
+                            
+                                "",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "SimpleMemory Author:",
+                            
+                                "BNDong",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "Theme:",
+                            
+                                "LiveForCode",
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : "",
+
+        Donate : {
+            paypal  : "",
+            bitcoin : "",
+            alipay  : "/image/donate/alipay.png",
+            wechat  : "/image/donate/wechat.png"
+        },
+
+        Search : {
+            applicationID : "010C3EANT8",
+            apiKey        : "c7abab9f11b79102b9aff7fe6d41447d",
+            indexName     : "Notes",
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : "搜索",
+                empty       : "未发现与 「${query}」 相关的内容",
+                stats       : "${hits} 条相关条目，使用了 ${time} 毫秒",
+            }
+        }, 
+
+        Comment : {
+            switch : true,
+            type   : "Valine",
+        },
+
+        Waline : {
+            el              : ".comments-content",
+            serverURL       : "",
+            path            : window.location.pathname,
+            meta            : "['nick', 'mail', 'link']",
+            requiredMeta    : "['nick', 'mail']",
+            pageSize        : 10,
+            lang            : "zh-cn",
+            locale: {
+                admin       : "博主",
+                anonymous   : "匿名用户",
+                sofa        : "快来做第一个评论的人吧 ~",
+                placeholder : "你是我一生只会遇见一次的惊喜...",
+            },
+            dark            : "html[color-scheme='dark']",
+            search          : false,
+            pageview        : true,
+            comment         : true,
+            copyright       : false,
+        },
+
+        Valine : {
+            el             : ".comments-content",
+            appId          : "srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz",
+            appKey         : "8uVSP1q6UlALVC5igYfIfv2h",
+            serverURLs     : "",
+            placeholder    : "你是我一生只会遇见一次的惊喜...",
+            avatar         : "mm",
+            meta           : "nick,mail,link",
+            requiredFields : "nick,mail",
+            pageSize       : 5,
+            lang           : "zh-cn",
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : ".toc",
+            contentSelector       : ".article-body",
+            headingSelector       : "h1, h2, h3, h4, h5",
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : ".toc",
+            positionFixedClass    : "toc-fixed",
+            fixedSidebarOffset    : "",
+        },
+
+        Require : {
+            baseUrl     : "/js/",
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : "Meting"
+        },
+        APlayer : {
+            container : ".aplayer",
+            fixed     : true,
+            autoplay  : false,
+            loop      : "all",
+            order     : "random",
+            preload   : "auto",
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : "Endless Tears",
+                        artist : "CLIFF EDGE",
+                        cover  : "/music/cover/Endless Tears.jpg",
+                        url    : "/music/song/Endless Tears.mp3",
+                        lrc    : "/music/lrc/Endless Tears.lrc"
+                    },
+                
+            ]
+        },
+        Meting : {
+            api      : "https://api.i-meto.com/meting/api",
+            id       : "3778678", 
+            lrcshow  : false, 
+            server   : "netease", 
+            type     : "playlist", 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : "all", 
+            order    : "random", 
+            preload  : "auto", 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : true,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : "/image/website/lazyload.svg"
+        },
+  
+        Style : {
+            aplayer          : "/css/APlayer.css",
+            archive          : "/css/archive.css",
+            base             : "/css/base.css",
+            clipboard        : "/css/clipboard.css",
+            code             : "/css/code.css",
+            donate           : "/css/donate.css",
+            fancybox         : "/css/jquery.fancybox.css",
+            footer           : "/css/footer.css",
+            iconfont         : "/iconfont/iconfont.css",
+            index            : "/css/index.css",
+            menuBubble       : "/css/menu-bubble.css",
+            mouse            : "/css/mouse.css",
+            page             : "/css/page.css",
+            post             : "/css/post.css",
+            search           : "/css/search.css",
+            tocbot           : "/css/tocbot.css",
+            valine           : "/css/valine.css",
+            waline           : "/css/waline.css",
+            walineCustom     : "/css/waline-custom.css"
+        },
+
+        Script: {
+            aplayer          : "/js/APlayer.min.js",
+            config           : "/js/require.config.js",
+            index            : "/js/index.js",
+            instantSearch    : "/js/instantsearch.min.js",
+            iscroll          : "/js/iscroll.js",
+            jQuery           : "/js/jquery-3.4.1.min.js",
+            loading          : "/js/loading.js",
+            meting           : "/js/Meting.min.js",
+            require          : "/js/require.min.js",
+            waline           : "/js/waline.mjs",
+            pageview         : "/js/pageview.mjs",
+            comment          : "/js/comment.mjs",
+        },
+
+        Font: {
+            LongCang    : "/font/LongCang.css",
+            Monda       : "/font/Monda.css",
+            NotoSansSC  : "/font/NotoSansSC.css",
+            NotoSerifSC : "/font/NotoSerifSC.css",
+            Playball    : "/font/Playball.css",
+            PTMono      : "/font/PTMono.css",
+            Roboto      : "/font/Roboto.css",
+            RobotoSlab  : "/font/RobotoSlab.css",
+            Rosario     : "/font/Rosario.css",
+            UbuntuMono  : "/font/UbuntuMono.css"
+        },
+
+        Suffix : {
+            about : "时间带不走你眼中的光辉"
+        },
+            
+        Theme : {
+            url  : "https://github.com/first19326/Hexo-LiveForCode",
+            name : "Hexo - Live For Code"
+        }  
+    };
+</script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</body>
+</html>

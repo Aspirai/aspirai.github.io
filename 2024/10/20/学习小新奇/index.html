@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>
+        
+            学习小新奇
+        
+    </title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSerifSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="/font/Roboto.css">
+    <link type="text/css" rel="stylesheet" href="/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="/css/base.css">
+    <link type="text/css" rel="stylesheet" href="/css/code.css">
+
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <a id="cover"></a>
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
+<div id="header" class="header">
+    <div class="vertical">
+        <div class="inner">
+            
+                <h1 class="header-subtitle">学习小新奇</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2024-10-20
+                        </span>
+                        
+                            
+                                <span id="/2024/10/20/学习小新奇/" class="leancloud_visitors" data-flag-title="学习小新奇">
+                                    <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                                </span>
+                            
+                            
+                                <span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/10/20/学习小新奇/"></span>
+                                </span>
+                              
+                        
+                    </p>
+                    
+                        
+                            <span class="category-color">生活小知识</span>
+                        
+                    
+                    
+                </div>
+            
+        </div>
+    </div>
+    
+</div>
+<div id="container">
+    
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <h3 id="学习小新奇"><a href="#学习小新奇" class="headerlink" title="学习小新奇"></a>学习小新奇</h3><h4 id="1-Windows拷贝文件的单线程和多线程-—-FastCopy软件"><a href="#1-Windows拷贝文件的单线程和多线程-—-FastCopy软件" class="headerlink" title="1.Windows拷贝文件的单线程和多线程 —-FastCopy软件"></a>1.Windows拷贝文件的单线程和多线程 —-FastCopy软件</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在Windows操作系统中，默认的文件复制操作（如使用文件资源管理器进行复制）是单线程的。这意味着在执行复制任务时，系统只会使用一个线程来进行文件读取和写入操作。这种单线程复制方式在大多数情况下已经能够满足一般用户的需求，但在处理大量小文件或大文件时，复制速度可能会受到限制。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="2-小程序框架—-Uniapp"><a href="#2-小程序框架—-Uniapp" class="headerlink" title="2.小程序框架—-Uniapp"></a>2.小程序框架—-Uniapp</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">Uniapp：</span><br><span class="line">    基于Vue.js。</span><br><span class="line">    支持微信小程序、支付宝小程序、百度小程序、字节跳动小程序、QQ小程序、快应用、H5、iOS和Android。</span><br><span class="line">    一次编码，多端适配。</span><br><span class="line"></span><br><span class="line">Taro：</span><br><span class="line">    由京东开源，基于React。</span><br><span class="line">    支持微信小程序、H5、React Native、支付宝小程序、百度小程序、字节跳动小程序、QQ小程序等多个平台。</span><br><span class="line">    使用React语法，适合熟悉React生态的开发者。</span><br><span class="line"></span><br><span class="line">Mpvue：</span><br><span class="line">    由美团开源，基于Vue.js。</span><br><span class="line">    专注于微信小程序开发，同时支持百度小程序和支付宝小程序。</span><br><span class="line">    已不再积极维护，新项目建议使用Uniapp或Taro。</span><br><span class="line"></span><br><span class="line">Chameleon (CML)：</span><br><span class="line">    由滴滴开源。</span><br><span class="line">    使用统一的DSL（Domain-Specific Language）。</span><br><span class="line">    支持微信小程序、支付宝小程序、百度小程序、字节跳动小程序、H5和iOS、Android原生应用。</span><br><span class="line"></span><br><span class="line">Kbone：</span><br><span class="line">    由腾讯开源。</span><br><span class="line">    基于微信小程序和Web开发的同构框架。</span><br><span class="line">    使用React/Vue开发，同时生成微信小程序和Web应用。</span><br><span class="line"></span><br><span class="line">Remax：</span><br><span class="line">    基于React。</span><br><span class="line">    主要针对微信小程序，但也支持其他小程序平台。</span><br><span class="line"></span><br><span class="line">rax：</span><br><span class="line">    由阿里巴巴开源。</span><br><span class="line">    基于React语法。</span><br><span class="line">    支持微信小程序、支付宝小程序、Web和Weex。</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-群晖—-存储池、raid0"><a href="#3-群晖—-存储池、raid0" class="headerlink" title="3.群晖—-存储池、raid0"></a>3.群晖—-存储池、raid0</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">1.群晖</span><br><span class="line">群晖（Synology）是一家知名的网络附加存储（NAS）设备制造商。它们的设备提供了一系列功能，帮助用户存储、管理和保护数据。</span><br><span class="line"></span><br><span class="line">2.存储池</span><br><span class="line">存储池（Storage Pool）是现代存储管理系统中的一个概念，用于抽象化和管理物理存储资源。它将多个物理硬盘或固态硬盘（SSD）整合在一起，形成一个单一的存储池，然后在这个存储池上创建卷（Volume）和逻辑单元号（LUN）供用户使用。存储池的主要目的是提供灵活性、扩展性和高效的存储资源管理。</span><br><span class="line">抽象化管理：</span><br><span class="line">    存储池将多个物理硬盘整合成一个逻辑单元，简化了存储资源的管理。</span><br><span class="line">灵活性：</span><br><span class="line">    可以根据需要创建和调整卷的大小和数量，而不需要重新配置物理硬盘。</span><br><span class="line">扩展性：</span><br><span class="line">    通过增加新的硬盘，可以轻松扩展存储池的容量，而不影响现有的数据和配置。</span><br><span class="line">性能优化：</span><br><span class="line">    存储池可以结合RAID技术，提供数据冗余和性能优化。</span><br><span class="line">数据保护：</span><br><span class="line">    结合RAID（如RAID 1、RAID 5、RAID 6等），存储池可以提供数据冗余保护，以防止单一硬盘故障导致的数据丢失。</span><br><span class="line">    </span><br><span class="line">3.raid</span><br><span class="line">在存储系统中，选择多个物理硬盘并将它们整合成一个存储池。这个过程通常包括配置RAID级别，以提供数据冗余和性能优化。</span><br><span class="line">RAID（Redundant Array of Independent Disks，独立磁盘冗余阵列）是一种将多个物理硬盘组合成一个逻辑单元的技术，以提高数据存储的性能、可靠性和容量。以下是常见的RAID级别及其特征：</span><br><span class="line">1. RAID 0 （条带化）</span><br><span class="line">    特征：</span><br><span class="line">        性能：通过将数据分块并并行写入多个磁盘，提高读写速度。</span><br><span class="line">        无冗余：没有数据冗余保护，任何一块硬盘故障都会导致数据丢失。</span><br><span class="line">        容量：总容量为所有硬盘容量的总和。</span><br><span class="line">    适用场景：适用于需要高性能且不重要数据的场景，如视频编辑、大型数据库缓存等。</span><br><span class="line">2. RAID 1 （镜像）</span><br><span class="line">    特征：</span><br><span class="line">        数据冗余：每个硬盘都有一个镜像副本，提供数据冗余。</span><br><span class="line">        读性能：读性能较好，因为数据可以从任一硬盘读取。</span><br><span class="line">        写性能：写性能较慢，因为数据需要写入到每一个镜像硬盘。</span><br><span class="line">        容量：总容量为所有硬盘中容量最小的一个的一半。</span><br><span class="line">    适用场景：适用于需要高数据安全性的场景，如操作系统盘、关键数据存储等。</span><br><span class="line">3. RAID 5 （分布式奇偶校验）</span><br><span class="line">    特征：</span><br><span class="line">        数据冗余：通过分布式奇偶校验提供数据冗余，允许一块硬盘故障而不丢失数据。</span><br><span class="line">        性能：读性能较好，写性能相对较差（由于奇偶校验的计算和写入）。</span><br><span class="line">        容量：总容量为所有硬盘容量的总和减去一块硬盘的容量。</span><br><span class="line">    适用场景：适用于需要较好性能和数据冗余的场景，如文件服务器、数据库等。</span><br><span class="line">4. RAID 6 （双重分布式奇偶校验）</span><br><span class="line">    特征：</span><br><span class="line">        数据冗余：通过双重奇偶校验提供数据冗余，允许两块硬盘故障而不丢失数据。</span><br><span class="line">        性能：读性能较好，写性能较差（由于双重奇偶校验的计算和写入）。</span><br><span class="line">        容量：总容量为所有硬盘容量的总和减去两块硬盘的容量。</span><br><span class="line">    适用场景：适用于需要高数据冗余和可靠性的场景，如企业级存储解决方案。</span><br><span class="line">5. RAID 10 （RAID 1+0，条带化镜像）</span><br><span class="line">    特征：</span><br><span class="line">        性能：结合了RAID 0和RAID 1的优点，提供高读写性能和数据冗余。</span><br><span class="line">        数据冗余：通过镜像提供数据冗余，每个条带都有一个镜像副本。</span><br><span class="line">        容量：总容量为所有硬盘容量的总和的一半。</span><br><span class="line">    适用场景：适用于需要高性能和高数据安全性的场景，如数据库服务器、大型应用服务器等。</span><br><span class="line">6. RAID 50 （RAID 5+0，条带化的分布式奇偶校验）</span><br><span class="line">    特征：</span><br><span class="line">        性能：结合了RAID 0和RAID 5的优点，提供较高的读写性能和数据冗余。</span><br><span class="line">        数据冗余：通过分布式奇偶校验提供数据冗余。</span><br><span class="line">        容量：总容量为所有硬盘容量的总和减去每个RAID 5组中的一块硬盘容量。</span><br><span class="line">    适用场景：适用于需要高性能和高数据冗余的大规模存储解决方案。</span><br><span class="line">7. RAID 60 （RAID 6+0，条带化的双重分布式奇偶校验）</span><br><span class="line">    特征：</span><br><span class="line">        性能：结合了RAID 0和RAID 6的优点，提供较高的读写性能和数据冗余。</span><br><span class="line">        数据冗余：通过双重分布式奇偶校验提供数据冗余。</span><br><span class="line">        容量：总容量为所有硬盘容量的总和减去每个RAID 6组中的两块硬盘容量。</span><br><span class="line">    适用场景：适用于需要最高数据冗余和可靠性的大规模存储解决方案。</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-交换机接口"><a href="#4-交换机接口" class="headerlink" title="4.交换机接口"></a>4.交换机接口</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在网络设备中，交换机的每个端口既可以是输入端口（in口），也可以是输出端口（out口），具体取决于数据流的方向。</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-count-and-class"><a href="#5-count-and-class" class="headerlink" title="5.count and class"></a>5.count and class</h4><p><strong><code>class</code> 写法</strong>:</p>
+<ul>
+<li><p>适合用来定义具有状态和行为的对象，可以方便地创建多个实例。</p>
+</li>
+<li><p>支持继承、方法覆盖等面向对象的特性。</p>
+</li>
+<li><p>更加语义化，用于表示对象的蓝图（模版）。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">class Counter &#123;</span><br><span class="line">  count = 0;</span><br><span class="line">  constructor() &#123;</span><br><span class="line">    makeAutoObservable(this);</span><br><span class="line">  &#125;</span><br><span class="line">  increment() &#123;</span><br><span class="line">    this.count++;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">const counter1 = new Counter();</span><br><span class="line">const counter2 = new Counter(); // 可以创建多个实例</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">继承与多态</span><br><span class="line">class AdvancedCounter extends Counter &#123;</span><br><span class="line">  decrement() &#123;</span><br><span class="line">    this.count--;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong><code>const</code> 写法</strong>:</p>
+<ul>
+<li>用于定义常量或不可变的引用，在这种情况下，多用于定义一个对象的单一实例。</li>
+<li>不支持继承和方法扩展。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const Counter = &#123;</span><br><span class="line">  count: 0,</span><br><span class="line">  increment() &#123;</span><br><span class="line">    this.count++;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">// const counter1 = new Counter(); // 不允许</span><br><span class="line">const counter1 = Counter;</span><br><span class="line">const counter2 = Counter; // counter1 和 counter2 指向同一个实例</span><br></pre></td></tr></table></figure>
+
+<h5 id="this的绑定"><a href="#this的绑定" class="headerlink" title="this的绑定"></a>this的绑定</h5><ul>
+<li><code>class</code> 写法<ul>
+<li><code>this</code> 关键字在类方法中指向实例，支持自动绑定。</li>
+</ul>
+</li>
+<li><code>const</code> 写法<ul>
+<li>需要手动处理 <code>this</code> 绑定（如使用 <code>arrow function</code>），否则 <code>this</code> 的指向可能会出现问题。</li>
+</ul>
+</li>
+</ul>
+<h4 id="6-SVG图片转Base64编码"><a href="#6-SVG图片转Base64编码" class="headerlink" title="6.SVG图片转Base64编码"></a>6.SVG图片转Base64编码</h4><p><code>data:image/svg+xml;base64,...</code> 表示这是一个以 Base64 编码的 SVG 图像。Base64 是一种将二进制数据转换为文本字符串的编码方式，这样图像数据可以直接嵌入到 HTML 或 CSS 中。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//类似</span><br><span class="line">.calendar-arrow-right &#123;</span><br><span class="line">  background-image: url(&quot;data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNTY1OTMxNTc3NzI2IiBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9Ijg0MjAiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+PGRlZnM+PHN0eWxlIHR5cGU9InRleHQvY3NzIj48L3N0eWxlPjwvZGVmcz48cGF0aCBkPSJNNTMzLjIgNDkyLjNMMjc3LjkgMTY2LjFjLTMtMy45LTcuNy02LjEtMTIuNi02LjFIMTg4Yy02LjcgMC0xMC40IDcuNy02LjMgMTIuOUw0NDcuMSA1MTIgMTgxLjcgODUxLjFjLTQuMSA1LjItMC40IDEyLjkgNi4zIDEyLjloNzcuM2M0LjkgMCA5LjYtMi4zIDEyLjYtNi4xbDI1NS4zLTMyNi4xYzkuMS0xMS43IDkuMS0yNy45IDAtMzkuNXoiIHAtaWQ9Ijg0MjEiPjwvcGF0aD48cGF0aCBkPSJNODM3LjIgNDkyLjNMNTgxLjkgMTY2LjFjLTMtMy45LTcuNy02LjEtMTIuNi02LjFINDkyYy02LjcgMC0xMC40IDcuNy02LjMgMTIuOUw3NTEuMSA1MTIgNDg1LjcgODUxLjFjLTQuMSA1LjItMC40IDEyLjkgNi4zIDEyLjloNzcuM2M0LjkgMCA5LjYtMi4zIDEyLjYtNi4xbDI1NS4zLTMyNi4xYzkuMS0xMS43IDkuMS0yNy45IDAtMzkuNXoiIHAtaWQ9Ijg0MjIiPjwvcGF0aD48L3N2Zz4=&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-视频剪辑持续时间为什么比开始和结束时间计算结果多一帧"><a href="#7-视频剪辑持续时间为什么比开始和结束时间计算结果多一帧" class="headerlink" title="7.视频剪辑持续时间为什么比开始和结束时间计算结果多一帧"></a>7.视频剪辑持续时间为什么比开始和结束时间计算结果多一帧</h4><p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20240903085454072.png" alt="image-20240903085454072"></p>
+<p>在视频编辑中，结束时间通常不包含在剪辑的持续时间内，而是剪辑的结束时间的前一帧为实际剪辑的结束帧。因此，如果开始时间和结束时间相同，且同样为 <code>02</code>，但持续时间却多出一帧，这可能是因为计算持续时间时包括了第一帧。</p>
+<p>结束时间为最后一帧的开始；</p>
+<h4 id="8-跨域请求"><a href="#8-跨域请求" class="headerlink" title="8.跨域请求"></a>8.跨域请求</h4><ol>
+<li><p>阻止跨域请求的作用</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">防止不同来源的网页进行交互，主要是为了保障用户的安全和隐私。这里的 <span class="string">&quot;来源&quot;</span> 指的是网站的**域名**、**协议**、**端口号**，防止跨源请求是浏览器的一个**同源策略**，这种策略的核心目的包括以下几个方面：</span><br><span class="line"></span><br><span class="line">### <span class="number">1.</span> **防止跨站脚本攻击（<span class="variable constant_">XSS</span>）**</span><br><span class="line">   如果允许不同来源的网页自由交互，恶意网站可以通过 <span class="title class_">JavaScript</span> 访问其他网站的资源或数据，比如读取用户的会话信息（如 cookies、会话 tokens 等）。通过这些数据，攻击者可以模拟合法用户进行恶意操作，比如盗取个人账户信息，进行资金操作等。</span><br><span class="line"></span><br><span class="line">### <span class="number">2.</span> **防止跨站请求伪造（<span class="variable constant_">CSRF</span>）**</span><br><span class="line">   在 <span class="variable constant_">CSRF</span> 攻击中，恶意网站可能会欺骗用户的浏览器，在用户不知情的情况下发送请求到另一个网站（比如银行或社交媒体）。这些请求可能携带有效的认证信息，因为用户已经登录了那个网站。通过同源策略，浏览器可以阻止这些跨站请求，保护用户的账户不被冒用。</span><br><span class="line"></span><br><span class="line">### <span class="number">3.</span> **数据隔离与隐私保护**</span><br><span class="line">   网站上的数据有时是用户的个人隐私，或属于某个特定域的私有数据。如果允许不同来源的网站自由共享数据，会有隐私泄露的风险。用户可能访问了恶意站点，这些站点可能会尝试获取其他网站的数据，侵犯用户隐私。同源策略通过限制网页访问跨源资源，确保只有授权的网站才能访问用户的敏感数据。</span><br><span class="line"></span><br><span class="line">### <span class="number">4.</span> **防止恶意脚本与广告篡改**</span><br><span class="line">   同源策略还可以防止网站被恶意广告或脚本篡改。如果没有限制，不同来源的广告或脚本可以注入到网页中，修改网页内容，甚至获取用户的敏感数据或执行恶意操作。通过限制跨源资源加载，浏览器能够保证网页的内容和行为更可信。</span><br><span class="line"></span><br><span class="line">### <span class="number">5.</span> **避免资源滥用**</span><br><span class="line">   跨域交互可能会导致服务器资源被滥用。恶意网站可以通过向受害者浏览器发送大量请求，耗尽另一个网站的资源或带宽。这种情况不仅会影响性能，还可能导致拒绝服务攻击（<span class="title class_">DDoS</span>）。同源策略通过限制不同来源的交互，减少了这种风险。</span><br><span class="line"></span><br><span class="line">### 结论</span><br><span class="line">同源策略的核心作用就是保护用户的安全和隐私，防止恶意网站通过跨站请求窃取数据或进行恶意操作。通过阻止不同来源的网页自由交互，浏览器有效减少了 <span class="variable constant_">XSS</span>、<span class="variable constant_">CSRF</span>、数据泄露等攻击的可能性，同时也为用户提供了更可靠的浏览体验。</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>跨域是什么</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">**跨域**（<span class="title class_">Cross</span>-<span class="title class_">Origin</span>）指的是在浏览器中，当一个网页向另一个域的资源发起请求时，出现的跨域资源共享问题。浏览器出于安全原因，默认阻止网页从不同源请求数据，这一机制被称为**同源策略**（<span class="title class_">Same</span>-<span class="title class_">Origin</span> <span class="title class_">Policy</span>）。跨域问题就是在同源策略的限制下发生的，需要用特定的手段解决。</span><br><span class="line"></span><br><span class="line">### **什么是同源策略？**</span><br><span class="line">同源策略是浏览器的一个安全机制，防止不同来源的网页之间进行交互。要满足同源策略，两个 <span class="variable constant_">URL</span> 必须满足以下三个条件：</span><br><span class="line"><span class="number">1.</span> **协议相同**（如 <span class="string">`http://`</span> 或 <span class="string">`https://`</span>）</span><br><span class="line"><span class="number">2.</span> **域名相同**（如 <span class="string">`example.com`</span>）</span><br><span class="line"><span class="number">3.</span> **端口相同**（默认的 <span class="variable constant_">HTTP</span> 端口是 <span class="number">80</span>，<span class="variable constant_">HTTPS</span> 是 <span class="number">443</span>）</span><br><span class="line"></span><br><span class="line">例如：</span><br><span class="line">- <span class="string">`http://example.com/page1`</span> 和 <span class="string">`http://example.com/page2`</span> 属于同源，因为协议、域名、端口都相同。</span><br><span class="line">- <span class="string">`http://example.com`</span> 和 <span class="string">`https://example.com`</span> 不属于同源，因为协议不同。</span><br><span class="line">- <span class="string">`http://example.com`</span> 和 <span class="string">`http://api.example.com`</span> 不属于同源，因为子域名不同。</span><br><span class="line">- <span class="string">`http://example.com:8080`</span> 和 <span class="string">`http://example.com:80`</span> 不属于同源，因为端口不同。</span><br><span class="line"></span><br><span class="line">### **什么是跨域？**</span><br><span class="line">跨域就是指从一个源（域、协议、端口）向另一个不同的源发起请求。这种请求会被浏览器的同源策略阻止，除非通过一些特殊的机制允许它们交互。</span><br><span class="line"></span><br><span class="line">**典型的跨域场景：**</span><br><span class="line">- 前端页面（<span class="variable constant_">HTML</span>、<span class="title class_">JavaScript</span>）向一个不同的 <span class="variable constant_">API</span> 服务器发起 <span class="variable constant_">AJAX</span> 请求。</span><br><span class="line">- 网页从不同域加载图片、脚本、样式表等静态资源。</span><br><span class="line">- 使用 <span class="title class_">JavaScript</span> 的 <span class="string">`fetch()`</span> 或 <span class="string">`XMLHttpRequest`</span> 发出请求到不同域名的服务器。</span><br><span class="line"></span><br><span class="line">### **<span class="variable constant_">CORS</span>（跨域资源共享）机制**</span><br><span class="line">为了让合法的跨域请求得以通过，浏览器和服务器使用了一种机制，称为**跨域资源共享（<span class="variable constant_">CORS</span>，<span class="title class_">Cross</span>-<span class="title class_">Origin</span> <span class="title class_">Resource</span> <span class="title class_">Sharing</span>）**。<span class="variable constant_">CORS</span> 允许服务器通过 <span class="variable constant_">HTTP</span> 响应头明确告诉浏览器，哪些资源可以被来自哪些源的请求访问。</span><br><span class="line"></span><br><span class="line"><span class="variable constant_">CORS</span> 的工作方式：</span><br><span class="line"><span class="number">1.</span> **预检请求**（<span class="title class_">Preflight</span> <span class="title class_">Request</span>）：对于复杂的跨域请求，浏览器会先发送一个 <span class="string">`OPTIONS`</span> 请求，询问服务器是否允许跨域请求。这种请求不会带上实际数据，只用于确认权限。</span><br><span class="line"><span class="number">2.</span> **响应头**：如果服务器允许跨域访问，它会在响应中带上 <span class="string">`Access-Control-Allow-Origin`</span> 头信息，指定允许的来源。</span><br><span class="line"><span class="number">3.</span> **实际请求**：如果预检请求成功，浏览器将发送真正的请求，服务器返回所需数据。</span><br><span class="line"></span><br><span class="line">常见的 <span class="variable constant_">CORS</span> 响应头：</span><br><span class="line">- <span class="string">`Access-Control-Allow-Origin`</span>: 指定允许访问资源的来源（可以是一个域名，或者 <span class="string">`*`</span> 允许所有来源）。</span><br><span class="line">- <span class="string">`Access-Control-Allow-Methods`</span>: 指定允许的 <span class="variable constant_">HTTP</span> 方法（如 <span class="string">`GET`</span>, <span class="string">`POST`</span>, <span class="string">`PUT`</span>, <span class="string">`DELETE`</span>）。</span><br><span class="line">- <span class="string">`Access-Control-Allow-Headers`</span>: 指定允许的请求头部。</span><br><span class="line"></span><br><span class="line">### **如何解决跨域问题？**</span><br><span class="line"><span class="number">1.</span> **服务器设置 <span class="variable constant_">CORS</span>**：服务器通过设置 <span class="string">`Access-Control-Allow-Origin`</span> 等响应头，允许指定的前端域名访问其资源。这是解决跨域问题的最常见方式。</span><br><span class="line"><span class="number">2.</span> **<span class="title class_">JSON</span>P**：一种较老的跨域解决方案，只能用于 <span class="string">`GET`</span> 请求。通过 <span class="string">`&lt;script&gt;`</span> 标签来加载其他域的数据，但由于安全性问题，现在大多数场景下已被 <span class="variable constant_">CORS</span> 取代。</span><br><span class="line"><span class="number">3.</span> **反向代理**：使用反向代理服务器，将请求代理到另一个域，从而绕过浏览器的同源限制。例如，可以在服务器端配置代理，将前端的请求转发到目标 <span class="variable constant_">API</span>。</span><br><span class="line"><span class="number">4.</span> **跨域资源访问设置**：在某些特定场景（如 <span class="string">`iframe`</span>、<span class="string">`postMessage`</span> <span class="variable constant_">API</span>）下，也可以通过适当的设置来允许跨域通信。</span><br><span class="line"></span><br><span class="line">### **总结**</span><br><span class="line">跨域问题是浏览器为了安全性限制不同源资源访问的一种机制，称为同源策略。要绕过这些限制并允许合法的跨域请求，需要服务器支持并配置 <span class="variable constant_">CORS</span> 响应头，或者使用代理等方式。</span><br><span class="line"></span><br><span class="line">### 参考文档</span><br><span class="line">- [<span class="variable constant_">MDN</span> - 同源策略](<span class="attr">https</span>:<span class="comment">//developer.mozilla.org/en-US/docs/Web/Security/Same-origin_policy)</span></span><br><span class="line">- [<span class="variable constant_">MDN</span> - <span class="variable constant_">CORS</span>](<span class="attr">https</span>:<span class="comment">//developer.mozilla.org/en-US/docs/Web/HTTP/CORS)</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>什么时候需要跨域</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">当网页从不同的域、子域、协议、或端口访问外部资源（如 <span class="variable constant_">API</span>、图片、脚本）时，如果源与请求的资源不同，就需要处理跨域问题。</span><br><span class="line"></span><br><span class="line">常见的跨域请求场景</span><br><span class="line"></span><br><span class="line">    <span class="variable constant_">AJAX</span> 请求：通过 <span class="title function_">fetch</span>() 或 <span class="title class_">XMLHttpRequest</span> 向其他域发送请求时，若不在同一源，浏览器将阻止请求，除非目标服务器允许跨域请求。</span><br><span class="line">    <span class="title class_">WebSocket</span>：虽然 <span class="title class_">WebSocket</span> 不受同源策略的直接限制，但可能在某些服务器配置下需要处理跨域问题。</span><br><span class="line">    </span><br><span class="line"><span class="variable constant_">CORS</span> 请求的基本流程</span><br><span class="line"></span><br><span class="line">    预检请求：对于复杂请求，浏览器会先发送 <span class="variable constant_">OPTIONS</span> 请求，以检查服务器是否允许跨域。</span><br><span class="line">    响应头检查：服务器返回带有 <span class="title class_">Access</span>-<span class="title class_">Control</span>-<span class="title class_">Allow</span>-<span class="title class_">Origin</span> 头的响应，告知浏览器是否允许请求源跨域访问。</span><br><span class="line">    实际请求：如果服务器允许跨域，浏览器将发送实际的请求。</span><br><span class="line"></span><br><span class="line">解决跨域问题的常见方法</span><br><span class="line"></span><br><span class="line">    服务器端设置 <span class="variable constant_">CORS</span> 头：在服务器上正确设置 <span class="title class_">Access</span>-<span class="title class_">Control</span>-<span class="title class_">Allow</span>-<span class="title class_">Origin</span>、<span class="title class_">Access</span>-<span class="title class_">Control</span>-<span class="title class_">Allow</span>-<span class="title class_">Methods</span> 等头信息，允许特定源的跨域请求。</span><br><span class="line">    <span class="title class_">JSON</span>P：一种较旧的跨域请求方法，通常用于 <span class="variable constant_">GET</span> 请求，但它并不安全，现已逐渐被 <span class="variable constant_">CORS</span> 取代。</span><br><span class="line">    反向代理：通过设置服务器代理请求，避免客户端直接进行跨域请求。</span><br></pre></td></tr></table></figure></li>
+</ol>
+
+                
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box">
+    <div class="suffix-box-left">
+        <img src="/image/sidebar/avatar.jpg" alt="Aspirai">
+    </div>
+    <div class="suffix-box-right">
+        <span class="suffix-box-title">文章作者：</span>Aspirai
+        <br>
+        <span class="suffix-box-title">文章出处：</span><a href="/2024/10/20/%E5%AD%A6%E4%B9%A0%E5%B0%8F%E6%96%B0%E5%A5%87/" target="_blank">学习小新奇</a>
+        <br>
+        <span class="suffix-box-title">作者签名：</span>时间带不走你眼中的光辉
+        <br>
+        <span class="suffix-box-title">版权声明：</span>文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+        <br>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+                
+                    <div class="category">
+                        分类：
+                        
+                            <a href="/category/%E7%94%9F%E6%B4%BB%E5%B0%8F%E7%9F%A5%E8%AF%86/">生活小知识</a>
+                        
+                    </div>
+                
+                
+                <div class="article-prev-next">
+                    
+                        <a href="/2024/10/20/%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87%E5%AE%89%E8%A3%85%E6%A8%A1%E5%9D%97%E4%BD%BFQQ%E6%9B%B4%E5%8A%A0%E6%98%93%E7%94%A8(%E5%90%AB%E6%BC%94%E7%A4%BA)/" class="prev-prefix">« </a> 上一篇：    <a href="/2024/10/20/%E5%A6%82%E4%BD%95%E9%80%9A%E8%BF%87%E5%AE%89%E8%A3%85%E6%A8%A1%E5%9D%97%E4%BD%BFQQ%E6%9B%B4%E5%8A%A0%E6%98%93%E7%94%A8(%E5%90%AB%E6%BC%94%E7%A4%BA)/" title="发布于 2024-10-20 09:31">如何通过安装模块使QQ更加易用(含演示)</a>
+                        <br>
+                    
+                    
+                        <a href="/2024/10/20/%E5%BF%AB%E9%80%9F%E6%95%B4%E7%90%86%E8%A1%A8%E6%A0%BC%E6%95%B0%E6%8D%AE%E5%88%B0Apifox%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B/" class="next-prefix">» </a> 下一篇：    <a href="/2024/10/20/%E5%BF%AB%E9%80%9F%E6%95%B4%E7%90%86%E8%A1%A8%E6%A0%BC%E6%95%B0%E6%8D%AE%E5%88%B0Apifox%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B/" title="发布于 2024-10-20 09:31">快速整理表格数据到Apifox数据模型</a>
+                    
+                </div>
+            </div>
+            
+    <div class="article-comments">
+        
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+    
+ 
+        </div>
+    
+</div>
+    <div id="footer">
+    <div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>
+</div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar">
+                    <img src="/image/sidebar/avatar.jpg">
+                </div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user">
+                        
+                            <a href="javascript:;" target="_self"><span>Aspirai</span></a>
+                        
+                    </div>
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul>
+                    
+                        <li class=""><a href="/" class="" target="_self"><span class="iconfont icon-home-fill"></span>首页</a></li>
+                    
+                        <li class=""><a href="/category" class="" target="_self"><span class="iconfont icon-folder-fill"></span>分类</a></li>
+                    
+                        <li class=""><a href="/tag" class="" target="_self"><span class="iconfont icon-discount-fill"></span>标签</a></li>
+                    
+                        <li class=""><a href="/archive" class="" target="_self"><span class="iconfont icon-calendar-fill"></span>归档</a></li>
+                    
+                        <li class=""><a href="/friend" class="" target="_self"><span class="iconfont icon-link"></span>友情链接</a></li>
+                    
+                </ul> 
+            </div> 
+            <div class="menu-link">
+                <div class="box">
+                    <div class="image-box"></div>
+                </div>
+                
+                    <a name="QQ" href="javascript:;" class="image" target="_self" data="/image/sidebar/qq.png"><span class="iconfont icon-qq"></span></a>
+                
+            </div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="/css/search.css">
+<script type="text/javascript" src="/js/iscroll.js"></script>
+<script type="text/javascript" src="/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+    
+    <link type="text/css" rel="stylesheet" href="/css/APlayer.css">
+    <script type="text/javascript" src="/js/APlayer.min.js"></script>
+    <script type="text/javascript" src="/js/Meting.min.js"></script>
+    <script>
+        var meting_api = 'https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&auth=:auth&r=:r';
+    </script>
+    <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+
+    <div class="wrap-right">
+    <div class="wrap-right-hide">
+         <div class="wrap-right-button favorites">
+            <div class="iconbox" switch="false">
+                <span class="iconfont icon-favorites"></span>
+            </div>
+            <span class="icontext">关注</span>
+         </div>
+        <div class="wrap-right-button search">
+            <div class="iconbox">
+                <span class="iconfont icon-search-menu"></span>
+            </div>
+            <span class="icontext">搜索</span>
+        </div>
+        <div class="wrap-right-button menu-button">
+            <div class="iconbox">
+                <span class="iconfont icon-menu"></span>
+            </div>
+            <span class="icontext">菜单</span>
+        </div>
+        <div class="wrap-right-button mode">
+            <div class="light">
+                <div class="iconbox">
+                    <span class="iconfont icon-daymode"></span>
+                </div>
+                <span class="icontext">浅色模式</span>
+            </div>
+            <div class="dark">
+                <div class="iconbox">
+                    <span class="iconfont icon-nightmode-fill"></span>
+                </div>
+                <span class="icontext">深色模式</span>
+            </div>
+        </div>
+        <div class="wrap-right-button bottom">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">跳至底部</span>
+        </div>
+    </div>
+    <div class="wrap-right-show">
+        <div class="wrap-right-button set">
+            <div class="iconbox">
+                <span class="iconfont icon-setting"></span>
+            </div>
+            <span class="icontext">设置</span>
+        </div>
+        <div class="wrap-right-button top">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">返回顶部</span>
+        </div>
+    </div>
+</div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : "Aspirai",
+        GitHubRepositories : "Hexo-LiveForCode",
+
+        User             : "Aspirai",
+        UserAvatar       : "/image/sidebar/avatar.jpg",
+        WebsiteStartDate : "2020-01-01",
+        Home             : "",
+
+        WebsiteTitleBlur         : "(◍´꒳`◍) Hi, Aspirai",
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : "(*´∇｀*) 欢迎回来!",
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : {
+            light : "/image/website/logo/logo.png",
+            dark  : "/image/website/logo/logo-dark.png"
+        },
+
+        ProgressBar : {
+            id       : "topProgressBar",
+            color    : "#77B6FF",
+            height   : "2px",
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound : {
+                tension  : 16,
+                friction : 5
+            },
+            spinner : {
+                id     : "spinner",
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : "#F0F0F0",
+                    stroke     : "#272633",
+                    base       : "",
+                    child      : "#272633"
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : "rgba(255, 255, 255, .2)",
+            clearOffset : 0.3
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : "60%",
+            colorBrightness  : "50%",
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : "random",
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                "/image/header/home.jpg",
+            
+                "/image/header/home.png",
+            
+        ],
+        HomeBannerText  : "",
+
+        ArticleHeaderImage : [
+            
+                "/image/header/article.jpg",
+            
+        ],
+
+        OtherBannerText : "",
+
+        Error : {
+            icon    : "icon-swimming",
+            title   : "PAGE NOT FOUND",
+            content : [
+                
+                    "很抱歉，您访问的页面不存在！",
+                
+                    "可能是输入地址有误或该地址已变更。",
+                
+            ],
+            buttons : [
+                
+                    {
+                        icon  : "icon-home",
+                        text  : "返回首页",
+                        href  : "/",
+                        class : ""
+                    },
+                
+            ]
+        },
+
+        MenuNotice : {
+            enable : false,
+            notice : "简单地活着，肆意而又精彩！",
+            speed  : 20
+        },
+        MenuList : [
+            
+                {
+                    name   : "首页",
+                    icon   : "icon-home-fill",
+                    href   : "/",
+                    type   : "index",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "分类",
+                    icon   : "icon-folder-fill",
+                    href   : "/category",
+                    type   : "category",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "标签",
+                    icon   : "icon-discount-fill",
+                    href   : "/tag",
+                    type   : "tag",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "归档",
+                    icon   : "icon-calendar-fill",
+                    href   : "/archive",
+                    type   : "archive",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "友情链接",
+                    icon   : "icon-link",
+                    href   : "/friend",
+                    type   : "friend",
+                    class  : "",
+                    target : "_self"
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        name   : "QQ",
+                        icon   : "icon-qq",
+                        href   : "javascript:;",
+                        class  : "image",
+                        target : "_self",
+                        image  : "/image/sidebar/qq.png"
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : "<div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>",
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                "Based on cnblogs theme SimpleMemory.",
+                            
+                                "",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "SimpleMemory Author:",
+                            
+                                "BNDong",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "Theme:",
+                            
+                                "LiveForCode",
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : "",
+
+        Donate : {
+            paypal  : "",
+            bitcoin : "",
+            alipay  : "/image/donate/alipay.png",
+            wechat  : "/image/donate/wechat.png"
+        },
+
+        Search : {
+            applicationID : "010C3EANT8",
+            apiKey        : "c7abab9f11b79102b9aff7fe6d41447d",
+            indexName     : "Notes",
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : "搜索",
+                empty       : "未发现与 「${query}」 相关的内容",
+                stats       : "${hits} 条相关条目，使用了 ${time} 毫秒",
+            }
+        }, 
+
+        Comment : {
+            switch : true,
+            type   : "Valine",
+        },
+
+        Waline : {
+            el              : ".comments-content",
+            serverURL       : "",
+            path            : window.location.pathname,
+            meta            : "['nick', 'mail', 'link']",
+            requiredMeta    : "['nick', 'mail']",
+            pageSize        : 10,
+            lang            : "zh-cn",
+            locale: {
+                admin       : "博主",
+                anonymous   : "匿名用户",
+                sofa        : "快来做第一个评论的人吧 ~",
+                placeholder : "你是我一生只会遇见一次的惊喜...",
+            },
+            dark            : "html[color-scheme='dark']",
+            search          : false,
+            pageview        : true,
+            comment         : true,
+            copyright       : false,
+        },
+
+        Valine : {
+            el             : ".comments-content",
+            appId          : "srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz",
+            appKey         : "8uVSP1q6UlALVC5igYfIfv2h",
+            serverURLs     : "",
+            placeholder    : "你是我一生只会遇见一次的惊喜...",
+            avatar         : "mm",
+            meta           : "nick,mail,link",
+            requiredFields : "nick,mail",
+            pageSize       : 5,
+            lang           : "zh-cn",
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : ".toc",
+            contentSelector       : ".article-body",
+            headingSelector       : "h1, h2, h3, h4, h5",
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : ".toc",
+            positionFixedClass    : "toc-fixed",
+            fixedSidebarOffset    : "",
+        },
+
+        Require : {
+            baseUrl     : "/js/",
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : "Meting"
+        },
+        APlayer : {
+            container : ".aplayer",
+            fixed     : true,
+            autoplay  : false,
+            loop      : "all",
+            order     : "random",
+            preload   : "auto",
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : "Endless Tears",
+                        artist : "CLIFF EDGE",
+                        cover  : "/music/cover/Endless Tears.jpg",
+                        url    : "/music/song/Endless Tears.mp3",
+                        lrc    : "/music/lrc/Endless Tears.lrc"
+                    },
+                
+            ]
+        },
+        Meting : {
+            api      : "https://api.i-meto.com/meting/api",
+            id       : "3778678", 
+            lrcshow  : false, 
+            server   : "netease", 
+            type     : "playlist", 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : "all", 
+            order    : "random", 
+            preload  : "auto", 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : true,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : "/image/website/lazyload.svg"
+        },
+  
+        Style : {
+            aplayer          : "/css/APlayer.css",
+            archive          : "/css/archive.css",
+            base             : "/css/base.css",
+            clipboard        : "/css/clipboard.css",
+            code             : "/css/code.css",
+            donate           : "/css/donate.css",
+            fancybox         : "/css/jquery.fancybox.css",
+            footer           : "/css/footer.css",
+            iconfont         : "/iconfont/iconfont.css",
+            index            : "/css/index.css",
+            menuBubble       : "/css/menu-bubble.css",
+            mouse            : "/css/mouse.css",
+            page             : "/css/page.css",
+            post             : "/css/post.css",
+            search           : "/css/search.css",
+            tocbot           : "/css/tocbot.css",
+            valine           : "/css/valine.css",
+            waline           : "/css/waline.css",
+            walineCustom     : "/css/waline-custom.css"
+        },
+
+        Script: {
+            aplayer          : "/js/APlayer.min.js",
+            config           : "/js/require.config.js",
+            index            : "/js/index.js",
+            instantSearch    : "/js/instantsearch.min.js",
+            iscroll          : "/js/iscroll.js",
+            jQuery           : "/js/jquery-3.4.1.min.js",
+            loading          : "/js/loading.js",
+            meting           : "/js/Meting.min.js",
+            require          : "/js/require.min.js",
+            waline           : "/js/waline.mjs",
+            pageview         : "/js/pageview.mjs",
+            comment          : "/js/comment.mjs",
+        },
+
+        Font: {
+            LongCang    : "/font/LongCang.css",
+            Monda       : "/font/Monda.css",
+            NotoSansSC  : "/font/NotoSansSC.css",
+            NotoSerifSC : "/font/NotoSerifSC.css",
+            Playball    : "/font/Playball.css",
+            PTMono      : "/font/PTMono.css",
+            Roboto      : "/font/Roboto.css",
+            RobotoSlab  : "/font/RobotoSlab.css",
+            Rosario     : "/font/Rosario.css",
+            UbuntuMono  : "/font/UbuntuMono.css"
+        },
+
+        Suffix : {
+            about : "时间带不走你眼中的光辉"
+        },
+            
+        Theme : {
+            url  : "https://github.com/first19326/Hexo-LiveForCode",
+            name : "Hexo - Live For Code"
+        }  
+    };
+</script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</body>
+</html>

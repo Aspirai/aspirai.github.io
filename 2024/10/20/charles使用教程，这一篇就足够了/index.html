@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>
+        
+            charles使用教程，这一篇就足够了
+        
+    </title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSerifSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="/font/Roboto.css">
+    <link type="text/css" rel="stylesheet" href="/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="/css/base.css">
+    <link type="text/css" rel="stylesheet" href="/css/code.css">
+
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <a id="cover"></a>
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
+<div id="header" class="header">
+    <div class="vertical">
+        <div class="inner">
+            
+                <h1 class="header-subtitle">charles使用教程，这一篇就足够了</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2024-10-20
+                        </span>
+                        
+                            
+                                <span id="/2024/10/20/charles使用教程，这一篇就足够了/" class="leancloud_visitors" data-flag-title="charles使用教程，这一篇就足够了">
+                                    <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                                </span>
+                            
+                            
+                                <span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/10/20/charles使用教程，这一篇就足够了/"></span>
+                                </span>
+                              
+                        
+                    </p>
+                    
+                        
+                            <span class="category-color">前端开发</span>
+                        
+                    
+                    
+                        
+                            <span class="tag-color">测试工具</span>
+                        
+                            <span class="tag-color">Charles</span>
+                        
+                    
+                </div>
+            
+        </div>
+    </div>
+    
+</div>
+<div id="container">
+    
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>Charles 是在 Mac （Charles是跨平台的 ）下常用的网络封包截取工具，在做移动开发、测试时，我们为了调试与服务器端的网络通讯协议，常常需要截取网络封包来分析。</p>
+<p>Charles 通过将自己设置成系统的网络访问代理服务器，使得所有的网络访问请求都通过它来完成，从而实现了网络封包的截取和分析。</p>
+<p>除了在做移动开发中调试端口外，Charles 也可以用于分析第三方应用的通讯协议。配合 Charles 的 SSL 功能，Charles 还可以分析 Https 协议。</p>
+<h1 id="Charles-主界面介绍"><a href="#Charles-主界面介绍" class="headerlink" title="Charles 主界面介绍"></a>Charles 主界面介绍</h1><p>Charles 主要提供两种查看封包的视图，分别名为 “Structure”结构 和 “Sequence”序列。</p>
+<p>大家可以根据具体的需要在这两种视图之前来回切换。请求多了有些时候会看不过来，Charles 提供了一个简单的 Filter（过滤器） 功能，可以输入关键字来快速筛选出 URL 中带指定关键字的网络请求。</p>
+<p>对于某一个具体的网络请求，你可以查看其详细的请求内容和响应内容。如果请求内容是 POST 的表单，Charles 会自动帮你将表单进行分项显示。如果响应内容是 JSON 格式的，那么 Charles 可以自动帮你将 JSON 内容格式化，方便你查看。如果响应内容是图片，那么 Charles 可以显示出图片的预览。<br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011104140537-2141873342.png"></p>
+<p><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011104616259-1303256290.png"></p>
+<h1 id="Charles-主要的功能"><a href="#Charles-主要的功能" class="headerlink" title="Charles 主要的功能"></a>Charles 主要的功能</h1><h2 id="将-Charles-设置成系统代理"><a href="#将-Charles-设置成系统代理" class="headerlink" title="将 Charles 设置成系统代理"></a>将 Charles 设置成系统代理</h2><p>Charles 是通过将自己设置成代理服务器来完成封包截取的，所以使用 Charles 的第一步是将其设置成系统的代理服务器。</p>
+<p>启动 Charles 后，第一次 Charles 会请求你给它设置系统代理的权限。你可以输入登录密码授予 Charles 该权限。你也可以忽略该请求，然后在需要将 Charles 设置成系统代理时，选择菜单中的 “Proxy”来将 Charles 设置成系统代理。如下所示：<br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011103734538-510425764.png"></p>
+<p>之后，你就可以看到源源不断的网络请求出现在 Charles 的界面中。</p>
+<p>需要注意的是，Chrome 和 Firefox 浏览器默认并不使用系统的代理服务器设置，而 Charles 是通过将自己设置成代理服务器来完成封包截取的，所以在默认情况下无法截取 Chrome 和 Firefox 浏览器的网络通讯内容。如果你需要截取的话，在 Chrome 中设置成使用系统的代理服务器设置即可，或者直接将代理服务器设置成 127.0.0.1:8888 也可达到相同效果。</p>
+<h2 id="过滤网络请求"><a href="#过滤网络请求" class="headerlink" title="过滤网络请求"></a>过滤网络请求</h2><p>通常情况下，我们需要对网络请求进行过滤，只监控向指定目录服务器上发送的请求。对于这种需求，以下几种办法：</p>
+<p>方法一：在主界面的中部的 Filter 栏中填入需要过滤出来的关键字。例如我们的服务器的地址是：<a target="_blank" rel="noopener" href="http://baidu.com/">http://baidu.com</a> , 那么只需要在 Filter 栏中填入 baidu 即可。<br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011122445491-977492865.png"><br>过滤后如下：<br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011104736998-1151609763.png"></p>
+<p>方法二：在 Charles 的菜单栏选择 “Proxy”–&gt;“Recording Settings”，然后选择 Include 栏，选择添加一个项目，然后填入需要监控的协议，主机地址，端口号。这样就可以只截取目标网站的封包了。如下图所示：<br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011105058518-561433423.png"></p>
+<p><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011105135570-1146939127.png"><br>通常情况下，我们使用方法一做一些临时性的封包过滤，使用方法二做一些经常性的封包过滤。</p>
+<p>方法三：在想过滤的网络请求上右击，选择 “Focus”，之后在 Filter 一栏勾选上 Focussed 一项，如下图所示：<br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011121843525-1455392453.png"></p>
+<h2 id="截取-iPhone-手机上的网络封包"><a href="#截取-iPhone-手机上的网络封包" class="headerlink" title="截取 iPhone 手机上的网络封包"></a>截取 iPhone 手机上的网络封包</h2><p>Charles 通常用来截取本地上的网络封包，但是当我们需要时，我们也可以用来截取其它设备上的网络请求。<br><strong>确保抓包电脑和手机在同一网络中，不然是抓取不到网络包。</strong></p>
+<h3 id="Charles-上的设置"><a href="#Charles-上的设置" class="headerlink" title="Charles 上的设置"></a>Charles 上的设置</h3><p>要截取 iPhone 上的网络请求，我们首先需要将 Charles 的代理功能打开。<br>在 Charles 的菜单栏上选择 “Proxy”–&gt;“Proxy Settings”，填入代理端口 8888，并且勾上 “Enable transparent HTTP proxying” 就完成了在 Charles 上的设置。<br>如下图所示:<br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011110408152-2104282619.png"></p>
+<h3 id="iPhone-上的设置"><a href="#iPhone-上的设置" class="headerlink" title="iPhone 上的设置"></a>iPhone 上的设置</h3><p>我们需要获取 Charles 运行所在电脑的 IP 地址，Charles 的顶部菜单的 “Help”–&gt;“Local IP Address”，即可在弹出的对话框中看到 IP 地址，如下图所示：<br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011110510101-1761831323.png"><br>在 iPhone 的 “ 设置 ”–&gt;“ 无线局域网 ” 中，可以看到当前连接的 wifi 名，通过点击右边的详情键，可以看到当前连接上的 wifi 的详细信息，包括 IP 地址，子网掩码等信息。在其最底部有「HTTP 代理」一项，我们将其切换成手动，然后填上 Charles 运行所在的电脑的 IP，以及端口号 8888，如下图所示：<br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011110559991-1940721421.png"></p>
+<p>设置好之后，我们打开 iPhone 上的任意需要网络通讯的程序，就可以看到 Charles 弹出 iPhone 请求连接的确认菜单（如下图所示），点击 “Allow” 即可完成设置。<br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011110627318-260299935.png"></p>
+<h2 id="截取-Https-通讯信息"><a href="#截取-Https-通讯信息" class="headerlink" title="截取 Https 通讯信息"></a>截取 Https 通讯信息</h2><h3 id="安装证书"><a href="#安装证书" class="headerlink" title="安装证书"></a>安装证书</h3><ul>
+<li>如果你需要截取分析 Https 协议相关的内容。那么需要安装 Charles 的 CA 证书。<br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011111252792-776721340.png"></li>
+<li>出现弹窗得到地址 <a target="_blank" rel="noopener" href="http://charlesproxy.com/getssl">http://charlesproxy.com/getssl</a><br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011111313565-1508901176.png"></li>
+<li>在手机浏览器输入<a target="_blank" rel="noopener" href="http://charlesproxy.com/getssl%E5%9C%B0%E5%9D%80%EF%BC%8C%E5%87%BA%E7%8E%B0%E5%AE%89%E8%A3%85%E8%AF%81%E4%B9%A6%E9%A1%B5%E9%9D%A2%EF%BC%8C%E7%82%B9%E5%87%BB%E5%AE%89%E8%A3%85">http://charlesproxy.com/getssl地址，出现安装证书页面，点击安装</a><br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011111335310-1282865147.png"><br>注意：IOS 10以上系统，需要在 设置-&gt;通用-&gt;关于本机-&gt;证书信任设置里启用完全信任的Charels证书<br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011111404695-1918839938.png"></li>
+</ul>
+<h3 id="Charels-设置-Proxy"><a href="#Charels-设置-Proxy" class="headerlink" title="Charels 设置 Proxy"></a>Charels 设置 Proxy</h3><p>Proxy -&gt; SSL Proxying Settings…勾选Enable SSL Proxying，点击Add<br>Host设置要抓取的https接口，比如想抓：<a target="_blank" rel="noopener" href="https://www.baidu.com/%EF%BC%88%E5%BD%93Host%E4%B8%BA">https://www.baidu.com/（当Host为</a> *，默认抓取全部https请求 ）<br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011111513113-1999768517.png"><br>注意： 不抓包时请关闭手机HTTP代理，否则断开与电脑连接后会造成无法上网的情况</p>
+<p>然后抓包即可</p>
+<h2 id="模拟慢速网络"><a href="#模拟慢速网络" class="headerlink" title="模拟慢速网络"></a>模拟慢速网络</h2><p>在做移动开发的时候，我们常常需要模拟慢速网络或者高延迟的网络，以测试在移动网络下，应用的表现是否正常。Charles 对此需求提供了很好的支持。</p>
+<p>在 Charles 的菜单上，选择 “Proxy”–&gt;“Throttle Setting” 项，在之后弹出的对话框中，我们可以勾选上 “Enable Throttling”（节流调节），并且可以设置 Throttle Preset 的类型。如下图所示：<br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011112214152-600197663.png"><br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011112340705-1749801402.png"><br>如果我们只想模拟指定网站的慢速网络，可以再勾选上图中的 “Only for selected hosts” 项，然后在对话框的下半部分设置中增加指定的 hosts 项即可。</p>
+<h2 id="修改网络请求内容"><a href="#修改网络请求内容" class="headerlink" title="修改网络请求内容"></a>修改网络请求内容</h2><p>有些时候为了调试服务器的接口，我们需要反复尝试不同参数的网络请求。Charles 可以方便地提供网络请求的修改和重发功能。只需要在以往的网络请求上点击右键，选择 “Compose”，即可创建一个可编辑的网络请求。如下所示：<br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011113100028-1124530053.png"><br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011113120290-344342693.png"><br>PS:现在看到Compose功能并不会把原来请求的参数带出来，需要自己添加参数，觉得不是很方便，直接带出原来的参数给修改会更方便一些。</p>
+<h2 id="给服务器做压力测试"><a href="#给服务器做压力测试" class="headerlink" title="给服务器做压力测试"></a>给服务器做压力测试</h2><p>我们可以使用 Charles 的 Repeat 功能来简单地测试服务器的并发处理能力，方法如下。</p>
+<p>我们在想打压的网络请求上（POST 或 GET 请求均可）右击，然后选择 「Repeat Advanced」菜单项，如下所示：<br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011113624938-694916397.png"></p>
+<p>接着我们就可以在弹出的对话框中，选择打压的并发线程数以及打压次数，确定之后，即可开始打压。<br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011113638683-476024712.png"></p>
+<p>PS：悄悄说一句，一些写得很弱的投票网站，也可以用这个办法来快速投票。当然，我也拿 Charles 的 Repeat 功能给一些诈骗的钓鱼网站喂了不少垃圾数据，上次不小心还把一个钓鱼网站的数据库打挂了，嗯，请叫我雷锋。</p>
+<h2 id="修改服务器返回内容"><a href="#修改服务器返回内容" class="headerlink" title="修改服务器返回内容"></a>修改服务器返回内容</h2><p>有些时候我们想让服务器返回一些指定的内容，方便我们调试一些特殊情况。例如列表页面为空的情况，数据异常的情况，部分耗时的网络请求超时的情况等。如果没有 Charles，要服务器配合构造相应的数据显得会比较麻烦。这个时候，使用 Charles 相关的功能就可以满足我们的需求。</p>
+<p>根据具体的需求，Charles 提供了 Map 功能、 Rewrite 功能以及 Breakpoints 功能，都可以达到修改服务器返回内容的目的。这三者在功能上的差异是：<br>Map 功能适合长期地将某一些请求重定向到另一个网络地址或本地文件。</p>
+<p>Rewrite 功能适合对网络请求进行一些正则替换。</p>
+<p>Breakpoints 功能适合做一些临时性的修改。</p>
+<h3 id="Map-功能"><a href="#Map-功能" class="headerlink" title="Map 功能"></a>Map 功能</h3><p>Charles 的 Map 功能分 Map Remote 和 Map Local 两种，顾名思义，Map Remote 是将指定的网络请求重定向到另一个网址请求地址，Map Local 是将指定的网络请求重定向到本地文件。<br>在 Charles 的菜单中，选择 “Tools”–&gt;“Map Remote” 或 “Map Local” 即可进入到相应功能的设置页面。<br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011114038453-1437754606.png"><br>对于 Map Remote 功能，我们需要分别填写网络重定向的源地址和目的地址，对于不需要限制的条件，可以留空。下图是一个示例，我将所有ytk1.yuanku.ws（测试服务器）的请求重定向到了 <a target="_blank" rel="noopener" href="http://www.yuantiku.com(线上服务器)./">www.yuantiku.com（线上服务器）。</a><br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011114218446-789653030.png"><br>对于 Map Local 功能，我们需要填写的重定向的源地址和本地的目标文件。对于有一些复杂的网络请求结果，我们可以先使用 Charles 提供的 “Save Response…” 功能，将请求结果保存到本地（如下图所示），然后稍加修改，成为我们的目标映射文件。<br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011114246731-1649385249.png"></p>
+<h3 id="Rewrite-功能"><a href="#Rewrite-功能" class="headerlink" title="Rewrite 功能"></a>Rewrite 功能</h3><p>Rewrite功能适合对某一类网络请求进行一些正则替换，以达到修改结果的目的。<br>可以重写接口所有元素的内容：header、host、url、path、query param、response status、body。</p>
+<p><strong>具体操作如下：</strong><br>1.点击Charles菜单栏Tools中的Rewrite，<br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011122018586-766953085.png"><br>2.弹出Rewrite Settings框，勾选左上角的Enable Rewrite选项，并点击Add，左侧边框出现Untitled Set，在右侧的Name栏可以对此次的Rewrite进行重命名。<br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011122018581-1126440709.png"><br>3.在右侧Location栏点击Add，在弹出的Edit Location对话框中，填入相关参数，最后点击OK<br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011114635745-1173540315.png"><br>4.接着，在右侧Rules栏点击Add，在弹出的Rewrite Rule对话框中，填入相关参数，最后点击OK<br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011115017872-436567346.png"></p>
+<p><strong>一、修改接口返回报文参数</strong><br>作用：对请求的响应内容做修改，一般是对某一个或几个值进行rewrite，用新的值来替代返回的值。<br>使用场景：可以用来mock数据，比方说在开发中为了测试功能需要请求的某个数组字段有值，但是当前环境无法给出，那么就可以使用该功能。<br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011115058412-1051380549.png"><br>会将返回数据中的2018-08-05全部替换成2018-08-03。<br><strong>二、修改请求的header</strong><br>作用：可以对请求或者响应的header内容进行操作，包括添加、修改及删除。<br>使用场景：在需要对header进行处理时用到，例如为了用上某个环境数据，可能需要对应userid，这时本地开发是可以在请求的header中加上userid信息；也可以重写响应header的信息。<br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011115204372-643675609.png"><br>会在请求的header中添加userid属性。<br>注：Match栏的name和value值如果不填会匹配所有的请求，如果有值，则去匹配有改键值的请求。<br><strong>三、修改path</strong><br>主要rewrite path内容使用指定rewrite规则的path来响应指定的请求path，它可以对path进行裁剪。<br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011115314100-1614836023.png"><br>请求的结果如下：<br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011115327125-449617953.png"><br><strong>四、其他</strong></p>
+<ul>
+<li>host: 主要是对请求进行host修改，以达到本地请求获取指定host环境中的数据，常见于mock数据</li>
+<li>url: 作用：修改url中某些部分，可以用别的url进行替换或者url裁剪时间戳或者md5等<br>使用场景：场景使用非常多，既可以对host也可以对path进行rewrite，可以满足指定host下的请求重定向到其他host下对应path下</li>
+<li>query param:作用：可以对param进行操作，包括修改、添加、删除等<br>使用场景：有时请求可能多传递了不必要的参数，这时可以rewirte功能去掉多余的参数；另外也可以添加请求必须而暂时无法提供的参数</li>
+<li>response status: 很少用到，顾名思义就是对response的状态码进行rewrite</li>
+</ul>
+<h3 id="Breakpoints-功能"><a href="#Breakpoints-功能" class="headerlink" title="Breakpoints 功能"></a>Breakpoints 功能</h3><p>测试过程中经常需要测试不同的界面显示，比如名字太长、特殊符号显示，一方面可以通过修改源数据实现，比如数据库中修改电影名，但是这样的话首先比较麻烦，需要进行数据库操作；其次，修改完之后会影响其他人的工作。比较轻便的做法，则是通过charles修改服务器返回值实现。<br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011120107662-226264505.png"><br>假设有这样一个测试需求：测试豆瓣电影名显示。我们使用 charles 来操作一下。<br>1、打开 charles，勾选 macOS Proxy，网页请求 <a target="_blank" rel="noopener" href="https://movie.douban.com/">https://movie.douban.com/</a><br>如果是 https 的请求，需要先配置 https 证书。<br>页面显示如下：<br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011121027090-2057616339.png"><br>2、找到热门电影的接口，单击右键选中 “Breakpoints”<br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011121110432-1799148296.png"><br>3、再次请求该页面，该页面刷新后，热门电影区域显示空白，charles 首先弹出“请求”选择框，有 “Cancel”、“Abort”、“Execute” 三个选择，选择 “Execute”，让 charles 通过这次请求。<br>Cancel 表示取消，Abort 表示中止，Execute 表示执行<br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011121159243-1858509247.png"><br>4、接下来会触发 “响应” 选择框，点击 “Edit Response”，修改返回值，点击 “Execute”。<br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011121225615-232841547.png"><br>显示效果：<br><img src="https://img2020.cnblogs.com/blog/1725305/202010/1725305-20201011120852679-1693125413.png"><br><strong>Breakpoints 能够应用在 qa 环节的场景其实有很多，例如：</strong><br>在请求之前，修改参数，获取不同参数下的返回值，验证服务端逻辑<br>修改返回值的内容，包括长度，数据格式等，用于校验前端在一些边界情况下的展示<br>修改响应头，测试不同响应条件下，前端的展示情况（例如服务端报错500）<br>etc…</p>
+<h1 id="Charles功能总结"><a href="#Charles功能总结" class="headerlink" title="Charles功能总结"></a>Charles功能总结</h1><ul>
+<li>截取 Http 和 Https 网络封包。</li>
+<li>支持重发网络请求，方便后端调试。</li>
+<li>支持修改网络请求参数。</li>
+<li>支持网络请求的截获并动态修改。</li>
+<li>支持模拟慢速网络。</li>
+<li>Structure 视图将网络请求按访问的域名分类。</li>
+<li>Sequence 视图将网络请求按访问的时间排序。</li>
+<li>Map 功能适合长期地将某一些请求重定向到另一个网络地址或本地文件。</li>
+<li>Rewrite 功能适合对网络请求进行一些正则替换。</li>
+<li>Breakpoints 功能适合做一些临时性的修改。</li>
+</ul>
+<p><em>参考资料：</em><br><a target="_blank" rel="noopener" href="https://www.cnblogs.com/mawenqiangios/p/8270238.html">https://www.cnblogs.com/mawenqiangios/p/8270238.html</a><br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/92161068">https://zhuanlan.zhihu.com/p/92161068</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_33340749/article/details/80612480">https://blog.csdn.net/qq_33340749&#x2F;article&#x2F;details&#x2F;80612480</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/forebe/article/details/98945139">https://blog.csdn.net/forebe/article/details/98945139</a><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/82f48d5beee5">https://www.jianshu.com/p/82f48d5beee5</a></p>
+<p>本文转自 <a target="_blank" rel="noopener" href="https://www.cnblogs.com/Uni-Hoang/p/13796852.html">https://www.cnblogs.com/Uni-Hoang/p/13796852.html</a>，如有侵权，请联系删除。</p>
+
+                
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box">
+    <div class="suffix-box-left">
+        <img src="/image/sidebar/avatar.jpg" alt="Aspirai">
+    </div>
+    <div class="suffix-box-right">
+        <span class="suffix-box-title">文章作者：</span>Aspirai
+        <br>
+        <span class="suffix-box-title">文章出处：</span><a href="/2024/10/20/charles%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%EF%BC%8C%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E8%B6%B3%E5%A4%9F%E4%BA%86/" target="_blank">charles使用教程，这一篇就足够了</a>
+        <br>
+        <span class="suffix-box-title">作者签名：</span>时间带不走你眼中的光辉
+        <br>
+        <span class="suffix-box-title">版权声明：</span>文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+        <br>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+                
+                    <div class="category">
+                        分类：
+                        
+                            <a href="/category/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
+                        
+                    </div>
+                
+                
+                    <div class="tag">
+                        标签：
+                        
+                            <a href="/tag/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/">测试工具</a>
+                        
+                            <a href="/tag/Charles/">Charles</a>
+                        
+                    </div>
+                
+                <div class="article-prev-next">
+                    
+                        <a href="/2024/10/20/charles%20%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%8A%93%E5%8C%85%E2%80%94%E2%80%94%E9%85%8D%E7%BD%AE%E2%80%94%E2%80%94%E8%B6%85%E8%AF%A6%E7%BB%86_charles%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%8A%93%E5%8C%85-CSDN%E5%8D%9A%E5%AE%A2/" class="prev-prefix">« </a> 上一篇：    <a href="/2024/10/20/charles%20%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%8A%93%E5%8C%85%E2%80%94%E2%80%94%E9%85%8D%E7%BD%AE%E2%80%94%E2%80%94%E8%B6%85%E8%AF%A6%E7%BB%86_charles%E5%AE%89%E5%8D%93%E6%89%8B%E6%9C%BA%E6%8A%93%E5%8C%85-CSDN%E5%8D%9A%E5%AE%A2/" title="发布于 2024-10-20 09:25">charles 安卓手机抓包——配置——超详细_charles安卓手机抓包-CSDN博客</a>
+                        <br>
+                    
+                    
+                        <a href="/2024/10/20/charles%E8%AF%81%E4%B9%A6%E5%AE%89%E8%A3%85%EF%BC%8C%E4%B8%80%E6%AC%A1%E6%80%A7%E8%AF%B4%E6%98%8E%E7%99%BD/" class="next-prefix">» </a> 下一篇：    <a href="/2024/10/20/charles%E8%AF%81%E4%B9%A6%E5%AE%89%E8%A3%85%EF%BC%8C%E4%B8%80%E6%AC%A1%E6%80%A7%E8%AF%B4%E6%98%8E%E7%99%BD/" title="发布于 2024-10-20 09:25">charles证书安装，一次性说明白</a>
+                    
+                </div>
+            </div>
+            
+    <div class="article-comments">
+        
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+    
+ 
+        </div>
+    
+</div>
+    <div id="footer">
+    <div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>
+</div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar">
+                    <img src="/image/sidebar/avatar.jpg">
+                </div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user">
+                        
+                            <a href="javascript:;" target="_self"><span>Aspirai</span></a>
+                        
+                    </div>
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul>
+                    
+                        <li class=""><a href="/" class="" target="_self"><span class="iconfont icon-home-fill"></span>首页</a></li>
+                    
+                        <li class=""><a href="/category" class="" target="_self"><span class="iconfont icon-folder-fill"></span>分类</a></li>
+                    
+                        <li class=""><a href="/tag" class="" target="_self"><span class="iconfont icon-discount-fill"></span>标签</a></li>
+                    
+                        <li class=""><a href="/archive" class="" target="_self"><span class="iconfont icon-calendar-fill"></span>归档</a></li>
+                    
+                        <li class=""><a href="/friend" class="" target="_self"><span class="iconfont icon-link"></span>友情链接</a></li>
+                    
+                </ul> 
+            </div> 
+            <div class="menu-link">
+                <div class="box">
+                    <div class="image-box"></div>
+                </div>
+                
+                    <a name="QQ" href="javascript:;" class="image" target="_self" data="/image/sidebar/qq.png"><span class="iconfont icon-qq"></span></a>
+                
+            </div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="/css/search.css">
+<script type="text/javascript" src="/js/iscroll.js"></script>
+<script type="text/javascript" src="/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+    
+    <link type="text/css" rel="stylesheet" href="/css/APlayer.css">
+    <script type="text/javascript" src="/js/APlayer.min.js"></script>
+    <script type="text/javascript" src="/js/Meting.min.js"></script>
+    <script>
+        var meting_api = 'https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&auth=:auth&r=:r';
+    </script>
+    <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+
+    <div class="wrap-right">
+    <div class="wrap-right-hide">
+         <div class="wrap-right-button favorites">
+            <div class="iconbox" switch="false">
+                <span class="iconfont icon-favorites"></span>
+            </div>
+            <span class="icontext">关注</span>
+         </div>
+        <div class="wrap-right-button search">
+            <div class="iconbox">
+                <span class="iconfont icon-search-menu"></span>
+            </div>
+            <span class="icontext">搜索</span>
+        </div>
+        <div class="wrap-right-button menu-button">
+            <div class="iconbox">
+                <span class="iconfont icon-menu"></span>
+            </div>
+            <span class="icontext">菜单</span>
+        </div>
+        <div class="wrap-right-button mode">
+            <div class="light">
+                <div class="iconbox">
+                    <span class="iconfont icon-daymode"></span>
+                </div>
+                <span class="icontext">浅色模式</span>
+            </div>
+            <div class="dark">
+                <div class="iconbox">
+                    <span class="iconfont icon-nightmode-fill"></span>
+                </div>
+                <span class="icontext">深色模式</span>
+            </div>
+        </div>
+        <div class="wrap-right-button bottom">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">跳至底部</span>
+        </div>
+    </div>
+    <div class="wrap-right-show">
+        <div class="wrap-right-button set">
+            <div class="iconbox">
+                <span class="iconfont icon-setting"></span>
+            </div>
+            <span class="icontext">设置</span>
+        </div>
+        <div class="wrap-right-button top">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">返回顶部</span>
+        </div>
+    </div>
+</div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : "Aspirai",
+        GitHubRepositories : "Hexo-LiveForCode",
+
+        User             : "Aspirai",
+        UserAvatar       : "/image/sidebar/avatar.jpg",
+        WebsiteStartDate : "2020-01-01",
+        Home             : "",
+
+        WebsiteTitleBlur         : "(◍´꒳`◍) Hi, Aspirai",
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : "(*´∇｀*) 欢迎回来!",
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : {
+            light : "/image/website/logo/logo.png",
+            dark  : "/image/website/logo/logo-dark.png"
+        },
+
+        ProgressBar : {
+            id       : "topProgressBar",
+            color    : "#77B6FF",
+            height   : "2px",
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound : {
+                tension  : 16,
+                friction : 5
+            },
+            spinner : {
+                id     : "spinner",
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : "#F0F0F0",
+                    stroke     : "#272633",
+                    base       : "",
+                    child      : "#272633"
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : "rgba(255, 255, 255, .2)",
+            clearOffset : 0.3
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : "60%",
+            colorBrightness  : "50%",
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : "random",
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                "/image/header/home.jpg",
+            
+                "/image/header/home.png",
+            
+        ],
+        HomeBannerText  : "",
+
+        ArticleHeaderImage : [
+            
+                "/image/header/article.jpg",
+            
+        ],
+
+        OtherBannerText : "",
+
+        Error : {
+            icon    : "icon-swimming",
+            title   : "PAGE NOT FOUND",
+            content : [
+                
+                    "很抱歉，您访问的页面不存在！",
+                
+                    "可能是输入地址有误或该地址已变更。",
+                
+            ],
+            buttons : [
+                
+                    {
+                        icon  : "icon-home",
+                        text  : "返回首页",
+                        href  : "/",
+                        class : ""
+                    },
+                
+            ]
+        },
+
+        MenuNotice : {
+            enable : false,
+            notice : "简单地活着，肆意而又精彩！",
+            speed  : 20
+        },
+        MenuList : [
+            
+                {
+                    name   : "首页",
+                    icon   : "icon-home-fill",
+                    href   : "/",
+                    type   : "index",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "分类",
+                    icon   : "icon-folder-fill",
+                    href   : "/category",
+                    type   : "category",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "标签",
+                    icon   : "icon-discount-fill",
+                    href   : "/tag",
+                    type   : "tag",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "归档",
+                    icon   : "icon-calendar-fill",
+                    href   : "/archive",
+                    type   : "archive",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "友情链接",
+                    icon   : "icon-link",
+                    href   : "/friend",
+                    type   : "friend",
+                    class  : "",
+                    target : "_self"
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        name   : "QQ",
+                        icon   : "icon-qq",
+                        href   : "javascript:;",
+                        class  : "image",
+                        target : "_self",
+                        image  : "/image/sidebar/qq.png"
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : "<div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>",
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                "Based on cnblogs theme SimpleMemory.",
+                            
+                                "",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "SimpleMemory Author:",
+                            
+                                "BNDong",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "Theme:",
+                            
+                                "LiveForCode",
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : "",
+
+        Donate : {
+            paypal  : "",
+            bitcoin : "",
+            alipay  : "/image/donate/alipay.png",
+            wechat  : "/image/donate/wechat.png"
+        },
+
+        Search : {
+            applicationID : "010C3EANT8",
+            apiKey        : "c7abab9f11b79102b9aff7fe6d41447d",
+            indexName     : "Notes",
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : "搜索",
+                empty       : "未发现与 「${query}」 相关的内容",
+                stats       : "${hits} 条相关条目，使用了 ${time} 毫秒",
+            }
+        }, 
+
+        Comment : {
+            switch : true,
+            type   : "Valine",
+        },
+
+        Waline : {
+            el              : ".comments-content",
+            serverURL       : "",
+            path            : window.location.pathname,
+            meta            : "['nick', 'mail', 'link']",
+            requiredMeta    : "['nick', 'mail']",
+            pageSize        : 10,
+            lang            : "zh-cn",
+            locale: {
+                admin       : "博主",
+                anonymous   : "匿名用户",
+                sofa        : "快来做第一个评论的人吧 ~",
+                placeholder : "你是我一生只会遇见一次的惊喜...",
+            },
+            dark            : "html[color-scheme='dark']",
+            search          : false,
+            pageview        : true,
+            comment         : true,
+            copyright       : false,
+        },
+
+        Valine : {
+            el             : ".comments-content",
+            appId          : "srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz",
+            appKey         : "8uVSP1q6UlALVC5igYfIfv2h",
+            serverURLs     : "",
+            placeholder    : "你是我一生只会遇见一次的惊喜...",
+            avatar         : "mm",
+            meta           : "nick,mail,link",
+            requiredFields : "nick,mail",
+            pageSize       : 5,
+            lang           : "zh-cn",
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : ".toc",
+            contentSelector       : ".article-body",
+            headingSelector       : "h1, h2, h3, h4, h5",
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : ".toc",
+            positionFixedClass    : "toc-fixed",
+            fixedSidebarOffset    : "",
+        },
+
+        Require : {
+            baseUrl     : "/js/",
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : "Meting"
+        },
+        APlayer : {
+            container : ".aplayer",
+            fixed     : true,
+            autoplay  : false,
+            loop      : "all",
+            order     : "random",
+            preload   : "auto",
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : "Endless Tears",
+                        artist : "CLIFF EDGE",
+                        cover  : "/music/cover/Endless Tears.jpg",
+                        url    : "/music/song/Endless Tears.mp3",
+                        lrc    : "/music/lrc/Endless Tears.lrc"
+                    },
+                
+            ]
+        },
+        Meting : {
+            api      : "https://api.i-meto.com/meting/api",
+            id       : "3778678", 
+            lrcshow  : false, 
+            server   : "netease", 
+            type     : "playlist", 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : "all", 
+            order    : "random", 
+            preload  : "auto", 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : true,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : "/image/website/lazyload.svg"
+        },
+  
+        Style : {
+            aplayer          : "/css/APlayer.css",
+            archive          : "/css/archive.css",
+            base             : "/css/base.css",
+            clipboard        : "/css/clipboard.css",
+            code             : "/css/code.css",
+            donate           : "/css/donate.css",
+            fancybox         : "/css/jquery.fancybox.css",
+            footer           : "/css/footer.css",
+            iconfont         : "/iconfont/iconfont.css",
+            index            : "/css/index.css",
+            menuBubble       : "/css/menu-bubble.css",
+            mouse            : "/css/mouse.css",
+            page             : "/css/page.css",
+            post             : "/css/post.css",
+            search           : "/css/search.css",
+            tocbot           : "/css/tocbot.css",
+            valine           : "/css/valine.css",
+            waline           : "/css/waline.css",
+            walineCustom     : "/css/waline-custom.css"
+        },
+
+        Script: {
+            aplayer          : "/js/APlayer.min.js",
+            config           : "/js/require.config.js",
+            index            : "/js/index.js",
+            instantSearch    : "/js/instantsearch.min.js",
+            iscroll          : "/js/iscroll.js",
+            jQuery           : "/js/jquery-3.4.1.min.js",
+            loading          : "/js/loading.js",
+            meting           : "/js/Meting.min.js",
+            require          : "/js/require.min.js",
+            waline           : "/js/waline.mjs",
+            pageview         : "/js/pageview.mjs",
+            comment          : "/js/comment.mjs",
+        },
+
+        Font: {
+            LongCang    : "/font/LongCang.css",
+            Monda       : "/font/Monda.css",
+            NotoSansSC  : "/font/NotoSansSC.css",
+            NotoSerifSC : "/font/NotoSerifSC.css",
+            Playball    : "/font/Playball.css",
+            PTMono      : "/font/PTMono.css",
+            Roboto      : "/font/Roboto.css",
+            RobotoSlab  : "/font/RobotoSlab.css",
+            Rosario     : "/font/Rosario.css",
+            UbuntuMono  : "/font/UbuntuMono.css"
+        },
+
+        Suffix : {
+            about : "时间带不走你眼中的光辉"
+        },
+            
+        Theme : {
+            url  : "https://github.com/first19326/Hexo-LiveForCode",
+            name : "Hexo - Live For Code"
+        }  
+    };
+</script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</body>
+</html>

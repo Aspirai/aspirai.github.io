@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>
+        
+            构建响应式布局，CSS该有的视角--CSS篇（二）本文介绍了传统布局的缺陷，探讨了两种响应式设计的解决方案：一是：rem - 掘金
+        
+    </title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSerifSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="/font/Roboto.css">
+    <link type="text/css" rel="stylesheet" href="/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="/css/base.css">
+    <link type="text/css" rel="stylesheet" href="/css/code.css">
+
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <a id="cover"></a>
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
+<div id="header" class="header">
+    <div class="vertical">
+        <div class="inner">
+            
+                <h1 class="header-subtitle">构建响应式布局，CSS该有的视角--CSS篇（二）本文介绍了传统布局的缺陷，探讨了两种响应式设计的解决方案：一是：rem - 掘金</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2024-10-20
+                        </span>
+                        
+                            
+                                <span id="/2024/10/20/构建响应式布局，CSS该有的视角--CSS篇（二）本文介绍了传统布局的缺陷，探讨了两种响应式设计的解决方案：一是：rem - 掘金/" class="leancloud_visitors" data-flag-title="构建响应式布局，CSS该有的视角--CSS篇（二）本文介绍了传统布局的缺陷，探讨了两种响应式设计的解决方案：一是：rem - 掘金">
+                                    <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                                </span>
+                            
+                            
+                                <span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/10/20/构建响应式布局，CSS该有的视角--CSS篇（二）本文介绍了传统布局的缺陷，探讨了两种响应式设计的解决方案：一是：rem - 掘金/"></span>
+                                </span>
+                              
+                        
+                    </p>
+                    
+                        
+                            <span class="category-color">前端开发</span>
+                        
+                    
+                    
+                        
+                            <span class="tag-color">HTML-CSS</span>
+                        
+                    
+                </div>
+            
+        </div>
+    </div>
+    
+</div>
+<div id="container">
+    
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <h3 id="传统布局的缺陷"><a href="#传统布局的缺陷" class="headerlink" title="传统布局的缺陷"></a>传统布局的缺陷</h3><p>在网页设计中，各元素的相对位置影响着整体页面的美观。为了方便用户使用，许多产品的官网都会开发PC端和手机端。但是，传统的布局设计不足以满足市面上形形色色的电子设备，导致一个页面在不同设备上显示的效果天差地别。难道我们要为每一种不同的设备打造不同的网页吗？显然这么做是不明智的。</p>
+<p>传统的布局采用<code>px</code>作为单位描述元素的几何属性，例如长、宽、高等等。这么写在许多地方会有问题，可以看看下面的例子。</p>
+<p><a href="https://link.juejin.cn/?target="><img src="https://p3-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/63b11427149946ed84428953a4f91c08~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTm92YWxpYw==:q75.awebp?rk3s=f64ab15b&x-expires=1728269324&x-signature=mQD2JOe4ecU1LfOkefmVy3LWII4=" alt="image.png"></a> <a href="https://link.juejin.cn/?target="><img src="https://p3-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/31bb866e20004a2db4c2b4357b9f7cfd~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTm92YWxpYw==:q75.awebp?rk3s=f64ab15b&x-expires=1728269324&x-signature=p7G9y6fMhJX3YuyEgbeCNNVS0nI=" alt="image.png"></a></p>
+<p>这是一个简单的天气预报例子，使用的是<code>px</code>作为单位。在设备是iPhone6&#x2F;7&#x2F;8的情况下，页面元素的布局还算协调。但是换成iPad Pro，效果就极其拉跨。</p>
+<p>为了解决这个布局，我们需要采用<strong>响应式布局</strong>，让页面元素的几何属性响应不同设备屏幕的几何属性。</p>
+<h2 id="响应式设计"><a href="#响应式设计" class="headerlink" title="响应式设计"></a>响应式设计</h2><p>在响应式设计当中，<code>rem</code>和<code>em</code>是重要的工具之一。在此基础上，我们还需要提供<code>媒体查询</code>的手段来识别用户设备屏幕属性，以便动态设置上级元素字体大小。</p>
+<h3 id="一、认识rem和em"><a href="#一、认识rem和em" class="headerlink" title="一、认识rem和em"></a>一、认识rem和em</h3><p>响应式布局，简单来说，就是利用父元素属性影响子元素属性的特性。采用一个弹性单位，使得我们改变根元素（通常是html标签）的某些数据就能够影响下面所有子元素的几何属性。</p>
+<p>在响应式设计中，<code>rem</code>和<code>em</code>是两个重要的单位。</p>
+<p><code>rem</code>全称是root em，用来描述子元素属性是相对于根元素字体大小。例如根元素字体大小为20px，如果某个子元素宽度为1rem，那么表示子元素宽度实际为20px。</p>
+<p><code>em</code>表明子元素属性是相对于父元素，这常常用于父子元素之间相对属性需要严格绑定的场景。例如显示文章的场景，让文章标题和正文的字体能够根据父元素的大小自动调整。看下面一个例子：</p>
+<p><a href="https://link.juejin.cn/?target="><img src="https://p3-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/ca2a9429ac8742119cadb88c79a7ee68~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTm92YWxpYw==:q75.awebp?rk3s=f64ab15b&x-expires=1728269324&x-signature=1kqaH28pMo6g+XjVWNgeW5/bf8c=" alt="image.png"></a> <a href="https://link.juejin.cn/?target="><img src="https://p3-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/d4e7aa66991c46df977a329074eac4f1~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTm92YWxpYw==:q75.awebp?rk3s=f64ab15b&x-expires=1728269324&x-signature=P2YsrmzN4r5FEp7Ned2D6U9sLfU=" alt="image.png"></a></p>
+<p>这里的标题和段落字体大小虽然同步变化，但是字体的大小不适应屏幕的变化。这是因为我们还不能识别用户设备屏幕宽度，可以考虑<strong>CSS的媒体查询或JS实现</strong>。</p>
+<blockquote>
+<p>既然是考虑灵活的布局方式，在适当的地方使用<code>%</code>单位也是一个明智的选择。</p>
+</blockquote>
+<h3 id="二、媒体查询"><a href="#二、媒体查询" class="headerlink" title="二、媒体查询"></a>二、媒体查询</h3><p>媒体查询是一种CSS功能，开发者可以针对不同的设备制定不同的样式规则。</p>
+<h5 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h5><p>媒体查询的基本语法如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//参数为条件，例如max-width : 800px</span><br><span class="line">@media not|only mediatype and (expressions) &#123;</span><br><span class="line">  //CSS代码</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中mediatype可以省略，默认是为screen expression是一组表达式，用于指定媒体查询生效的条件。</p>
+<h5 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h5><p>假设我们需要针对不同屏幕来应用不同的样式，可以这样写：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">/* 默认样式 */</span><br><span class="line">html &#123;</span><br><span class="line">  font-size: 16px; /* 默认字体大小 */</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 当屏幕宽度小于等于 600px 时 */</span><br><span class="line">@media (max-width: 600px) &#123;</span><br><span class="line">  html &#123;</span><br><span class="line">    font-size: 14px; /* 减小字体大小 */</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">/* 当屏幕宽度大于等于 900px 时 */</span><br><span class="line">@media (min-width: 900px) &#123;</span><br><span class="line">  html &#123;</span><br><span class="line">    font-size: 18px; /* 增加字体大小 */</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在这个例子中，我们定义了三个场景：</p>
+<ul>
+<li>默认情况下，字体大小 16 px</li>
+<li>屏幕宽度 <code>&lt;=600</code> px 字体大小变为 14 px</li>
+<li>屏幕宽度 <code>&gt;=900</code> px 字体大小变为 18 px</li>
+</ul>
+<h5 id="结合rem"><a href="#结合rem" class="headerlink" title="结合rem"></a>结合rem</h5><p><code>rem</code>+媒体查询是实现响应式布局的一个常用方案。一般来说，以下央视推荐放入媒体查询：</p>
+<ol>
+<li>字体大小</li>
+<li>间距</li>
+<li>布局元素的高度和宽度</li>
+<li>图片的宽度</li>
+<li>元素的可见性</li>
+</ol>
+<p>上面天气预报的例子部分样式代码长这样：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//预报框</span><br><span class="line">.group&#123;</span><br><span class="line">    height: 80px;</span><br><span class="line">    line-height: 40px;</span><br><span class="line">    /* rgba(245, 242, 242, 0.3) */</span><br><span class="line">    background-image:repeating-linear-gradient(to right,#404222,#98adad)       ;</span><br><span class="line">    font-size: 13px;</span><br><span class="line">    padding: 0 10px;</span><br><span class="line">    margin-bottom: 10px;</span><br><span class="line">    border-radius: 5px;</span><br><span class="line">    position: relative;</span><br><span class="line">    opacity: 0.8;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>也就是这个界面： <img src="https://p3-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/4bf754b17bf141c38a0ea4054d9372d5~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTm92YWxpYw==:q75.awebp?rk3s=f64ab15b&x-expires=1728269324&x-signature=2UPcYyKWEsm6TelL4OvBku3kYxk=" alt="image.png"></p>
+<p>我们采用rem+媒体查询的方式改写代码后：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">@media (min-width: 768px) &#123; /* 对于较大的屏幕 */</span><br><span class="line">  html &#123;</span><br><span class="line">    /*设置根字体大小*/</span><br><span class="line">    font-size: 40px; </span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  .group &#123;</span><br><span class="line">    height: 4rem;</span><br><span class="line">    line-height: 2rem; </span><br><span class="line">    background-image: repeating-linear-gradient(to right, #404222, #98adad);</span><br><span class="line">    font-size: 0.65rem; </span><br><span class="line">    padding: 0 0.5rem; </span><br><span class="line">    margin-bottom: 0.5rem; </span><br><span class="line">    border-radius: 0.25rem; </span><br><span class="line">    position: relative;</span><br><span class="line">    opacity: 0.8;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  .temp &#123;</span><br><span class="line">    font-size: 0.65rem; </span><br><span class="line">    display: block;</span><br><span class="line">    margin: 0;</span><br><span class="line">    color: rgb(255, 255, 255);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">@media (max-width: 767px) &#123; /* 对于较小的屏幕 */</span><br><span class="line">  html &#123;</span><br><span class="line">    font-size: 20px; </span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  .group &#123;</span><br><span class="line">    height: 4rem;</span><br><span class="line">    line-height: 2rem; </span><br><span class="line">    background-image: repeating-linear-gradient(to right, #404222, #98adad);</span><br><span class="line">    font-size: 0.65rem; </span><br><span class="line">    padding: 0 0.5rem; </span><br><span class="line">    margin-bottom: 0.5rem; </span><br><span class="line">    border-radius: 0.25rem; </span><br><span class="line">    position: relative;</span><br><span class="line">    opacity: 0.8;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  .temp &#123;</span><br><span class="line">    font-size: 0.65rem; </span><br><span class="line">    display: block;</span><br><span class="line">    margin: 0;</span><br><span class="line">    color: rgb(255, 255, 255);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://p3-xtjj-sign.byteimg.com/tos-cn-i-73owjymdk6/fa82292139fd43d19d7a1623ff6518de~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAgTm92YWxpYw==:q75.awebp?rk3s=f64ab15b&x-expires=1728269324&x-signature=Kzo8L4hUKzDJxrxENDCb1gLiQes=" alt="image.png"></p>
+<p>这里的字体大小实际为26px，如果不使用媒体查询，那么将默认所有设备都一致，采用默认字体大小16px。</p>
+<p>在一般情况下，媒体查询中我们会写入需要响应式布局的元素属性，同时还会在全局提供一份默认样式，默认样式包含所有需要用到的样式。</p>
+<p>媒体查询能够覆盖全局的默认样式。</p>
+<blockquote>
+<p>在实际项目中，通常会选择一些标准的断点值来适配常见的设备尺寸，例如320px、480px、768px、1024px等。此外，为了提高代码的可维护性，还将常用的断点值定义为CSS变量或者使用预处理器（如Sass）来管理这些值。</p>
+</blockquote>
+<h3 id="三、JS实现响应式布局"><a href="#三、JS实现响应式布局" class="headerlink" title="三、JS实现响应式布局"></a>三、JS实现响应式布局</h3><p>rem+媒体查询的方式的确实是十分简单，但是对于断点的选择，也就是媒体查询的条件是一个不小的问题。如果我们想实现更具细粒度的响应式布局，那么单纯的CSS就满足不了需求。</p>
+<p>我们需要考虑JS的方式来实现响应式布局。</p>
+<p>具体思路：</p>
+<ul>
+<li>获取用户设备屏幕宽度</li>
+<li>按比例计算出对应根字体大小</li>
+<li>使用rem编写css</li>
+</ul>
+<p>可以看到这个方法也十分简单，核心就是获取用户屏幕宽度，通过比例设置根字体大小。不过既然是动态的获取，我们还需要添加<code>DOMContentLoaded</code>事件。</p>
+<p>具体代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//实现js读取当前用户屏幕宽度 设置根字体大小</span><br><span class="line">(function(doc)&#123;</span><br><span class="line">    //根节点</span><br><span class="line">    let docEl = doc.documentElement;</span><br><span class="line">    //设置时机 DOM结构加载完毕</span><br><span class="line">    doc.addEventListener(&#x27;DOMContentLoaded&#x27;,recalc)</span><br><span class="line">    function recalc() &#123;</span><br><span class="line">        //获取设备宽度 window上没有clientWidth 不带边框 offsetWidth 带边框的宽度</span><br><span class="line">        let width = docEl.clientWidth;</span><br><span class="line">        //设置docEl的字体大小</span><br><span class="line">        docEl.style.fontSize = 20 * (width/320) + &#x27;px&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;)(document)//文档对象</span><br></pre></td></tr></table></figure>
+
+<p>实现这样一个小功能十分简单，但是却可以得到十分高效完美的体验。</p>
+<p>对于CSS部分，我们只需要在编写全局样式时使用rem作为单位即可。</p>
+<h5 id="lib-flexible插件"><a href="#lib-flexible插件" class="headerlink" title="lib-flexible插件"></a>lib-flexible插件</h5><p><code>lib-flexible</code>插件能够解决移动端的适配问题。</p>
+<h6 id="1-引入"><a href="#1-引入" class="headerlink" title="1.引入"></a>1.引入</h6><p>在项目的入口文件（main.js）中引入即可使用。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm i lib-flexible --save</span><br></pre></td></tr></table></figure>
+
+<p>如果使用的是commonJS模块化，可以这样做：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">require(&#x27;lib-flexible/flexible&#x27;)</span><br></pre></td></tr></table></figure>
+
+<h6 id="2-原理"><a href="#2-原理" class="headerlink" title="2.原理"></a>2.原理</h6><p><code>lib-flexible</code>的核心思想是基于屏幕宽度动态设置根字体的大小，通常会将字体大小设置为屏幕的1&#x2F;10。</p>
+<h6 id="3-结合PostCSS"><a href="#3-结合PostCSS" class="headerlink" title="3.结合PostCSS"></a>3.结合PostCSS</h6><p>如果觉得直接在样式中使用rem不方便阅读，还可以考虑另一个插件系统：<a href="https://link.juejin.cn/?target=https://postcss.org/" title="https://postcss.org/">PostCSS</a>。它用于处理CSS代码。我们考虑使用其内部的<code>postcss-px-to-viewport</code>，这是一个将<code>px</code>单位自动转换为<code>rem</code>的插件。</p>
+<ul>
+<li>安装</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install postcss-px-to-viewport --save-dev</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>配置PostCSS 在项目的根目录创建或者修改postcss.config.js文件：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">module.exports = &#123;</span><br><span class="line">  plugins: &#123;</span><br><span class="line">    &#x27;postcss-px-to-viewport&#x27;: &#123;</span><br><span class="line">      viewportWidth: 375, // 视口宽度，对应设计稿的宽度</span><br><span class="line">      unitPrecision: 5, // 转换后的精度，即小数点位数</span><br><span class="line">      viewportUnit: &#x27;rem&#x27;, // 希望转换后的单位</span><br><span class="line">      selectorBlackList: [&#x27;.ignore-&#x27;], // 可以忽略某些样式</span><br><span class="line">      minPixelValue: 1, // 小于或等于1px则不转换为rem</span><br><span class="line">      mediaQuery: false, // 是否在媒体查询的css代码中也转换px为rem</span><br><span class="line">      replace: true, // 是否转换后删除原样式</span><br><span class="line">      exclude: undefined, // 可以设定忽略某些文件夹下的文件，例如&#x27;node_modules&#x27;</span><br><span class="line">      include: undefined, // 包含某些文件夹下的文件，例如&#x27;app&#x27;</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>如此一来，我们可以按照传统编写css的方式写，利用lib-flexible+postcss，轻松实现移动端的适配。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>上面分享了<code>rem+媒体查询</code>和<code>JS+插件</code>两种实现响应式布局的方式，再来进行一次简单对比：</p>
+<h5 id="1-使用场景"><a href="#1-使用场景" class="headerlink" title="1.使用场景"></a>1.使用场景</h5><ul>
+<li><code>rem</code>单位 + 媒体查询</li>
+</ul>
+<p>需要根据设备屏幕大小调整字体大小和其他元素时。</p>
+<p>只需要简单动态的响应式布局时。</p>
+<ul>
+<li><code>lib-flexible</code> + <code>PostCS</code></li>
+</ul>
+<p>需要高度的动态响应式布局，如像素适配等。</p>
+<p>大型项目，需要自动计算和换算单位。</p>
+<h5 id="2-优缺点"><a href="#2-优缺点" class="headerlink" title="2.优缺点"></a>2.优缺点</h5><ul>
+<li><p><code>rem</code>单位 + 媒体查询</p>
+<ul>
+<li><p>优点：</p>
+<p>直观且利于理解，设备的针对性强，不依赖于第三方库。</p>
+</li>
+<li><p>缺点：</p>
+<p>断点频繁时，代码冗杂。</p>
+</li>
+</ul>
+</li>
+<li><p><code>lib-flexible</code> + <code>PostCS</code></p>
+<ul>
+<li><p>优点：</p>
+<p>自动化程度高，适配效果好。</p>
+</li>
+<li><p>缺点：</p>
+<p>额外的工具学习成本，某些情况下会过度适配。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>转载自掘金</p>
+
+                
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box">
+    <div class="suffix-box-left">
+        <img src="/image/sidebar/avatar.jpg" alt="Aspirai">
+    </div>
+    <div class="suffix-box-right">
+        <span class="suffix-box-title">文章作者：</span>Aspirai
+        <br>
+        <span class="suffix-box-title">文章出处：</span><a href="/2024/10/20/%E6%9E%84%E5%BB%BA%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80%EF%BC%8CCSS%E8%AF%A5%E6%9C%89%E7%9A%84%E8%A7%86%E8%A7%92--CSS%E7%AF%87%EF%BC%88%E4%BA%8C%EF%BC%89%E6%9C%AC%E6%96%87%E4%BB%8B%E7%BB%8D%E4%BA%86%E4%BC%A0%E7%BB%9F%E5%B8%83%E5%B1%80%E7%9A%84%E7%BC%BA%E9%99%B7%EF%BC%8C%E6%8E%A2%E8%AE%A8%E4%BA%86%E4%B8%A4%E7%A7%8D%E5%93%8D%E5%BA%94%E5%BC%8F%E8%AE%BE%E8%AE%A1%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%EF%BC%9A%E4%B8%80%E6%98%AF%EF%BC%9Arem%20-%20%E6%8E%98%E9%87%91/" target="_blank">构建响应式布局，CSS该有的视角--CSS篇（二）本文介绍了传统布局的缺陷，探讨了两种响应式设计的解决方案：一是：rem - 掘金</a>
+        <br>
+        <span class="suffix-box-title">作者签名：</span>时间带不走你眼中的光辉
+        <br>
+        <span class="suffix-box-title">版权声明：</span>文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+        <br>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+                
+                    <div class="category">
+                        分类：
+                        
+                            <a href="/category/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
+                        
+                    </div>
+                
+                
+                    <div class="tag">
+                        标签：
+                        
+                            <a href="/tag/HTML-CSS/">HTML-CSS</a>
+                        
+                    </div>
+                
+                <div class="article-prev-next">
+                    
+                        <a href="/2024/10/20/%E5%AD%97%E4%BD%93%E5%9B%BE%E6%A0%87/" class="prev-prefix">« </a> 上一篇：    <a href="/2024/10/20/%E5%AD%97%E4%BD%93%E5%9B%BE%E6%A0%87/" title="发布于 2024-10-20 09:20">字体图标</a>
+                        <br>
+                    
+                    
+                        <a href="/2024/10/20/%E7%B1%BB%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%A1%86%E6%95%88%E6%9E%9C/" class="next-prefix">» </a> 下一篇：    <a href="/2024/10/20/%E7%B1%BB%E5%BE%AE%E4%BF%A1%E8%81%8A%E5%A4%A9%E6%A1%86%E6%95%88%E6%9E%9C/" title="发布于 2024-10-20 09:20">类微信聊天框效果</a>
+                    
+                </div>
+            </div>
+            
+    <div class="article-comments">
+        
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+    
+ 
+        </div>
+    
+</div>
+    <div id="footer">
+    <div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>
+</div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar">
+                    <img src="/image/sidebar/avatar.jpg">
+                </div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user">
+                        
+                            <a href="javascript:;" target="_self"><span>Aspirai</span></a>
+                        
+                    </div>
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul>
+                    
+                        <li class=""><a href="/" class="" target="_self"><span class="iconfont icon-home-fill"></span>首页</a></li>
+                    
+                        <li class=""><a href="/category" class="" target="_self"><span class="iconfont icon-folder-fill"></span>分类</a></li>
+                    
+                        <li class=""><a href="/tag" class="" target="_self"><span class="iconfont icon-discount-fill"></span>标签</a></li>
+                    
+                        <li class=""><a href="/archive" class="" target="_self"><span class="iconfont icon-calendar-fill"></span>归档</a></li>
+                    
+                        <li class=""><a href="/friend" class="" target="_self"><span class="iconfont icon-link"></span>友情链接</a></li>
+                    
+                </ul> 
+            </div> 
+            <div class="menu-link">
+                <div class="box">
+                    <div class="image-box"></div>
+                </div>
+                
+                    <a name="QQ" href="javascript:;" class="image" target="_self" data="/image/sidebar/qq.png"><span class="iconfont icon-qq"></span></a>
+                
+            </div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="/css/search.css">
+<script type="text/javascript" src="/js/iscroll.js"></script>
+<script type="text/javascript" src="/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+    
+    <link type="text/css" rel="stylesheet" href="/css/APlayer.css">
+    <script type="text/javascript" src="/js/APlayer.min.js"></script>
+    <script type="text/javascript" src="/js/Meting.min.js"></script>
+    <script>
+        var meting_api = 'https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&auth=:auth&r=:r';
+    </script>
+    <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+
+    <div class="wrap-right">
+    <div class="wrap-right-hide">
+         <div class="wrap-right-button favorites">
+            <div class="iconbox" switch="false">
+                <span class="iconfont icon-favorites"></span>
+            </div>
+            <span class="icontext">关注</span>
+         </div>
+        <div class="wrap-right-button search">
+            <div class="iconbox">
+                <span class="iconfont icon-search-menu"></span>
+            </div>
+            <span class="icontext">搜索</span>
+        </div>
+        <div class="wrap-right-button menu-button">
+            <div class="iconbox">
+                <span class="iconfont icon-menu"></span>
+            </div>
+            <span class="icontext">菜单</span>
+        </div>
+        <div class="wrap-right-button mode">
+            <div class="light">
+                <div class="iconbox">
+                    <span class="iconfont icon-daymode"></span>
+                </div>
+                <span class="icontext">浅色模式</span>
+            </div>
+            <div class="dark">
+                <div class="iconbox">
+                    <span class="iconfont icon-nightmode-fill"></span>
+                </div>
+                <span class="icontext">深色模式</span>
+            </div>
+        </div>
+        <div class="wrap-right-button bottom">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">跳至底部</span>
+        </div>
+    </div>
+    <div class="wrap-right-show">
+        <div class="wrap-right-button set">
+            <div class="iconbox">
+                <span class="iconfont icon-setting"></span>
+            </div>
+            <span class="icontext">设置</span>
+        </div>
+        <div class="wrap-right-button top">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">返回顶部</span>
+        </div>
+    </div>
+</div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : "Aspirai",
+        GitHubRepositories : "Hexo-LiveForCode",
+
+        User             : "Aspirai",
+        UserAvatar       : "/image/sidebar/avatar.jpg",
+        WebsiteStartDate : "2020-01-01",
+        Home             : "",
+
+        WebsiteTitleBlur         : "(◍´꒳`◍) Hi, Aspirai",
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : "(*´∇｀*) 欢迎回来!",
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : {
+            light : "/image/website/logo/logo.png",
+            dark  : "/image/website/logo/logo-dark.png"
+        },
+
+        ProgressBar : {
+            id       : "topProgressBar",
+            color    : "#77B6FF",
+            height   : "2px",
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound : {
+                tension  : 16,
+                friction : 5
+            },
+            spinner : {
+                id     : "spinner",
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : "#F0F0F0",
+                    stroke     : "#272633",
+                    base       : "",
+                    child      : "#272633"
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : "rgba(255, 255, 255, .2)",
+            clearOffset : 0.3
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : "60%",
+            colorBrightness  : "50%",
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : "random",
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                "/image/header/home.jpg",
+            
+                "/image/header/home.png",
+            
+        ],
+        HomeBannerText  : "",
+
+        ArticleHeaderImage : [
+            
+                "/image/header/article.jpg",
+            
+        ],
+
+        OtherBannerText : "",
+
+        Error : {
+            icon    : "icon-swimming",
+            title   : "PAGE NOT FOUND",
+            content : [
+                
+                    "很抱歉，您访问的页面不存在！",
+                
+                    "可能是输入地址有误或该地址已变更。",
+                
+            ],
+            buttons : [
+                
+                    {
+                        icon  : "icon-home",
+                        text  : "返回首页",
+                        href  : "/",
+                        class : ""
+                    },
+                
+            ]
+        },
+
+        MenuNotice : {
+            enable : false,
+            notice : "简单地活着，肆意而又精彩！",
+            speed  : 20
+        },
+        MenuList : [
+            
+                {
+                    name   : "首页",
+                    icon   : "icon-home-fill",
+                    href   : "/",
+                    type   : "index",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "分类",
+                    icon   : "icon-folder-fill",
+                    href   : "/category",
+                    type   : "category",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "标签",
+                    icon   : "icon-discount-fill",
+                    href   : "/tag",
+                    type   : "tag",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "归档",
+                    icon   : "icon-calendar-fill",
+                    href   : "/archive",
+                    type   : "archive",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "友情链接",
+                    icon   : "icon-link",
+                    href   : "/friend",
+                    type   : "friend",
+                    class  : "",
+                    target : "_self"
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        name   : "QQ",
+                        icon   : "icon-qq",
+                        href   : "javascript:;",
+                        class  : "image",
+                        target : "_self",
+                        image  : "/image/sidebar/qq.png"
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : "<div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>",
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                "Based on cnblogs theme SimpleMemory.",
+                            
+                                "",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "SimpleMemory Author:",
+                            
+                                "BNDong",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "Theme:",
+                            
+                                "LiveForCode",
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : "",
+
+        Donate : {
+            paypal  : "",
+            bitcoin : "",
+            alipay  : "/image/donate/alipay.png",
+            wechat  : "/image/donate/wechat.png"
+        },
+
+        Search : {
+            applicationID : "010C3EANT8",
+            apiKey        : "c7abab9f11b79102b9aff7fe6d41447d",
+            indexName     : "Notes",
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : "搜索",
+                empty       : "未发现与 「${query}」 相关的内容",
+                stats       : "${hits} 条相关条目，使用了 ${time} 毫秒",
+            }
+        }, 
+
+        Comment : {
+            switch : true,
+            type   : "Valine",
+        },
+
+        Waline : {
+            el              : ".comments-content",
+            serverURL       : "",
+            path            : window.location.pathname,
+            meta            : "['nick', 'mail', 'link']",
+            requiredMeta    : "['nick', 'mail']",
+            pageSize        : 10,
+            lang            : "zh-cn",
+            locale: {
+                admin       : "博主",
+                anonymous   : "匿名用户",
+                sofa        : "快来做第一个评论的人吧 ~",
+                placeholder : "你是我一生只会遇见一次的惊喜...",
+            },
+            dark            : "html[color-scheme='dark']",
+            search          : false,
+            pageview        : true,
+            comment         : true,
+            copyright       : false,
+        },
+
+        Valine : {
+            el             : ".comments-content",
+            appId          : "srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz",
+            appKey         : "8uVSP1q6UlALVC5igYfIfv2h",
+            serverURLs     : "",
+            placeholder    : "你是我一生只会遇见一次的惊喜...",
+            avatar         : "mm",
+            meta           : "nick,mail,link",
+            requiredFields : "nick,mail",
+            pageSize       : 5,
+            lang           : "zh-cn",
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : ".toc",
+            contentSelector       : ".article-body",
+            headingSelector       : "h1, h2, h3, h4, h5",
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : ".toc",
+            positionFixedClass    : "toc-fixed",
+            fixedSidebarOffset    : "",
+        },
+
+        Require : {
+            baseUrl     : "/js/",
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : "Meting"
+        },
+        APlayer : {
+            container : ".aplayer",
+            fixed     : true,
+            autoplay  : false,
+            loop      : "all",
+            order     : "random",
+            preload   : "auto",
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : "Endless Tears",
+                        artist : "CLIFF EDGE",
+                        cover  : "/music/cover/Endless Tears.jpg",
+                        url    : "/music/song/Endless Tears.mp3",
+                        lrc    : "/music/lrc/Endless Tears.lrc"
+                    },
+                
+            ]
+        },
+        Meting : {
+            api      : "https://api.i-meto.com/meting/api",
+            id       : "3778678", 
+            lrcshow  : false, 
+            server   : "netease", 
+            type     : "playlist", 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : "all", 
+            order    : "random", 
+            preload  : "auto", 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : true,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : "/image/website/lazyload.svg"
+        },
+  
+        Style : {
+            aplayer          : "/css/APlayer.css",
+            archive          : "/css/archive.css",
+            base             : "/css/base.css",
+            clipboard        : "/css/clipboard.css",
+            code             : "/css/code.css",
+            donate           : "/css/donate.css",
+            fancybox         : "/css/jquery.fancybox.css",
+            footer           : "/css/footer.css",
+            iconfont         : "/iconfont/iconfont.css",
+            index            : "/css/index.css",
+            menuBubble       : "/css/menu-bubble.css",
+            mouse            : "/css/mouse.css",
+            page             : "/css/page.css",
+            post             : "/css/post.css",
+            search           : "/css/search.css",
+            tocbot           : "/css/tocbot.css",
+            valine           : "/css/valine.css",
+            waline           : "/css/waline.css",
+            walineCustom     : "/css/waline-custom.css"
+        },
+
+        Script: {
+            aplayer          : "/js/APlayer.min.js",
+            config           : "/js/require.config.js",
+            index            : "/js/index.js",
+            instantSearch    : "/js/instantsearch.min.js",
+            iscroll          : "/js/iscroll.js",
+            jQuery           : "/js/jquery-3.4.1.min.js",
+            loading          : "/js/loading.js",
+            meting           : "/js/Meting.min.js",
+            require          : "/js/require.min.js",
+            waline           : "/js/waline.mjs",
+            pageview         : "/js/pageview.mjs",
+            comment          : "/js/comment.mjs",
+        },
+
+        Font: {
+            LongCang    : "/font/LongCang.css",
+            Monda       : "/font/Monda.css",
+            NotoSansSC  : "/font/NotoSansSC.css",
+            NotoSerifSC : "/font/NotoSerifSC.css",
+            Playball    : "/font/Playball.css",
+            PTMono      : "/font/PTMono.css",
+            Roboto      : "/font/Roboto.css",
+            RobotoSlab  : "/font/RobotoSlab.css",
+            Rosario     : "/font/Rosario.css",
+            UbuntuMono  : "/font/UbuntuMono.css"
+        },
+
+        Suffix : {
+            about : "时间带不走你眼中的光辉"
+        },
+            
+        Theme : {
+            url  : "https://github.com/first19326/Hexo-LiveForCode",
+            name : "Hexo - Live For Code"
+        }  
+    };
+</script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</body>
+</html>

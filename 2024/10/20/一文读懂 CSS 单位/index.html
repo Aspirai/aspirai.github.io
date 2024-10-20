@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>
+        
+            一文读懂 CSS 单位
+        
+    </title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSerifSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="/font/Roboto.css">
+    <link type="text/css" rel="stylesheet" href="/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="/css/base.css">
+    <link type="text/css" rel="stylesheet" href="/css/code.css">
+
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <a id="cover"></a>
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
+<div id="header" class="header">
+    <div class="vertical">
+        <div class="inner">
+            
+                <h1 class="header-subtitle">一文读懂 CSS 单位</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2024-10-20
+                        </span>
+                        
+                            
+                                <span id="/2024/10/20/一文读懂 CSS 单位/" class="leancloud_visitors" data-flag-title="一文读懂 CSS 单位">
+                                    <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                                </span>
+                            
+                            
+                                <span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/10/20/一文读懂 CSS 单位/"></span>
+                                </span>
+                              
+                        
+                    </p>
+                    
+                        
+                            <span class="category-color">前端开发</span>
+                        
+                    
+                    
+                        
+                            <span class="tag-color">HTML-CSS</span>
+                        
+                    
+                </div>
+            
+        </div>
+    </div>
+    
+</div>
+<div id="container">
+    
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <p>说起CSS单位，我们最熟悉的可能就是像素单位（px），它是一个绝对单位，也就是说一个10px的文字，放在哪里都是一样大的。单位可以影响颜色、距离、尺寸等一系列的属性。CSS中单位的形式有很多种，下面就分别来看看这些单位。 <img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/e0b942baa35d4951a8378aaaca8de019~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp"></p>
+<h3 id="1-相对单位"><a href="#1-相对单位" class="headerlink" title="1. 相对单位"></a>1. 相对单位</h3><p>相对单位就是相对于另一个长度的长度。CSS中的相对单位主要分为两大类：</p>
+<ul>
+<li>字体相对单位，他们都是根据font-size来进行计算的。常见的字体相对单位有：em、rem、ex、ch；</li>
+<li>视窗相对单位，他们都是根据视窗大小来决定的。常见的视窗相对单位有vw、vh、vmax、vmin。</li>
+</ul>
+<p>下面就来看看这些常见的CSS单位。</p>
+<h4 id="（1）em-和-rem"><a href="#（1）em-和-rem" class="headerlink" title="（1）em 和 rem"></a>（1）em 和 rem</h4><p>em是最常见的相对长度单位，适合基于特定的字号进行排版。根据CSS的规定，1em 等于元素的font-size属性的值。</p>
+<p>em 是相对于父元素的字体大小进行计算的。如果当前对行内文本的字体尺寸未进行显示设置，则相对于浏览器的默认字体尺寸。当DOM元素嵌套加深时，并且同时给很多层级显式的设置了font-size的值的单位是em，那么就需要层层计算，复杂度会很高。</p>
+<p>当然，上面的这个说法是不严谨 的。来看一个例子：</p>
+<p>css</p>
+<p> 代码解读</p>
+<p>复制代码</p>
+<p><code>&lt;!DOCTYPE html&gt; &lt;html lang=&quot;en&quot;&gt; &lt;head&gt;     &lt;meta charset=&quot;UTF-8&quot;&gt;     &lt;title&gt;Document&lt;/title&gt;     &lt;style&gt;         .parent &#123;             width: 300px;             height: 300px;             font-size: 20px;         &#125;         .child &#123;             border: 1em solid ;         &#125;     &lt;/style&gt; &lt;/head&gt; &lt;body&gt;     &lt;div class=&quot;parent&quot;&gt;         &lt;div class=&quot;child&quot;&gt;            子元素         &lt;/div&gt;     &lt;/div&gt; &lt;/body&gt; &lt;/html&gt;</code></p>
+<p>这里给父元素设置了字体大小为20px，然后给子元素的border宽度设置为1em，这时，子元素的border值为20px，确实是相对于父元素的字体大小设置的：</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2de4eaa83ca248579a7f8bf1455632fd~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="image.png"></p>
+<p>那如果我们给子元素的字体设置为30px：</p>
+<p>css</p>
+<p> 代码解读</p>
+<p>复制代码</p>
+<p><code>.child &#123;   font-size: 30px;   border: 1em solid ; &#125;</code></p>
+<p>这时可以看到，子元素的边框宽度就是30px，它是相对自己大小进行计算的：</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/5dfec0185cc84958bc2275f8d03e3523~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="image.png"></p>
+<p>所以，可以得出结论：<strong>如果自身元素是没有设置字体大小的，那么就会根据其父元素的字体大小作为参照去计算，如果元素本身已经设置了字体，那么就会基于自身的字体大小进行计算</strong>。</p>
+<p>em单位除了可以作用于 font-size之外，还可以运用于其他使用长度的属性，比如border-width、width、height、margin、padding、text-shadow等。</p>
+<p>所以，em的使用还是比较复杂的，它可能会继承任意一级父元素的字体大小。需要谨慎使用。</p>
+<p>rem相对于em就简单了很多，它是根据页面的根元素（根元素）的字体大小来计算的。来对上面的例子进行修改：</p>
+<p>css</p>
+<p> 代码解读</p>
+<p>复制代码</p>
+<p><code>.child &#123;   font-size: 30px;   border: 1rem solid ; &#125; html &#123; 	font-size: 25px; &#125;</code></p>
+<p>效果如下，可以看到，边框的长度变成了25px，它是根据根元素html的字体大小计算的：</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f306d48d54bf443cb342369cbe6b2f50~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" alt="image.png"></p>
+<p>如果没有对根元素设定字号的话，font-size: 1rem的作用与font-size: initial相同。</p>
+<p>使用 em 和 rem 可以让我们灵活的够控制元素整体的放大和缩小，而不是固定大小。那何时应使用 em，何时应使用 rem 呢？可以根据两者的差异来进行选择：</p>
+<ul>
+<li>两者在客户端中计算出来的样式都会以px的形式显示；</li>
+<li>rem是相对于根元素html的font-size计算，em 相对于元素的font-size计算；</li>
+<li>当需要根据浏览器的font-size设置缩放时，应该使用 rem；</li>
+<li>使用 em 应该根据组件的font-size来定，而不是根元素的font-size来定；</li>
+<li>rem 可以从浏览器字体设置中继承 font-size 值， em 可能受任何继承过来的父元素 font-size 的影响。</li>
+</ul>
+<h4 id="（2）ex-和-ch"><a href="#（2）ex-和-ch" class="headerlink" title="（2）ex 和 ch"></a>（2）ex 和 ch</h4><p>ex 和 ch 都是排版用的单位，它们的大小取决于元素的font-size 和 font-family属性。</p>
+<ul>
+<li>ex 指的是所用字体中小写字母 x 的高度。因此，如果两个字体不一样，那么 ex 的值是不一样的。因为每种字体的小写 x 的高度是不一样的。</li>
+<li>ch 和 ex 类似，不过它是基于数字 0 的宽度计算的。会随着字体的变化而变化。而0 的宽度通常是对字体的平均字符宽度，它是一个估计值。由于 ch 是一个近似等宽的单元，所以在设置容器的宽度时很有用，比如一个容器想要显示指定个数的字符串时，就可以使用这个单位。</li>
+</ul>
+<h4 id="（3）vw、vh、vmax-和-vmin"><a href="#（3）vw、vh、vmax-和-vmin" class="headerlink" title="（3）vw、vh、vmax 和 vmin"></a>（3）vw、vh、vmax 和 vmin</h4><p>这四个单位都是视窗单位，所谓的视窗，在web端指的就是可视区域，移动端的视窗指的就是布局视窗。如果视窗大小发生了变化，那么这些值都会随之变化。这四个单位指的是：</p>
+<ul>
+<li>vw：视窗宽度的百分比；</li>
+<li>vh：视窗高度的百分比；</li>
+<li>vmax：较大的 vh 和 vw；</li>
+<li>vmin：较小的 vh 和 vw。</li>
+</ul>
+<p>假如一个浏览器的高度是800px，那么1vh的值就是8px。vh和vw的大小总是和视窗的高度和宽度有关。 ​</p>
+<p>vmin 和 vmax 与视窗宽度和高度的最大值和最小值有关。假如一个浏览器高度为500px，宽度为1200px，那么1vmin就是5px，1vmax就是12px。 ​</p>
+<p>这些单位都是长度单位，所以可以在任何允许使用长度单位的地方使用。这些单位比较适合用于创建全视区界面，例如移动设备的界面，因为元素是根据视区的尺寸而变化的，与文档树中的任何元素都没有关系。</p>
+<h3 id="2-绝对单位"><a href="#2-绝对单位" class="headerlink" title="2. 绝对单位"></a>2. 绝对单位</h3><p>在 CSS 中，绝对单位包括： px 、pt 、pc、 cm 、 mm 、in 等。绝对单位是一个固定的值，它反应了一个真实的物理尺寸。它不会受屏幕大小或者字体的影响。它们的大小取决于值以及屏幕的分辨率（DPI，每英寸的点数）。px就是我们最常用的绝对单位之一。这些绝对单位的换算关系如下：</p>
+<p>css</p>
+<p> 代码解读</p>
+<p>复制代码</p>
+<p><code>1in = 25.4mm = 2.54cm = 6pc = 72pt =96px</code></p>
+<h4 id="（1）px"><a href="#（1）px" class="headerlink" title="（1）px"></a>（1）px</h4><p>px 全称为 Pixels，表示像素，它并不严格等于显示器的像素，尤其在高清屏下。尽管CSS单位会根据浏览器、操作系统或者硬件适当缩放，在某些设备或者用户的分辨率设置下也会发生变化，但是96px通常等于一个物理英寸的大小。</p>
+<p>CSS 将光栅图像(如照片等)的显示方式定义为默认每一个图像大小为1px。 一个“600x400”解析度的照片的长宽分别为“600px”和“400px”，所以照片本身的像素并不会与显示装置像素一致，而是与 px 单位一致。如此就可以将图像完整的与网页的其它元素排列起来。 ​</p>
+<p>很多时候， px 也常被称为 CSS 像素。它是一个绝对单位，但也可以被视为相对单位，因为像素单位相对的是设备像素。在同一个设备上，每 1 个 CSS 像素所代表的物理像素是可以变化的；在不同的设备之间，每 1 个 CSS 像素所代表的物理像素是可以变化的。</p>
+<p>css</p>
+<p> 代码解读</p>
+<p>复制代码</p>
+<p><code>.box &#123;     width: 100px;     height: 100px; &#125;</code></p>
+<h4 id="（2）pt"><a href="#（2）pt" class="headerlink" title="（2）pt"></a>（2）pt</h4><p>pt 全称为 Point，表示点。常用于软件设计和排版印刷行业（笔者做的前端系统，最终的产物就是一个需要拿去印刷的PDF，所以会经常用到这个单位）。当使用这个单位时，无论显示器的分辨率是多少，打印在纸上的结果都是一样的。 ​</p>
+<p>如果单纯为了网页的显示，建议就使用px像素单位，如果需要输出印刷产品，就可以考虑使用pt。</p>
+<h4 id="（3）pc"><a href="#（3）pc" class="headerlink" title="（3）pc"></a>（3）pc</h4><p>pc 全程为 Picas，表示派卡。相当于我国新四号铅字的尺寸。派卡也是印刷的术语，1派卡等于12点。它和 px 的换算关系如下：</p>
+<p>css</p>
+<p> 代码解读</p>
+<p>复制代码</p>
+<p><code>1pc = 16px</code></p>
+<h4 id="（4）cm"><a href="#（4）cm" class="headerlink" title="（4）cm"></a>（4）cm</h4><p>cm 全称为 Centimeters，表示厘米。它和 px 的换算关系如下：</p>
+<p>css</p>
+<p> 代码解读</p>
+<p>复制代码</p>
+<p><code>1cm = 37.8px</code></p>
+<h4 id="（5）mm"><a href="#（5）mm" class="headerlink" title="（5）mm"></a>（5）mm</h4><p>mm 全称为 Millimeters，表示毫米。它和 px 的换算关系如下：</p>
+<p>css</p>
+<p> 代码解读</p>
+<p>复制代码</p>
+<p><code>1mm = 3.78px</code></p>
+<h4 id="（6）in"><a href="#（6）in" class="headerlink" title="（6）in"></a>（6）in</h4><p>in 全称为 Inches，表示英寸。它和 px 的换算关系如下：</p>
+<p>css</p>
+<p> 代码解读</p>
+<p>复制代码</p>
+<p><code>1in = 96px</code></p>
+<h3 id="3-频率单位"><a href="#3-频率单位" class="headerlink" title="3. 频率单位"></a>3. 频率单位</h3><p>CSS中的频率单位有两个：赫兹（Hz）和千赫兹（kHz）。它们的换算关系如下：</p>
+<p>css</p>
+<p> 代码解读</p>
+<p>复制代码</p>
+<p><code>1kHz = 1000Hz</code></p>
+<p>通常情况下，频率单位使用在听或说级联样式表中。频率可以被用来改变一个语音阅读文本的音调。低频率就是低音，高频率就是高音。</p>
+<p>css</p>
+<p> 代码解读</p>
+<p>复制代码</p>
+<p><code>.low &#123;    pitch: 105Hz;  &#125;  .squeal &#123;    pitch: 135Hz;  &#125;</code></p>
+<p>需要注意，当数值为0时，单位对值没有影响，但是单位是不能省略的。也就是说0、0Hz、0kHz是不一样的。所以，在使用频率单位时，不要直接写0。另外，这两个单位是不区分大小写的。</p>
+<h3 id="4-时间单位"><a href="#4-时间单位" class="headerlink" title="4. 时间单位"></a>4. 时间单位</h3><p>CSS中的时间单位有两个：秒（s）和毫秒（ms）。这两个时间单位都是CSS新增的单位。这两个单位的换算关系如下：</p>
+<p>css</p>
+<p> 代码解读</p>
+<p>复制代码</p>
+<p><code>1s = 1000ms</code></p>
+<p>时间单位主要用于<strong>过度和动画</strong>中，用于定义持续时间或延迟时间。下面两种定义是等效的：</p>
+<p>css</p>
+<p> 代码解读</p>
+<p>复制代码</p>
+<p><code>a[href] &#123; 	transition-duration: 2.5s; &#125; a[href] &#123; 	transition-duration: 2500s; &#125;</code></p>
+<h3 id="5-分辨率单位"><a href="#5-分辨率单位" class="headerlink" title="5. 分辨率单位"></a>5. 分辨率单位</h3><p>CSS中的分辨率单位有三个：dpi、dpcm、dppx。这三个单位都是CSS3中华新增的单位。他们都是正值，不允许为负值。这三个单位的换算关系如下：</p>
+<p>css</p>
+<p> 代码解读</p>
+<p>复制代码</p>
+<p><code>1dppx = 96dpi 1dpi ≈ 0.39dpcm 1dpcm ≈ 2.54dpi</code></p>
+<p>分辨率单位主要用于<strong>媒体查询</strong>等操作。</p>
+<h4 id="（1）dpi"><a href="#（1）dpi" class="headerlink" title="（1）dpi"></a>（1）dpi</h4><p>dpi 全称为 dots per inch，表示每英寸包含的点的数量。普通屏幕通常包含 72或96个点，大于 192dpi 的屏幕被称为高分屏。</p>
+<p>css</p>
+<p> 代码解读</p>
+<p>复制代码</p>
+<p><code>@media screen and (min-resolution: 96dpi) &#123; ... &#125; @media print and (min-resolution: 300dpi) &#123; ... &#125;</code></p>
+<h4 id="（2）dpcm"><a href="#（2）dpcm" class="headerlink" title="（2）dpcm"></a>（2）dpcm</h4><p>dpcm 全称为 dots per centimeter，表示每厘米包含的点的数量。</p>
+<p>css</p>
+<p> 代码解读</p>
+<p>复制代码</p>
+<p><code>@media screen and (min-resolution: 28dpcm) &#123; ... &#125; @media print and (min-resolution: 118dpcm) &#123; ... &#125;</code></p>
+<h4 id="（3）dppx"><a href="#（3）dppx" class="headerlink" title="（3）dppx"></a>（3）dppx</h4><p>dppx 全称为 dots per pixel，表示每像素（px）包含点的数量。由于CSS px的固定比率为1:96，因此1dppx相当于96dpi。它对应于由图像分辨率定义的CSS中显示的图像的默认分辨率。</p>
+<p>css</p>
+<p> 代码解读</p>
+<p>复制代码</p>
+<p><code>@media screen and (min-resolution: 2dppx) &#123; ... &#125; @media screen and (min-resolution: 1dppx) and (max-resolution: 1.9dppx) &#123; ... &#125;</code></p>
+<h3 id="6-角度单位"><a href="#6-角度单位" class="headerlink" title="6. 角度单位"></a>6. 角度单位</h3><p>CSS中的角度单位有四个：deg、grad、rad、turn。这些角度单位都是CSS3中新增的单位。它们的换算关系如下：</p>
+<p>css</p>
+<p> 代码解读</p>
+<p>复制代码</p>
+<p><code>90deg = 100grad = 0.25turn ≈ 1.570796326794897rad</code></p>
+<p>一般这些角度单位用于元素的**旋转操作，**包括2D旋转、3D旋转等。</p>
+<ul>
+<li>当旋转值为正值时，元素会顺时针旋转；</li>
+<li>当旋转值为负值时，元素会逆时针旋转。</li>
+</ul>
+<p>​</p>
+<p>通常情况下，一个完整的旋转就是360度。所以，所有的角度都在0-360度之间。但是，超出这个范围的值也是允许的，只不过都会归到0-360度之间。比如，顺时针旋转420度（450deg）、逆时针旋转270度（-270deg）、顺时针旋转90度（90deg）都是一样的效果，都会归为90deg。但是当使用动画时，这些角度值就非常重要了。 ​</p>
+<p>CSS的旋转主要依赖于 transform 属性中的 rotate() 、rotate3d、 skew() 等方法。只需给它们传递旋转的角度即可。 ​</p>
+<p>除了旋转会使用角度之外，线性渐变也会经常使用角度值：</p>
+<p>css</p>
+<p> 代码解读</p>
+<p>复制代码</p>
+<p><code>background: linear-gradient(45deg, #000, #fff);</code></p>
+<h4 id="（1）deg"><a href="#（1）deg" class="headerlink" title="（1）deg"></a>（1）deg</h4><p>deg 全称为 Degress，表示度，一个圆总共360度。</p>
+<p>css</p>
+<p> 代码解读</p>
+<p>复制代码</p>
+<p><code>transform: rotate(2deg);</code></p>
+<h4 id="（2）grad"><a href="#（2）grad" class="headerlink" title="（2）grad"></a>（2）grad</h4><p>grad 全称为 Gradians，表示梯度，一个圆总共400梯度。</p>
+<p>css</p>
+<p> 代码解读</p>
+<p>复制代码</p>
+<p><code>transform: rotate(2grad);</code></p>
+<h4 id="（4）rad"><a href="#（4）rad" class="headerlink" title="（4）rad"></a>（4）rad</h4><p>rad 全称为 Radians，表示弧度，一个圆总共2π弧度。</p>
+<p>css</p>
+<p> 代码解读</p>
+<p>复制代码</p>
+<p><code>transform: rotate(2rad);</code></p>
+<h4 id="（4）turn"><a href="#（4）turn" class="headerlink" title="（4）turn"></a>（4）turn</h4><p>turn 全称为 Turns，表示圈（转），一个圆总共一圈（转）。</p>
+<p>css</p>
+<p> 代码解读</p>
+<p>复制代码</p>
+<p><code>transform:rotate(.5turn);</code></p>
+<h3 id="7-百分比单位"><a href="#7-百分比单位" class="headerlink" title="7. 百分比单位"></a>7. 百分比单位</h3><p>百分比（%）也是我们比较常用的单位之一，所有接受长度值的属性都可以使用百分比单位。但是不同属性使用该单位的效果可能并不一样。但是都需要有一个参照值，也就是说百分比值是一个相对的值。 ​</p>
+<p>下面来看看常见场景中的百分比单位的使用。</p>
+<h4 id="（1）盒模型中的百分比"><a href="#（1）盒模型中的百分比" class="headerlink" title="（1）盒模型中的百分比"></a>（1）盒模型中的百分比</h4><p>在CSS中的盒模型包含的属性有：width、max-width、min-width、height、max-height、min-height、padding、margin等。这些属性在使用百分比时，参照物不尽相同：</p>
+<ul>
+<li>width、max-width、min-width：值为百分比时，其相对于包含块的 width 进行计算；</li>
+<li>height、max-height、min-height：值为百分比时，其相对于包含块的 height 进行计算；</li>
+<li>padding、margin：值为百分比时，如果是水平的值，就是相对于包含块的 width 进行计算；如果是垂直的值，就是相对于包含块的 height 进行计算。</li>
+</ul>
+<h4 id="（2）文本中的百分比"><a href="#（2）文本中的百分比" class="headerlink" title="（2）文本中的百分比"></a>（2）文本中的百分比</h4><p>在CSS中文本控制的属性有font-size、line-height 、vertical-align、 text-indent等。这些属性在使用百分比时，参照物不尽相同：</p>
+<ul>
+<li>font-size：根据父元素的font-size 进行计算；</li>
+<li>line-height：根据font-size进行计算；</li>
+<li>vertical-align：根据line-height进行计算；</li>
+<li>text-indent：如果是水平的，则根据width进行计算，如果是垂直的，则根据 height 进行计算。</li>
+</ul>
+<h4 id="（3）定位中的百分比"><a href="#（3）定位中的百分比" class="headerlink" title="（3）定位中的百分比"></a>（3）定位中的百分比</h4><p>在CSS中用控制 position 位置的top、right、bottom、left都可以使用百分比作为单位。其参照物就是包含块的同方向的width和height。不同定位的包含块不尽相同：</p>
+<ul>
+<li>如果元素为静态（ static ）或相对定位（ relative ），包含块一般是其父容器；</li>
+<li>如果元素为绝对定位（ absolute ），包含块应该是离它最近的 position 为 absolute 、 relative 或 fixed 的祖先元素；</li>
+<li>如果元素为固定定位（ fixed ），包含块就是视窗（ viewport ）。</li>
+</ul>
+<h4 id="（4）变换中的百分比"><a href="#（4）变换中的百分比" class="headerlink" title="（4）变换中的百分比"></a>（4）变换中的百分比</h4><p>CSS 中的 transform 属性中的 translate 和 transform-origin 值也可以设置百分比。</p>
+<ul>
+<li>translateX() 根据容器的 width 计算</li>
+<li>translateY() 根据容器的 height 计算</li>
+<li>transform-origin 中横坐标（ x ）相对于容器的 width 计算；纵坐标（ y ）相对于容器的 height 计算</li>
+</ul>
+<p>注意，在 translate 还有一个 z 轴的函数 translateZ() 。它是不接受百分比为单位的值。</p>
+<p>本文转自 <a target="_blank" rel="noopener" href="https://juejin.cn/post/7036900903462371336">https://juejin.cn/post/7036900903462371336</a>，如有侵权，请联系删除。</p>
+
+                
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box">
+    <div class="suffix-box-left">
+        <img src="/image/sidebar/avatar.jpg" alt="Aspirai">
+    </div>
+    <div class="suffix-box-right">
+        <span class="suffix-box-title">文章作者：</span>Aspirai
+        <br>
+        <span class="suffix-box-title">文章出处：</span><a href="/2024/10/20/%E4%B8%80%E6%96%87%E8%AF%BB%E6%87%82%20CSS%20%E5%8D%95%E4%BD%8D/" target="_blank">一文读懂 CSS 单位</a>
+        <br>
+        <span class="suffix-box-title">作者签名：</span>时间带不走你眼中的光辉
+        <br>
+        <span class="suffix-box-title">版权声明：</span>文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+        <br>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+                
+                    <div class="category">
+                        分类：
+                        
+                            <a href="/category/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
+                        
+                    </div>
+                
+                
+                    <div class="tag">
+                        标签：
+                        
+                            <a href="/tag/HTML-CSS/">HTML-CSS</a>
+                        
+                    </div>
+                
+                <div class="article-prev-next">
+                    
+                        <a href="/2024/10/20/javascript%20-%20%E5%89%8D%E7%AB%AF%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E8%B7%B5%20-%20%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" class="prev-prefix">« </a> 上一篇：    <a href="/2024/10/20/javascript%20-%20%E5%89%8D%E7%AB%AF%E5%93%8D%E5%BA%94%E5%BC%8F%E5%B8%83%E5%B1%80%E5%8E%9F%E7%90%86%E4%B8%8E%E5%AE%9E%E8%B7%B5%20-%20%E6%8A%80%E6%9C%AF%E5%88%86%E4%BA%AB/" title="发布于 2024-10-20 09:20">javascript - 前端响应式布局原理与实践 - 技术分享 </a>
+                        <br>
+                    
+                    
+                        <a href="/2024/10/20/%E4%BB%8A%E6%97%A5%E6%AD%A5%E6%95%B0%E6%95%88%E6%9E%9C%E5%AE%9E%E7%8E%B0/" class="next-prefix">» </a> 下一篇：    <a href="/2024/10/20/%E4%BB%8A%E6%97%A5%E6%AD%A5%E6%95%B0%E6%95%88%E6%9E%9C%E5%AE%9E%E7%8E%B0/" title="发布于 2024-10-20 09:20">今日步数效果实现</a>
+                    
+                </div>
+            </div>
+            
+    <div class="article-comments">
+        
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+    
+ 
+        </div>
+    
+</div>
+    <div id="footer">
+    <div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>
+</div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar">
+                    <img src="/image/sidebar/avatar.jpg">
+                </div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user">
+                        
+                            <a href="javascript:;" target="_self"><span>Aspirai</span></a>
+                        
+                    </div>
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul>
+                    
+                        <li class=""><a href="/" class="" target="_self"><span class="iconfont icon-home-fill"></span>首页</a></li>
+                    
+                        <li class=""><a href="/category" class="" target="_self"><span class="iconfont icon-folder-fill"></span>分类</a></li>
+                    
+                        <li class=""><a href="/tag" class="" target="_self"><span class="iconfont icon-discount-fill"></span>标签</a></li>
+                    
+                        <li class=""><a href="/archive" class="" target="_self"><span class="iconfont icon-calendar-fill"></span>归档</a></li>
+                    
+                        <li class=""><a href="/friend" class="" target="_self"><span class="iconfont icon-link"></span>友情链接</a></li>
+                    
+                </ul> 
+            </div> 
+            <div class="menu-link">
+                <div class="box">
+                    <div class="image-box"></div>
+                </div>
+                
+                    <a name="QQ" href="javascript:;" class="image" target="_self" data="/image/sidebar/qq.png"><span class="iconfont icon-qq"></span></a>
+                
+            </div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="/css/search.css">
+<script type="text/javascript" src="/js/iscroll.js"></script>
+<script type="text/javascript" src="/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+    
+    <link type="text/css" rel="stylesheet" href="/css/APlayer.css">
+    <script type="text/javascript" src="/js/APlayer.min.js"></script>
+    <script type="text/javascript" src="/js/Meting.min.js"></script>
+    <script>
+        var meting_api = 'https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&auth=:auth&r=:r';
+    </script>
+    <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+
+    <div class="wrap-right">
+    <div class="wrap-right-hide">
+         <div class="wrap-right-button favorites">
+            <div class="iconbox" switch="false">
+                <span class="iconfont icon-favorites"></span>
+            </div>
+            <span class="icontext">关注</span>
+         </div>
+        <div class="wrap-right-button search">
+            <div class="iconbox">
+                <span class="iconfont icon-search-menu"></span>
+            </div>
+            <span class="icontext">搜索</span>
+        </div>
+        <div class="wrap-right-button menu-button">
+            <div class="iconbox">
+                <span class="iconfont icon-menu"></span>
+            </div>
+            <span class="icontext">菜单</span>
+        </div>
+        <div class="wrap-right-button mode">
+            <div class="light">
+                <div class="iconbox">
+                    <span class="iconfont icon-daymode"></span>
+                </div>
+                <span class="icontext">浅色模式</span>
+            </div>
+            <div class="dark">
+                <div class="iconbox">
+                    <span class="iconfont icon-nightmode-fill"></span>
+                </div>
+                <span class="icontext">深色模式</span>
+            </div>
+        </div>
+        <div class="wrap-right-button bottom">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">跳至底部</span>
+        </div>
+    </div>
+    <div class="wrap-right-show">
+        <div class="wrap-right-button set">
+            <div class="iconbox">
+                <span class="iconfont icon-setting"></span>
+            </div>
+            <span class="icontext">设置</span>
+        </div>
+        <div class="wrap-right-button top">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">返回顶部</span>
+        </div>
+    </div>
+</div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : "Aspirai",
+        GitHubRepositories : "Hexo-LiveForCode",
+
+        User             : "Aspirai",
+        UserAvatar       : "/image/sidebar/avatar.jpg",
+        WebsiteStartDate : "2020-01-01",
+        Home             : "",
+
+        WebsiteTitleBlur         : "(◍´꒳`◍) Hi, Aspirai",
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : "(*´∇｀*) 欢迎回来!",
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : {
+            light : "/image/website/logo/logo.png",
+            dark  : "/image/website/logo/logo-dark.png"
+        },
+
+        ProgressBar : {
+            id       : "topProgressBar",
+            color    : "#77B6FF",
+            height   : "2px",
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound : {
+                tension  : 16,
+                friction : 5
+            },
+            spinner : {
+                id     : "spinner",
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : "#F0F0F0",
+                    stroke     : "#272633",
+                    base       : "",
+                    child      : "#272633"
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : "rgba(255, 255, 255, .2)",
+            clearOffset : 0.3
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : "60%",
+            colorBrightness  : "50%",
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : "random",
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                "/image/header/home.jpg",
+            
+                "/image/header/home.png",
+            
+        ],
+        HomeBannerText  : "",
+
+        ArticleHeaderImage : [
+            
+                "/image/header/article.jpg",
+            
+        ],
+
+        OtherBannerText : "",
+
+        Error : {
+            icon    : "icon-swimming",
+            title   : "PAGE NOT FOUND",
+            content : [
+                
+                    "很抱歉，您访问的页面不存在！",
+                
+                    "可能是输入地址有误或该地址已变更。",
+                
+            ],
+            buttons : [
+                
+                    {
+                        icon  : "icon-home",
+                        text  : "返回首页",
+                        href  : "/",
+                        class : ""
+                    },
+                
+            ]
+        },
+
+        MenuNotice : {
+            enable : false,
+            notice : "简单地活着，肆意而又精彩！",
+            speed  : 20
+        },
+        MenuList : [
+            
+                {
+                    name   : "首页",
+                    icon   : "icon-home-fill",
+                    href   : "/",
+                    type   : "index",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "分类",
+                    icon   : "icon-folder-fill",
+                    href   : "/category",
+                    type   : "category",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "标签",
+                    icon   : "icon-discount-fill",
+                    href   : "/tag",
+                    type   : "tag",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "归档",
+                    icon   : "icon-calendar-fill",
+                    href   : "/archive",
+                    type   : "archive",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "友情链接",
+                    icon   : "icon-link",
+                    href   : "/friend",
+                    type   : "friend",
+                    class  : "",
+                    target : "_self"
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        name   : "QQ",
+                        icon   : "icon-qq",
+                        href   : "javascript:;",
+                        class  : "image",
+                        target : "_self",
+                        image  : "/image/sidebar/qq.png"
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : "<div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>",
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                "Based on cnblogs theme SimpleMemory.",
+                            
+                                "",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "SimpleMemory Author:",
+                            
+                                "BNDong",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "Theme:",
+                            
+                                "LiveForCode",
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : "",
+
+        Donate : {
+            paypal  : "",
+            bitcoin : "",
+            alipay  : "/image/donate/alipay.png",
+            wechat  : "/image/donate/wechat.png"
+        },
+
+        Search : {
+            applicationID : "010C3EANT8",
+            apiKey        : "c7abab9f11b79102b9aff7fe6d41447d",
+            indexName     : "Notes",
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : "搜索",
+                empty       : "未发现与 「${query}」 相关的内容",
+                stats       : "${hits} 条相关条目，使用了 ${time} 毫秒",
+            }
+        }, 
+
+        Comment : {
+            switch : true,
+            type   : "Valine",
+        },
+
+        Waline : {
+            el              : ".comments-content",
+            serverURL       : "",
+            path            : window.location.pathname,
+            meta            : "['nick', 'mail', 'link']",
+            requiredMeta    : "['nick', 'mail']",
+            pageSize        : 10,
+            lang            : "zh-cn",
+            locale: {
+                admin       : "博主",
+                anonymous   : "匿名用户",
+                sofa        : "快来做第一个评论的人吧 ~",
+                placeholder : "你是我一生只会遇见一次的惊喜...",
+            },
+            dark            : "html[color-scheme='dark']",
+            search          : false,
+            pageview        : true,
+            comment         : true,
+            copyright       : false,
+        },
+
+        Valine : {
+            el             : ".comments-content",
+            appId          : "srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz",
+            appKey         : "8uVSP1q6UlALVC5igYfIfv2h",
+            serverURLs     : "",
+            placeholder    : "你是我一生只会遇见一次的惊喜...",
+            avatar         : "mm",
+            meta           : "nick,mail,link",
+            requiredFields : "nick,mail",
+            pageSize       : 5,
+            lang           : "zh-cn",
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : ".toc",
+            contentSelector       : ".article-body",
+            headingSelector       : "h1, h2, h3, h4, h5",
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : ".toc",
+            positionFixedClass    : "toc-fixed",
+            fixedSidebarOffset    : "",
+        },
+
+        Require : {
+            baseUrl     : "/js/",
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : "Meting"
+        },
+        APlayer : {
+            container : ".aplayer",
+            fixed     : true,
+            autoplay  : false,
+            loop      : "all",
+            order     : "random",
+            preload   : "auto",
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : "Endless Tears",
+                        artist : "CLIFF EDGE",
+                        cover  : "/music/cover/Endless Tears.jpg",
+                        url    : "/music/song/Endless Tears.mp3",
+                        lrc    : "/music/lrc/Endless Tears.lrc"
+                    },
+                
+            ]
+        },
+        Meting : {
+            api      : "https://api.i-meto.com/meting/api",
+            id       : "3778678", 
+            lrcshow  : false, 
+            server   : "netease", 
+            type     : "playlist", 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : "all", 
+            order    : "random", 
+            preload  : "auto", 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : true,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : "/image/website/lazyload.svg"
+        },
+  
+        Style : {
+            aplayer          : "/css/APlayer.css",
+            archive          : "/css/archive.css",
+            base             : "/css/base.css",
+            clipboard        : "/css/clipboard.css",
+            code             : "/css/code.css",
+            donate           : "/css/donate.css",
+            fancybox         : "/css/jquery.fancybox.css",
+            footer           : "/css/footer.css",
+            iconfont         : "/iconfont/iconfont.css",
+            index            : "/css/index.css",
+            menuBubble       : "/css/menu-bubble.css",
+            mouse            : "/css/mouse.css",
+            page             : "/css/page.css",
+            post             : "/css/post.css",
+            search           : "/css/search.css",
+            tocbot           : "/css/tocbot.css",
+            valine           : "/css/valine.css",
+            waline           : "/css/waline.css",
+            walineCustom     : "/css/waline-custom.css"
+        },
+
+        Script: {
+            aplayer          : "/js/APlayer.min.js",
+            config           : "/js/require.config.js",
+            index            : "/js/index.js",
+            instantSearch    : "/js/instantsearch.min.js",
+            iscroll          : "/js/iscroll.js",
+            jQuery           : "/js/jquery-3.4.1.min.js",
+            loading          : "/js/loading.js",
+            meting           : "/js/Meting.min.js",
+            require          : "/js/require.min.js",
+            waline           : "/js/waline.mjs",
+            pageview         : "/js/pageview.mjs",
+            comment          : "/js/comment.mjs",
+        },
+
+        Font: {
+            LongCang    : "/font/LongCang.css",
+            Monda       : "/font/Monda.css",
+            NotoSansSC  : "/font/NotoSansSC.css",
+            NotoSerifSC : "/font/NotoSerifSC.css",
+            Playball    : "/font/Playball.css",
+            PTMono      : "/font/PTMono.css",
+            Roboto      : "/font/Roboto.css",
+            RobotoSlab  : "/font/RobotoSlab.css",
+            Rosario     : "/font/Rosario.css",
+            UbuntuMono  : "/font/UbuntuMono.css"
+        },
+
+        Suffix : {
+            about : "时间带不走你眼中的光辉"
+        },
+            
+        Theme : {
+            url  : "https://github.com/first19326/Hexo-LiveForCode",
+            name : "Hexo - Live For Code"
+        }  
+    };
+</script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</body>
+</html>

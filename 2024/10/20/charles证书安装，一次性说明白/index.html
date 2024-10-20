@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>
+        
+            charles证书安装，一次性说明白
+        
+    </title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSerifSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="/font/Roboto.css">
+    <link type="text/css" rel="stylesheet" href="/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="/css/base.css">
+    <link type="text/css" rel="stylesheet" href="/css/code.css">
+
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <a id="cover"></a>
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
+<div id="header" class="header">
+    <div class="vertical">
+        <div class="inner">
+            
+                <h1 class="header-subtitle">charles证书安装，一次性说明白</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2024-10-20
+                        </span>
+                        
+                            
+                                <span id="/2024/10/20/charles证书安装，一次性说明白/" class="leancloud_visitors" data-flag-title="charles证书安装，一次性说明白">
+                                    <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                                </span>
+                            
+                            
+                                <span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/10/20/charles证书安装，一次性说明白/"></span>
+                                </span>
+                              
+                        
+                    </p>
+                    
+                        
+                            <span class="category-color">前端开发</span>
+                        
+                    
+                    
+                        
+                            <span class="tag-color">测试工具</span>
+                        
+                            <span class="tag-color">Charles</span>
+                        
+                    
+                </div>
+            
+        </div>
+    </div>
+    
+</div>
+<div id="container">
+    
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <h3 id="一、软件安装证书（以windows为例）"><a href="#一、软件安装证书（以windows为例）" class="headerlink" title="一、软件安装证书（以windows为例）"></a>一、软件安装证书（以windows为例）</h3><p>windows上安装好charles后，需要给软件安装证书。</p>
+<blockquote>
+<p>1、点击help -&gt; <a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=SSL&spm=1001.2101.3001.7020">SSL</a> proxying，选择第二个install Charles Root Certificate证书安装</p>
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/d6398603bf88a460cbec89c70496c705.png"></p>
+<p>2、如果以前安装过证书，但是过期了（有效期一般1年），证书界面会显示过期字样，此时就要先点击一下Reset Charles Root Certificate，然后再点击第一步中的Install install Charles Root Certificate去安装</p>
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/40a4aae9fa7ef17cfaafd242c277ffb1.png"></p>
+<p>3、安装时，在证书界面，先点击安装证书</p>
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/83d7e9952f024ccf0cdaf7cfdda25cc0.png"></p>
+<p>4、然后不做修改，点击下一步</p>
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/19bc83c6f5394eb4534813c0f9ddf63e.png"></p>
+<p>5、在证书导入向导界面，要勾选【将所有的证书都放入下列存储】，然后点击浏览，选择【受信任的根证书颁发机构】，之后再导入证书前会有风险提示类似的页面，点击允许即可<img src="https://i-blog.csdnimg.cn/blog_migrate/25f76aaa7c46949cc8a873ea40f7c4d3.png"></p>
+<p>6、最后再回到主界面，点击一下help - SSL proxying  - install Charles Root Certificate。当出现以下状态时，才表示安装的证书是有效的。</p>
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/257afe6fa13064f0a43e39dd9bf2f481.png"></p>
+</blockquote>
+<h3 id="二、浏览器安装证书（以chrome浏览器为例）"><a href="#二、浏览器安装证书（以chrome浏览器为例）" class="headerlink" title="二、浏览器安装证书（以chrome浏览器为例）"></a>二、浏览器安装证书（以chrome浏览器为例）</h3><p>打开charles后，我们会发现浏览器无法打开网页了，此问题是由于没有配置浏览器证书，那接下来我们就要来配置下浏览器证书</p>
+<blockquote>
+<p>1、确保charles的证书已经安装成功后，再进行；浏览器证书的配置。</p>
+<p>2、先进入charles ，点击help - SSL proxying - Save Charles Root Certificate，将证书以.cer文件样式保存到本地，保存的文件如下</p>
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/6d02fa8b801cd997abb62b4292c59d45.png"></p>
+<p> <img src="https://i-blog.csdnimg.cn/blog_migrate/eb3b43a1c6687792631f11e44a2f33e7.png"></p>
+<p> <img src="https://i-blog.csdnimg.cn/blog_migrate/22010abbda6aabca89621ca28e3af0a3.png"></p>
+<p>3、打开chrome浏览器，点击设置，找到【隐私设置和安全性】里的【管理设备证书】，点击它，之后选择导入，将之前我们保存到手机上的.cer文件导入进去</p>
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/d9e3d70bc3d92d28d8d011d7f744703f.png"></p>
+<p> 4、在证书导入向导界面，同样要将证书放置在【受信任的根证书颁发机构】，之后提示导入成功。</p>
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/8fcb80cfe68f4417a69807a698868bc9.png"></p>
+<p>5、导入完成后，此时浏览器就可以正常访问页面了，并且访问的页面也会进入charles的窗口里。</p>
+</blockquote>
+<h3 id="三、手机安装证书（Android端）"><a href="#三、手机安装证书（Android端）" class="headerlink" title="三、手机安装证书（Android端）"></a>三、手机安装证书（Android端）</h3><p>1、保证电脑和手机在同一WiFi下，手机在WiFi界面将代理修改为手动，输入电脑的ip和端口，这ip和端口可在charles里查看到</p>
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/8ee91a967ccacdc3deba633b6bde28e0.png"></p>
+<p>2、ip和端口可在Charles中查看，点击help - SSL proxying - Install Charles Root Certificate on a Mobile Device or Remote Browser，弹出的界面上就会有需要连接的ip地址和端口</p>
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/1c76313fb393acc9d5bc6d388a52f6fc.png"></p>
+<p> <img src="https://i-blog.csdnimg.cn/blog_migrate/ad80cbbe19e41497300629d563ec0bd3.png"></p>
+<p>3、当手机WiFi连接好代理后，针对初次连接的设备，charles会弹出一个提示框，点击allow即可，表示允许此设备连接</p>
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/3a081fc4d3e17e0b99d65c8337e1a8d3.png"></p>
+<p> 4、此时charles能看到手机端的部分请求了，但如果想抓取https请求（https的请求会显示unknown），还需要配置手机端证书</p>
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/f5b2d234373f287e1c8c3bcf75f4bed7.png"></p>
+<p>5、打开手机浏览器，输入chls.pro&#x2F;ssl,选择下载，下载完成后安装证书</p>
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/85b46c2400c749c1703435d50b48602a.png"></p>
+<p> 6、安装完成后可进入手机- 安全-信任的凭证处，查看刚才安装的charles证书（不同Android机型可能不太一样，需要自己找下）</p>
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/d0848f31885c50d5f1b0f289947d2235.png"> </p>
+<p>3.之后打开需要抓包的应用，charles就能看到抓取的接口了，并且接口响应不会显示unknown</p>
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/18c0903cefe151ecf3551f3bedaa286a.png"> </p>
+<h3 id="四、手机安装证书（iOS端）"><a href="#四、手机安装证书（iOS端）" class="headerlink" title="四、手机安装证书（iOS端）"></a>四、手机安装证书（iOS端）</h3><p>1.、苹果手机也是同上，确保手机和电脑连接同一个WiFi，然后在WiFi处将配置代理修改为手动，再填入电脑ip地址和端口号</p>
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/be0b954649a41c01fc32f057d5075021.png"></p>
+<p>2、然后配置手机端证书（最好使用苹果自带的浏览器safari），在浏览器中输入chls.pro&#x2F;ssl，之后会提示下载完成</p>
+<p>3、进入设置-通用-VPN与设备管理，将下载的证书安装到手机上，将刚才下载好的证书选择安装到手机上，安装后的界面如下</p>
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/d7023f346472cc96f5a666aac4d4d7e1.png"></p>
+<p>4、<strong>之后最关键的一步，要开启信任，</strong>安装成功证书以后，还要再进入设置 - 通用 - 关于本机 - 证书信任设置 ，将刚才安装的证书信任开关打开。</p>
+<p><img src="https://i-blog.csdnimg.cn/blog_migrate/518117d3b24c612f4ef3350a949d7402.png"></p>
+<p>5.之后手机访问需要抓包的应用，charles就能看到抓取的接口及响应内容了。</p>
+<blockquote>
+<p>友情提示：免费版本的charles，使用30分钟后就会被关闭，不过不用付费，这个也不影响。</p>
+<p>关闭代理软件以后，记得看下电脑的设置处，代理开关是否关闭了，否则就会出现浏览器不能上网的问题哦</p>
+</blockquote>
+<p>本文转自 <a target="_blank" rel="noopener" href="https://blog.csdn.net/sumoyan1010/article/details/129959040">https://blog.csdn.net/sumoyan1010/article/details/129959040</a>，如有侵权，请联系删除。</p>
+
+                
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box">
+    <div class="suffix-box-left">
+        <img src="/image/sidebar/avatar.jpg" alt="Aspirai">
+    </div>
+    <div class="suffix-box-right">
+        <span class="suffix-box-title">文章作者：</span>Aspirai
+        <br>
+        <span class="suffix-box-title">文章出处：</span><a href="/2024/10/20/charles%E8%AF%81%E4%B9%A6%E5%AE%89%E8%A3%85%EF%BC%8C%E4%B8%80%E6%AC%A1%E6%80%A7%E8%AF%B4%E6%98%8E%E7%99%BD/" target="_blank">charles证书安装，一次性说明白</a>
+        <br>
+        <span class="suffix-box-title">作者签名：</span>时间带不走你眼中的光辉
+        <br>
+        <span class="suffix-box-title">版权声明：</span>文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+        <br>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+                
+                    <div class="category">
+                        分类：
+                        
+                            <a href="/category/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
+                        
+                    </div>
+                
+                
+                    <div class="tag">
+                        标签：
+                        
+                            <a href="/tag/%E6%B5%8B%E8%AF%95%E5%B7%A5%E5%85%B7/">测试工具</a>
+                        
+                            <a href="/tag/Charles/">Charles</a>
+                        
+                    </div>
+                
+                <div class="article-prev-next">
+                    
+                        <a href="/2024/10/20/charles%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%EF%BC%8C%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E8%B6%B3%E5%A4%9F%E4%BA%86/" class="prev-prefix">« </a> 上一篇：    <a href="/2024/10/20/charles%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B%EF%BC%8C%E8%BF%99%E4%B8%80%E7%AF%87%E5%B0%B1%E8%B6%B3%E5%A4%9F%E4%BA%86/" title="发布于 2024-10-20 09:25">charles使用教程，这一篇就足够了</a>
+                        <br>
+                    
+                    
+                        <a href="/2024/10/20/windows%20charles%20response%20%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" class="next-prefix">» </a> 下一篇：    <a href="/2024/10/20/windows%20charles%20response%20%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E5%8A%9E%E6%B3%95/" title="发布于 2024-10-20 09:25">windows charles response 乱码解决办法</a>
+                    
+                </div>
+            </div>
+            
+    <div class="article-comments">
+        
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+    
+ 
+        </div>
+    
+</div>
+    <div id="footer">
+    <div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>
+</div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar">
+                    <img src="/image/sidebar/avatar.jpg">
+                </div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user">
+                        
+                            <a href="javascript:;" target="_self"><span>Aspirai</span></a>
+                        
+                    </div>
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul>
+                    
+                        <li class=""><a href="/" class="" target="_self"><span class="iconfont icon-home-fill"></span>首页</a></li>
+                    
+                        <li class=""><a href="/category" class="" target="_self"><span class="iconfont icon-folder-fill"></span>分类</a></li>
+                    
+                        <li class=""><a href="/tag" class="" target="_self"><span class="iconfont icon-discount-fill"></span>标签</a></li>
+                    
+                        <li class=""><a href="/archive" class="" target="_self"><span class="iconfont icon-calendar-fill"></span>归档</a></li>
+                    
+                        <li class=""><a href="/friend" class="" target="_self"><span class="iconfont icon-link"></span>友情链接</a></li>
+                    
+                </ul> 
+            </div> 
+            <div class="menu-link">
+                <div class="box">
+                    <div class="image-box"></div>
+                </div>
+                
+                    <a name="QQ" href="javascript:;" class="image" target="_self" data="/image/sidebar/qq.png"><span class="iconfont icon-qq"></span></a>
+                
+            </div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="/css/search.css">
+<script type="text/javascript" src="/js/iscroll.js"></script>
+<script type="text/javascript" src="/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+    
+    <link type="text/css" rel="stylesheet" href="/css/APlayer.css">
+    <script type="text/javascript" src="/js/APlayer.min.js"></script>
+    <script type="text/javascript" src="/js/Meting.min.js"></script>
+    <script>
+        var meting_api = 'https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&auth=:auth&r=:r';
+    </script>
+    <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+
+    <div class="wrap-right">
+    <div class="wrap-right-hide">
+         <div class="wrap-right-button favorites">
+            <div class="iconbox" switch="false">
+                <span class="iconfont icon-favorites"></span>
+            </div>
+            <span class="icontext">关注</span>
+         </div>
+        <div class="wrap-right-button search">
+            <div class="iconbox">
+                <span class="iconfont icon-search-menu"></span>
+            </div>
+            <span class="icontext">搜索</span>
+        </div>
+        <div class="wrap-right-button menu-button">
+            <div class="iconbox">
+                <span class="iconfont icon-menu"></span>
+            </div>
+            <span class="icontext">菜单</span>
+        </div>
+        <div class="wrap-right-button mode">
+            <div class="light">
+                <div class="iconbox">
+                    <span class="iconfont icon-daymode"></span>
+                </div>
+                <span class="icontext">浅色模式</span>
+            </div>
+            <div class="dark">
+                <div class="iconbox">
+                    <span class="iconfont icon-nightmode-fill"></span>
+                </div>
+                <span class="icontext">深色模式</span>
+            </div>
+        </div>
+        <div class="wrap-right-button bottom">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">跳至底部</span>
+        </div>
+    </div>
+    <div class="wrap-right-show">
+        <div class="wrap-right-button set">
+            <div class="iconbox">
+                <span class="iconfont icon-setting"></span>
+            </div>
+            <span class="icontext">设置</span>
+        </div>
+        <div class="wrap-right-button top">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">返回顶部</span>
+        </div>
+    </div>
+</div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : "Aspirai",
+        GitHubRepositories : "Hexo-LiveForCode",
+
+        User             : "Aspirai",
+        UserAvatar       : "/image/sidebar/avatar.jpg",
+        WebsiteStartDate : "2020-01-01",
+        Home             : "",
+
+        WebsiteTitleBlur         : "(◍´꒳`◍) Hi, Aspirai",
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : "(*´∇｀*) 欢迎回来!",
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : {
+            light : "/image/website/logo/logo.png",
+            dark  : "/image/website/logo/logo-dark.png"
+        },
+
+        ProgressBar : {
+            id       : "topProgressBar",
+            color    : "#77B6FF",
+            height   : "2px",
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound : {
+                tension  : 16,
+                friction : 5
+            },
+            spinner : {
+                id     : "spinner",
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : "#F0F0F0",
+                    stroke     : "#272633",
+                    base       : "",
+                    child      : "#272633"
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : "rgba(255, 255, 255, .2)",
+            clearOffset : 0.3
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : "60%",
+            colorBrightness  : "50%",
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : "random",
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                "/image/header/home.jpg",
+            
+                "/image/header/home.png",
+            
+        ],
+        HomeBannerText  : "",
+
+        ArticleHeaderImage : [
+            
+                "/image/header/article.jpg",
+            
+        ],
+
+        OtherBannerText : "",
+
+        Error : {
+            icon    : "icon-swimming",
+            title   : "PAGE NOT FOUND",
+            content : [
+                
+                    "很抱歉，您访问的页面不存在！",
+                
+                    "可能是输入地址有误或该地址已变更。",
+                
+            ],
+            buttons : [
+                
+                    {
+                        icon  : "icon-home",
+                        text  : "返回首页",
+                        href  : "/",
+                        class : ""
+                    },
+                
+            ]
+        },
+
+        MenuNotice : {
+            enable : false,
+            notice : "简单地活着，肆意而又精彩！",
+            speed  : 20
+        },
+        MenuList : [
+            
+                {
+                    name   : "首页",
+                    icon   : "icon-home-fill",
+                    href   : "/",
+                    type   : "index",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "分类",
+                    icon   : "icon-folder-fill",
+                    href   : "/category",
+                    type   : "category",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "标签",
+                    icon   : "icon-discount-fill",
+                    href   : "/tag",
+                    type   : "tag",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "归档",
+                    icon   : "icon-calendar-fill",
+                    href   : "/archive",
+                    type   : "archive",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "友情链接",
+                    icon   : "icon-link",
+                    href   : "/friend",
+                    type   : "friend",
+                    class  : "",
+                    target : "_self"
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        name   : "QQ",
+                        icon   : "icon-qq",
+                        href   : "javascript:;",
+                        class  : "image",
+                        target : "_self",
+                        image  : "/image/sidebar/qq.png"
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : "<div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>",
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                "Based on cnblogs theme SimpleMemory.",
+                            
+                                "",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "SimpleMemory Author:",
+                            
+                                "BNDong",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "Theme:",
+                            
+                                "LiveForCode",
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : "",
+
+        Donate : {
+            paypal  : "",
+            bitcoin : "",
+            alipay  : "/image/donate/alipay.png",
+            wechat  : "/image/donate/wechat.png"
+        },
+
+        Search : {
+            applicationID : "010C3EANT8",
+            apiKey        : "c7abab9f11b79102b9aff7fe6d41447d",
+            indexName     : "Notes",
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : "搜索",
+                empty       : "未发现与 「${query}」 相关的内容",
+                stats       : "${hits} 条相关条目，使用了 ${time} 毫秒",
+            }
+        }, 
+
+        Comment : {
+            switch : true,
+            type   : "Valine",
+        },
+
+        Waline : {
+            el              : ".comments-content",
+            serverURL       : "",
+            path            : window.location.pathname,
+            meta            : "['nick', 'mail', 'link']",
+            requiredMeta    : "['nick', 'mail']",
+            pageSize        : 10,
+            lang            : "zh-cn",
+            locale: {
+                admin       : "博主",
+                anonymous   : "匿名用户",
+                sofa        : "快来做第一个评论的人吧 ~",
+                placeholder : "你是我一生只会遇见一次的惊喜...",
+            },
+            dark            : "html[color-scheme='dark']",
+            search          : false,
+            pageview        : true,
+            comment         : true,
+            copyright       : false,
+        },
+
+        Valine : {
+            el             : ".comments-content",
+            appId          : "srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz",
+            appKey         : "8uVSP1q6UlALVC5igYfIfv2h",
+            serverURLs     : "",
+            placeholder    : "你是我一生只会遇见一次的惊喜...",
+            avatar         : "mm",
+            meta           : "nick,mail,link",
+            requiredFields : "nick,mail",
+            pageSize       : 5,
+            lang           : "zh-cn",
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : ".toc",
+            contentSelector       : ".article-body",
+            headingSelector       : "h1, h2, h3, h4, h5",
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : ".toc",
+            positionFixedClass    : "toc-fixed",
+            fixedSidebarOffset    : "",
+        },
+
+        Require : {
+            baseUrl     : "/js/",
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : "Meting"
+        },
+        APlayer : {
+            container : ".aplayer",
+            fixed     : true,
+            autoplay  : false,
+            loop      : "all",
+            order     : "random",
+            preload   : "auto",
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : "Endless Tears",
+                        artist : "CLIFF EDGE",
+                        cover  : "/music/cover/Endless Tears.jpg",
+                        url    : "/music/song/Endless Tears.mp3",
+                        lrc    : "/music/lrc/Endless Tears.lrc"
+                    },
+                
+            ]
+        },
+        Meting : {
+            api      : "https://api.i-meto.com/meting/api",
+            id       : "3778678", 
+            lrcshow  : false, 
+            server   : "netease", 
+            type     : "playlist", 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : "all", 
+            order    : "random", 
+            preload  : "auto", 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : true,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : "/image/website/lazyload.svg"
+        },
+  
+        Style : {
+            aplayer          : "/css/APlayer.css",
+            archive          : "/css/archive.css",
+            base             : "/css/base.css",
+            clipboard        : "/css/clipboard.css",
+            code             : "/css/code.css",
+            donate           : "/css/donate.css",
+            fancybox         : "/css/jquery.fancybox.css",
+            footer           : "/css/footer.css",
+            iconfont         : "/iconfont/iconfont.css",
+            index            : "/css/index.css",
+            menuBubble       : "/css/menu-bubble.css",
+            mouse            : "/css/mouse.css",
+            page             : "/css/page.css",
+            post             : "/css/post.css",
+            search           : "/css/search.css",
+            tocbot           : "/css/tocbot.css",
+            valine           : "/css/valine.css",
+            waline           : "/css/waline.css",
+            walineCustom     : "/css/waline-custom.css"
+        },
+
+        Script: {
+            aplayer          : "/js/APlayer.min.js",
+            config           : "/js/require.config.js",
+            index            : "/js/index.js",
+            instantSearch    : "/js/instantsearch.min.js",
+            iscroll          : "/js/iscroll.js",
+            jQuery           : "/js/jquery-3.4.1.min.js",
+            loading          : "/js/loading.js",
+            meting           : "/js/Meting.min.js",
+            require          : "/js/require.min.js",
+            waline           : "/js/waline.mjs",
+            pageview         : "/js/pageview.mjs",
+            comment          : "/js/comment.mjs",
+        },
+
+        Font: {
+            LongCang    : "/font/LongCang.css",
+            Monda       : "/font/Monda.css",
+            NotoSansSC  : "/font/NotoSansSC.css",
+            NotoSerifSC : "/font/NotoSerifSC.css",
+            Playball    : "/font/Playball.css",
+            PTMono      : "/font/PTMono.css",
+            Roboto      : "/font/Roboto.css",
+            RobotoSlab  : "/font/RobotoSlab.css",
+            Rosario     : "/font/Rosario.css",
+            UbuntuMono  : "/font/UbuntuMono.css"
+        },
+
+        Suffix : {
+            about : "时间带不走你眼中的光辉"
+        },
+            
+        Theme : {
+            url  : "https://github.com/first19326/Hexo-LiveForCode",
+            name : "Hexo - Live For Code"
+        }  
+    };
+</script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</body>
+</html>

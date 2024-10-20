@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>
+        
+            运维 _ 使用 Docker Compose 搭建 Lsky Pro 图床 _ Docker
+        
+    </title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSerifSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="/font/Roboto.css">
+    <link type="text/css" rel="stylesheet" href="/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="/css/base.css">
+    <link type="text/css" rel="stylesheet" href="/css/code.css">
+
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <a id="cover"></a>
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
+<div id="header" class="header">
+    <div class="vertical">
+        <div class="inner">
+            
+                <h1 class="header-subtitle">运维 _ 使用 Docker Compose 搭建 Lsky Pro 图床 _ Docker</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2024-10-20
+                        </span>
+                        
+                            
+                                <span id="/2024/10/20/运维 _ 使用 Docker Compose 搭建 Lsky Pro 图床 _ Docker/" class="leancloud_visitors" data-flag-title="运维 _ 使用 Docker Compose 搭建 Lsky Pro 图床 _ Docker">
+                                    <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                                </span>
+                            
+                            
+                                <span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/10/20/运维 _ 使用 Docker Compose 搭建 Lsky Pro 图床 _ Docker/"></span>
+                                </span>
+                              
+                        
+                    </p>
+                    
+                        
+                            <span class="category-color">生活小知识</span>
+                        
+                    
+                    
+                        
+                            <span class="tag-color">图床</span>
+                        
+                    
+                </div>
+            
+        </div>
+    </div>
+    
+</div>
+<div id="container">
+    
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <h2 id="运维-使用-Docker-Compose-搭建-Lsky-Pro-图床-Docker"><a href="#运维-使用-Docker-Compose-搭建-Lsky-Pro-图床-Docker" class="headerlink" title="运维 | 使用 Docker Compose 搭建 Lsky Pro 图床 | Docker"></a>运维 | 使用 Docker Compose 搭建 Lsky Pro 图床 | Docker</h2><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>Lsky Pro 是一个用于在线上传、管理图片的图床程序，中文名：兰空图床，你可以将它作为自己的云上相册，亦可以当作你的写作贴图库。</p>
+<p>兰空图床始于 2017 年 10 月，最早的版本由 ThinkPHP 5 开发，后又经历了数个版本的迭代，在 2021 年末启动了新的重写计划并于 2022 年 3 月份发布全新的 2.0 版本。</p>
+<p>项目地址：<a href="https://link.zhihu.com/?target=https://github.com/lsky-org/lsky-pro">https://github.com/lsky-org/lsky-pro</a></p>
+<p>官网地址：<a href="https://link.zhihu.com/?target=https://www.lsky.pro/">https://www.lsky.pro/</a></p>
+<p>文档地址：<a href="https://link.zhihu.com/?target=https://docs.lsky.pro/">https://docs.lsky.pro/</a></p>
+<p>Docker镜像地址：<a href="https://link.zhihu.com/?target=https://hub.docker.com/r/dko0/lsky-pro">https://hub.docker.com/r/dko0/lsky-pro</a></p>
+<p>PicGo插件：<a href="https://link.zhihu.com/?target=https://hellodk.cn/post/964">https://hellodk.cn/post/964</a></p>
+<h3 id="功能特性"><a href="#功能特性" class="headerlink" title="功能特性"></a>功能特性</h3><ul>
+<li>支持<code>本地</code>等多种第三方云储存 <code>AWS S3</code>、<code>阿里云 OSS</code>、<code>腾讯云 COS</code>、<code>七牛云</code>、<code>又拍云</code>、<code>SFTP</code>、<code>FTP</code>、<code>WebDav</code>、<code>Minio</code></li>
+<li>多种数据库驱动支持，<code>MySQL 5.7+</code>、<code>PostgreSQL 9.6+</code>、<code>SQLite 3.8.8+</code>、<code>SQL Server 2017+</code></li>
+<li>支持配置使用多种缓存驱动，<code>Memcached</code>、<code>Redis</code>、<code>DynamoDB</code>、等其他关系型数据库，默认以文件的方式缓存</li>
+<li>多图上传、拖拽上传、粘贴上传、动态设置策略上传、复制、一键复制链接</li>
+<li>强大的图片管理功能，瀑布流展示，支持鼠标右键、单选多选、重命名等操作</li>
+<li>自由度极高的角色组配置，可以为每个组配置多个储存策略，同时储存策略可以配置多个角色组</li>
+<li>可针对角色组设置上传文件、文件夹路径命名规则、上传频率限制、图片审核等功能</li>
+<li>支持图片水印、文字水印、水印平铺、设置水印位置、X&#x2F;y 轴偏移量设置、旋转角度等</li>
+<li>支持通过接口上传、管理图片、管理相册</li>
+<li>支持在线增量更新、跨版本更新</li>
+<li>图片广场</li>
+</ul>
+<h3 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h3><ul>
+<li>服务器</li>
+</ul>
+<p>Vultr 注册：<a href="https://link.zhihu.com/?target=https://www.vultr.com/">https://www.vultr.com/</a> Racknerd 注册：<a href="https://link.zhihu.com/?target=https://my.racknerd.com/">https://my.racknerd.com/</a></p>
+<ul>
+<li>域名注册与解析</li>
+</ul>
+<p>域名注册：<a href="https://link.zhihu.com/?target=https://www.namesilo.com">https://www.namesilo.com</a> 域名解析：<a href="https://link.zhihu.com/?target=https://www.cloudflare.com">https://www.cloudflare.com</a></p>
+<ul>
+<li>SSH 连接工具（可选，推荐）</li>
+</ul>
+<p>FinalShell下载：<a href="https://link.zhihu.com/?target=http://www.hostbuf.com/t/988.html">http://www.hostbuf.com/t/988.html</a></p>
+<ul>
+<li>反向代理工具（可选，推荐）</li>
+</ul>
+<p>Nginx Proxy Manager：<a href="https://link.zhihu.com/?target=https://nginxproxymanager.com/">https://nginxproxymanager.com/</a></p>
+<blockquote>
+<p>以上提供的链接或工具仅作为示例，具体情况请按照需使用</p>
+</blockquote>
+<h3 id="快速使用"><a href="#快速使用" class="headerlink" title="快速使用"></a>快速使用</h3><blockquote>
+<p>下面以 <code>CentOS</code> 系统为例</p>
+</blockquote>
+<h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><ul>
+<li>安装常用工具包</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo -i # 切换到root用户</span><br><span class="line">yum update -y</span><br><span class="line">yum install wget curl sudo vim git lsof</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>设置 <code>SWAP</code> 脚本（可选）</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -O box.sh https://raw.githubusercontent.com/BlueSkyXN/SKY-BOX/main/box.sh &amp;&amp; chmod +x box.sh &amp;&amp; clear &amp;&amp; ./box.sh</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：VPS的内存如果过小，建议设置一下SWAP，一般为内存的1-1.5倍即可，可以让运行更流畅！</p>
+</blockquote>
+<ul>
+<li><p>安装 <code>Docker</code> 环境  </p>
+</li>
+<li><p>Docker 安装文档：<a href="https://link.zhihu.com/?target=https://docs.docker.com/engine/install/">https://docs.docker.com/engine/install/</a>  </p>
+</li>
+<li><p>Docker Compose 安装文档：<a href="https://link.zhihu.com/?target=https://docs.docker.com/compose/install/">https://docs.docker.com/compose/install/</a></p>
+</li>
+</ul>
+<h3 id="创建容器"><a href="#创建容器" class="headerlink" title="创建容器"></a>创建容器</h3><ol>
+<li>在系统任意位置创建一个文件夹，此文档以 <code>/opt/docker/lsky</code> 为例</li>
+</ol>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /opt/docker/lsky &amp;&amp; cd /opt/docker/lsky</span><br><span class="line">mkdir -p ./&#123;conf,data,logs&#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：后续操作中，产生的所有数据都会保存在这个目录，请妥善保存</p>
+</blockquote>
+<ol>
+<li>创建 <code>docker-compose.yaml</code></li>
+</ol>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">version: &#x27;3&#x27;</span><br><span class="line">services:</span><br><span class="line">    lsky-pro:</span><br><span class="line">        container_name: lsky-pro</span><br><span class="line">        image: dko0/lsky-pro</span><br><span class="line">        restart: always</span><br><span class="line">        volumes:</span><br><span class="line">            - ./data/html:/var/www/html  #映射到本地</span><br><span class="line">        ports:</span><br><span class="line">            - 7791:80</span><br><span class="line">        environment:</span><br><span class="line">            - MYSQL_HOST=mysql</span><br><span class="line">            - MYSQL_DATABASE=lsky-pro</span><br><span class="line">            - MYSQL_USER=lsky-pro</span><br><span class="line">            - MYSQL_PASSWORD=lsky-pro</span><br><span class="line"></span><br><span class="line">    mysql:</span><br><span class="line">        image: mysql:8.0</span><br><span class="line">        container_name: lsky-pro-db</span><br><span class="line">        restart: always</span><br><span class="line">        environment:</span><br><span class="line">          - MYSQL_DATABASE=lsky-pro</span><br><span class="line">          - MYSQL_USER=lsky-pro</span><br><span class="line">          - MYSQL_PASSWORD=lsky-pro</span><br><span class="line">          - MYSQL_ROOT_PASSWORD=lsky-pro</span><br><span class="line">        volumes:</span><br><span class="line">          - ./data/db:/var/lib/mysql</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>注意：查看端口是否被占用 <code>lsof -i:7791</code></p>
+</blockquote>
+<ol>
+<li>启动服务</li>
+</ol>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
+
+<p>实时查看日志：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose logs -f</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><p>用浏览器访问 <code>http://ip:端口号</code> 即可  </p>
+</li>
+<li><p>查看服务器 IP：</p>
+</li>
+</ol>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl ip.sb</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>如果需要配置域名访问，建议先配置好反向代理以及域名解析再进行初始化。如果通过 <code>http://ip:端口号</code> 的形式无法访问，请到服务器厂商后台将运行的端口号添加到安全组，如果服务器使用了 Linux 面板，请检查此 Linux 面板是否有还有安全组配置，需要同样将端口号添加到安全组。</p>
+</blockquote>
+<h3 id="更新容器"><a href="#更新容器" class="headerlink" title="更新容器"></a>更新容器</h3><ol>
+<li>停止运行中的容器组</li>
+</ol>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /opt/docker/lsky &amp;&amp; docker-compose down</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>备份数据（重要）</li>
+</ol>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp -r /opt/docker/lsky /opt/docker/lsky.archive</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>需要注意的是，<code>lsky.archive</code> 文件名不一定要根据此文档命名，这里仅仅是个示例。</p>
+</blockquote>
+<ol>
+<li>更新服务</li>
+</ol>
+<p>修改 <code>docker-compose.yaml</code> 中配置的镜像版本</p>
+<p>拉取镜像</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose pull lsky-pro</span><br></pre></td></tr></table></figure>
+
+<p>重新启动容器</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
+
+<h3 id="进阶使用"><a href="#进阶使用" class="headerlink" title="进阶使用"></a>进阶使用</h3><h3 id="反向代理"><a href="#反向代理" class="headerlink" title="反向代理"></a>反向代理</h3><ul>
+<li>使用 Nginx Proxy Manager 工具</li>
+</ul>
+<blockquote>
+<p>Nginx Proxy Manager（以下简称NPM）会用到 <code>80</code>、<code>443</code> 端口，所以本机不能占用</p>
+</blockquote>
+<h3 id="使用指南"><a href="#使用指南" class="headerlink" title="使用指南"></a>使用指南</h3><h3 id="初始化安装"><a href="#初始化安装" class="headerlink" title="初始化安装"></a>初始化安装</h3><p>访问网页地址，进入安装界面，按照提示进行安装即可</p>
+<img src="https://pic2.zhimg.com/v2-0b8ad4cd30003f41b699ba9879495bc1\_b.jpg" data-caption="" data-size="normal" data-rawwidth="2952" data-rawheight="1826" class="origin\_image zh-lightbox-thumb" width="2952" data-original="https://pic2.zhimg.com/v2-0b8ad4cd30003f41b699ba9879495bc1\_r.jpg"/>
+
+<p><img src="https://pic2.zhimg.com/v2-0b8ad4cd30003f41b699ba9879495bc1_r.jpg"></p>
+<p>注意，数据库连接地址，填 <code>docker-compose</code> 文件里的容器名称 <code>lsky-pro-db</code></p>
+<img src="https://pic2.zhimg.com/v2-21471bf24328fd3b87fbdae490f8cecd\_b.jpg" data-caption="" data-size="normal" data-rawwidth="2952" data-rawheight="1826" class="origin\_image zh-lightbox-thumb" width="2952" data-original="https://pic2.zhimg.com/v2-21471bf24328fd3b87fbdae490f8cecd\_r.jpg"/>
+
+<p><img src="https://pic2.zhimg.com/v2-21471bf24328fd3b87fbdae490f8cecd_r.jpg"></p>
+<p>提示安装成功，就可以开始使用了</p>
+<p><img src="https://pic2.zhimg.com/v2-d467026e74cbc26f1c12972702cb78ed_r.jpg"></p>
+<p><img src="https://pic3.zhimg.com/v2-bbb3b1aea650e27997a281d57f201392_r.jpg"></p>
+<h3 id="管理员登录"><a href="#管理员登录" class="headerlink" title="管理员登录"></a>管理员登录</h3><p>输入前面填写的 <code>管理员邮箱</code> 和 <code>密码</code> 进行登录</p>
+<img src="https://pic3.zhimg.com/v2-3a920874d40892a06100b49d7add369a\_b.jpg" data-caption="" data-size="normal" data-rawwidth="2952" data-rawheight="1826" class="origin\_image zh-lightbox-thumb" width="2952" data-original="https://pic3.zhimg.com/v2-3a920874d40892a06100b49d7add369a\_r.jpg"/>
+
+<p><img src="https://pic3.zhimg.com/80/v2-3a920874d40892a06100b49d7add369a_720w.webp"></p>
+<img src="https://pic2.zhimg.com/v2-1e07377a2ab43e092f1a37dee781c215\_b.jpg" data-caption="" data-size="normal" data-rawwidth="2952" data-rawheight="1826" class="origin\_image zh-lightbox-thumb" width="2952" data-original="https://pic2.zhimg.com/v2-1e07377a2ab43e092f1a37dee781c215\_r.jpg"/>
+
+<p><img src="https://pic2.zhimg.com/80/v2-1e07377a2ab43e092f1a37dee781c215_720w.webp"></p>
+<h3 id="系统设置"><a href="#系统设置" class="headerlink" title="系统设置"></a>系统设置</h3><ul>
+<li>修改站点名称</li>
+</ul>
+<img src="https://pic1.zhimg.com/v2-5fe6d3d538338a60f4d4294f0d95f98c\_b.jpg" data-caption="" data-size="normal" data-rawwidth="2952" data-rawheight="1826" class="origin\_image zh-lightbox-thumb" width="2952" data-original="https://pic1.zhimg.com/v2-5fe6d3d538338a60f4d4294f0d95f98c\_r.jpg"/>
+
+<p><img src="https://pic1.zhimg.com/80/v2-5fe6d3d538338a60f4d4294f0d95f98c_720w.webp"></p>
+<h3 id="API-接口"><a href="#API-接口" class="headerlink" title="API 接口"></a>API 接口</h3><ul>
+<li>访问 <code>接口</code> 设置页面</li>
+</ul>
+<img src="https://pic1.zhimg.com/v2-5ec2f430c491612010bb3466ede226a4\_b.jpg" data-caption="" data-size="normal" data-rawwidth="2952" data-rawheight="1826" class="origin\_image zh-lightbox-thumb" width="2952" data-original="https://pic1.zhimg.com/v2-5ec2f430c491612010bb3466ede226a4\_r.jpg"/>
+
+<p><img src="https://pic1.zhimg.com/80/v2-5ec2f430c491612010bb3466ede226a4_720w.webp"></p>
+<ul>
+<li>获取 <code>token</code></li>
+</ul>
+<p>在线 HTTP 接口测试：<a href="https://link.zhihu.com/?target=https://www.sojson.com/httpRequest/">https://www.sojson.com/httpRequest/</a></p>
+<img src="https://pic4.zhimg.com/v2-abb4bf3f2976918a21eaa1d099aaf987\_b.jpg" data-caption="" data-size="normal" data-rawwidth="2952" data-rawheight="1826" class="origin\_image zh-lightbox-thumb" width="2952" data-original="https://pic4.zhimg.com/v2-abb4bf3f2976918a21eaa1d099aaf987\_r.jpg"/>
+
+<p><img src="https://pic4.zhimg.com/80/v2-abb4bf3f2976918a21eaa1d099aaf987_720w.webp"></p>
+<h3 id="PicGO-插件"><a href="#PicGO-插件" class="headerlink" title="PicGO 插件"></a>PicGO 插件</h3><p>参考文档：<a href="https://link.zhihu.com/?target=https://www.imcharon.com/1068/">https://www.imcharon.com/1068/</a></p>
+<h3 id="FAQ"><a href="#FAQ" class="headerlink" title="FAQ"></a>FAQ</h3><h3 id="该网页无法正常运作，显示-HTTP-ERROR-503"><a href="#该网页无法正常运作，显示-HTTP-ERROR-503" class="headerlink" title="该网页无法正常运作，显示 HTTP ERROR 503"></a>该网页无法正常运作，显示 HTTP ERROR 503</h3><ul>
+<li>检测防火墙，放行端口</li>
+</ul>
+<p>CentOS</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">firewall-cmd --list-ports   # 查看已开放的端口</span><br><span class="line">firewall-cmd --zone=public --add-port=7791/tcp --permanent  # 开放端口（开放后需要要重启防火墙才生效）</span><br><span class="line">firewall-cmd --reload   # 重启防火墙</span><br></pre></td></tr></table></figure>
+
+<p>Ubuntu &amp; Debian</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iptables -I INPUT -p tcp --dport 80 -j ACCEPT   # 放行80端口</span><br><span class="line">iptables -I INPUT -p tcp --dport 443 -j ACCEPT  # 放行443端口</span><br><span class="line">iptables -I INPUT -p tcp --dport 7791 -j ACCEPT  # 放行7791端口</span><br></pre></td></tr></table></figure>
+
+<h3 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h3><p>本期的内容就到这里，路过的小伙伴记得支持一下哦！</p>
+<p>本文转自 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/659140708">https://zhuanlan.zhihu.com/p/659140708</a>，如有侵权，请联系删除。</p>
+
+                
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box">
+    <div class="suffix-box-left">
+        <img src="/image/sidebar/avatar.jpg" alt="Aspirai">
+    </div>
+    <div class="suffix-box-right">
+        <span class="suffix-box-title">文章作者：</span>Aspirai
+        <br>
+        <span class="suffix-box-title">文章出处：</span><a href="/2024/10/20/%E8%BF%90%E7%BB%B4%20_%20%E4%BD%BF%E7%94%A8%20Docker%20Compose%20%E6%90%AD%E5%BB%BA%20Lsky%20Pro%20%E5%9B%BE%E5%BA%8A%20_%20Docker/" target="_blank">运维 _ 使用 Docker Compose 搭建 Lsky Pro 图床 _ Docker</a>
+        <br>
+        <span class="suffix-box-title">作者签名：</span>时间带不走你眼中的光辉
+        <br>
+        <span class="suffix-box-title">版权声明：</span>文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+        <br>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+                
+                    <div class="category">
+                        分类：
+                        
+                            <a href="/category/%E7%94%9F%E6%B4%BB%E5%B0%8F%E7%9F%A5%E8%AF%86/">生活小知识</a>
+                        
+                    </div>
+                
+                
+                    <div class="tag">
+                        标签：
+                        
+                            <a href="/tag/%E5%9B%BE%E5%BA%8A/">图床</a>
+                        
+                    </div>
+                
+                <div class="article-prev-next">
+                    
+                        <a href="/2024/10/20/%E7%94%9F%E6%B4%BB%E5%B0%8F%E6%96%B0%E5%A5%87/" class="prev-prefix">« </a> 上一篇：    <a href="/2024/10/20/%E7%94%9F%E6%B4%BB%E5%B0%8F%E6%96%B0%E5%A5%87/" title="发布于 2024-10-20 09:31">生活小新奇</a>
+                        <br>
+                    
+                    
+                        <a href="/2024/10/20/%E9%94%AE%E7%9B%98%E4%B8%8A%E7%9A%84%E5%8A%9F%E8%83%BD%E9%94%AE/" class="next-prefix">» </a> 下一篇：    <a href="/2024/10/20/%E9%94%AE%E7%9B%98%E4%B8%8A%E7%9A%84%E5%8A%9F%E8%83%BD%E9%94%AE/" title="发布于 2024-10-20 09:31">键盘上的功能键</a>
+                    
+                </div>
+            </div>
+            
+    <div class="article-comments">
+        
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+    
+ 
+        </div>
+    
+</div>
+    <div id="footer">
+    <div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>
+</div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar">
+                    <img src="/image/sidebar/avatar.jpg">
+                </div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user">
+                        
+                            <a href="javascript:;" target="_self"><span>Aspirai</span></a>
+                        
+                    </div>
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul>
+                    
+                        <li class=""><a href="/" class="" target="_self"><span class="iconfont icon-home-fill"></span>首页</a></li>
+                    
+                        <li class=""><a href="/category" class="" target="_self"><span class="iconfont icon-folder-fill"></span>分类</a></li>
+                    
+                        <li class=""><a href="/tag" class="" target="_self"><span class="iconfont icon-discount-fill"></span>标签</a></li>
+                    
+                        <li class=""><a href="/archive" class="" target="_self"><span class="iconfont icon-calendar-fill"></span>归档</a></li>
+                    
+                        <li class=""><a href="/friend" class="" target="_self"><span class="iconfont icon-link"></span>友情链接</a></li>
+                    
+                </ul> 
+            </div> 
+            <div class="menu-link">
+                <div class="box">
+                    <div class="image-box"></div>
+                </div>
+                
+                    <a name="QQ" href="javascript:;" class="image" target="_self" data="/image/sidebar/qq.png"><span class="iconfont icon-qq"></span></a>
+                
+            </div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="/css/search.css">
+<script type="text/javascript" src="/js/iscroll.js"></script>
+<script type="text/javascript" src="/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+    
+    <link type="text/css" rel="stylesheet" href="/css/APlayer.css">
+    <script type="text/javascript" src="/js/APlayer.min.js"></script>
+    <script type="text/javascript" src="/js/Meting.min.js"></script>
+    <script>
+        var meting_api = 'https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&auth=:auth&r=:r';
+    </script>
+    <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+
+    <div class="wrap-right">
+    <div class="wrap-right-hide">
+         <div class="wrap-right-button favorites">
+            <div class="iconbox" switch="false">
+                <span class="iconfont icon-favorites"></span>
+            </div>
+            <span class="icontext">关注</span>
+         </div>
+        <div class="wrap-right-button search">
+            <div class="iconbox">
+                <span class="iconfont icon-search-menu"></span>
+            </div>
+            <span class="icontext">搜索</span>
+        </div>
+        <div class="wrap-right-button menu-button">
+            <div class="iconbox">
+                <span class="iconfont icon-menu"></span>
+            </div>
+            <span class="icontext">菜单</span>
+        </div>
+        <div class="wrap-right-button mode">
+            <div class="light">
+                <div class="iconbox">
+                    <span class="iconfont icon-daymode"></span>
+                </div>
+                <span class="icontext">浅色模式</span>
+            </div>
+            <div class="dark">
+                <div class="iconbox">
+                    <span class="iconfont icon-nightmode-fill"></span>
+                </div>
+                <span class="icontext">深色模式</span>
+            </div>
+        </div>
+        <div class="wrap-right-button bottom">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">跳至底部</span>
+        </div>
+    </div>
+    <div class="wrap-right-show">
+        <div class="wrap-right-button set">
+            <div class="iconbox">
+                <span class="iconfont icon-setting"></span>
+            </div>
+            <span class="icontext">设置</span>
+        </div>
+        <div class="wrap-right-button top">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">返回顶部</span>
+        </div>
+    </div>
+</div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : "Aspirai",
+        GitHubRepositories : "Hexo-LiveForCode",
+
+        User             : "Aspirai",
+        UserAvatar       : "/image/sidebar/avatar.jpg",
+        WebsiteStartDate : "2020-01-01",
+        Home             : "",
+
+        WebsiteTitleBlur         : "(◍´꒳`◍) Hi, Aspirai",
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : "(*´∇｀*) 欢迎回来!",
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : {
+            light : "/image/website/logo/logo.png",
+            dark  : "/image/website/logo/logo-dark.png"
+        },
+
+        ProgressBar : {
+            id       : "topProgressBar",
+            color    : "#77B6FF",
+            height   : "2px",
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound : {
+                tension  : 16,
+                friction : 5
+            },
+            spinner : {
+                id     : "spinner",
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : "#F0F0F0",
+                    stroke     : "#272633",
+                    base       : "",
+                    child      : "#272633"
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : "rgba(255, 255, 255, .2)",
+            clearOffset : 0.3
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : "60%",
+            colorBrightness  : "50%",
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : "random",
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                "/image/header/home.jpg",
+            
+                "/image/header/home.png",
+            
+        ],
+        HomeBannerText  : "",
+
+        ArticleHeaderImage : [
+            
+                "/image/header/article.jpg",
+            
+        ],
+
+        OtherBannerText : "",
+
+        Error : {
+            icon    : "icon-swimming",
+            title   : "PAGE NOT FOUND",
+            content : [
+                
+                    "很抱歉，您访问的页面不存在！",
+                
+                    "可能是输入地址有误或该地址已变更。",
+                
+            ],
+            buttons : [
+                
+                    {
+                        icon  : "icon-home",
+                        text  : "返回首页",
+                        href  : "/",
+                        class : ""
+                    },
+                
+            ]
+        },
+
+        MenuNotice : {
+            enable : false,
+            notice : "简单地活着，肆意而又精彩！",
+            speed  : 20
+        },
+        MenuList : [
+            
+                {
+                    name   : "首页",
+                    icon   : "icon-home-fill",
+                    href   : "/",
+                    type   : "index",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "分类",
+                    icon   : "icon-folder-fill",
+                    href   : "/category",
+                    type   : "category",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "标签",
+                    icon   : "icon-discount-fill",
+                    href   : "/tag",
+                    type   : "tag",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "归档",
+                    icon   : "icon-calendar-fill",
+                    href   : "/archive",
+                    type   : "archive",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "友情链接",
+                    icon   : "icon-link",
+                    href   : "/friend",
+                    type   : "friend",
+                    class  : "",
+                    target : "_self"
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        name   : "QQ",
+                        icon   : "icon-qq",
+                        href   : "javascript:;",
+                        class  : "image",
+                        target : "_self",
+                        image  : "/image/sidebar/qq.png"
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : "<div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>",
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                "Based on cnblogs theme SimpleMemory.",
+                            
+                                "",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "SimpleMemory Author:",
+                            
+                                "BNDong",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "Theme:",
+                            
+                                "LiveForCode",
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : "",
+
+        Donate : {
+            paypal  : "",
+            bitcoin : "",
+            alipay  : "/image/donate/alipay.png",
+            wechat  : "/image/donate/wechat.png"
+        },
+
+        Search : {
+            applicationID : "010C3EANT8",
+            apiKey        : "c7abab9f11b79102b9aff7fe6d41447d",
+            indexName     : "Notes",
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : "搜索",
+                empty       : "未发现与 「${query}」 相关的内容",
+                stats       : "${hits} 条相关条目，使用了 ${time} 毫秒",
+            }
+        }, 
+
+        Comment : {
+            switch : true,
+            type   : "Valine",
+        },
+
+        Waline : {
+            el              : ".comments-content",
+            serverURL       : "",
+            path            : window.location.pathname,
+            meta            : "['nick', 'mail', 'link']",
+            requiredMeta    : "['nick', 'mail']",
+            pageSize        : 10,
+            lang            : "zh-cn",
+            locale: {
+                admin       : "博主",
+                anonymous   : "匿名用户",
+                sofa        : "快来做第一个评论的人吧 ~",
+                placeholder : "你是我一生只会遇见一次的惊喜...",
+            },
+            dark            : "html[color-scheme='dark']",
+            search          : false,
+            pageview        : true,
+            comment         : true,
+            copyright       : false,
+        },
+
+        Valine : {
+            el             : ".comments-content",
+            appId          : "srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz",
+            appKey         : "8uVSP1q6UlALVC5igYfIfv2h",
+            serverURLs     : "",
+            placeholder    : "你是我一生只会遇见一次的惊喜...",
+            avatar         : "mm",
+            meta           : "nick,mail,link",
+            requiredFields : "nick,mail",
+            pageSize       : 5,
+            lang           : "zh-cn",
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : ".toc",
+            contentSelector       : ".article-body",
+            headingSelector       : "h1, h2, h3, h4, h5",
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : ".toc",
+            positionFixedClass    : "toc-fixed",
+            fixedSidebarOffset    : "",
+        },
+
+        Require : {
+            baseUrl     : "/js/",
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : "Meting"
+        },
+        APlayer : {
+            container : ".aplayer",
+            fixed     : true,
+            autoplay  : false,
+            loop      : "all",
+            order     : "random",
+            preload   : "auto",
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : "Endless Tears",
+                        artist : "CLIFF EDGE",
+                        cover  : "/music/cover/Endless Tears.jpg",
+                        url    : "/music/song/Endless Tears.mp3",
+                        lrc    : "/music/lrc/Endless Tears.lrc"
+                    },
+                
+            ]
+        },
+        Meting : {
+            api      : "https://api.i-meto.com/meting/api",
+            id       : "3778678", 
+            lrcshow  : false, 
+            server   : "netease", 
+            type     : "playlist", 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : "all", 
+            order    : "random", 
+            preload  : "auto", 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : true,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : "/image/website/lazyload.svg"
+        },
+  
+        Style : {
+            aplayer          : "/css/APlayer.css",
+            archive          : "/css/archive.css",
+            base             : "/css/base.css",
+            clipboard        : "/css/clipboard.css",
+            code             : "/css/code.css",
+            donate           : "/css/donate.css",
+            fancybox         : "/css/jquery.fancybox.css",
+            footer           : "/css/footer.css",
+            iconfont         : "/iconfont/iconfont.css",
+            index            : "/css/index.css",
+            menuBubble       : "/css/menu-bubble.css",
+            mouse            : "/css/mouse.css",
+            page             : "/css/page.css",
+            post             : "/css/post.css",
+            search           : "/css/search.css",
+            tocbot           : "/css/tocbot.css",
+            valine           : "/css/valine.css",
+            waline           : "/css/waline.css",
+            walineCustom     : "/css/waline-custom.css"
+        },
+
+        Script: {
+            aplayer          : "/js/APlayer.min.js",
+            config           : "/js/require.config.js",
+            index            : "/js/index.js",
+            instantSearch    : "/js/instantsearch.min.js",
+            iscroll          : "/js/iscroll.js",
+            jQuery           : "/js/jquery-3.4.1.min.js",
+            loading          : "/js/loading.js",
+            meting           : "/js/Meting.min.js",
+            require          : "/js/require.min.js",
+            waline           : "/js/waline.mjs",
+            pageview         : "/js/pageview.mjs",
+            comment          : "/js/comment.mjs",
+        },
+
+        Font: {
+            LongCang    : "/font/LongCang.css",
+            Monda       : "/font/Monda.css",
+            NotoSansSC  : "/font/NotoSansSC.css",
+            NotoSerifSC : "/font/NotoSerifSC.css",
+            Playball    : "/font/Playball.css",
+            PTMono      : "/font/PTMono.css",
+            Roboto      : "/font/Roboto.css",
+            RobotoSlab  : "/font/RobotoSlab.css",
+            Rosario     : "/font/Rosario.css",
+            UbuntuMono  : "/font/UbuntuMono.css"
+        },
+
+        Suffix : {
+            about : "时间带不走你眼中的光辉"
+        },
+            
+        Theme : {
+            url  : "https://github.com/first19326/Hexo-LiveForCode",
+            name : "Hexo - Live For Code"
+        }  
+    };
+</script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</body>
+</html>

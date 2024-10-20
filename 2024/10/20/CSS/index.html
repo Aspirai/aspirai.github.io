@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>
+        
+            CSS
+        
+    </title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSerifSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="/font/Roboto.css">
+    <link type="text/css" rel="stylesheet" href="/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="/css/base.css">
+    <link type="text/css" rel="stylesheet" href="/css/code.css">
+
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <a id="cover"></a>
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
+<div id="header" class="header">
+    <div class="vertical">
+        <div class="inner">
+            
+                <h1 class="header-subtitle">CSS</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2024-10-20
+                        </span>
+                        
+                            
+                                <span id="/2024/10/20/CSS/" class="leancloud_visitors" data-flag-title="CSS">
+                                    <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                                </span>
+                            
+                            
+                                <span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/10/20/CSS/"></span>
+                                </span>
+                              
+                        
+                    </p>
+                    
+                        
+                            <span class="category-color">前端开发</span>
+                        
+                    
+                    
+                        
+                            <span class="tag-color">HTML-CSS</span>
+                        
+                    
+                </div>
+            
+        </div>
+    </div>
+    
+</div>
+<div id="container">
+    
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <h4 id="1-元素快速水平垂直居中"><a href="#1-元素快速水平垂直居中" class="headerlink" title="1.元素快速水平垂直居中"></a>1.元素快速水平垂直居中</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//对父元素设置</span><br><span class="line">    display: flex;</span><br><span class="line">    justify-content: center;</span><br><span class="line">    align-items: center;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-元素放置在底部"><a href="#2-元素放置在底部" class="headerlink" title="2.元素放置在底部"></a>2.元素放置在底部</h4><p>​	1.父元素设置相对定位，子元素设置绝对定位</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">position:relative;//相对</span><br><span class="line">position:absolute；//绝对</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-字间距设置"><a href="#3-字间距设置" class="headerlink" title="3.字间距设置"></a>3.字间距设置</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">letter-spacing: 12px;</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-设置渐变背景"><a href="#4-设置渐变背景" class="headerlink" title="4.设置渐变背景"></a>4.设置渐变背景</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background: linear-gradient(45deg, #ffcc00, #ff6600, #ff0000);//三色，45度角渐变</span><br></pre></td></tr></table></figure>
+
+<h4 id="5-对于元素无法从左上角定位"><a href="#5-对于元素无法从左上角定位" class="headerlink" title="5.对于元素无法从左上角定位"></a>5.对于元素无法从左上角定位</h4><p>​	设置元素为相对于浏览器窗口进行定位、然后设置top、left为0</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">position:fixed;</span><br><span class="line">left:0px;</span><br><span class="line">top:0px;</span><br></pre></td></tr></table></figure>
+
+<h4 id="6-填充剩余位置"><a href="#6-填充剩余位置" class="headerlink" title="6.填充剩余位置"></a>6.填充剩余位置</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">display:flex;//父元素设置</span><br><span class="line">flex-direction:row;//横向布局</span><br><span class="line">flex-direction:column;//纵向布局</span><br></pre></td></tr></table></figure>
+
+<h4 id="7-元素背景透明度设置"><a href="#7-元素背景透明度设置" class="headerlink" title="7.元素背景透明度设置"></a>7.元素背景透明度设置</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background-color：rgba(0,0,0,0.2)</span><br></pre></td></tr></table></figure>
+
+<h4 id="8-滚动条设置"><a href="#8-滚动条设置" class="headerlink" title="8.滚动条设置"></a>8.滚动条设置</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">overflow-y:scroll;//只显示右侧滚动条</span><br><span class="line">overflow:scroll;//显示滚动条</span><br></pre></td></tr></table></figure>
+
+<h4 id="9-滚动条样式设计"><a href="#9-滚动条样式设计" class="headerlink" title="9.滚动条样式设计"></a>9.滚动条样式设计</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Webkit 滚动条样式属性</span><br><span class="line">::-webkit-scrollbar – 整个滚动条</span><br><span class="line">::-webkit-scrollbar-track – 滚动条的滚动区域（轨道）</span><br><span class="line">::-webkit-scrollbar-thumb – 滚动条的可拖拽部分（滑块）</span><br><span class="line">以下是可用但不常用的属性：</span><br><span class="line"></span><br><span class="line">::-webkit-scrollbar-button – 滚动条两端的上/下（或左/右）按钮</span><br><span class="line">::-webkit-scrollbar-track-piece – 滚动条轨道未被滑块覆盖的部分</span><br><span class="line">::-webkit-scrollbar-corner – 垂直滚动条和水平滚动条交汇的部分</span><br></pre></td></tr></table></figure>
+
+<h4 id="10-placeholder样式修改"><a href="#10-placeholder样式修改" class="headerlink" title="10.placeholder样式修改"></a>10.placeholder样式修改</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">::placeholder</span><br></pre></td></tr></table></figure>
+
+<h4 id="11-实现不同大小的字体在底部对齐"><a href="#11-实现不同大小的字体在底部对齐" class="headerlink" title="11.实现不同大小的字体在底部对齐"></a>11.实现不同大小的字体在底部对齐</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">display:table-cell;</span><br><span class="line">vertical-align:bottom;</span><br></pre></td></tr></table></figure>
+
+<h4 id="12-居中"><a href="#12-居中" class="headerlink" title="12.居中"></a>12.居中</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">justify-content: center; /* 水平居中 */</span><br><span class="line">align-items: center; /* 垂直居中 */</span><br></pre></td></tr></table></figure>
+
+<h4 id="13-设置盒子阴影"><a href="#13-设置盒子阴影" class="headerlink" title="13.设置盒子阴影"></a>13.设置盒子阴影</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">box-shadow: h-offset v-offset blur-radius spread-radius color inset;</span><br></pre></td></tr></table></figure>
+
+<p><strong>h-offset（水平偏移）</strong>：</p>
+<ul>
+<li>这是阴影的水平偏移距离，可以是正值或负值。</li>
+<li>正值：阴影向右偏移。</li>
+<li>负值：阴影向左偏移。</li>
+</ul>
+<p><strong>v-offset（垂直偏移）</strong>：</p>
+<ul>
+<li>这是阴影的垂直偏移距离，也可以是正值或负值。</li>
+<li>正值：阴影向下偏移。</li>
+<li>负值：阴影向上偏移。</li>
+</ul>
+<p><strong>blur-radius（模糊半径）</strong>：</p>
+<ul>
+<li>可选参数，定义阴影的模糊程度。</li>
+<li>值越大，阴影越模糊且扩散。</li>
+<li>值为 <code>0</code> 时，阴影是锐利的（没有模糊）。</li>
+</ul>
+<p><strong>spread-radius（扩展半径）</strong>：</p>
+<ul>
+<li>可选参数，定义阴影的扩展程度。</li>
+<li>正值：阴影扩大。</li>
+<li>负值：阴影收缩。</li>
+</ul>
+<p><strong>color（颜色）</strong>：</p>
+<ul>
+<li>可选参数，定义阴影的颜色。</li>
+<li>默认是黑色 (<code>black</code>)。</li>
+<li>可以使用颜色名称、HEX、RGB、RGBA、HSL等方式指定颜色。</li>
+</ul>
+<p><strong>inset（内阴影）</strong>：</p>
+<ul>
+<li>可选关键字，用于将阴影从外阴影变为内阴影。</li>
+<li>内阴影会向元素内部投影，而非外部。</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */</span><br></pre></td></tr></table></figure>
+
+<h4 id="14-取消表格边框显示"><a href="#14-取消表格边框显示" class="headerlink" title="14.取消表格边框显示"></a>14.取消表格边框显示</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">border-collapse: collapse;//table设置</span><br></pre></td></tr></table></figure>
+
+<h4 id="15-修改选项框大小"><a href="#15-修改选项框大小" class="headerlink" title="15.修改选项框大小"></a>15.修改选项框大小</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#check &#123;</span><br><span class="line">    width: 20px; /* 设置宽度 */</span><br><span class="line">    height: 20px; /* 设置高度 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="16-设置复选框和按钮在同一水平线上"><a href="#16-设置复选框和按钮在同一水平线上" class="headerlink" title="16.设置复选框和按钮在同一水平线上"></a>16.设置复选框和按钮在同一水平线上</h4><p>​	使用CSS中的<code>display</code>属性，并将它们设置为<code>inline-block</code>。此外，您可以使用<code>vertical-align</code>属性来垂直对齐它们。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#check,</span><br><span class="line">.select &#123;</span><br><span class="line">    display: inline-block;</span><br><span class="line">    vertical-align: middle; /* 垂直对齐方式可以根据需要进行调整 */</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="17-设置td中图像垂直居中"><a href="#17-设置td中图像垂直居中" class="headerlink" title="17.设置td中图像垂直居中"></a>17.设置td中图像垂直居中</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">td img&#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    top: 2px;</span><br><span class="line">&#125;</span><br><span class="line">td &#123;</span><br><span class="line">    position: relative;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="18-换行空格问题"><a href="#18-换行空格问题" class="headerlink" title="18.换行空格问题"></a>18.换行空格问题</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&amp;nbsp;		//不断行空格</span><br><span class="line">&amp;emsp;		//中等空格</span><br><span class="line">&amp;thinsp;	//窄空格</span><br></pre></td></tr></table></figure>
+
+<h4 id="19-按钮无法选中"><a href="#19-按钮无法选中" class="headerlink" title="19.按钮无法选中"></a>19.按钮无法选中</h4><p>​	1.需要设置class类；</p>
+<p>​	2.不能直接在按钮上设置style的背景色，需要引用类名设置背景颜色</p>
+<p>​	3.常用按钮状态设置类</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">:hover		//悬浮</span><br><span class="line">:active		//点击</span><br></pre></td></tr></table></figure>
+
+<h4 id="20-input属性"><a href="#20-input属性" class="headerlink" title="20.input属性"></a>20.input属性</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">文本框（Text Input）： &lt;input type=&quot;text&quot;&gt;</span><br><span class="line">密码框（Password Input）： &lt;input type=&quot;password&quot;&gt;</span><br><span class="line">日期选择框（Date Input）： &lt;input type=&quot;date&quot;&gt;</span><br><span class="line">时间选择框（Time Input）： &lt;input type=&quot;time&quot;&gt;</span><br><span class="line">电子邮件输入框（Email Input）： &lt;input type=&quot;email&quot;&gt;</span><br><span class="line">数字输入框（Number Input）： &lt;input type=&quot;number&quot;&gt;</span><br><span class="line">搜索框（Search Input）： &lt;input type=&quot;search&quot;&gt;</span><br><span class="line">文件上传框（File Input）： &lt;input type=&quot;file&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<h4 id="21-隐藏滚动条"><a href="#21-隐藏滚动条" class="headerlink" title="21.隐藏滚动条"></a>21.隐藏滚动条</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//方法一:</span><br><span class="line">//父组件设置overflow:hidden;</span><br><span class="line">//子组件设置overflow-y:scroll;margin-ringht:-50px;pading-right:50px;</span><br><span class="line"></span><br><span class="line">//方法二：</span><br><span class="line">//设置overflow-y:scroll;scrollbar-width:none;</span><br></pre></td></tr></table></figure>
+
+<h4 id="22-设置padding后元素的边距异常变化"><a href="#22-设置padding后元素的边距异常变化" class="headerlink" title="22.设置padding后元素的边距异常变化"></a>22.设置padding后元素的边距异常变化</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">容器宽度和高度的问题</span><br><span class="line"></span><br><span class="line">    100vw 和 100vh 分别代表视口宽度和高度。由于设置了 width: 100vw 和 height: 100vh，并且 box-sizing 默认是 content-box，padding 会增加实际的渲染尺寸，因此可能会超出视口大小，使得右边距和下边距看起来没有效果。</span><br><span class="line">    box-sizing 的影响</span><br><span class="line"></span><br><span class="line">    默认情况下，box-sizing 是 content-box，这意味着 padding 和 border 会增加元素的尺寸。如果希望包含 padding 和 border 在内的元素总尺寸为 100vw 和 100vh，你可以将 box-sizing 设置为 border-box。</span><br><span class="line"></span><br><span class="line">解决方案：</span><br><span class="line"></span><br><span class="line">    调整 box-sizing：</span><br><span class="line"></span><br><span class="line">    设置 box-sizing: border-box; 确保元素的 padding 和 border 包含在 width 和 height 中，这样可以避免超出视口的问题。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">.calendar &#123;</span><br><span class="line">  box-sizing: border-box;</span><br><span class="line">  height: 100vh;</span><br><span class="line">  width: 100vw;</span><br><span class="line">  padding: 10px;</span><br><span class="line">  margin: 0px;</span><br><span class="line">  display: flex;</span><br><span class="line">  flex-direction: column;</span><br><span class="line">  border: 1px solid #000;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">减少宽度和高度：</span><br><span class="line"></span><br><span class="line">如果你不想改变 box-sizing，可以将宽度和高度设置得略小于 100vw 和 100vh，例如：</span><br><span class="line"></span><br><span class="line">.calendar &#123;</span><br><span class="line">  height: calc(100vh - 20px); /* 减去 padding */</span><br><span class="line">  width: calc(100vw - 20px);  /* 减去 padding */</span><br><span class="line">  padding: 10px;</span><br><span class="line">  margin: 0px;</span><br><span class="line">  display: flex;</span><br><span class="line">  flex-direction: column;</span><br><span class="line">  border: 1px solid #000;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">这样做可以确保 padding 的效果能够在视口内完整显示。</span><br></pre></td></tr></table></figure>
+
+<h4 id="23-动态计算单位calc"><a href="#23-动态计算单位calc" class="headerlink" title="23.动态计算单位calc()"></a>23.动态计算单位calc()</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">width: calc(50% - 6px); 是 CSS 中使用 calc() 函数来动态计算宽度的一个例子。这个表达式的含义如下：</span><br><span class="line">1. calc() 函数</span><br><span class="line">    calc() 函数允许你在 CSS 中进行动态计算，将不同的单位（如百分比、像素等）组合在一起。</span><br><span class="line">    它支持基本的算术运算：加（+）、减（-）、乘（*）和除（/）。</span><br><span class="line">2. 50%</span><br><span class="line">    50% 表示父元素宽度的 50%。这是一个相对单位，依赖于父元素的宽度。</span><br><span class="line">3. - 6px</span><br><span class="line">    减去 6px 表示在 50% 的基础上减少 6 像素。px 是一个绝对单位，表示像素。</span><br><span class="line"></span><br><span class="line">4. 组合</span><br><span class="line">    width: calc(50% - 6px); 的最终效果是，元素的宽度将是父元素宽度的一半减去 6 像素。这在需要对元素进行精确布局时非常有用，比如创建两个等宽且有一定间距的元素时。</span><br></pre></td></tr></table></figure>
+
+<h4 id="24-元素动态上浮效果"><a href="#24-元素动态上浮效果" class="headerlink" title="24.元素动态上浮效果"></a>24.元素动态上浮效果</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">import &#123; useState &#125; from &#x27;react&#x27;;</span><br><span class="line">import &#123; View, Text, Input, Button &#125; from &#x27;@tarojs/components&#x27;;</span><br><span class="line">import &#x27;./InputBar.scss&#x27;;</span><br><span class="line"></span><br><span class="line">export default function InputBar() &#123;</span><br><span class="line">  const [isExpanded, setIsExpanded] = useState(false);</span><br><span class="line"></span><br><span class="line">  const toggleExpand = () =&gt; &#123;</span><br><span class="line">    setIsExpanded(!isExpanded);</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  return (</span><br><span class="line">  //1.这里控制页面样式，是否使用expanded</span><br><span class="line">    &lt;View className=&#123;`input-bar $&#123;isExpanded ? &#x27;expanded&#x27; : &#x27;&#x27;&#125;`&#125;&gt;</span><br><span class="line">      &lt;View className=&quot;input-container&quot;&gt;</span><br><span class="line">        &lt;Input className=&quot;input&quot; placeholder=&quot;请输入...&quot; /&gt;</span><br><span class="line">        &lt;Button className=&quot;toggle-btn&quot; onClick=&#123;toggleExpand&#125;&gt;+&lt;/Button&gt;</span><br><span class="line">      &lt;/View&gt;</span><br><span class="line">      &#123;isExpanded &amp;&amp; (</span><br><span class="line">        &lt;View className=&quot;function-bar&quot;&gt;</span><br><span class="line">          &lt;Text&gt;功能1&lt;/Text&gt;</span><br><span class="line">          &lt;Text&gt;功能2&lt;/Text&gt;</span><br><span class="line">          &lt;Text&gt;功能3&lt;/Text&gt;</span><br><span class="line">          &#123;/* 在这里可以添加其他功能项 */&#125;</span><br><span class="line">        &lt;/View&gt;</span><br><span class="line">      )&#125;</span><br><span class="line">    &lt;/View&gt;</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">.input-bar &#123;</span><br><span class="line">  position: fixed;</span><br><span class="line">  bottom: 0;</span><br><span class="line">  left: 0;</span><br><span class="line">  width: 100%;</span><br><span class="line">  background-color: #fff;</span><br><span class="line">  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);</span><br><span class="line">  transition: transform 0.3s ease;</span><br><span class="line">  // 2.这里设置当expanded为ture时，使用的样式</span><br><span class="line">  &amp;.expanded &#123;</span><br><span class="line">    transform: translateY(-100px); // 控制输入栏上浮的高度</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.input-container &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">  align-items: center;</span><br><span class="line">  padding: 10px;</span><br><span class="line">  border-top: 1px solid #eaeaea;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.input &#123;</span><br><span class="line">  flex: 1;</span><br><span class="line">  border: none;</span><br><span class="line">  padding: 10px;</span><br><span class="line">  font-size: 16px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.toggle-btn &#123;</span><br><span class="line">  margin-left: 10px;</span><br><span class="line">  background-color: #007aff;</span><br><span class="line">  color: white;</span><br><span class="line">  border-radius: 50%;</span><br><span class="line">  width: 40px;</span><br><span class="line">  height: 40px;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.function-bar &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">  justify-content: space-around;</span><br><span class="line">  padding: 10px;</span><br><span class="line">  background-color: #f8f8f8;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="25-Grid布局"><a href="#25-Grid布局" class="headerlink" title="25.Grid布局"></a>25.Grid布局</h4><p>使用grid布局</p>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.main-features</span>&#123;</span><br><span class="line">  <span class="attribute">max-width</span>: <span class="number">100%</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">21%</span>;</span><br><span class="line">  <span class="attribute">display</span>: grid; <span class="comment">// 使用grid布局</span></span><br><span class="line">  <span class="attribute">grid-template-columns</span>: <span class="number">1</span>fr <span class="number">1</span>fr; <span class="comment">// fr：剩余空间</span></span><br><span class="line">  <span class="attribute">grid-template-rows</span>: <span class="number">1</span>fr <span class="number">1</span>fr;</span><br><span class="line">  <span class="attribute">row-gap</span>: <span class="number">15px</span>; <span class="comment">// 行间距</span></span><br><span class="line">  <span class="attribute">column-gap</span>: <span class="number">15px</span>; <span class="comment">// 列间距</span></span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span> <span class="number">20px</span> <span class="number">0</span> <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ff4141</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>属性解析</p>
+<ol>
+<li>使用 <code>grid-template-columns</code> 和 <code>grid-template-rows</code> 来定义列和行的数量和尺寸；</li>
+</ol>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">display</span>: grid;   </span><br><span class="line"><span class="attribute">grid-template-columns</span>: <span class="number">100px</span> <span class="number">200px</span> <span class="number">100px</span>; <span class="comment">/* 定义三列，分别宽100px, 200px和100px */</span></span><br><span class="line"><span class="attribute">grid-template-rows</span>: <span class="number">50px</span> <span class="number">100px</span>; <span class="comment">/* 定义两行，分别高50px和100px */</span></span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><code>使用grid-template-areas</code> 定义命名的网格区域，并使用 <code>grid-area</code> 将元素放置在这些区域中。</li>
+</ol>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  <span class="attribute">grid-template-areas</span>:</span><br><span class="line">    <span class="string">&quot;header header header&quot;</span></span><br><span class="line">    <span class="string">&quot;sidebar content content&quot;</span></span><br><span class="line">    <span class="string">&quot;footer footer footer&quot;</span>;</span><br><span class="line">  <span class="attribute">grid-template-columns</span>: <span class="number">1</span>fr <span class="number">2</span>fr <span class="number">1</span>fr; <span class="comment">/* 使用 fr 单位，表示比例 */</span></span><br><span class="line">  <span class="attribute">grid-template-rows</span>: auto <span class="number">1</span>fr auto;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.header</span> &#123;</span><br><span class="line">  <span class="attribute">grid-area</span>: header;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.sidebar</span> &#123;</span><br><span class="line">  <span class="attribute">grid-area</span>: sidebar;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.content</span> &#123;</span><br><span class="line">  <span class="attribute">grid-area</span>: content;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.footer</span> &#123;</span><br><span class="line">  <span class="attribute">grid-area</span>: footer;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://lcnm2fuxr31h.feishu.cn/space/api/box/stream/download/asynccode/?code=M2MyZjg1NGVkNTI3ZTRiM2U0NDYxMmI0NTkyZTNmODVfVkpYNDlodmt1YXJBOVJ3TFdDUDJseUJjdWx1UEZWbXFfVG9rZW46UXlKcWJnaTBwb21FZXB4OUxlUmNjb29pbnloXzE3MjQ3NDc0MDY6MTcyNDc1MTAwNl9WNA" alt="img"></p>
+<ol>
+<li>可以使用 <code>grid-column</code> 和 <code>grid-row</code> 来让元素跨越多列或多行。</li>
+</ol>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item1</span> &#123;</span><br><span class="line">    <span class="attribute">grid-column</span>: <span class="number">1</span> / <span class="number">3</span>;</span><br><span class="line">    <span class="comment">/* 从第1列跨到第3列 */</span></span><br><span class="line">    <span class="attribute">grid-row</span>: <span class="number">1</span> / <span class="number">2</span>;</span><br><span class="line">    <span class="comment">/* 从第1行跨到第2行 */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.item2</span> &#123;</span><br><span class="line">    <span class="attribute">grid-column</span>: <span class="number">2</span> / <span class="number">4</span>;</span><br><span class="line">    <span class="comment">/* 从第2列跨到第4列 */</span></span><br><span class="line">    <span class="attribute">grid-row</span>: <span class="number">2</span> / <span class="number">3</span>;</span><br><span class="line">    <span class="comment">/* 从第2行跨到第3行 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>使用 <code>column-gap</code> 和 <code>row-gap</code> 来设置行和列之间的间隙。</li>
+</ol>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: grid;</span><br><span class="line">  <span class="attribute">grid-template-columns</span>: <span class="number">100px</span> <span class="number">100px</span> <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">grid-template-rows</span>: <span class="number">100px</span> <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">row-gap</span>: <span class="number">15px</span>; <span class="comment">// 行间距</span></span><br><span class="line">  <span class="attribute">column-gap</span>: <span class="number">15px</span>; <span class="comment">// 列间距</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>使用 <code>repeat()</code> 函数简化重复的列或行定义。还可以使用 <code>auto-fill</code> 和 <code>auto-fit</code> 自动填充网格。</li>
+</ol>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">    <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(<span class="number">3</span>, <span class="number">1</span>fr);</span><br><span class="line">    <span class="comment">/* 3列，平分容器宽度 */</span></span><br><span class="line">    <span class="attribute">grid-template-rows</span>: <span class="built_in">repeat</span>(<span class="number">2</span>, <span class="number">100px</span>);</span><br><span class="line">    <span class="comment">/* 2行，每行100px */</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/* 另一个容器 */</span></span><br><span class="line"><span class="selector-class">.auto-grid</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">    <span class="attribute">grid-template-columns</span>: <span class="built_in">repeat</span>(auto-fill, <span class="built_in">minmax</span>(<span class="number">100px</span>, <span class="number">1</span>fr));</span><br><span class="line">    <span class="comment">/* 自动填充列，列宽最小100px，最大平分容器 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://lcnm2fuxr31h.feishu.cn/space/api/box/stream/download/asynccode/?code=ZWE1OWNhMDVhODRkM2U2YTY1ODBhOTgzYzI1MjE4ODBfMlVCQkxOU21QREo0ZVBSVTRpaGNaSWZTeTM0bFdqNlRfVG9rZW46SUxqemJ6Wjdzb1pMbWp4blVZU2NQTlA2blljXzE3MjQ3NDc0MDY6MTcyNDc1MTAwNl9WNA" alt="img"></p>
+<ol>
+<li>嵌套网格（Subgrid）</li>
+</ol>
+<figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.outer-grid</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">    <span class="attribute">grid-template-columns</span>: <span class="number">1</span>fr <span class="number">1</span>fr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.inner-grid</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: grid;</span><br><span class="line">    <span class="attribute">grid-template-columns</span>: subgrid;</span><br><span class="line">    <span class="comment">/* 使用父网格的模板 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>备注</p>
+<ul>
+<li>网格线不能显示，但是可以设置子元素的边框间接显示网格线；或者使用Google调试工具，在Layout选项勾选Grid overlays显示；</li>
+<li>设置margin和padding后发现元素溢出，可以设置容器max-width或者max-height属性；请确保容器大小满足；</li>
+<li>使用 <code>box-sizing: border-box;</code>这样 <code>padding</code> 就不会额外增加到元素的总宽度上。</li>
+</ul>
+<h4 id="26-聊天界面用户和ai对话左右效果实现"><a href="#26-聊天界面用户和ai对话左右效果实现" class="headerlink" title="26.聊天界面用户和ai对话左右效果实现"></a>26.聊天界面用户和ai对话左右效果实现</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&lt;View className=&#x27;messages&#x27;&gt;</span><br><span class="line">  &#123;messages.map((message, index) =&gt; (</span><br><span class="line">    &lt;View</span><br><span class="line">      key=&#123;index&#125;</span><br><span class="line">      className=&#123;`message-item $&#123;message.type&#125;`&#125;</span><br><span class="line">      style=&#123;&#123; display: &#x27;flex&#x27;, flexDirection: message.type === &#x27;user&#x27; ? &#x27;row-reverse&#x27; : &#x27;row&#x27; &#125;&#125; // 根据消息类型调整方向</span><br><span class="line">    &gt;</span><br><span class="line">      &lt;Image</span><br><span class="line">        src=&#123;require(`../../assets/chat/$&#123;message.type&#125;.svg`)&#125; // 根据消息类型选择不同的图标</span><br><span class="line">        className=&#x27;icon&#x27;</span><br><span class="line">        style=&#123;&#123; height: &#x27;40px&#x27;, width: &#x27;40px&#x27; &#125;&#125;</span><br><span class="line">      /&gt;</span><br><span class="line">      &#123;/* 根据消息选择不同的样式 */&#125;</span><br><span class="line">      &lt;View className=&#123;`message $&#123;message.type&#125;`&#125;&gt;</span><br><span class="line">        &lt;Text&gt;&#123;message.content&#125;&lt;/Text&gt;</span><br><span class="line">      &lt;/View&gt;</span><br><span class="line">    &lt;/View&gt;</span><br><span class="line">  ))&#125;</span><br><span class="line">  &#123;loadingFalse &amp;&amp; &lt;View className=&#x27;loading&#x27;&gt;Failed to send message&lt;/View&gt;&#125;&#123;&#x27; &#x27;&#125;</span><br><span class="line">  &#123;/* 如果loadingFalse为true,则显示Failed to send message */&#125;</span><br><span class="line">  &#123;loading &amp;&amp; &lt;View className=&#x27;loading&#x27;&gt;Loading...&lt;/View&gt;&#125; &#123;/* 如果loading为true,则显示Loading... */&#125;</span><br><span class="line">&lt;/View&gt;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">.messages &#123;</span><br><span class="line">  flex: 1;</span><br><span class="line">  padding: 25px;</span><br><span class="line">  overflow-y: auto; // 实现滚动</span><br><span class="line">  display: flex; // 实现消息垂直排列</span><br><span class="line">  flex-direction: column;</span><br><span class="line">  // border: 1px solid #c08484;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.message-item &#123;</span><br><span class="line">  margin-top: 20PX;</span><br><span class="line">  display: flex;</span><br><span class="line">  flex-direction: row;</span><br><span class="line">  // border: 1px solid #000;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.message-item.agent &#123;</span><br><span class="line">  justify-content: flex-start; // 实现消息左对齐</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.message-item.user &#123;</span><br><span class="line">  justify-content: flex-start; // 实现消息右对齐</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.message &#123;</span><br><span class="line">  padding: 20px;</span><br><span class="line">  max-width: 84%;</span><br><span class="line">  word-wrap: break-word; // 实现文本自动换行</span><br><span class="line">  // border: 1px solid #000;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.message.agent &#123;</span><br><span class="line">  border-top-right-radius: 40px;</span><br><span class="line">  border-bottom-left-radius: 40px;</span><br><span class="line">  border-bottom-right-radius: 40px;</span><br><span class="line">  background-color: #f3f4f6;</span><br><span class="line">  align-self: flex-start; // 实现消息左对齐</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.message.user &#123;</span><br><span class="line">  border-top-left-radius: 40px;</span><br><span class="line">  border-bottom-left-radius: 40px;</span><br><span class="line">  border-bottom-right-radius: 40px;</span><br><span class="line">  background-color: #28a745;</span><br><span class="line">  align-self: flex-end; // 实现消息右对齐</span><br><span class="line">  color: white;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="27-”-”伪类元素"><a href="#27-”-”伪类元素" class="headerlink" title="27.”&amp;::”伪类元素"></a>27.”&amp;::”伪类元素</h4><p>在 CSS 或 SCSS 中，&amp;:: 是一个组合符号，用于将父选择器与伪元素结合在一起。具体来说，&amp; 表示当前选择器，而 :: 表示伪元素（如 ::before、::after）。这个组合通常出现在 SCSS 或 LESS 这样的预处理器中，用来生成带有伪元素的 CSS 规则。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.element &#123;</span><br><span class="line">  color: black;</span><br><span class="line"></span><br><span class="line">  &amp;::before &#123;</span><br><span class="line">    content: &#x27;•&#x27;;</span><br><span class="line">    color: red;</span><br><span class="line">    margin-right: 5px;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>在上面的 SCSS 代码中：</p>
+<ul>
+<li><code>&amp;</code> 指代的是 <code>.element</code> 类。</li>
+<li><code>::before</code> 是一个伪元素，用来在 <code>.element</code> 元素之前插入内容。</li>
+</ul>
+<p>生成的 CSS 会是这样的：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.element &#123;</span><br><span class="line">  color: black;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.element::before &#123;</span><br><span class="line">  content: &#x27;•&#x27;;</span><br><span class="line">  color: red;</span><br><span class="line">  margin-right: 5px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="28-”-”父元素中声明子元素"><a href="#28-”-”父元素中声明子元素" class="headerlink" title="28.”&amp;.”父元素中声明子元素"></a>28.”&amp;.”父元素中声明子元素</h4><p><code>&amp;.</code> 用于将父选择器与另一个类选择器组合在一起，这样你可以在父选择器的上下文中定义子类的样式。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">.button &#123;</span><br><span class="line">  color: white;</span><br><span class="line">  background-color: blue;</span><br><span class="line"></span><br><span class="line">  &amp;.active &#123;</span><br><span class="line">    background-color: green;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  &amp;.disabled &#123;</span><br><span class="line">    background-color: gray;</span><br><span class="line">    color: darkgray;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>.button</code> 是父选择器。</p>
+<p><code>&amp;.active</code> 会生成 <code>.button.active</code>，即表示 <code>.button</code> 元素同时具有 <code>active</code> 类时的样式。</p>
+<p><code>&amp;.disabled</code> 会生成 <code>.button.disabled</code>，即表示 <code>.button</code> 元素同时具有 <code>disabled</code> 类时的样式。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">.button &#123;</span><br><span class="line">  color: white;</span><br><span class="line">  background-color: blue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.button.active &#123;</span><br><span class="line">  background-color: green;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.button.disabled &#123;</span><br><span class="line">  background-color: gray;</span><br><span class="line">  color: darkgray;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="29-对象扩展运算符-…"><a href="#29-对象扩展运算符-…" class="headerlink" title="29.对象扩展运算符{…}"></a>29.对象扩展运算符{…}</h4><p><code>&#123;...&#125;</code>是对象扩展运算符，它用于将右侧对象的所有属性扩展到当前对象中。在这个打码片段中，如果<code>item</code>为真，则右侧的<code>style</code>对象将被扩展到当前组件的属性中；否则，扩展空对象，即没有任何属性添加；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;...(item</span><br><span class="line">  ? &#123;</span><br><span class="line">      style: &#123;</span><br><span class="line">        backgroundColor: `rgb($&#123;Math.floor(Math.random() * 255)&#125;,$&#123;Math.floor(Math.random() * 255)&#125;,$&#123;Math.floor(Math.random() * 255)&#125;)`,</span><br><span class="line">      &#125;,</span><br><span class="line">    &#125;</span><br><span class="line">  : &#123;&#125;)&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="30-三元运算符"><a href="#30-三元运算符" class="headerlink" title="30.三元运算符"></a>30.三元运算符</h4><p>如上例<code>item ? &#123;...&#125; : &#123;&#125;</code>,用于根据条件<code>item</code>是否为真来选择返回不同的对象；若为真则返回<code>&#123;style&#125;</code>为假则返回<code>&#123;&#125;</code>.</p>
+<h4 id="31-字体垂直居中"><a href="#31-字体垂直居中" class="headerlink" title="31.字体垂直居中"></a>31.字体垂直居中</h4><h5 id="1-行内元素的垂直居中"><a href="#1-行内元素的垂直居中" class="headerlink" title="1.行内元素的垂直居中"></a>1.行内元素的垂直居中</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.elment &#123;</span><br><span class="line">	height: 100px;</span><br><span class="line">	line-height: 100px; //设置为与元素高度一致</span><br><span class="line">	text-align: center; //水平居中</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-Flexbox-实现垂直居中"><a href="#2-Flexbox-实现垂直居中" class="headerlink" title="2.Flexbox 实现垂直居中"></a>2.Flexbox 实现垂直居中</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">.container &#123;</span><br><span class="line">  display: flex;</span><br><span class="line">  justify-content: center; /* 水平居中 */</span><br><span class="line">  align-items: center; /* 垂直居中 */</span><br><span class="line">  height: 100px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-Grid布局垂直居中"><a href="#3-Grid布局垂直居中" class="headerlink" title="3.Grid布局垂直居中"></a>3.Grid布局垂直居中</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.container &#123;</span><br><span class="line">  display: grid;</span><br><span class="line">  place-items: center; /* 同时水平和垂直居中 */</span><br><span class="line">  height: 100px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-使用绝对定位实现垂直居中"><a href="#4-使用绝对定位实现垂直居中" class="headerlink" title="4.使用绝对定位实现垂直居中"></a>4.使用绝对定位实现垂直居中</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">.container &#123;</span><br><span class="line">  position: relative;</span><br><span class="line">  height: 100px;</span><br><span class="line">&#125;</span><br><span class="line">.text &#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  top: 50%;</span><br><span class="line">  left: 50%;</span><br><span class="line">  transform: translate(-50%, -50%);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="5-使用表格布局实现垂直居中"><a href="#5-使用表格布局实现垂直居中" class="headerlink" title="5.使用表格布局实现垂直居中"></a>5.使用表格布局实现垂直居中</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">.container &#123;</span><br><span class="line">  display: table-cell;</span><br><span class="line">  vertical-align: middle; /* 垂直居中 */</span><br><span class="line">  text-align: center; /* 水平居中 */</span><br><span class="line">  height: 100px;</span><br><span class="line">  width: 100px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="32-buton和view设置宽高实际显示不一样问题"><a href="#32-buton和view设置宽高实际显示不一样问题" class="headerlink" title="32.buton和view设置宽高实际显示不一样问题"></a>32.buton和view设置宽高实际显示不一样问题</h4><p>1.button内置默认样式，如内边距、边框、圆角等；</p>
+<p>2.view则是一个纯粹的容器；</p>
+<p>3.解决方法：设置button的padding和margin为零</p>
+<h4 id="33-元素设置padding后元素整体变大问题"><a href="#33-元素设置padding后元素整体变大问题" class="headerlink" title="33.元素设置padding后元素整体变大问题"></a>33.元素设置padding后元素整体变大问题</h4><p>CSS默认使用content-box盒模型，即padding不会包含在元素的宽度和高度中，因此会导致元素的大小增加；</p>
+<p>解决方法：设置盒模型为<code>box-sizing:border-box;</code></p>
+<h4 id="34-元素边框线的粗细不占用元素margin和padding空间"><a href="#34-元素边框线的粗细不占用元素margin和padding空间" class="headerlink" title="34.元素边框线的粗细不占用元素margin和padding空间"></a>34.元素边框线的粗细不占用元素<code>margin</code>和<code>padding</code>空间</h4><p>它会影响元素的大小，占用的是元素内部的空间</p>
+<h4 id="35-盒子模型content-box与border-box"><a href="#35-盒子模型content-box与border-box" class="headerlink" title="35.盒子模型content-box与border-box"></a>35.盒子模型<code>content-box</code>与<code>border-box</code></h4><p>1.<code>content-box</code>默认盒模型</p>
+<p>在 <code>content-box</code> 盒模型下，元素的 <code>width</code> 和 <code>height</code> 只包括内容（content）部分，不包括 <code>padding</code>、<code>border</code> 和 <code>margin</code>。</p>
+<p>如果添加 <code>padding</code> 或 <code>border</code>，它们会增加元素的实际显示尺寸。</p>
+<p>2.border-box 边框盒模型</p>
+<p>在 <code>border-box</code> 盒模型下，元素的 <code>width</code> 和 <code>height</code> 包括了 <code>content</code>、<code>padding</code> 和 <code>border</code>，不包括 <code>margin</code>。</p>
+<p><code>padding</code> 和 <code>border</code> 会被包含在指定的 <code>width</code> 和 <code>height</code> 内，不会增加元素的实际尺寸。</p>
+<h4 id=""><a href="#" class="headerlink" title=""></a></h4>
+                
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box">
+    <div class="suffix-box-left">
+        <img src="/image/sidebar/avatar.jpg" alt="Aspirai">
+    </div>
+    <div class="suffix-box-right">
+        <span class="suffix-box-title">文章作者：</span>Aspirai
+        <br>
+        <span class="suffix-box-title">文章出处：</span><a href="/2024/10/20/CSS/" target="_blank">CSS</a>
+        <br>
+        <span class="suffix-box-title">作者签名：</span>时间带不走你眼中的光辉
+        <br>
+        <span class="suffix-box-title">版权声明：</span>文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+        <br>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+                
+                    <div class="category">
+                        分类：
+                        
+                            <a href="/category/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
+                        
+                    </div>
+                
+                
+                    <div class="tag">
+                        标签：
+                        
+                            <a href="/tag/HTML-CSS/">HTML-CSS</a>
+                        
+                    </div>
+                
+                <div class="article-prev-next">
+                    
+                        <a href="/2024/10/20/CSS%20%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%20rem%20%E7%9A%84%E5%9F%BA%E5%87%86%E5%A4%A7%E5%B0%8F%E6%9E%81%E5%AE%A2%E6%95%99%E7%A8%8B/" class="prev-prefix">« </a> 上一篇：    <a href="/2024/10/20/CSS%20%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%20rem%20%E7%9A%84%E5%9F%BA%E5%87%86%E5%A4%A7%E5%B0%8F%E6%9E%81%E5%AE%A2%E6%95%99%E7%A8%8B/" title="发布于 2024-10-20 09:20">CSS 如何设置 rem 的基准大小极客教程</a>
+                        <br>
+                    
+                    
+                        <a href="/2024/10/20/Echarts%E6%9F%B1%E7%8A%B6%E5%9B%BE%E4%B8%AA%E6%80%A7%E5%AE%9A%E5%88%B6/" class="next-prefix">» </a> 下一篇：    <a href="/2024/10/20/Echarts%E6%9F%B1%E7%8A%B6%E5%9B%BE%E4%B8%AA%E6%80%A7%E5%AE%9A%E5%88%B6/" title="发布于 2024-10-20 09:20">Echarts柱状图个性定制</a>
+                    
+                </div>
+            </div>
+            
+    <div class="article-comments">
+        
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+    
+ 
+        </div>
+    
+</div>
+    <div id="footer">
+    <div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>
+</div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar">
+                    <img src="/image/sidebar/avatar.jpg">
+                </div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user">
+                        
+                            <a href="javascript:;" target="_self"><span>Aspirai</span></a>
+                        
+                    </div>
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul>
+                    
+                        <li class=""><a href="/" class="" target="_self"><span class="iconfont icon-home-fill"></span>首页</a></li>
+                    
+                        <li class=""><a href="/category" class="" target="_self"><span class="iconfont icon-folder-fill"></span>分类</a></li>
+                    
+                        <li class=""><a href="/tag" class="" target="_self"><span class="iconfont icon-discount-fill"></span>标签</a></li>
+                    
+                        <li class=""><a href="/archive" class="" target="_self"><span class="iconfont icon-calendar-fill"></span>归档</a></li>
+                    
+                        <li class=""><a href="/friend" class="" target="_self"><span class="iconfont icon-link"></span>友情链接</a></li>
+                    
+                </ul> 
+            </div> 
+            <div class="menu-link">
+                <div class="box">
+                    <div class="image-box"></div>
+                </div>
+                
+                    <a name="QQ" href="javascript:;" class="image" target="_self" data="/image/sidebar/qq.png"><span class="iconfont icon-qq"></span></a>
+                
+            </div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="/css/search.css">
+<script type="text/javascript" src="/js/iscroll.js"></script>
+<script type="text/javascript" src="/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+    
+    <link type="text/css" rel="stylesheet" href="/css/APlayer.css">
+    <script type="text/javascript" src="/js/APlayer.min.js"></script>
+    <script type="text/javascript" src="/js/Meting.min.js"></script>
+    <script>
+        var meting_api = 'https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&auth=:auth&r=:r';
+    </script>
+    <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+
+    <div class="wrap-right">
+    <div class="wrap-right-hide">
+         <div class="wrap-right-button favorites">
+            <div class="iconbox" switch="false">
+                <span class="iconfont icon-favorites"></span>
+            </div>
+            <span class="icontext">关注</span>
+         </div>
+        <div class="wrap-right-button search">
+            <div class="iconbox">
+                <span class="iconfont icon-search-menu"></span>
+            </div>
+            <span class="icontext">搜索</span>
+        </div>
+        <div class="wrap-right-button menu-button">
+            <div class="iconbox">
+                <span class="iconfont icon-menu"></span>
+            </div>
+            <span class="icontext">菜单</span>
+        </div>
+        <div class="wrap-right-button mode">
+            <div class="light">
+                <div class="iconbox">
+                    <span class="iconfont icon-daymode"></span>
+                </div>
+                <span class="icontext">浅色模式</span>
+            </div>
+            <div class="dark">
+                <div class="iconbox">
+                    <span class="iconfont icon-nightmode-fill"></span>
+                </div>
+                <span class="icontext">深色模式</span>
+            </div>
+        </div>
+        <div class="wrap-right-button bottom">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">跳至底部</span>
+        </div>
+    </div>
+    <div class="wrap-right-show">
+        <div class="wrap-right-button set">
+            <div class="iconbox">
+                <span class="iconfont icon-setting"></span>
+            </div>
+            <span class="icontext">设置</span>
+        </div>
+        <div class="wrap-right-button top">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">返回顶部</span>
+        </div>
+    </div>
+</div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : "Aspirai",
+        GitHubRepositories : "Hexo-LiveForCode",
+
+        User             : "Aspirai",
+        UserAvatar       : "/image/sidebar/avatar.jpg",
+        WebsiteStartDate : "2020-01-01",
+        Home             : "",
+
+        WebsiteTitleBlur         : "(◍´꒳`◍) Hi, Aspirai",
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : "(*´∇｀*) 欢迎回来!",
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : {
+            light : "/image/website/logo/logo.png",
+            dark  : "/image/website/logo/logo-dark.png"
+        },
+
+        ProgressBar : {
+            id       : "topProgressBar",
+            color    : "#77B6FF",
+            height   : "2px",
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound : {
+                tension  : 16,
+                friction : 5
+            },
+            spinner : {
+                id     : "spinner",
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : "#F0F0F0",
+                    stroke     : "#272633",
+                    base       : "",
+                    child      : "#272633"
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : "rgba(255, 255, 255, .2)",
+            clearOffset : 0.3
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : "60%",
+            colorBrightness  : "50%",
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : "random",
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                "/image/header/home.jpg",
+            
+                "/image/header/home.png",
+            
+        ],
+        HomeBannerText  : "",
+
+        ArticleHeaderImage : [
+            
+                "/image/header/article.jpg",
+            
+        ],
+
+        OtherBannerText : "",
+
+        Error : {
+            icon    : "icon-swimming",
+            title   : "PAGE NOT FOUND",
+            content : [
+                
+                    "很抱歉，您访问的页面不存在！",
+                
+                    "可能是输入地址有误或该地址已变更。",
+                
+            ],
+            buttons : [
+                
+                    {
+                        icon  : "icon-home",
+                        text  : "返回首页",
+                        href  : "/",
+                        class : ""
+                    },
+                
+            ]
+        },
+
+        MenuNotice : {
+            enable : false,
+            notice : "简单地活着，肆意而又精彩！",
+            speed  : 20
+        },
+        MenuList : [
+            
+                {
+                    name   : "首页",
+                    icon   : "icon-home-fill",
+                    href   : "/",
+                    type   : "index",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "分类",
+                    icon   : "icon-folder-fill",
+                    href   : "/category",
+                    type   : "category",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "标签",
+                    icon   : "icon-discount-fill",
+                    href   : "/tag",
+                    type   : "tag",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "归档",
+                    icon   : "icon-calendar-fill",
+                    href   : "/archive",
+                    type   : "archive",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "友情链接",
+                    icon   : "icon-link",
+                    href   : "/friend",
+                    type   : "friend",
+                    class  : "",
+                    target : "_self"
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        name   : "QQ",
+                        icon   : "icon-qq",
+                        href   : "javascript:;",
+                        class  : "image",
+                        target : "_self",
+                        image  : "/image/sidebar/qq.png"
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : "<div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>",
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                "Based on cnblogs theme SimpleMemory.",
+                            
+                                "",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "SimpleMemory Author:",
+                            
+                                "BNDong",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "Theme:",
+                            
+                                "LiveForCode",
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : "",
+
+        Donate : {
+            paypal  : "",
+            bitcoin : "",
+            alipay  : "/image/donate/alipay.png",
+            wechat  : "/image/donate/wechat.png"
+        },
+
+        Search : {
+            applicationID : "010C3EANT8",
+            apiKey        : "c7abab9f11b79102b9aff7fe6d41447d",
+            indexName     : "Notes",
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : "搜索",
+                empty       : "未发现与 「${query}」 相关的内容",
+                stats       : "${hits} 条相关条目，使用了 ${time} 毫秒",
+            }
+        }, 
+
+        Comment : {
+            switch : true,
+            type   : "Valine",
+        },
+
+        Waline : {
+            el              : ".comments-content",
+            serverURL       : "",
+            path            : window.location.pathname,
+            meta            : "['nick', 'mail', 'link']",
+            requiredMeta    : "['nick', 'mail']",
+            pageSize        : 10,
+            lang            : "zh-cn",
+            locale: {
+                admin       : "博主",
+                anonymous   : "匿名用户",
+                sofa        : "快来做第一个评论的人吧 ~",
+                placeholder : "你是我一生只会遇见一次的惊喜...",
+            },
+            dark            : "html[color-scheme='dark']",
+            search          : false,
+            pageview        : true,
+            comment         : true,
+            copyright       : false,
+        },
+
+        Valine : {
+            el             : ".comments-content",
+            appId          : "srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz",
+            appKey         : "8uVSP1q6UlALVC5igYfIfv2h",
+            serverURLs     : "",
+            placeholder    : "你是我一生只会遇见一次的惊喜...",
+            avatar         : "mm",
+            meta           : "nick,mail,link",
+            requiredFields : "nick,mail",
+            pageSize       : 5,
+            lang           : "zh-cn",
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : ".toc",
+            contentSelector       : ".article-body",
+            headingSelector       : "h1, h2, h3, h4, h5",
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : ".toc",
+            positionFixedClass    : "toc-fixed",
+            fixedSidebarOffset    : "",
+        },
+
+        Require : {
+            baseUrl     : "/js/",
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : "Meting"
+        },
+        APlayer : {
+            container : ".aplayer",
+            fixed     : true,
+            autoplay  : false,
+            loop      : "all",
+            order     : "random",
+            preload   : "auto",
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : "Endless Tears",
+                        artist : "CLIFF EDGE",
+                        cover  : "/music/cover/Endless Tears.jpg",
+                        url    : "/music/song/Endless Tears.mp3",
+                        lrc    : "/music/lrc/Endless Tears.lrc"
+                    },
+                
+            ]
+        },
+        Meting : {
+            api      : "https://api.i-meto.com/meting/api",
+            id       : "3778678", 
+            lrcshow  : false, 
+            server   : "netease", 
+            type     : "playlist", 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : "all", 
+            order    : "random", 
+            preload  : "auto", 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : true,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : "/image/website/lazyload.svg"
+        },
+  
+        Style : {
+            aplayer          : "/css/APlayer.css",
+            archive          : "/css/archive.css",
+            base             : "/css/base.css",
+            clipboard        : "/css/clipboard.css",
+            code             : "/css/code.css",
+            donate           : "/css/donate.css",
+            fancybox         : "/css/jquery.fancybox.css",
+            footer           : "/css/footer.css",
+            iconfont         : "/iconfont/iconfont.css",
+            index            : "/css/index.css",
+            menuBubble       : "/css/menu-bubble.css",
+            mouse            : "/css/mouse.css",
+            page             : "/css/page.css",
+            post             : "/css/post.css",
+            search           : "/css/search.css",
+            tocbot           : "/css/tocbot.css",
+            valine           : "/css/valine.css",
+            waline           : "/css/waline.css",
+            walineCustom     : "/css/waline-custom.css"
+        },
+
+        Script: {
+            aplayer          : "/js/APlayer.min.js",
+            config           : "/js/require.config.js",
+            index            : "/js/index.js",
+            instantSearch    : "/js/instantsearch.min.js",
+            iscroll          : "/js/iscroll.js",
+            jQuery           : "/js/jquery-3.4.1.min.js",
+            loading          : "/js/loading.js",
+            meting           : "/js/Meting.min.js",
+            require          : "/js/require.min.js",
+            waline           : "/js/waline.mjs",
+            pageview         : "/js/pageview.mjs",
+            comment          : "/js/comment.mjs",
+        },
+
+        Font: {
+            LongCang    : "/font/LongCang.css",
+            Monda       : "/font/Monda.css",
+            NotoSansSC  : "/font/NotoSansSC.css",
+            NotoSerifSC : "/font/NotoSerifSC.css",
+            Playball    : "/font/Playball.css",
+            PTMono      : "/font/PTMono.css",
+            Roboto      : "/font/Roboto.css",
+            RobotoSlab  : "/font/RobotoSlab.css",
+            Rosario     : "/font/Rosario.css",
+            UbuntuMono  : "/font/UbuntuMono.css"
+        },
+
+        Suffix : {
+            about : "时间带不走你眼中的光辉"
+        },
+            
+        Theme : {
+            url  : "https://github.com/first19326/Hexo-LiveForCode",
+            name : "Hexo - Live For Code"
+        }  
+    };
+</script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</body>
+</html>

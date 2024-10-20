@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, shrink-to-fit=no">
+    <meta name="referrer" content="origin">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <title>
+        
+            Windows CMD常用命令大全
+        
+    </title>
+    <link rel="shortcut icon" href="#"/>
+
+    <link type="text/css" rel="stylesheet" href="/font/LongCang.css">
+    <link type="text/css" rel="stylesheet" href="/font/Monda.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSansSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/NotoSerifSC.css">
+    <link type="text/css" rel="stylesheet" href="/font/Playball.css">
+    <link type="text/css" rel="stylesheet" href="/font/PTMono.css">
+    <link type="text/css" rel="stylesheet" href="/font/Roboto.css">
+    <link type="text/css" rel="stylesheet" href="/font/RobotoSlab.css">
+    <link type="text/css" rel="stylesheet" href="/font/Rosario.css">
+    <link type="text/css" rel="stylesheet" href="/font/UbuntuMono.css">
+
+    <link type="text/css" rel="stylesheet" href="/css/base.css">
+    <link type="text/css" rel="stylesheet" href="/css/code.css">
+
+    <script type="text/javascript" src="/js/jquery-3.4.1.min.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+<body>
+    <a id="cover"></a>
+    <link type="text/css" rel="stylesheet" href="/css/post.css">
+<div id="header" class="header">
+    <div class="vertical">
+        <div class="inner">
+            
+                <h1 class="header-subtitle">Windows CMD常用命令大全</h1>
+                <div class="header-subinfo">
+                    <p class="article-info-text">
+                        <span>
+                            <i class="iconfont icon-time"></i> 发表时间：2024-10-20
+                        </span>
+                        
+                            
+                                <span id="/2024/10/20/Windows CMD常用命令大全/" class="leancloud_visitors" data-flag-title="Windows CMD常用命令大全">
+                                    <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
+                                </span>
+                            
+                            
+                                <span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/10/20/Windows CMD常用命令大全/"></span>
+                                </span>
+                              
+                        
+                    </p>
+                    
+                        
+                            <span class="category-color">开发工具</span>
+                        
+                    
+                    
+                        
+                            <span class="tag-color">Windows</span>
+                        
+                    
+                </div>
+            
+        </div>
+    </div>
+    
+</div>
+<div id="container">
+    
+        <!-- 文章页面 -->
+        <div id="article">
+            <div class="toc"></div>
+            <div class="article-body">
+                <p> 常见Windows终端命令</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">1.查看当前目录</span><br><span class="line">pwd</span><br><span class="line"></span><br><span class="line">2.清理当前终端窗口</span><br><span class="line">cls</span><br><span class="line"></span><br><span class="line">3.显示当前目录下文件</span><br><span class="line">dir</span><br><span class="line"></span><br><span class="line">4.查看电池容量</span><br><span class="line">powercfg/batteryreport</span><br></pre></td></tr></table></figure>
+
+<h4 id="Windows-CMD常用命令大全"><a href="#Windows-CMD常用命令大全" class="headerlink" title="Windows CMD常用命令大全"></a>Windows CMD常用命令大全</h4><ul>
+<li><a href="#_2">前言</a></li>
+<li><a href="#1__13">1. 常用命令</a></li>
+<li><ul>
+<li><a href="#11_cd_14">1.1 cd命令</a></li>
+<li><a href="#12__39">1.2 查看目录文件</a></li>
+<li><a href="#13__56">1.3 创建目录和删除目录</a></li>
+<li><a href="#14_ip_64">1.4 查看本机ip</a></li>
+<li><a href="#15__69">1.5 清除屏幕</a></li>
+<li><a href="#16__76">1.6 复制文件</a></li>
+<li><a href="#17__81">1.7 移动文件</a></li>
+<li><a href="#18__86">1.8 删除文件</a></li>
+<li><a href="#19_ping_92">1.9 ping</a></li>
+<li><a href="#110_taskkill_99">1.10 taskkill</a></li>
+<li><a href="#111_netstat__148">1.11 netstat 查看网络连接状态</a></li>
+<li><a href="#112_find_189">1.12 find</a></li>
+<li><a href="#113_tracert_196">1.13 tracert</a></li>
+<li><a href="#114_203">1.14</a></li>
+</ul>
+</li>
+<li><a href="#2_cmd_213">2. 查看cmd下的命令</a></li>
+<li><a href="#3__228">3. 辅助符号或命令</a></li>
+<li><ul>
+<li><a href="#31__230">3.1 ‘|’</a></li>
+<li><a href="#32___235">3.2 重定向输出符号&gt; &gt;&gt;</a></li>
+<li><a href="#33___258">3.3 重定向输入符号&lt; &lt;&lt;</a></li>
+<li><a href="#34_ctrlc_300">3.4 终止一直在运行的命令ctrl+c</a></li>
+<li><a href="#35_cmdcls_304">3.5 清空cmd窗口内容命令cls</a></li>
+<li><a href="#36__311">3.6 常用工具</a></li>
+</ul>
+</li>
+<li><a href="#4_Windows_315">4. 附加一些Windows下的快捷键</a></li>
+</ul>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p><strong>cmd</strong>是<strong>command</strong>的缩写.即命令行 。</p>
+<p>虽然随着计算机产业的发展，<strong>Windows</strong> <a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F&spm=1001.2101.3001.7020">操作系统</a>的应用越来越广泛，<strong>DOS</strong> 面临着被淘汰的命运，但是因为它运行安全、稳定，有的用户还在使用，所以一般Windows 的各种版本都与其兼容，用户可以在<strong>Windows</strong> 系统下运行<strong>DOS</strong>，<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E4%B8%AD%E6%96%87%E7%89%88&spm=1001.2101.3001.7020">中文版</a><strong>Windows XP</strong>中的命令提示符进一步提高了与DOS下操作命令的兼容性，用户可以在命令提示符直接输入中文调用文件。</p>
+<p>作为一个开发者，我们用的最多的就是<strong>windows</strong>，但是对于<strong>cmd</strong>，我不知道大家熟不熟，反正我是一直不怎么熟悉。平时操作<strong>linux</strong>比较多，反而忽视了<strong>cmd</strong>相关命令，这里大致总结一些常用的命令，作为记录。</p>
+<h2 id="1-常用命令"><a href="#1-常用命令" class="headerlink" title="1. 常用命令"></a>1. 常用命令</h2><h3 id="1-1-cd命令"><a href="#1-1-cd命令" class="headerlink" title="1.1 cd命令"></a>1.1 cd命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//进入d盘</span><br><span class="line">D:</span><br><span class="line">//进入F盘</span><br><span class="line">F:</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">cd /?     //获取使用帮助</span><br><span class="line"></span><br><span class="line">cd \       //跳转到硬盘的根目录</span><br><span class="line"></span><br><span class="line">cd C:\WINDOWS  //跳转到当前硬盘的其他文件</span><br><span class="line"></span><br><span class="line">d:        //跳转到其他硬盘</span><br><span class="line"></span><br><span class="line">cd /d e:\software    //跳转到其他硬盘的其他文件夹，注意此处必须加/d参数。否则无法跳转。</span><br><span class="line"></span><br><span class="line">cd..      //跳转到上一层目录</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2-查看目录文件"><a href="#1-2-查看目录文件" class="headerlink" title="1.2 查看目录文件"></a>1.2 查看目录文件</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//查看当前目录下的文件，类似于linux下的ls</span></span><br><span class="line">dir</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/5d4e1a333daa42fb9e6f79d5d2cb608a.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDkyMDYx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>如果是需要查看隐藏文件的或者更多操作的话，可以使用<code>dir /?</code>来查看其它用法，cmd这点挺好的。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python /?</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/f16220f377da48fc99802c528e90e709.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDkyMDYx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="1-3-创建目录和删除目录"><a href="#1-3-创建目录和删除目录" class="headerlink" title="1.3 创建目录和删除目录"></a>1.3 创建目录和删除目录</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//创建目录</span><br><span class="line">md 目录名（文件夹）</span><br><span class="line">//删除目录</span><br><span class="line">rd 目录名（文件夹）</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-4-查看本机ip"><a href="#1-4-查看本机ip" class="headerlink" title="1.4 查看本机ip"></a>1.4 查看本机ip</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ipconfig</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-5-清除屏幕"><a href="#1-5-清除屏幕" class="headerlink" title="1.5 清除屏幕"></a>1.5 清除屏幕</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cls</span><br></pre></td></tr></table></figure>
+
+<p>类似于linux下的clear</p>
+<h3 id="1-6-复制文件"><a href="#1-6-复制文件" class="headerlink" title="1.6 复制文件"></a>1.6 复制文件</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">copy 路径\文件名 路径\文件名 ：把一个文件拷贝到另一个地方。 </span><br></pre></td></tr></table></figure>
+
+<h3 id="1-7-移动文件"><a href="#1-7-移动文件" class="headerlink" title="1.7 移动文件"></a>1.7 移动文件</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">move 路径\文件名 路径\文件名 ：把一个文件移动（就是剪切+复制）到另一个地方。 </span><br></pre></td></tr></table></figure>
+
+<h3 id="1-8-删除文件"><a href="#1-8-删除文件" class="headerlink" title="1.8 删除文件"></a>1.8 删除文件</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//这个是专门删除文件的，不能删除文件夹</span><br><span class="line"><span class="keyword">del</span> 文件名</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-9-ping"><a href="#1-9-ping" class="headerlink" title="1.9 ping"></a>1.9 ping</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//用来测试网络是否畅通</span><br><span class="line">ping ip(主机名)</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-10-taskkill"><a href="#1-10-taskkill" class="headerlink" title="1.10 taskkill"></a>1.10 taskkill</h3><p><strong>列出所有任务及进程号，杀进程</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">taskkill</span><br><span class="line"></span><br><span class="line">taskkill /?  获取使用帮助</span><br></pre></td></tr></table></figure>
+
+<p><strong>taskkill</strong>是用来终止进程的。具体的命令规则如下：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TASKKILL [/<span class="type">S</span> <span class="type">system</span> [/<span class="type">U</span> <span class="type">username</span> [/<span class="type">P</span> [<span class="type">password</span>]]]]</span><br><span class="line">&#123; [/<span class="type">FI</span> <span class="type">filter</span>] [/<span class="type">PID</span> <span class="type">processid</span> | /<span class="type">IM</span> <span class="type">imagename</span>] &#125; [/<span class="type">F</span>] [/<span class="type">T</span>]</span><br></pre></td></tr></table></figure>
+
+<p><strong>描述:</strong></p>
+<p>这个<a target="_blank" rel="noopener" href="https://so.csdn.net/so/search?q=%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7&spm=1001.2101.3001.7020">命令行工具</a>可用来结束至少一个进程。</p>
+<p>可以根据进程 id 或映像名（Image）来结束进程。</p>
+<p><strong>参数列表:</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/S system 指定要连接到的远程系统。</span><br><span class="line">/U [<span class="type">domain</span>\]user 指定应该在哪个用户上下文</span><br></pre></td></tr></table></figure>
+
+<p>执行这个命令:</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">/P [<span class="type">password</span>] 为提供的用户上下文指定密码。如果忽略，提示输入。</span><br><span class="line">/F 指定要强行终止的进程。</span><br><span class="line">/FI <span class="keyword">filter</span> 指定筛选进或筛选出查询的的任务。</span><br><span class="line">/PID <span class="keyword">process</span> id 指定要终止的进程的PID。</span><br><span class="line">/IM image name 指定要终止的进程的映像名称。通配符 <span class="string">&#x27;*&#x27;</span>可用来指定所有映像名。</span><br><span class="line">/T Tree <span class="built_in">kill</span>: 终止指定的进程和任何由此启动的子进程。</span><br><span class="line">/? 显示帮助/用法。</span><br></pre></td></tr></table></figure>
+
+<p><strong>例如:</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">TASKKILL /S system /F /IM notepad.exe /T</span><br><span class="line">TASKKILL /PID <span class="number">1230</span> /PID <span class="number">1241</span> /PID <span class="number">1253</span> /T</span><br><span class="line">TASKKILL /F /IM QQ.exe</span><br><span class="line">TASKKILL /F /IM notepad.exe /IM mspaint.exe</span><br><span class="line">TASKKILL /F /FI <span class="string">&quot;PID ge 1000&quot;</span> /FI <span class="string">&quot;WINDOWTITLE ne untitle*&quot;</span></span><br><span class="line">TASKKILL /F /FI <span class="string">&quot;USERNAME eq NT AUTHORITY\SYSTEM&quot;</span> /IM notepad.exe</span><br></pre></td></tr></table></figure>
+
+<p><img src="https://img-blog.csdnimg.cn/4e1d4ec7fc064eb4bb2830d4e626d10e.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ2MDkyMDYx,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h3 id="1-11-netstat-查看网络连接状态"><a href="#1-11-netstat-查看网络连接状态" class="headerlink" title="1.11 netstat 查看网络连接状态"></a>1.11 netstat 查看网络连接状态</h3><p>显示协议统计信息和当前 <strong>TCP&#x2F;IP</strong> 网络连接。该命令可以查看当前机器建立的所有网络链接状态，以及对应哪个进程。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">netstat <span class="literal">-help</span> 获取命令行使用帮助信息</span><br><span class="line"></span><br><span class="line">netstat <span class="literal">-ano</span>  //查看网络连接、状态以及对应的进程id</span><br></pre></td></tr></table></figure>
+
+<p><strong>语法：</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat [选项]</span><br></pre></td></tr></table></figure>
+
+<p><strong>参数：</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="literal">-a</span>或<span class="literal">--all</span>：显示所有连线中的Socket；</span><br><span class="line"><span class="literal">-A</span>&lt;网络类型&gt;或<span class="literal">--</span>&lt;网络类型&gt;：列出该网络类型连线中的相关地址；</span><br><span class="line"><span class="literal">-c</span>或<span class="literal">--continuous</span>：持续列出网络状态；</span><br><span class="line"><span class="literal">-C</span>或<span class="literal">--cache</span>：显示路由器配置的快取信息；</span><br><span class="line"><span class="literal">-e</span>或<span class="literal">--extend</span>：显示网络其他相关信息；</span><br><span class="line"><span class="operator">-F</span>或<span class="literal">--fib</span>：显示FIB；</span><br><span class="line"><span class="literal">-g</span>或<span class="literal">--groups</span>：显示多重广播功能群组组员名单；</span><br><span class="line"><span class="literal">-h</span>或<span class="literal">--help</span>：在线帮助；</span><br><span class="line"><span class="literal">-i</span>或<span class="literal">--interfaces</span>：显示网络界面信息表单；</span><br><span class="line"><span class="literal">-l</span>或<span class="literal">--listening</span>：显示监控中的服务器的Socket；</span><br><span class="line"><span class="literal">-M</span>或<span class="literal">--masquerade</span>：显示伪装的网络连线；</span><br><span class="line"><span class="literal">-n</span>或<span class="literal">--numeric</span>：直接使用ip地址，而不通过域名服务器；</span><br><span class="line"><span class="literal">-N</span>或<span class="literal">--netlink</span>或<span class="literal">--symbolic</span>：显示网络硬件外围设备的符号连接名称；</span><br><span class="line"><span class="literal">-o</span>或<span class="literal">--timers</span>：显示计时器；</span><br><span class="line"><span class="literal">-p</span>或<span class="literal">--programs</span>：显示正在使用Socket的程序识别码和程序名称；</span><br><span class="line"><span class="literal">-r</span>或<span class="literal">--route</span>：显示Routing Table；</span><br><span class="line"><span class="literal">-s</span>或<span class="literal">--statistice</span>：显示网络工作信息统计表；</span><br><span class="line"><span class="literal">-t</span>或<span class="literal">--tcp</span>：显示TCP传输协议的连线状况；</span><br><span class="line"><span class="literal">-u</span>或<span class="literal">--udp</span>：显示UDP传输协议的连线状况；</span><br><span class="line"><span class="literal">-v</span>或<span class="literal">--verbose</span>：显示指令执行过程；</span><br><span class="line"><span class="literal">-V</span>或<span class="literal">--version</span>：显示版本信息；</span><br><span class="line"><span class="literal">-w</span>或<span class="literal">--raw</span>：显示RAW传输协议的连线状况；</span><br><span class="line"><span class="literal">-x</span>或<span class="literal">--unix</span>：此参数的效果和指定<span class="string">&quot;-A unix&quot;</span>参数相同；</span><br><span class="line"><span class="literal">--ip</span>或<span class="literal">--inet</span>：此参数的效果和指定<span class="string">&quot;-A inet&quot;</span>参数相同。</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-12-find"><a href="#1-12-find" class="headerlink" title="1.12 find"></a>1.12 find</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">find /？获取使用帮助</span><br><span class="line"></span><br><span class="line">netstat <span class="literal">-ano</span>|find <span class="string">&quot;.8&quot;</span>   //使用管道符，进行模糊查询</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-13-tracert"><a href="#1-13-tracert" class="headerlink" title="1.13 tracert"></a>1.13 tracert</h3><p><strong>tracert</strong>也被称为<strong>Windows</strong>路由跟踪实用程序，在命令提示符（cmd）中使用<strong>tracert</strong>命令可以用于确定IP数据包访问目标时所选择的路径。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tracert /? 获取使用帮助</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-14"><a href="#1-14" class="headerlink" title="1.14"></a>1.14</h3><p>创建文件：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">type nul &gt;test.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-查看cmd下的命令"><a href="#2-查看cmd下的命令" class="headerlink" title="2. 查看cmd下的命令"></a>2. 查看cmd下的命令</h2><p><strong>1、使用help命令，查看所有的dos命令</strong></p>
+<p>使用这个命令之后，我们可以看到所有的dos命令，并且后面还有中文的解释。简直不要太赞，这样我们就可以根据自己的需求要找到想要使用的命令。</p>
+<p><strong>2、找到命令之后，使用 命令+ &#x2F;?来查看该命令下的其他属性</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">命令 -<span class="built_in">help</span>    //第<span class="number">1</span>种形式的使用帮助</span><br><span class="line"></span><br><span class="line">命令  /?       //第<span class="number">2</span>种形式的使用帮助</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意：这些字符只能是英文的</strong></p>
+<h2 id="3-辅助符号或命令"><a href="#3-辅助符号或命令" class="headerlink" title="3. 辅助符号或命令"></a>3. 辅助符号或命令</h2><h3 id="3-1-‘-’"><a href="#3-1-‘-’" class="headerlink" title="3.1 ‘|’"></a>3.1 ‘|’</h3><p><strong>“|”cmd命令中|代表前一个的输出代表后一个的输入</strong></p>
+<p>查找特定ip的网络连接及进程号：<code>netstat -ano|find &quot;192.168.1.10&quot;</code></p>
+<h3 id="3-2-重定向输出符号"><a href="#3-2-重定向输出符号" class="headerlink" title="3.2 重定向输出符号&gt; &gt;&gt;"></a>3.2 重定向输出符号&gt; &gt;&gt;</h3><p>将原本输出到命令窗口的内容，转存到文件中，如<code>jstack 12912 &gt;d:/s.txt</code> 打印线程到指定文件</p>
+<p><strong>cmd &gt;</strong> 重定向输出并覆盖源文件。</p>
+<p><strong>例如</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> hello &gt;c:\<span class="number">1</span>.txt  // <span class="number">1</span>.txt的文件内容先被清空，然后写入hello。</span><br></pre></td></tr></table></figure>
+
+<p><strong>cmd &gt;&gt;重定向输出追加到文件末尾</strong></p>
+<p><strong>例如：</strong></p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> hello &gt;&gt;c:\<span class="number">1</span>.txt  // 在<span class="number">1</span>.txt文件末尾加上hello</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-重定向输入符号"><a href="#3-3-重定向输入符号" class="headerlink" title="3.3 重定向输入符号&lt; &lt;&lt;"></a>3.3 重定向输入符号&lt; &lt;&lt;</h3><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmd &lt; file</span><br></pre></td></tr></table></figure>
+
+<p>使cmd命令从file读入</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmd &lt;&lt; text</span><br></pre></td></tr></table></figure>
+
+<p><strong>从命令行读取输入，直到一个与text相同的行结束。</strong></p>
+<p>除非使用引号把输入括起来，此模式将对输入内容进行<strong>shell</strong>变量替换。</p>
+<p>如果使用 &lt;&lt;- ，则会忽略接下来输入行首的tab，结束行也可以是一堆tab再加上一个与text相同的内容，可以参考后面的例子。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmd &lt;&lt;&lt; word</span><br></pre></td></tr></table></figure>
+
+<p>把word（而不是文件word）和后面的换行作为输入提供给cmd。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmd &lt;&gt; file</span><br></pre></td></tr></table></figure>
+
+<p>以读写模式把文件file重定向到输入，文件file不会被破坏。仅当应用程序利用了这一特性时，它才是有意义的。</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cmd &gt;| file</span><br></pre></td></tr></table></figure>
+
+<p>功能同&gt;，但即便在设置了noclobber时也会覆盖file文件，注意用的是|而非一些书中说的!，目前仅在csh中仍沿用&gt;!实现这一功能。</p>
+<h3 id="3-4-终止一直在运行的命令ctrl-c"><a href="#3-4-终止一直在运行的命令ctrl-c" class="headerlink" title="3.4 终止一直在运行的命令ctrl+c"></a>3.4 终止一直在运行的命令ctrl+c</h3><p>有时某个命令一直打印输出结果(如<code>ping 192.168.1.10 -t</code>)，我们想终止这个命令的执行，直接按<code>ctrl+c</code>即可。</p>
+<h3 id="3-5-清空cmd窗口内容命令cls"><a href="#3-5-清空cmd窗口内容命令cls" class="headerlink" title="3.5 清空cmd窗口内容命令cls"></a>3.5 清空cmd窗口内容命令cls</h3><p>有时cmd内容太多，滚动费尽，需要清空屏幕内容，直接输入cls即可</p>
+<p><strong>cmd命令中，按键盘的向上箭头可以直接复制前一个命令</strong></p>
+<h3 id="3-6-常用工具"><a href="#3-6-常用工具" class="headerlink" title="3.6 常用工具"></a>3.6 常用工具</h3><p><strong>Process Explorer</strong>，查询进程的详细信息，如查询java进程启动参数，运行环境，线程信息、网络连接信息、使用了哪些dll，打开了什么句柄。包含注册表、Socket、文件等等。</p>
+<p><strong>下载地址</strong>：<code>https://docs.microsoft.com/en-us/sysinternals/downloads/process-explorer</code></p>
+<h2 id="4-附加一些Windows下的快捷键"><a href="#4-附加一些Windows下的快捷键" class="headerlink" title="4. 附加一些Windows下的快捷键"></a>4. 附加一些Windows下的快捷键</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">win+E                 打开文件管器</span><br><span class="line"></span><br><span class="line">win+D                 显示桌面</span><br><span class="line"></span><br><span class="line">win+L                 锁计算机</span><br><span class="line"></span><br><span class="line">alt+F4                 关闭当前程序</span><br><span class="line"></span><br><span class="line">ctrl+shift+Esc    打开任务管理器（或者ctrl+alt+delete）</span><br><span class="line"></span><br><span class="line">ctrl+F                  在一个文本或者网页里面查找，相当实用（退出一般按ESC）</span><br><span class="line"></span><br><span class="line">ctrl+A                  选中所有文本</span><br></pre></td></tr></table></figure>
+
+<p>本文转自 <a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_46092061/article/details/119849648">https://blog.csdn.net/qq_46092061/article/details/119849648</a>，如有侵权，请联系删除。</p>
+
+                
+                <p class="end">__END__</p>
+            </div>
+            <div class="article-footer">
+                <div class="suffix-box">
+    <div class="suffix-box-left">
+        <img src="/image/sidebar/avatar.jpg" alt="Aspirai">
+    </div>
+    <div class="suffix-box-right">
+        <span class="suffix-box-title">文章作者：</span>Aspirai
+        <br>
+        <span class="suffix-box-title">文章出处：</span><a href="/2024/10/20/Windows%20CMD%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8/" target="_blank">Windows CMD常用命令大全</a>
+        <br>
+        <span class="suffix-box-title">作者签名：</span>时间带不走你眼中的光辉
+        <br>
+        <span class="suffix-box-title">版权声明：</span>文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
+        <br>
+    </div>
+    <div style="clear: both;"></div>
+</div>
+                
+                    <div class="category">
+                        分类：
+                        
+                            <a href="/category/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a>
+                        
+                    </div>
+                
+                
+                    <div class="tag">
+                        标签：
+                        
+                            <a href="/tag/Windows/">Windows</a>
+                        
+                    </div>
+                
+                <div class="article-prev-next">
+                    
+                        <a href="/2024/10/20/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" class="prev-prefix">« </a> 上一篇：    <a href="/2024/10/20/git%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" title="发布于 2024-10-20 09:15">git常用命令</a>
+                        <br>
+                    
+                    
+                        <a href="/2024/10/20/Windows%20%E6%9F%A5%E7%9C%8B%E7%9B%AE%E5%BD%95%E5%88%9B%E5%BB%BA%E5%BA%94%E7%94%A8%E4%B8%8E%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99%E5%BA%94%E7%94%A8/" class="next-prefix">» </a> 下一篇：    <a href="/2024/10/20/Windows%20%E6%9F%A5%E7%9C%8B%E7%9B%AE%E5%BD%95%E5%88%9B%E5%BB%BA%E5%BA%94%E7%94%A8%E4%B8%8E%E6%96%87%E4%BB%B6%E8%AF%BB%E5%86%99%E5%BA%94%E7%94%A8/" title="发布于 2024-10-20 09:10">Windows 查看目录创建应用与文件读写应用</a>
+                    
+                </div>
+            </div>
+            
+    <div class="article-comments">
+        
+            <div class="comments-title">
+                评论列表
+            </div>
+        
+        <div class="comments-content"></div>
+    </div>
+    
+ 
+        </div>
+    
+</div>
+    <div id="footer">
+    <div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>
+</div>
+    <div id="sidebar">
+    <div class="menu-wrap" style="display:none;">
+        
+        <nav class="menu">
+            <div class="menu-introduce"> 
+                <div class="introduce-avatar">
+                    <img src="/image/sidebar/avatar.jpg">
+                </div> 
+                <div class="introduce-info"> 
+                    <div class="introduce-user">
+                        
+                            <a href="javascript:;" target="_self"><span>Aspirai</span></a>
+                        
+                    </div>
+                </div> 
+            </div> 
+            <div class="menu-list">
+                <ul>
+                    
+                        <li class=""><a href="/" class="" target="_self"><span class="iconfont icon-home-fill"></span>首页</a></li>
+                    
+                        <li class=""><a href="/category" class="" target="_self"><span class="iconfont icon-folder-fill"></span>分类</a></li>
+                    
+                        <li class=""><a href="/tag" class="" target="_self"><span class="iconfont icon-discount-fill"></span>标签</a></li>
+                    
+                        <li class=""><a href="/archive" class="" target="_self"><span class="iconfont icon-calendar-fill"></span>归档</a></li>
+                    
+                        <li class=""><a href="/friend" class="" target="_self"><span class="iconfont icon-link"></span>友情链接</a></li>
+                    
+                </ul> 
+            </div> 
+            <div class="menu-link">
+                <div class="box">
+                    <div class="image-box"></div>
+                </div>
+                
+                    <a name="QQ" href="javascript:;" class="image" target="_self" data="/image/sidebar/qq.png"><span class="iconfont icon-qq"></span></a>
+                
+            </div> 
+        </nav>
+        <button class="menu-button-close"></button>
+        <div class="morph-shape" id="morph-shape" data-morph-open="M-7.312,0H15c0,0,66,113.339,66,399.5C81,664.006,15,800,15,800H-7.312V0z;M-7.312,0H100c0,0,0,113.839,0,400c0,264.506,0,400,0,400H-7.312V0z">
+            <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 100 800" preserveAspectRatio="none">
+                <path d="M-7.312,0H0c0,0,0,113.839,0,400c0,264.506,0,400,0,400h-7.312V0z"/>
+            </svg>
+        </div>
+    </div>
+    <button class="menu-button-open">MENU</button>
+    <div class="menu-cover"></div>
+</div>
+    <link type="text/css" rel="stylesheet" href="/css/search.css">
+<script type="text/javascript" src="/js/iscroll.js"></script>
+<script type="text/javascript" src="/js/instantsearch.min.js"></script>
+<div class="search-window">
+    <div class="search-content">
+        <div class="search-content-icon">
+            <i class="iconfont icon-search"></i>
+        </div>
+        <div id="search-input" class="search-input"></div>
+    </div>
+
+    <div class="search-scroll">
+        <div class="search-result">
+            <div id="search-stats" class="search-stats"></div>
+            <div id="search-hits"></div>
+            <div id="search-pagination" class="search-pagination"></div>
+        </div>
+    </div>
+
+    <span class="search-close-icon">
+        <i class="iconfont icon-close"></i>
+    </span>
+</div>
+    <div id="tools">
+    <div class="progressbar-top"></div>
+    
+    <link type="text/css" rel="stylesheet" href="/css/APlayer.css">
+    <script type="text/javascript" src="/js/APlayer.min.js"></script>
+    <script type="text/javascript" src="/js/Meting.min.js"></script>
+    <script>
+        var meting_api = 'https://api.i-meto.com/meting/api?server=:server&type=:type&id=:id&auth=:auth&r=:r';
+    </script>
+    <meting-js id="3778678" lrcshow="false" server="netease" type="playlist" fixed="true" autoplay="false" loop="all" order="random" preload="auto" volume="0.67" mutex="true"></meting-js>
+
+    <div class="wrap-right">
+    <div class="wrap-right-hide">
+         <div class="wrap-right-button favorites">
+            <div class="iconbox" switch="false">
+                <span class="iconfont icon-favorites"></span>
+            </div>
+            <span class="icontext">关注</span>
+         </div>
+        <div class="wrap-right-button search">
+            <div class="iconbox">
+                <span class="iconfont icon-search-menu"></span>
+            </div>
+            <span class="icontext">搜索</span>
+        </div>
+        <div class="wrap-right-button menu-button">
+            <div class="iconbox">
+                <span class="iconfont icon-menu"></span>
+            </div>
+            <span class="icontext">菜单</span>
+        </div>
+        <div class="wrap-right-button mode">
+            <div class="light">
+                <div class="iconbox">
+                    <span class="iconfont icon-daymode"></span>
+                </div>
+                <span class="icontext">浅色模式</span>
+            </div>
+            <div class="dark">
+                <div class="iconbox">
+                    <span class="iconfont icon-nightmode-fill"></span>
+                </div>
+                <span class="icontext">深色模式</span>
+            </div>
+        </div>
+        <div class="wrap-right-button bottom">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">跳至底部</span>
+        </div>
+    </div>
+    <div class="wrap-right-show">
+        <div class="wrap-right-button set">
+            <div class="iconbox">
+                <span class="iconfont icon-setting"></span>
+            </div>
+            <span class="icontext">设置</span>
+        </div>
+        <div class="wrap-right-button top">
+            <div class="iconbox">
+                <span class="iconfont icon-top"></span>
+            </div>
+            <span class="icontext">返回顶部</span>
+        </div>
+    </div>
+</div>
+    <div class="loading"></div>
+</div>
+    <script>
+    window.config = {
+        GitHubUserName     : "Aspirai",
+        GitHubRepositories : "Hexo-LiveForCode",
+
+        User             : "Aspirai",
+        UserAvatar       : "/image/sidebar/avatar.jpg",
+        WebsiteStartDate : "2020-01-01",
+        Home             : "",
+
+        WebsiteTitleBlur         : "(◍´꒳`◍) Hi, Aspirai",
+        WebsiteTitleBlurTimeOut  : 500,
+        WebsiteTitleFocus        : "(*´∇｀*) 欢迎回来!",
+        WebsiteTitleFocusTimeOut : 1000,
+        WebsiteFavicon           : {
+            light : "/image/website/logo/logo.png",
+            dark  : "/image/website/logo/logo-dark.png"
+        },
+
+        ProgressBar : {
+            id       : "topProgressBar",
+            color    : "#77B6FF",
+            height   : "2px",
+            duration : 0.2
+        },
+
+        Loading: {
+            rebound : {
+                tension  : 16,
+                friction : 5
+            },
+            spinner : {
+                id     : "spinner",
+                radius : 90,
+                sides  : 3,
+                depth  : 4,
+                colors : {
+                    background : "#F0F0F0",
+                    stroke     : "#272633",
+                    base       : "",
+                    child      : "#272633"
+                },
+                alwaysForward : true,
+                restAt        : 0.5,
+                renderBase    : false
+            }
+        },
+
+        HomeHeaderAnimationRendered : true,
+        HomeHeaderAnimation         : {
+            radius      : 15,
+            density     : 0.2,
+            color       : "rgba(255, 255, 255, .2)",
+            clearOffset : 0.3
+        },
+
+        BackAnimationRendered          : true,
+        IEBrowserBackAnimationRendered : false,
+        BackAnimation                  : {
+            colorSaturation  : "60%",
+            colorBrightness  : "50%",
+            colorAlpha       : 0.5,
+            colorCycleSpeed  : 5,
+            verticalPosition : "random",
+            horizontalSpeed  : 200,
+            ribbonCount      : 3,
+            strokeSize       : 0,
+            parallaxAmount   : -0.2,
+            animateSections  : true
+        },
+
+        HomeHeaderImage : [
+            
+                "/image/header/home.jpg",
+            
+                "/image/header/home.png",
+            
+        ],
+        HomeBannerText  : "",
+
+        ArticleHeaderImage : [
+            
+                "/image/header/article.jpg",
+            
+        ],
+
+        OtherBannerText : "",
+
+        Error : {
+            icon    : "icon-swimming",
+            title   : "PAGE NOT FOUND",
+            content : [
+                
+                    "很抱歉，您访问的页面不存在！",
+                
+                    "可能是输入地址有误或该地址已变更。",
+                
+            ],
+            buttons : [
+                
+                    {
+                        icon  : "icon-home",
+                        text  : "返回首页",
+                        href  : "/",
+                        class : ""
+                    },
+                
+            ]
+        },
+
+        MenuNotice : {
+            enable : false,
+            notice : "简单地活着，肆意而又精彩！",
+            speed  : 20
+        },
+        MenuList : [
+            
+                {
+                    name   : "首页",
+                    icon   : "icon-home-fill",
+                    href   : "/",
+                    type   : "index",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "分类",
+                    icon   : "icon-folder-fill",
+                    href   : "/category",
+                    type   : "category",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "标签",
+                    icon   : "icon-discount-fill",
+                    href   : "/tag",
+                    type   : "tag",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "归档",
+                    icon   : "icon-calendar-fill",
+                    href   : "/archive",
+                    type   : "archive",
+                    class  : "",
+                    target : "_self"
+                },
+            
+                {
+                    name   : "友情链接",
+                    icon   : "icon-link",
+                    href   : "/friend",
+                    type   : "friend",
+                    class  : "",
+                    target : "_self"
+                },
+            
+        ],
+        MenuLink : [
+            
+                
+                    {
+                        name   : "QQ",
+                        icon   : "icon-qq",
+                        href   : "javascript:;",
+                        class  : "image",
+                        target : "_self",
+                        image  : "/image/sidebar/qq.png"
+                    },
+                
+            
+        ],
+
+        FooterStyle : 2,
+        BottomText  : "<div><span class='face'>ღゝ◡╹)ノ♡</span></div><div>【人生若只如初见<span><i class='iconfont icon-like-fill'></i></span>何事秋风悲画扇】</div><div>&copy; 2021-2024 True greatness lies in knowing your own insignificance.</div>",
+
+        ConsoleList : [
+            
+                
+                    [
+                        
+                            
+                                "Based on cnblogs theme SimpleMemory.",
+                            
+                                "",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "SimpleMemory Author:",
+                            
+                                "BNDong",
+                            
+                        
+                    ],
+                
+                    [
+                        
+                            
+                                "Theme:",
+                            
+                                "LiveForCode",
+                            
+                        
+                    ],
+                
+            
+        ],
+
+        FontIconExtend : "",
+
+        Donate : {
+            paypal  : "",
+            bitcoin : "",
+            alipay  : "/image/donate/alipay.png",
+            wechat  : "/image/donate/wechat.png"
+        },
+
+        Search : {
+            applicationID : "010C3EANT8",
+            apiKey        : "c7abab9f11b79102b9aff7fe6d41447d",
+            indexName     : "Notes",
+            hits          : {
+                page : 10
+            },
+            labels        : {
+                placeholder : "搜索",
+                empty       : "未发现与 「${query}」 相关的内容",
+                stats       : "${hits} 条相关条目，使用了 ${time} 毫秒",
+            }
+        }, 
+
+        Comment : {
+            switch : true,
+            type   : "Valine",
+        },
+
+        Waline : {
+            el              : ".comments-content",
+            serverURL       : "",
+            path            : window.location.pathname,
+            meta            : "['nick', 'mail', 'link']",
+            requiredMeta    : "['nick', 'mail']",
+            pageSize        : 10,
+            lang            : "zh-cn",
+            locale: {
+                admin       : "博主",
+                anonymous   : "匿名用户",
+                sofa        : "快来做第一个评论的人吧 ~",
+                placeholder : "你是我一生只会遇见一次的惊喜...",
+            },
+            dark            : "html[color-scheme='dark']",
+            search          : false,
+            pageview        : true,
+            comment         : true,
+            copyright       : false,
+        },
+
+        Valine : {
+            el             : ".comments-content",
+            appId          : "srhKtvWPQTWYKh3qX8G8M7v0-gzGzoHsz",
+            appKey         : "8uVSP1q6UlALVC5igYfIfv2h",
+            serverURLs     : "",
+            placeholder    : "你是我一生只会遇见一次的惊喜...",
+            avatar         : "mm",
+            meta           : "nick,mail,link",
+            requiredFields : "nick,mail",
+            pageSize       : 5,
+            lang           : "zh-cn",
+            visitor        : true,
+            enableQQ       : true
+        },
+
+        Tocbot : {
+            switch                : true,
+            tocSelector           : ".toc",
+            contentSelector       : ".article-body",
+            headingSelector       : "h1, h2, h3, h4, h5",
+            headingsOffset        : 0,
+            scrollSmooth          : true,
+            scrollSmoothOffset    : -5,
+            positionFixedSelector : ".toc",
+            positionFixedClass    : "toc-fixed",
+            fixedSidebarOffset    : "",
+        },
+
+        Require : {
+            baseUrl     : "/js/",
+            waitSeconds : 100
+        },
+
+        Music : {
+            type : "Meting"
+        },
+        APlayer : {
+            container : ".aplayer",
+            fixed     : true,
+            autoplay  : false,
+            loop      : "all",
+            order     : "random",
+            preload   : "auto",
+            volume    : 0.67,
+            mutex     : true,
+            lrcType   : 3,
+            audio     : [
+                
+                    {
+                        name   : "Endless Tears",
+                        artist : "CLIFF EDGE",
+                        cover  : "/music/cover/Endless Tears.jpg",
+                        url    : "/music/song/Endless Tears.mp3",
+                        lrc    : "/music/lrc/Endless Tears.lrc"
+                    },
+                
+            ]
+        },
+        Meting : {
+            api      : "https://api.i-meto.com/meting/api",
+            id       : "3778678", 
+            lrcshow  : false, 
+            server   : "netease", 
+            type     : "playlist", 
+            fixed    : true, 
+            autoplay : false, 
+            loop     : "all", 
+            order    : "random", 
+            preload  : "auto", 
+            volume   : 0.67, 
+            mutex    : true
+        },
+
+        Mouse : {
+            enable  : true,
+            options : {
+                size  : 6,
+                sizeF : 24
+            }
+        },
+
+        LazyLoad : {
+            default : "/image/website/lazyload.svg"
+        },
+  
+        Style : {
+            aplayer          : "/css/APlayer.css",
+            archive          : "/css/archive.css",
+            base             : "/css/base.css",
+            clipboard        : "/css/clipboard.css",
+            code             : "/css/code.css",
+            donate           : "/css/donate.css",
+            fancybox         : "/css/jquery.fancybox.css",
+            footer           : "/css/footer.css",
+            iconfont         : "/iconfont/iconfont.css",
+            index            : "/css/index.css",
+            menuBubble       : "/css/menu-bubble.css",
+            mouse            : "/css/mouse.css",
+            page             : "/css/page.css",
+            post             : "/css/post.css",
+            search           : "/css/search.css",
+            tocbot           : "/css/tocbot.css",
+            valine           : "/css/valine.css",
+            waline           : "/css/waline.css",
+            walineCustom     : "/css/waline-custom.css"
+        },
+
+        Script: {
+            aplayer          : "/js/APlayer.min.js",
+            config           : "/js/require.config.js",
+            index            : "/js/index.js",
+            instantSearch    : "/js/instantsearch.min.js",
+            iscroll          : "/js/iscroll.js",
+            jQuery           : "/js/jquery-3.4.1.min.js",
+            loading          : "/js/loading.js",
+            meting           : "/js/Meting.min.js",
+            require          : "/js/require.min.js",
+            waline           : "/js/waline.mjs",
+            pageview         : "/js/pageview.mjs",
+            comment          : "/js/comment.mjs",
+        },
+
+        Font: {
+            LongCang    : "/font/LongCang.css",
+            Monda       : "/font/Monda.css",
+            NotoSansSC  : "/font/NotoSansSC.css",
+            NotoSerifSC : "/font/NotoSerifSC.css",
+            Playball    : "/font/Playball.css",
+            PTMono      : "/font/PTMono.css",
+            Roboto      : "/font/Roboto.css",
+            RobotoSlab  : "/font/RobotoSlab.css",
+            Rosario     : "/font/Rosario.css",
+            UbuntuMono  : "/font/UbuntuMono.css"
+        },
+
+        Suffix : {
+            about : "时间带不走你眼中的光辉"
+        },
+            
+        Theme : {
+            url  : "https://github.com/first19326/Hexo-LiveForCode",
+            name : "Hexo - Live For Code"
+        }  
+    };
+</script>
+    <script type="text/javascript" src="/js/index.js"></script>
+</body>
+</html>
