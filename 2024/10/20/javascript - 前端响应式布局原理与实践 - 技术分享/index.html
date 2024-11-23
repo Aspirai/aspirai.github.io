@@ -86,14 +86,12 @@
 <li>标签导航在接近手持终端设备时改变为经典的抽屉式导航；</li>
 <li>网站的布局会根据视口来调整模块的大小和位置；</li>
 </ol>
-<p><img src="/img/remote/1460000021929516" alt="在这里插入图片描述" title="在这里插入图片描述"></p>
 <h3 id="什么是自适应布局？"><a href="#什么是自适应布局？" class="headerlink" title="什么是自适应布局？"></a>什么是自适应布局？</h3><p>自适应布局是指网页能够在不同大小的终端设备上自行适应显示，也就是让一个网站在不同大小的设备上显示同一样的页面，让同一个页面适应不同大小屏幕，根据屏幕的大小，自动缩放。自适应布局的几个标志：</p>
 <ol>
 <li>大多只是适配单个终端的主流N个主流视口；</li>
 <li>当视口大小低于设置的最小视口时，界面会出现显示不全，并且出现横向滑动条；</li>
 <li>总体框架不变，横线布局的版块太多会有所减少。</li>
 </ol>
-<p><img src="/img/remote/1460000021929517" alt="在这里插入图片描述" title="在这里插入图片描述"></p>
 <h3 id="如何选择"><a href="#如何选择" class="headerlink" title="如何选择"></a>如何选择</h3><p>总的来说，这两种方式的原来是相似的，都是先检测设备，根据不同的设备采用不同的CSS。那开发中我们该如何去选择？这就要结合响应式与自适应的优缺点来看。</p>
 <p>响应式布局的优点：<br>1、灵活性强；2、能够快捷解决多设备显示适用问题。</p>
 <p>缺点：<br>1、效率较低，兼容各设备工作量大；2、代码较为累赘，加载时间会加长；3、在一定程度上改变了网站原有的布局结构。</p>
@@ -132,18 +130,14 @@
 
 <h4 id="1-子元素的height和width"><a href="#1-子元素的height和width" class="headerlink" title="1.子元素的height和width"></a>1.子元素的height和width</h4><p>当子元素的<code>height</code>和<code>width</code>使用百分比时，是相对于直接父元素的<code>height</code>和<code>width</code>进行变化的。</p>
 <p>.parent{<br>    width: 200px;<br>    height: 200px;<br>    background: #aaaaaa;<br>}<br>.child{<br>    width: 50%;<br>    height: 50%;<br>    background: red;<br>}</p>
-<p><img src="/img/remote/1460000021929523" alt="在这里插入图片描述" title="在这里插入图片描述"></p>
 <h4 id="2-子元素的top、bottom-、left和right"><a href="#2-子元素的top、bottom-、left和right" class="headerlink" title="2.子元素的top、bottom 、left和right"></a>2.子元素的top、bottom 、left和right</h4><p>子元素的<code>top</code>和<code>bottom</code>如果设置百分比，则相对于直接非static定位(默认定位)的父元素的高度；<br>子元素的<code>left</code>和<code>right</code>如果设置百分比，则相对于直接非static定位(默认定位的)父元素的宽度。</p>
 <p>.parent{<br>    width: 200px;<br>    height: 200px;<br>    background: #aaaaaa;<br>    position: relative;<br>}<br>.child{<br>    width: 50%;<br>    height: 50%;<br>    background: red;<br>    position: absolute;<br>    top: 50%;<br>    left: 50%;<br>}</p>
-<p><img src="/img/remote/1460000021929524" alt="在这里插入图片描述" title="在这里插入图片描述"></p>
 <h4 id="3-子元素的padding"><a href="#3-子元素的padding" class="headerlink" title="3.子元素的padding"></a>3.子元素的padding</h4><p>子元素的<code>padding</code>如果设置百分比，不论是垂直方向或者是水平方向，都相对于直接父亲元素的<code>width</code>，而与父元素的<code>height</code>无关。</p>
 <p>.parent{<br>    width: 300px;<br>    height: 400px;<br>    background: #aaaaaa;<br>}<br>.child{<br>    width: 50%;<br>    height: 50%;<br>    background: red;<br>    padding-top: 20%;<br>    padding-left: 20%;<br>}</p>
-<p><img src="/img/remote/1460000021929525" alt="在这里插入图片描述" title="在这里插入图片描述"></p>
-<p>打开控制台，查看子元素，我们可以看见<code>padding-top</code>和<code>padding-left</code>都为父元素<code>width</code>的20% ——60px：<br><img src="/img/remote/1460000021929527" alt="在这里插入图片描述" title="在这里插入图片描述"></p>
+<p>打开控制台，查看子元素，我们可以看见<code>padding-top</code>和<code>padding-left</code>都为父元素<code>width</code>的20% ——60px：  </p>
 <h4 id="4-子元素的margin"><a href="#4-子元素的margin" class="headerlink" title="4.子元素的margin"></a>4.子元素的margin</h4><p>子元素的<code>margin</code>和<code>padding</code>是一样的，子元素的<code>margin</code>如果设置成百分比，不论是垂直方向还是水平方向，都相对于直接父元素的<code>width</code>。</p>
 <h4 id="5-子元素的border-radius"><a href="#5-子元素的border-radius" class="headerlink" title="5.子元素的border-radius"></a>5.子元素的border-radius</h4><p><code>border-radius</code>设置为百分比则是相对于自身的宽度</p>
 <p>.parent{<br>    width: 200px;<br>    height: 200px;<br>    background: #aaaaaa;<br>}<br>.child{<br>    width: 50%;<br>    height: 50%;<br>    background: red;<br>    border-radius: 50%;<br>}</p>
-<p><img src="/img/remote/1460000021929526" alt="在这里插入图片描述" title="在这里插入图片描述"></p>
 <h3 id="em和rem"><a href="#em和rem" class="headerlink" title="em和rem"></a>em和rem</h3><p><code>em</code>和<code>rem</code>相对于<code>px</code>更具灵活性，他们都是相对长度单位，而他们之间的区别可以用一句话来概括：<code>em</code>相对于父元素，<code>rem</code>相对于根元素。<br><code>em</code>是相对于父元素的<code>font-size</code>，<code>rem</code>则是相对于html元素的<code>font-size</code>。</p>
 <h3 id="vw-vh"><a href="#vw-vh" class="headerlink" title="vw&#x2F;vh"></a>vw&#x2F;vh</h3><p><code>vw/vh</code>是与视图窗口有关的单位，<code>vw</code>表示相对于视图窗口的宽度，<code>vh</code>表示相对于视图窗口高度，除了<code>vw</code>和<code>vh</code>外，还有<code>vmin</code>和<code>vmax</code>两个相关的单位。</p>
 <table>
@@ -260,12 +254,12 @@
 </code></pre>
 <p>&lt;&#x2F;div&gt;</p>
 <p>&lt;&#x2F;body&gt;<br>&lt;&#x2F;html&gt;</p>
-<p>在这个demo中，最初的css代码是在<code>1920px</code>下进行编写的，这个就是我们的初始样式。<br>初始样式代码比较长，就不贴在文章里面了，看这里&gt;&gt;&gt; <a target="_blank" rel="noopener" href="https://link.segmentfault.com/?enc=gxBYBQnFRDwJKF/oxXjceA==.He77ztH1PAvb5RfAsRy29z/FqwOCbVbha8wCD2MXzZnigjovopPXE6ZFNixNk5S7HJKCNNH+5HZQR0hO0EUnaB0tpbD55EGDLprOTcwPfJw=">index.css</a><br>我们先来看看初始的效果：<br><img src="/img/remote/1460000021929514" alt="在这里插入图片描述"><br>在实际开发的时候，有些模块中包含的内容，使得这些模块不能无限制的进行缩小。所以在index.css的初始布局中，我们对一些模块的大小进行了限制，设置了<code>min-width</code>。</p>
+<p>在这个demo中，最初的css代码是在<code>1920px</code>下进行编写的，这个就是我们的初始样式。<br>初始样式代码比较长，就不贴在文章里面了，看这里&gt;&gt;&gt; <a target="_blank" rel="noopener" href="https://link.segmentfault.com/?enc=gxBYBQnFRDwJKF/oxXjceA==.He77ztH1PAvb5RfAsRy29z/FqwOCbVbha8wCD2MXzZnigjovopPXE6ZFNixNk5S7HJKCNNH+5HZQR0hO0EUnaB0tpbD55EGDLprOTcwPfJw=">index.css</a><br>我们先来看看初始的效果：  在实际开发的时候，有些模块中包含的内容，使得这些模块不能无限制的进行缩小。所以在index.css的初始布局中，我们对一些模块的大小进行了限制，设置了<code>min-width</code>。</p>
 <h3 id="中大屏适配"><a href="#中大屏适配" class="headerlink" title="中大屏适配"></a>中大屏适配</h3><p>前面我们提到，布局分界点是要根据实际的项目来进行划分的，我针对这个项目进行了以下的划分，大家也可以根据自己的想法来进行划分。</p>
-<h4 id="1201px-1280px"><a href="#1201px-1280px" class="headerlink" title="1201px~1280px"></a>1201px~1280px</h4><p>我们先看看把宽度调到<code>1201px</code>时会出现什么情况：<br><img src="/img/remote/1460000021929513" alt="在这里插入图片描述" title="在这里插入图片描述"><br>我们可以看见部分模块超出了父元素的宽度，使得页面变得参差不齐了，所以我们就要对布局进行调整了：</p>
+<h4 id="1201px-1280px"><a href="#1201px-1280px" class="headerlink" title="1201px~1280px"></a>1201px~1280px</h4><p>我们先看看把宽度调到<code>1201px</code>时会出现什么情况,我们可以看见部分模块超出了父元素的宽度，使得页面变得参差不齐了，所以我们就要对布局进行调整了：</p>
 <p>@media screen and (max-width: 1280px) {<br>     &#x2F;* 内容一  *&#x2F;<br>    .content-box1{<br>        flex-wrap: wrap;<br>        height: 650px;<br>    }<br>    .content-box1-text{<br>        width: 90%;<br>        margin: 0 auto;<br>    }<br>    .content-box1-img{<br>        display: flex;<br>        align-items: center;<br>        margin: 0 auto;<br>    }<br>}</p>
-<p>再来看布局情况：<br><img src="/img/remote/1460000021929521" alt="在这里插入图片描述" title="在这里插入图片描述"></p>
-<h4 id="992px-1200px"><a href="#992px-1200px" class="headerlink" title="992px~1200px"></a>992px~1200px</h4><p>这时候出现的情况：<br><img src="/img/remote/1460000021929515" alt="在这里插入图片描述" title="在这里插入图片描述"><br>我们看到，布局又混乱了，然后我们需要继续调整布局：</p>
+<p>再来看布局情况：  </p>
+<h4 id="992px-1200px"><a href="#992px-1200px" class="headerlink" title="992px~1200px"></a>992px~1200px</h4><p>这时候出现的情况：  我们看到，布局又混乱了，然后我们需要继续调整布局：</p>
 <p>@media screen and (min-width: 992px) and (max-width: 1200px) {<br>    &#x2F;* 内容二 *&#x2F;<br>    .content-box2{<br>        height: 400px;<br>    }<br>    .content-box2-text{<br>        height: 300px;<br>        min-width: 200px;<br>    }</p>
 <pre><code>/\* 内容三 \*/
 .content-box3&#123;
@@ -273,9 +267,9 @@
 &#125;
 </code></pre>
 <p>}</p>
-<p>再来看看布局情况：<br><img src="/img/remote/1460000021929519" alt="在这里插入图片描述" title="在这里插入图片描述"></p>
+<p>再来看看布局情况：  </p>
 <h4 id="768px-991px"><a href="#768px-991px" class="headerlink" title="768px~991px"></a>768px~991px</h4><p>在这个分界点时，同样会出现布局问题，所以要进一步实现调整，因为是重复操作，这里就不贴图和代码了。我们可以重点看看下面的适配。</p>
-<h3 id="手机端适配"><a href="#手机端适配" class="headerlink" title="手机端适配"></a>手机端适配</h3><p>在boostrap的栅格系统中，把<code>&lt;768px</code>的屏幕归为手机。我们也可以以此作为参考。此时布局调整不仅仅是内容的调整，我们的导航栏也要发生改变——由横向导航栏变为点击出现的纵向导航栏（具体需求，具体实现，这里只是提出一种普遍的变换方法）。如下图所示：<br><img src="/img/remote/1460000021929518" alt="在这里插入图片描述" title="在这里插入图片描述"><br>要想实现上图中的效果我们需要做哪些事情呢？</p>
+<h3 id="手机端适配"><a href="#手机端适配" class="headerlink" title="手机端适配"></a>手机端适配</h3><p>在boostrap的栅格系统中，把<code>&lt;768px</code>的屏幕归为手机。我们也可以以此作为参考。此时布局调整不仅仅是内容的调整，我们的导航栏也要发生改变——由横向导航栏变为点击出现的纵向导航栏（具体需求，具体实现，这里只是提出一种普遍的变换方法）。如下图所示：  要想实现上图中的效果我们需要做哪些事情呢？</p>
 <ol>
 <li>写一个按钮，如右图右上角的按钮，样子是不是很熟悉；</li>
 <li>导航条样式重写，由横向导航条变为纵向导航条；</li>
@@ -294,7 +288,7 @@
 <p>…</p>
 <p>然后对按钮样式进行美化：</p>
 <p>@media screen and (max-width: 767px){<br>    …<br>    .phone-show{<br>        display: block;<br>        height: 60px;<br>        width: 60px;<br>    }<br>    .nav-btn{<br>        height: 100%;<br>        width: 100%;<br>        display: flex;<br>        flex-direction: column;<br>        flex-wrap: wrap;<br>        justify-content: space-around;<br>    }<br>    .nav-btn span{<br>        display: inline-block;<br>        height: 10px;<br>        width: 60px;<br>        background: coral;<br>    }<br>}</p>
-<p>看看效果：<br><img src="/img/remote/1460000021929520" alt="在这里插入图片描述" title="在这里插入图片描述"></p>
+<p>看看效果：  </p>
 <h4 id="导航样式修改"><a href="#导航样式修改" class="headerlink" title="导航样式修改"></a>导航样式修改</h4><p>这个我们可以巧妙的运用一个相对定位和绝对定位的关系实现导航条样式和位置的修改：</p>
 <p>@media screen and (max-width: 767px){<br>    .header-box{<br>        position: relative;<br>    }</p>
 <pre><code>...
@@ -323,12 +317,11 @@
 &#125;
 </code></pre>
 <p>}</p>
-<p>看看效果：<br><img src="/img/remote/1460000021929522" alt="在这里插入图片描述" title="在这里插入图片描述"></p>
+<p>看看效果：  </p>
 <h4 id="导航条显示和隐藏切换"><a href="#导航条显示和隐藏切换" class="headerlink" title="导航条显示和隐藏切换"></a>导航条显示和隐藏切换</h4><p>利用js来控制切换的思路很简单，我们在网页打开时，先把导航隐藏掉，然后定义一个变量<code>hide</code>，初始值为<code>true</code>，点击按钮时进行判断：如果<code>hide</code>值为<code>true</code>，则让导航显示；反之隐藏。</p>
 <p>let btn &#x3D; document.getElementById(“nav-btn”);<br>let  nav &#x3D;  document.getElementById(“nav-item”);</p>
 <p>let hide &#x3D; true;</p>
-<p>btn.addEventListener(‘click’, function () {<br>    if (hide){<br>        nav.style.display &#x3D; “block”;<br>        hide &#x3D; false;<br>    } else {<br>        nav.style.display &#x3D; “none”;<br>        hide &#x3D; true;<br>    }<br>});</p>
-<p><img src="/img/bVbEaVA" alt="手机端按钮切换效果.gif" title="手机端按钮切换效果.gif"><br>最后再进行一些细节方面的调整，我们的响应式布局demo就初步完成了。我们在日常的开发的时候，一般来讲不会这么简单，所以还是也根据实际情况去进行调整，以满足实际的需求。<br>完整demo点击这里——<a target="_blank" rel="noopener" href="https://link.segmentfault.com/?enc=oYDR4GVsI1NkB0Fp8tjOkA==.gvQuzJ+vjrnvjPehNFQJ+nBe51fClY5P7MtftP4RSFv8MphW5I2OVfFk2Nfvwm0o">demo地址</a></p>
+<p>btn.addEventListener(‘click’, function () {<br>    if (hide){<br>        nav.style.display &#x3D; “block”;<br>        hide &#x3D; false;<br>    } else {<br>        nav.style.display &#x3D; “none”;<br>        hide &#x3D; true;<br>    }<br>});<br>最后再进行一些细节方面的调整，我们的响应式布局demo就初步完成了。我们在日常的开发的时候，一般来讲不会这么简单，所以还是也根据实际情况去进行调整，以满足实际的需求。<br>完整demo点击这里——<a target="_blank" rel="noopener" href="https://link.segmentfault.com/?enc=oYDR4GVsI1NkB0Fp8tjOkA==.gvQuzJ+vjrnvjPehNFQJ+nBe51fClY5P7MtftP4RSFv8MphW5I2OVfFk2Nfvwm0o">demo地址</a></p>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://link.segmentfault.com/?enc=ggW+Isv11wX8FTm3yznwbA==.jMpcwLGbwnq0CDSbwtkiPemtJ2MOzCG94mE5EfZ0dyXwYjLHiWHOfi6PuVP1lRDv">自适应和响应式的区别有哪些你知道吗？</a><br><a target="_blank" rel="noopener" href="https://link.segmentfault.com/?enc=wqjJUPmoChAhFH4SMERhqg==.7epKmfbGPXT0EnKEJAffDR2V9F0CQAQjQ64hpDVrtT0DV090cNpmjwW+tQwbnBym/+mYrUzvH0OclB4DVWv5IA==">响应式和自适应有什么区别?</a><br><a target="_blank" rel="noopener" href="https://link.segmentfault.com/?enc=W1Fp6z+uUI0Cc8oqdUWpCA==.9bTSeT1yhWCIFeJFxa4LxdOSXeVg37/5SyfML4WW27fGhEjFr7d+RCXfXTdXOlalWXS6A4HCLvf8FRTttTpdrQ==">响应式布局的常用解决方案对比(媒体查询、百分比、rem和vw&#x2F;vh）</a></p>
 <h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>文中若有不准确或错误的地方，欢迎指出~</p>
 <p>本文转自 <a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000021929510">https://segmentfault.com/a/1190000021929510</a>，如有侵权，请联系删除。</p>

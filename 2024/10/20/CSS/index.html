@@ -262,7 +262,12 @@
 <p>2.border-box 边框盒模型</p>
 <p>在 <code>border-box</code> 盒模型下，元素的 <code>width</code> 和 <code>height</code> 包括了 <code>content</code>、<code>padding</code> 和 <code>border</code>，不包括 <code>margin</code>。</p>
 <p><code>padding</code> 和 <code>border</code> 会被包含在指定的 <code>width</code> 和 <code>height</code> 内，不会增加元素的实际尺寸。</p>
-<h4 id=""><a href="#" class="headerlink" title=""></a></h4>
+<h4 id="36-阴影裁剪问题"><a href="#36-阴影裁剪问题" class="headerlink" title="36.阴影裁剪问题"></a>36.阴影裁剪问题</h4><ol>
+<li>父元素设置滚动或者<code>hidden</code>后,子元素的阴影无法溢出父元素;</li>
+<li>通常将父元素宽度设置为100%,将子元素设置<code>margin</code>来让阴影显示;</li>
+<li>另外设置子元素<code>padding-bottom</code>属性,来让滚动的最后一个元素显示;</li>
+</ol>
+
                 
                 <p class="end">__END__</p>
             </div>
