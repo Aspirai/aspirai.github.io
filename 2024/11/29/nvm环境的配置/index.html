@@ -9,7 +9,7 @@
     <meta http-equiv="Cache-Control" content="no-siteapp">
     <title>
         
-            nvm环境的配置
+            NVM环境的配置
         
     </title>
     <link rel="shortcut icon" href="#"/>
@@ -37,33 +37,33 @@
     <div class="vertical">
         <div class="inner">
             
-                <h1 class="header-subtitle">nvm环境的配置</h1>
+                <h1 class="header-subtitle">NVM环境的配置</h1>
                 <div class="header-subinfo">
                     <p class="article-info-text">
                         <span>
-                            <i class="iconfont icon-time"></i> 发表时间：2024-11-25
+                            <i class="iconfont icon-time"></i> 发表时间：2024-11-29
                         </span>
                         
                             
-                                <span id="/2024/11/25/nvm环境的配置/" class="leancloud_visitors" data-flag-title="nvm环境的配置">
+                                <span id="/2024/11/29/nvm环境的配置/" class="leancloud_visitors" data-flag-title="NVM环境的配置">
                                     <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
                                 </span>
                             
                             
                                 <span>
-                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/11/25/nvm环境的配置/"></span>
+                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/11/29/nvm环境的配置/"></span>
                                 </span>
                               
                         
                     </p>
                     
                         
-                            <span class="category-color">前端开发</span>
+                            <span class="category-color">开发工具</span>
                         
                     
                     
                         
-                            <span class="tag-color">实习</span>
+                            <span class="tag-color">NVM</span>
                         
                     
                 </div>
@@ -111,9 +111,207 @@
 </ol>
 <h2 id="pyenv多版本Python控制"><a href="#pyenv多版本Python控制" class="headerlink" title="pyenv多版本Python控制"></a><code>pyenv</code>多版本Python控制</h2><figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">在 <span class="title class_">PowerShell</span> 中安装 pyenv-win。</span><br><span class="line"></span><br><span class="line"><span class="title class_">Invoke</span>-<span class="title class_">WebRequest</span> -<span class="title class_">UseBasicParsing</span> -<span class="title class_">Uri</span> <span class="string">&quot;https://raw.githubusercontent.com/pyenv-win/pyenv-win/master/pyenv-win/install-pyenv-win.ps1&quot;</span> -<span class="title class_">OutFile</span> <span class="string">&quot;./install-pyenv-win.ps1&quot;</span>; &amp;<span class="string">&quot;./install-pyenv-win.ps1&quot;</span></span><br><span class="line"></span><br><span class="line">重新打开 <span class="title class_">PowerShell</span></span><br><span class="line"></span><br><span class="line">运行 pyenv --version 检查安装是否成功。</span><br><span class="line"></span><br><span class="line">运行 pyenv install -l 检查 pyenv-win 支持的 <span class="title class_">Python</span> 版本列表</span><br><span class="line"></span><br><span class="line">运行 pyenv install &lt;version&gt; 以安装支持的版本</span><br><span class="line"></span><br><span class="line">运行 pyenv <span class="variable language_">global</span> &lt;version&gt; 将 <span class="title class_">Python</span> 版本设置为全局版本</span><br><span class="line"></span><br><span class="line">检查您正在使用的 <span class="title class_">Python</span> 版本及其路径</span><br><span class="line"></span><br><span class="line">&gt; pyenv version</span><br><span class="line">&lt;version&gt; (set by \path\to\.<span class="property">pyenv</span>\pyenv-win\.<span class="property">python</span>-version)</span><br><span class="line"></span><br><span class="line">检查 <span class="title class_">Python</span> 是否正常工作</span><br><span class="line"></span><br><span class="line">&gt; python -c <span class="string">&quot;import sys; print(sys.executable)&quot;</span></span><br><span class="line">\path\to\.<span class="property">pyenv</span>\pyenv-win\versions\&lt;version&gt;\python.<span class="property">exe</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h2 id="cnpm安装较低版本"><a href="#cnpm安装较低版本" class="headerlink" title="cnpm安装较低版本"></a><code>cnpm</code>安装较低版本</h2><figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm@<span class="number">6.1</span><span class="number">.0</span></span><br></pre></td></tr></table></figure>
+<h2 id="cnpm安装较低版本"><a href="#cnpm安装较低版本" class="headerlink" title="cnpm安装较低版本"></a><code>cnpm</code>安装较低版本</h2><figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm@<span class="number">6.1</span><span class="number">.0</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 强制安装依赖</span></span><br><span class="line">cnpm install --force</span><br></pre></td></tr></table></figure>
 
-<p>测试1</p>
+<h2 id="依赖安装报错-1"><a href="#依赖安装报错-1" class="headerlink" title="依赖安装报错"></a>依赖安装报错</h2><ol>
+<li><p><code>node</code>与<code>npm</code>版本不兼容</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node@<span class="number">14.16</span><span class="number">.0</span> ---- npm@<span class="number">6.14</span><span class="number">.11</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>网络问题</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry <span class="attr">https</span>:<span class="comment">//registry.npm.taobao.org</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>权限问题</p>
+<p>需要管理员权限,在全局安装时;</p>
+</li>
+<li><p>锁文件冲突</p>
+<p><code>package-lock.json</code> 或 <code>yarn.lock</code> 可能导致依赖版本冲突或错误</p>
+</li>
+<li><p><code>npm</code>缓存问题</p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm cache clean --force</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>再进行<code>node</code>与<code>npm</code>版本适配后,重新安装了<code>umi</code></p>
+<figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install umi</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="查看项目环境信息"><a href="#查看项目环境信息" class="headerlink" title="查看项目环境信息"></a>查看项目环境信息</h2><figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npx envinfo --system --binaries</span><br></pre></td></tr></table></figure>
+
+<h2 id="cnpm与node与npm版本对照表"><a href="#cnpm与node与npm版本对照表" class="headerlink" title="cnpm与node与npm版本对照表"></a><code>cnpm</code>与<code>node</code>与<code>npm</code>版本对照表</h2><table>
+<thead>
+<tr>
+<th>cnpm version</th>
+<th>npm version</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>7.1.1</td>
+<td>^6.13.4</td>
+</tr>
+<tr>
+<td>8.6.1</td>
+<td>^8.12.1</td>
+</tr>
+<tr>
+<td>9.2.0</td>
+<td>^9.6.2</td>
+</tr>
+</tbody></table>
+<table>
+<thead>
+<tr>
+<th>Node.js Version</th>
+<th>Codename</th>
+<th>Release Date</th>
+<th>npm</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>v23.3.0</td>
+<td>-</td>
+<td>2024-11-20</td>
+<td>v10.9.0</td>
+<td><a target="_blank" rel="noopener" href="https://nodejs.org/download/release/v23.3.0/">发行版</a><a target="_blank" rel="noopener" href="https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V23.md#23.3.0">更新日志</a><a target="_blank" rel="noopener" href="https://nodejs.org/dist/v23.3.0/docs/api/">文档</a></td>
+</tr>
+<tr>
+<td>v22.11.0</td>
+<td>Jod</td>
+<td>2024-10-29</td>
+<td>v10.9.0</td>
+<td><a target="_blank" rel="noopener" href="https://nodejs.org/download/release/v22.11.0/">发行版</a><a target="_blank" rel="noopener" href="https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V22.md#22.11.0">更新日志</a><a target="_blank" rel="noopener" href="https://nodejs.org/dist/v22.11.0/docs/api/">文档</a></td>
+</tr>
+<tr>
+<td>v21.7.3</td>
+<td>-</td>
+<td>2024-04-10</td>
+<td>v10.5.0</td>
+<td><a target="_blank" rel="noopener" href="https://nodejs.org/download/release/v21.7.3/">发行版</a><a target="_blank" rel="noopener" href="https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V21.md#21.7.3">更新日志</a><a target="_blank" rel="noopener" href="https://nodejs.org/dist/v21.7.3/docs/api/">文档</a></td>
+</tr>
+<tr>
+<td>v20.18.1</td>
+<td>Iron</td>
+<td>2024-11-20</td>
+<td>v10.8.2</td>
+<td><a target="_blank" rel="noopener" href="https://nodejs.org/download/release/v20.18.1/">发行版</a><a target="_blank" rel="noopener" href="https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V20.md#20.18.1">更新日志</a><a target="_blank" rel="noopener" href="https://nodejs.org/dist/v20.18.1/docs/api/">文档</a></td>
+</tr>
+<tr>
+<td>v19.9.0</td>
+<td>-</td>
+<td>2023-04-10</td>
+<td>v9.6.3</td>
+<td><a target="_blank" rel="noopener" href="https://nodejs.org/download/release/v19.9.0/">发行版</a><a target="_blank" rel="noopener" href="https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V19.md#19.9.0">更新日志</a><a target="_blank" rel="noopener" href="https://nodejs.org/dist/v19.9.0/docs/api/">文档</a></td>
+</tr>
+<tr>
+<td>v18.20.5</td>
+<td>Hydrogen</td>
+<td>2024-11-11</td>
+<td>v10.8.2</td>
+<td><a target="_blank" rel="noopener" href="https://nodejs.org/download/release/v18.20.5/">发行版</a><a target="_blank" rel="noopener" href="https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V18.md#18.20.5">更新日志</a><a target="_blank" rel="noopener" href="https://nodejs.org/dist/v18.20.5/docs/api/">文档</a></td>
+</tr>
+<tr>
+<td>v17.9.1</td>
+<td>-</td>
+<td>2022-06-01</td>
+<td>v8.11.0</td>
+<td><a target="_blank" rel="noopener" href="https://nodejs.org/download/release/v17.9.1/">发行版</a><a target="_blank" rel="noopener" href="https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V17.md#17.9.1">更新日志</a><a target="_blank" rel="noopener" href="https://nodejs.org/dist/v17.9.1/docs/api/">文档</a></td>
+</tr>
+<tr>
+<td>v16.20.2</td>
+<td>Gallium</td>
+<td>2023-08-08</td>
+<td>v8.19.4</td>
+<td><a target="_blank" rel="noopener" href="https://nodejs.org/download/release/v16.20.2/">发行版</a><a target="_blank" rel="noopener" href="https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V16.md#16.20.2">更新日志</a><a target="_blank" rel="noopener" href="https://nodejs.org/dist/v16.20.2/docs/api/">文档</a></td>
+</tr>
+<tr>
+<td>v15.14.0</td>
+<td>-</td>
+<td>2021-04-06</td>
+<td>v7.7.6</td>
+<td><a target="_blank" rel="noopener" href="https://nodejs.org/download/release/v15.14.0/">发行版</a><a target="_blank" rel="noopener" href="https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V15.md#15.14.0">更新日志</a><a target="_blank" rel="noopener" href="https://nodejs.org/dist/v15.14.0/docs/api/">文档</a></td>
+</tr>
+<tr>
+<td>v14.21.3</td>
+<td>Fermium</td>
+<td>2023-02-16</td>
+<td>v6.14.18</td>
+<td><a target="_blank" rel="noopener" href="https://nodejs.org/download/release/v14.21.3/">发行版</a><a target="_blank" rel="noopener" href="https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V14.md#14.21.3">更新日志</a><a target="_blank" rel="noopener" href="https://nodejs.org/dist/v14.21.3/docs/api/">文档</a></td>
+</tr>
+<tr>
+<td>v13.14.0</td>
+<td>-</td>
+<td>2020-04-29</td>
+<td>v6.14.4</td>
+<td><a target="_blank" rel="noopener" href="https://nodejs.org/download/release/v13.14.0/">发行版</a><a target="_blank" rel="noopener" href="https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V13.md#13.14.0">更新日志</a><a target="_blank" rel="noopener" href="https://nodejs.org/dist/v13.14.0/docs/api/">文档</a></td>
+</tr>
+<tr>
+<td>v12.22.12</td>
+<td>Erbium</td>
+<td>2022-04-05</td>
+<td>v6.14.16</td>
+<td><a target="_blank" rel="noopener" href="https://nodejs.org/download/release/v12.22.12/">发行版</a><a target="_blank" rel="noopener" href="https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V12.md#12.22.12">更新日志</a><a target="_blank" rel="noopener" href="https://nodejs.org/dist/v12.22.12/docs/api/">文档</a></td>
+</tr>
+<tr>
+<td>v11.15.0</td>
+<td>-</td>
+<td>2019-04-30</td>
+<td>v6.7.0</td>
+<td><a target="_blank" rel="noopener" href="https://nodejs.org/download/release/v11.15.0/">发行版</a><a target="_blank" rel="noopener" href="https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V11.md#11.15.0">更新日志</a><a target="_blank" rel="noopener" href="https://nodejs.org/dist/v11.15.0/docs/api/">文档</a></td>
+</tr>
+<tr>
+<td>v10.24.1</td>
+<td>Dubnium</td>
+<td>2021-04-06</td>
+<td>v6.14.12</td>
+<td><a target="_blank" rel="noopener" href="https://nodejs.org/download/release/v10.24.1/">发行版</a><a target="_blank" rel="noopener" href="https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V10.md#10.24.1">更新日志</a><a target="_blank" rel="noopener" href="https://nodejs.org/dist/v10.24.1/docs/api/">文档</a></td>
+</tr>
+<tr>
+<td>v9.11.2</td>
+<td>-</td>
+<td>2018-06-12</td>
+<td>v5.6.0</td>
+<td><a target="_blank" rel="noopener" href="https://nodejs.org/download/release/v9.11.2/">发行版</a><a target="_blank" rel="noopener" href="https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V9.md#9.11.2">更新日志</a><a target="_blank" rel="noopener" href="https://nodejs.org/dist/v9.11.2/docs/api/">文档</a></td>
+</tr>
+<tr>
+<td>v8.17.0</td>
+<td>Carbon</td>
+<td>2019-12-17</td>
+<td>v6.13.4</td>
+<td><a target="_blank" rel="noopener" href="https://nodejs.org/download/release/v8.17.0/">发行版</a><a target="_blank" rel="noopener" href="https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V8.md#8.17.0">更新日志</a><a target="_blank" rel="noopener" href="https://nodejs.org/dist/v8.17.0/docs/api/">文档</a></td>
+</tr>
+<tr>
+<td>v7.10.1</td>
+<td>-</td>
+<td>2017-07-11</td>
+<td>v4.2.0</td>
+<td><a target="_blank" rel="noopener" href="https://nodejs.org/download/release/v7.10.1/">发行版</a><a target="_blank" rel="noopener" href="https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V7.md#7.10.1">更新日志</a><a target="_blank" rel="noopener" href="https://nodejs.org/dist/v7.10.1/docs/api/">文档</a></td>
+</tr>
+<tr>
+<td>v6.17.1</td>
+<td>Boron</td>
+<td>2019-04-03</td>
+<td>v3.10.10</td>
+<td><a target="_blank" rel="noopener" href="https://nodejs.org/download/release/v6.17.1/">发行版</a><a target="_blank" rel="noopener" href="https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V6.md#6.17.1">更新日志</a><a target="_blank" rel="noopener" href="https://nodejs.org/dist/v6.17.1/docs/api/">文档</a></td>
+</tr>
+<tr>
+<td>v5.12.0</td>
+<td>-</td>
+<td>2016-06-23</td>
+<td>v3.8.6</td>
+<td><a target="_blank" rel="noopener" href="https://nodejs.org/download/release/v5.12.0/">发行版</a><a target="_blank" rel="noopener" href="https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V5.md#5.12.0">更新日志</a><a target="_blank" rel="noopener" href="https://nodejs.org/dist/v5.12.0/docs/api/">文档</a></td>
+</tr>
+<tr>
+<td>v4.9.1</td>
+<td>Argon</td>
+<td>2018-03-29</td>
+<td>v2.15.11</td>
+<td><a target="_blank" rel="noopener" href="https://nodejs.org/download/release/v4.9.1/">发行版</a><a target="_blank" rel="noopener" href="https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V4.md#4.9.1">更新日志</a><a target="_blank" rel="noopener" href="https://nodejs.org/dist/v4.9.1/docs/api/">文档</a></td>
+</tr>
+<tr>
+<td>v0.12.18</td>
+<td>-</td>
+<td>2017-02-22</td>
+<td>v2.15.11</td>
+<td><a target="_blank" rel="noopener" href="https://nodejs.org/download/release/v0.12.18/">发行版</a><a target="_blank" rel="noopener" href="https://github.com/nodejs/node/blob/main/doc/changelogs/CHANGELOG_V012.md#0.12.18">更新日志</a><a target="_blank" rel="noopener" href="https://nodejs.org/dist/v0.12.18/docs/api/">文档</a></td>
+</tr>
+</tbody></table>
 
                 
                 <p class="end">__END__</p>
@@ -126,7 +324,7 @@
     <div class="suffix-box-right">
         <span class="suffix-box-title">文章作者：</span>Aspirai
         <br>
-        <span class="suffix-box-title">文章出处：</span><a href="/2024/11/25/nvm%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE/" target="_blank">nvm环境的配置</a>
+        <span class="suffix-box-title">文章出处：</span><a href="/2024/11/29/nvm%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE/" target="_blank">NVM环境的配置</a>
         <br>
         <span class="suffix-box-title">作者签名：</span>时间带不走你眼中的光辉
         <br>
@@ -139,7 +337,7 @@
                     <div class="category">
                         分类：
                         
-                            <a href="/category/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
+                            <a href="/category/%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7/">开发工具</a>
                         
                     </div>
                 
@@ -147,17 +345,17 @@
                     <div class="tag">
                         标签：
                         
-                            <a href="/tag/%E5%AE%9E%E4%B9%A0/">实习</a>
+                            <a href="/tag/NVM/">NVM</a>
                         
                     </div>
                 
                 <div class="article-prev-next">
                     
-                        <a href="/2024/11/26/%E9%A1%B9%E7%9B%AE%E5%90%AF%E5%8A%A8%E6%B3%A8%E6%84%8F/" class="prev-prefix">« </a> 上一篇：    <a href="/2024/11/26/%E9%A1%B9%E7%9B%AE%E5%90%AF%E5%8A%A8%E6%B3%A8%E6%84%8F/" title="发布于 2024-11-26 10:06"></a>
+                        <a href="/2024/11/29/render%E4%BD%BF%E7%94%A8/" class="prev-prefix">« </a> 上一篇：    <a href="/2024/11/29/render%E4%BD%BF%E7%94%A8/" title="发布于 2024-11-29 10:42">Render的使用</a>
                         <br>
                     
                     
-                        <a href="/2024/11/23/CSS%E5%8F%8C%E8%A1%A8%E6%A0%BC%E5%AF%B9%E9%BD%90/" class="next-prefix">» </a> 下一篇：    <a href="/2024/11/23/CSS%E5%8F%8C%E8%A1%A8%E6%A0%BC%E5%AF%B9%E9%BD%90/" title="发布于 2024-11-23 09:23">CSS双表格完美对齐</a>
+                        <a href="/2024/11/29/Git%E6%81%A2%E5%A4%8D%E6%9C%80%E8%BF%91%E4%B8%80%E6%AC%A1%E6%8F%90%E4%BA%A4/" class="next-prefix">» </a> 下一篇：    <a href="/2024/11/29/Git%E6%81%A2%E5%A4%8D%E6%9C%80%E8%BF%91%E4%B8%80%E6%AC%A1%E6%8F%90%E4%BA%A4/" title="发布于 2024-11-29 10:38">GIT恢复最近一次提交</a>
                     
                 </div>
             </div>
