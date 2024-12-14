@@ -9,7 +9,7 @@
     <meta http-equiv="Cache-Control" content="no-siteapp">
     <title>
         
-            Render的使用
+            归档
         
     </title>
     <link rel="shortcut icon" href="#"/>
@@ -32,40 +32,15 @@
 <meta name="generator" content="Hexo 7.3.0"></head>
 <body>
     <a id="cover"></a>
-    <link type="text/css" rel="stylesheet" href="/css/post.css">
+    <link type="text/css" rel="stylesheet" href="/css/archive.css">
 <div id="header" class="header">
     <div class="vertical">
         <div class="inner">
             
-                <h1 class="header-subtitle">Render的使用</h1>
+                <h1 class="header-subtitle">归档</h1>
                 <div class="header-subinfo">
-                    <p class="article-info-text">
-                        <span>
-                            <i class="iconfont icon-time"></i> 发表时间：2024-11-29
-                        </span>
-                        
-                            
-                                <span id="/2024/11/29/render使用/" class="leancloud_visitors" data-flag-title="Render的使用">
-                                    <i class="iconfont icon-browse"></i> 阅读：<sapn class="leancloud-visitors-count"></span>
-                                </span>
-                            
-                            
-                                <span>
-                                    <i class="iconfont icon-interactive"></i> 评论：<span class="valine-comment-count" data-xid="/2024/11/29/render使用/"></span>
-                                </span>
-                              
-                        
-                    </p>
-                    
-                        
-                            <span class="category-color">前端开发</span>
-                        
-                    
-                    
-                        
-                            <span class="tag-color">JavaScript</span>
-                        
-                    
+                    <p class="article-info-text Chinese"></p>
+                    <p class="article-info-text English"></p>                  
                 </div>
             
         </div>
@@ -74,101 +49,37 @@
 </div>
 <div id="container">
     
-        <!-- 文章页面 -->
-        <div id="article">
-            <div class="toc"></div>
-            <div class="article-body">
-                <h2 id="render使用"><a href="#render使用" class="headerlink" title="render使用"></a><code>render</code>使用</h2><figure class="highlight tsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 参数</span></span><br><span class="line"><span class="keyword">const</span> <span class="attr">authEventColumns</span>: <span class="title class_">ColumnsType</span>&lt;<span class="title class_">DataType</span>&gt; = [</span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">title</span>: <span class="string">&#x27;事件类型&#x27;</span>,</span><br><span class="line">  <span class="attr">dataIndex</span>: <span class="string">&#x27;type&#x27;</span>,</span><br><span class="line">  <span class="attr">width</span>: <span class="number">150</span>,</span><br><span class="line">  <span class="attr">render</span>: <span class="function">(<span class="params"><span class="attr">type</span>:<span class="built_in">string</span></span>) =&gt;</span> (</span><br><span class="line">    <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;&#123;&#x27;unauthorized&#x27; : &#x27;取消授权&#x27;,&#x27;authorized&#x27;:&#x27;激活授权&#x27;,&#x27;updateauthorized&#x27;:&#x27;未经授权&#x27;&#125;[type] || &#x27;未知&#x27;&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  )</span><br><span class="line">&#125;</span><br><span class="line">];</span><br><span class="line"></span><br><span class="line"><span class="language-xml"><span class="tag">&lt;<span class="name">Table</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">  <span class="attr">className</span>=<span class="string">&#x27;max-h-[400px] overflow-y-auto&#x27;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">  <span class="attr">columns</span>=<span class="string">&#123;authEventColumns&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">  <span class="attr">pagination</span>=<span class="string">&#123;false&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">  <span class="attr">dataSource</span>=<span class="string">&#123;fetchAuthEventList?.data&#125;</span></span></span></span><br><span class="line"><span class="tag"><span class="language-xml">/&gt;</span></span></span><br></pre></td></tr></table></figure>
-
-<p>具体解释如下：</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">render</span>: <span class="function">(<span class="params">msg_method: string</span>) =&gt;</span> (</span><br><span class="line">  <span class="language-xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;&#123;&#x27;alipay.open.auth.appauth.cancelled&#x27; : &#x27;取消授权&#x27;&#125;[msg_method]&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-
-<ol>
-<li><strong><code>render</code> 的作用</strong>：<ul>
-<li><code>render</code> 是一个函数，通常作为一个属性传递给组件，尤其是表格、列表等组件，用于自定义单元格的显示内容。</li>
-<li>在这个例子中，<code>render</code> 用于根据传入的 <code>msg_method</code> 值动态生成显示内容。也就是说，<code>render</code> 会返回一个 <code>div</code> 元素，里面根据 <code>msg_method</code> 的值渲染出对应的文本。</li>
-</ul>
-</li>
-<li>**参数 <code>msg_method</code>**：<ul>
-<li><code>msg_method</code> 是传入的一个字符串参数，代表某个字段的值。这个值会用来动态地从对象中查找对应的文本。</li>
-</ul>
-</li>
-<li>**<code>&#123;&#39;alipay.open.auth.appauth.cancelled&#39; : &#39;取消授权&#39;&#125;[msg_method]</code>**：<ul>
-<li>这是一个对象字面量，它将 <code>msg_method</code> 作为动态的键（key），通过该键从对象中取出相应的值。如果 <code>msg_method</code> 的值为 <code>&#39;alipay.open.auth.appauth.cancelled&#39;</code>，则会返回 <code>&#39;取消授权&#39;</code>。</li>
-<li>例如，当 <code>msg_method = &#39;alipay.open.auth.appauth.cancelled&#39;</code> 时，渲染出的文本为 <code>&#39;取消授权&#39;</code>。</li>
-</ul>
-</li>
-<li><strong>渲染内容</strong>：<ul>
-<li>最终，<code>render</code> 会返回一个包含 <code>div</code> 元素的 JSX 代码，其中的内容是根据 <code>msg_method</code> 动态计算出来的。</li>
-</ul>
-</li>
-</ol>
-<h4 id="举个例子："><a href="#举个例子：" class="headerlink" title="举个例子："></a>举个例子：</h4><p>假设 <code>msg_method</code> 的值是 <code>&#39;alipay.open.auth.appauth.cancelled&#39;</code>，那么 <code>render</code> 函数会返回：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>取消授权<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>如果 <code>msg_method</code> 的值是其他值（比如 <code>&#39;alipay.open.auth.appauth.success&#39;</code>），则 <code>render</code> 会返回一个空的 <code>div</code>，因为这个键在对象字面量中并没有对应的值。</p>
-<h4 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h4><ul>
-<li><code>render</code> 是用来定义如何渲染某一列或某个项的内容的函数。在这个例子中，它根据传入的 <code>msg_method</code> 值，动态地从对象中获取相应的文本并渲染出来。</li>
-</ul>
-
-                
-                <p class="end">__END__</p>
-            </div>
-            <div class="article-footer">
-                <div class="suffix-box">
-    <div class="suffix-box-left">
-        <img src="/image/sidebar/avatar.jpg" alt="Aspirai">
-    </div>
-    <div class="suffix-box-right">
-        <span class="suffix-box-title">文章作者：</span>Aspirai
-        <br>
-        <span class="suffix-box-title">文章出处：</span><a href="/2024/11/29/render%E4%BD%BF%E7%94%A8/" target="_blank">Render的使用</a>
-        <br>
-        <span class="suffix-box-title">作者签名：</span>时间带不走你眼中的光辉
-        <br>
-        <span class="suffix-box-title">版权声明：</span>文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" title="BY-NC-SA" target="_blank">BY-NC-SA</a> 许可协议，转载请注明出处
-        <br>
-    </div>
-    <div style="clear: both;"></div>
-</div>
-                
-                    <div class="category">
-                        分类：
+        
+            <!-- 归档页面、分类归档页面、标签归档页面 -->
+            <div class="articles">
+                <div class="articles-wrap">
+                    <span class="archive-move-on"></span>
+                    <span class="archive-counter">
                         
-                            <a href="/category/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/">前端开发</a>
+                            目前共计 95 篇日志，继续加油！
                         
-                    </div>
-                
-                
-                    <div class="tag">
-                        标签：
-                        
-                            <a href="/tag/JavaScript/">JavaScript</a>
-                        
-                    </div>
-                
-                <div class="article-prev-next">
-                    
-                        <a href="/2024/12/14/Symbol%E7%8B%AC%E4%B8%80%E6%97%A0%E4%BA%8C%E7%9A%84%E5%80%BC/" class="prev-prefix">« </a> 上一篇：    <a href="/2024/12/14/Symbol%E7%8B%AC%E4%B8%80%E6%97%A0%E4%BA%8C%E7%9A%84%E5%80%BC/" title="发布于 2024-12-14 06:44">```Symbol```独一无二的值</a>
-                        <br>
+                    </span>
                     
                     
-                        <a href="/2024/11/29/nvm%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE/" class="next-prefix">» </a> 下一篇：    <a href="/2024/11/29/nvm%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE/" title="发布于 2024-11-29 10:39">NVM环境的配置</a>
+                        
+                            <div class="archive-title">
+                                <h2 class="archive-year">2024</h2>
+                            </div>
+                            
+                           
+                        <div class="article">
+                            <div class="article-header">
+                                <h1 class="article-title"><a href="/2024/12/14/Symbol%E7%8B%AC%E4%B8%80%E6%97%A0%E4%BA%8C%E7%9A%84%E5%80%BC/"><span>```Symbol```独一无二的值</span></a></h1>
+                                <div class="article-meta">
+                                    <span class="article-time">12-14</span>
+                                </div>
+                            </div>
+                        </div>
                     
                 </div>
             </div>
             
-    <div class="article-comments">
         
-            <div class="comments-title">
-                评论列表
-            </div>
-        
-        <div class="comments-content"></div>
-    </div>
-    
- 
-        </div>
     
 </div>
     <div id="footer">
@@ -199,7 +110,7 @@
                     
                         <li class=""><a href="/tag" class="" target="_self"><span class="iconfont icon-discount-fill"></span>标签</a></li>
                     
-                        <li class=""><a href="/archive" class="" target="_self"><span class="iconfont icon-calendar-fill"></span>归档</a></li>
+                        <li class=" active "><a href="/archive" class="" target="_self"><span class="iconfont icon-calendar-fill"></span>归档</a></li>
                     
                         <li class=""><a href="/friend" class="" target="_self"><span class="iconfont icon-link"></span>友情链接</a></li>
                     
